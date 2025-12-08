@@ -9,6 +9,7 @@ SplineKit
     :maxdepth: 5
     :caption: Contents:
 
+    installation/index
     tutorial/index
     glossary/index
     periodic_spline_1d/index
