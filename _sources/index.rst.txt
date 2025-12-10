@@ -8,7 +8,7 @@ SplineKit
 .. grid:: 2
    :gutter: 2
 
-   .. grid-item-card:: PyPI
+   .. grid-item-card:: PyPI Distribution
       :text-align: center
 
       .. button-link:: https://pypi.org/project/splinekit/
@@ -18,7 +18,7 @@ SplineKit
 
          :octicon:`package;1.2em` PyPI
 
-   .. grid-item-card:: GitHub
+   .. grid-item-card:: GitHub Source Files
       :text-align: center
 
       .. button-link:: https://github.com/Philippe-Thevenaz/splinekit
