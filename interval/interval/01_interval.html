@@ -8,7 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Interval [abstract class] &mdash; splinekit  documentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
-      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=9edc463e" />
       <link rel="stylesheet" type="text/css" href="../../_static/plot_directive.css" />
       <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
       <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=2f8eb179" />
@@ -17,12 +17,12 @@
       <script src="../../_static/jquery.js?v=5d32c60e"></script>
       <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
       <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
-      <script src="../../_static/doctools.js?v=9bcbadda"></script>
-      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
       <script src="../../_static/design-tabs.js?v=f930bc37"></script>
       <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
       <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-      <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -202,7 +202,7 @@
 <hr class="docutils" />
 <dl class="py class">
 <dt class="sig sig-object py" id="splinekit.interval.interval.Interval">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">splinekit.interval.interval.</span></span><span class="sig-name descname"><span class="pre">Interval</span></span><a class="headerlink" href="#splinekit.interval.interval.Interval" title="Link to this definition"></a></dt>
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">splinekit.interval.interval.</span></span><span class="sig-name descname"><span class="pre">Interval</span></span><a class="headerlink" href="#splinekit.interval.interval.Interval" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ABC</span></code></p>
 <blockquote>
 <div></div></blockquote>
@@ -236,7 +236,7 @@
 <hr class="docutils" />
 <dl class="py property">
 <dt class="sig sig-object py" id="splinekit.interval.interval.Interval.infimum">
-<em class="property"><span class="k"><span class="pre">abstract</span></span><span class="w"> </span><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">infimum</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#splinekit.interval.interval.Interval.infimum" title="Link to this definition"></a></dt>
+<span class="property"><span class="k"><span class="pre">abstract</span></span><span class="w"> </span><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">infimum</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></span><a class="headerlink" href="#splinekit.interval.interval.Interval.infimum" title="Link to this definition"></a></dt>
 <dd><p id="infimum">The value of the left endpoint of this interval.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
@@ -280,12 +280,12 @@
 </ul>
 </dd>
 </dl>
+<hr class="docutils" />
 </dd></dl>
 
-<hr class="docutils" />
 <dl class="py property">
 <dt class="sig sig-object py" id="splinekit.interval.interval.Interval.supremum">
-<em class="property"><span class="k"><span class="pre">abstract</span></span><span class="w"> </span><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">supremum</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#splinekit.interval.interval.Interval.supremum" title="Link to this definition"></a></dt>
+<span class="property"><span class="k"><span class="pre">abstract</span></span><span class="w"> </span><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">supremum</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></span><a class="headerlink" href="#splinekit.interval.interval.Interval.supremum" title="Link to this definition"></a></dt>
 <dd><p id="supremum">The value of the right endpoint of this interval.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
@@ -329,12 +329,12 @@
 </ul>
 </dd>
 </dl>
+<hr class="docutils" />
 </dd></dl>
 
-<hr class="docutils" />
 <dl class="py property">
 <dt class="sig sig-object py" id="splinekit.interval.interval.Interval.isleftopen">
-<em class="property"><span class="k"><span class="pre">abstract</span></span><span class="w"> </span><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">isleftopen</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#splinekit.interval.interval.Interval.isleftopen" title="Link to this definition"></a></dt>
+<span class="property"><span class="k"><span class="pre">abstract</span></span><span class="w"> </span><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">isleftopen</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></span><a class="headerlink" href="#splinekit.interval.interval.Interval.isleftopen" title="Link to this definition"></a></dt>
 <dd><p id="isleftopen">If the infimum of this interval is a finite number, tests whether
 it fails to be a member of the interval; else, the interval is
 vacuously said to be left-open.</p>
@@ -390,12 +390,12 @@ vacuously said to be left-open.</p>
 </ul>
 </dd>
 </dl>
+<hr class="docutils" />
 </dd></dl>
 
-<hr class="docutils" />
 <dl class="py property">
 <dt class="sig sig-object py" id="splinekit.interval.interval.Interval.isrightopen">
-<em class="property"><span class="k"><span class="pre">abstract</span></span><span class="w"> </span><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">isrightopen</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#splinekit.interval.interval.Interval.isrightopen" title="Link to this definition"></a></dt>
+<span class="property"><span class="k"><span class="pre">abstract</span></span><span class="w"> </span><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">isrightopen</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></span><a class="headerlink" href="#splinekit.interval.interval.Interval.isrightopen" title="Link to this definition"></a></dt>
 <dd><p id="isrightopen">If the supremum of this interval is a finite number, tests whether
 it fails to be a member of the interval; else, the interval is
 vacuously said to be right-open.</p>
@@ -451,12 +451,12 @@ vacuously said to be right-open.</p>
 </ul>
 </dd>
 </dl>
+<hr class="docutils" />
 </dd></dl>
 
-<hr class="docutils" />
 <dl class="py property">
 <dt class="sig sig-object py" id="splinekit.interval.interval.Interval.isopen">
-<em class="property"><span class="k"><span class="pre">abstract</span></span><span class="w"> </span><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">isopen</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#splinekit.interval.interval.Interval.isopen" title="Link to this definition"></a></dt>
+<span class="property"><span class="k"><span class="pre">abstract</span></span><span class="w"> </span><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">isopen</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></span><a class="headerlink" href="#splinekit.interval.interval.Interval.isopen" title="Link to this definition"></a></dt>
 <dd><p id="isopen">Tests if this interval is jointly left-open and right-open.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
@@ -510,12 +510,12 @@ vacuously said to be right-open.</p>
 </ul>
 </dd>
 </dl>
+<hr class="docutils" />
 </dd></dl>
 
-<hr class="docutils" />
 <dl class="py property">
 <dt class="sig sig-object py" id="splinekit.interval.interval.Interval.ishalfopen">
-<em class="property"><span class="k"><span class="pre">abstract</span></span><span class="w"> </span><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ishalfopen</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#splinekit.interval.interval.Interval.ishalfopen" title="Link to this definition"></a></dt>
+<span class="property"><span class="k"><span class="pre">abstract</span></span><span class="w"> </span><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">ishalfopen</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></span><a class="headerlink" href="#splinekit.interval.interval.Interval.ishalfopen" title="Link to this definition"></a></dt>
 <dd><p id="ishalfopen">Tests if this interval is open at one end only.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
@@ -569,12 +569,12 @@ vacuously said to be right-open.</p>
 </ul>
 </dd>
 </dl>
+<hr class="docutils" />
 </dd></dl>
 
-<hr class="docutils" />
 <dl class="py property">
 <dt class="sig sig-object py" id="splinekit.interval.interval.Interval.isclosed">
-<em class="property"><span class="k"><span class="pre">abstract</span></span><span class="w"> </span><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">isclosed</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#splinekit.interval.interval.Interval.isclosed" title="Link to this definition"></a></dt>
+<span class="property"><span class="k"><span class="pre">abstract</span></span><span class="w"> </span><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">isclosed</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></span><a class="headerlink" href="#splinekit.interval.interval.Interval.isclosed" title="Link to this definition"></a></dt>
 <dd><p id="isclosed">If the infimum and the supremum of this interval are two finite
 numbers, tests if they are jointly members of the interval;
 else, the interval is vacuously said to be closed.</p>
@@ -630,12 +630,12 @@ else, the interval is vacuously said to be closed.</p>
 </ul>
 </dd>
 </dl>
+<hr class="docutils" />
 </dd></dl>
 
-<hr class="docutils" />
 <dl class="py property">
 <dt class="sig sig-object py" id="splinekit.interval.interval.Interval.isleftbounded">
-<em class="property"><span class="k"><span class="pre">abstract</span></span><span class="w"> </span><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">isleftbounded</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#splinekit.interval.interval.Interval.isleftbounded" title="Link to this definition"></a></dt>
+<span class="property"><span class="k"><span class="pre">abstract</span></span><span class="w"> </span><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">isleftbounded</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></span><a class="headerlink" href="#splinekit.interval.interval.Interval.isleftbounded" title="Link to this definition"></a></dt>
 <dd><p id="isleftbounded">Tests whether the infimum of this interval fails to be an infinite
 number.</p>
 <dl class="field-list simple">
@@ -690,12 +690,12 @@ number.</p>
 </ul>
 </dd>
 </dl>
+<hr class="docutils" />
 </dd></dl>
 
-<hr class="docutils" />
 <dl class="py property">
 <dt class="sig sig-object py" id="splinekit.interval.interval.Interval.isrightbounded">
-<em class="property"><span class="k"><span class="pre">abstract</span></span><span class="w"> </span><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">isrightbounded</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#splinekit.interval.interval.Interval.isrightbounded" title="Link to this definition"></a></dt>
+<span class="property"><span class="k"><span class="pre">abstract</span></span><span class="w"> </span><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">isrightbounded</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></span><a class="headerlink" href="#splinekit.interval.interval.Interval.isrightbounded" title="Link to this definition"></a></dt>
 <dd><p id="isrightbounded">Tests whether the supremum of this interval fails to be an infinite
 number.</p>
 <dl class="field-list simple">
@@ -750,12 +750,12 @@ number.</p>
 </ul>
 </dd>
 </dl>
+<hr class="docutils" />
 </dd></dl>
 
-<hr class="docutils" />
 <dl class="py property">
 <dt class="sig sig-object py" id="splinekit.interval.interval.Interval.ishalfbounded">
-<em class="property"><span class="k"><span class="pre">abstract</span></span><span class="w"> </span><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ishalfbounded</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#splinekit.interval.interval.Interval.ishalfbounded" title="Link to this definition"></a></dt>
+<span class="property"><span class="k"><span class="pre">abstract</span></span><span class="w"> </span><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">ishalfbounded</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></span><a class="headerlink" href="#splinekit.interval.interval.Interval.ishalfbounded" title="Link to this definition"></a></dt>
 <dd><p id="ishalfbounded">Tests if this interval is bounded at one end only.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
@@ -809,12 +809,12 @@ number.</p>
 </ul>
 </dd>
 </dl>
+<hr class="docutils" />
 </dd></dl>
 
-<hr class="docutils" />
 <dl class="py property">
 <dt class="sig sig-object py" id="splinekit.interval.interval.Interval.isbounded">
-<em class="property"><span class="k"><span class="pre">abstract</span></span><span class="w"> </span><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">isbounded</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#splinekit.interval.interval.Interval.isbounded" title="Link to this definition"></a></dt>
+<span class="property"><span class="k"><span class="pre">abstract</span></span><span class="w"> </span><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">isbounded</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></span><a class="headerlink" href="#splinekit.interval.interval.Interval.isbounded" title="Link to this definition"></a></dt>
 <dd><p id="isbounded">Tests if this interval is bounded at both ends jointly.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
@@ -868,12 +868,12 @@ number.</p>
 </ul>
 </dd>
 </dl>
+<hr class="docutils" />
 </dd></dl>
 
-<hr class="docutils" />
 <dl class="py property">
 <dt class="sig sig-object py" id="splinekit.interval.interval.Interval.isdegenerate">
-<em class="property"><span class="k"><span class="pre">abstract</span></span><span class="w"> </span><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">isdegenerate</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#splinekit.interval.interval.Interval.isdegenerate" title="Link to this definition"></a></dt>
+<span class="property"><span class="k"><span class="pre">abstract</span></span><span class="w"> </span><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">isdegenerate</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></span><a class="headerlink" href="#splinekit.interval.interval.Interval.isdegenerate" title="Link to this definition"></a></dt>
 <dd><p id="isdegenerate">Tests if this interval contains a single number.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
@@ -927,12 +927,12 @@ number.</p>
 </ul>
 </dd>
 </dl>
+<hr class="docutils" />
 </dd></dl>
 
-<hr class="docutils" />
 <dl class="py property">
 <dt class="sig sig-object py" id="splinekit.interval.interval.Interval.isproper">
-<em class="property"><span class="k"><span class="pre">abstract</span></span><span class="w"> </span><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">isproper</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#splinekit.interval.interval.Interval.isproper" title="Link to this definition"></a></dt>
+<span class="property"><span class="k"><span class="pre">abstract</span></span><span class="w"> </span><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">isproper</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></span><a class="headerlink" href="#splinekit.interval.interval.Interval.isproper" title="Link to this definition"></a></dt>
 <dd><p id="isproper">Tests if this interval contains a range of numbers.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
@@ -986,12 +986,12 @@ number.</p>
 </ul>
 </dd>
 </dl>
+<hr class="docutils" />
 </dd></dl>
 
-<hr class="docutils" />
 <dl class="py property">
 <dt class="sig sig-object py" id="splinekit.interval.interval.Interval.interior">
-<em class="property"><span class="k"><span class="pre">abstract</span></span><span class="w"> </span><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">interior</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Self</span></em><a class="headerlink" href="#splinekit.interval.interval.Interval.interior" title="Link to this definition"></a></dt>
+<span class="property"><span class="k"><span class="pre">abstract</span></span><span class="w"> </span><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">interior</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Self</span></span><a class="headerlink" href="#splinekit.interval.interval.Interval.interior" title="Link to this definition"></a></dt>
 <dd><p id="interior">The largest open interval that is contained in this interval.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
@@ -1050,12 +1050,12 @@ number.</p>
 </ul>
 </dd>
 </dl>
+<hr class="docutils" />
 </dd></dl>
 
-<hr class="docutils" />
 <dl class="py property">
 <dt class="sig sig-object py" id="splinekit.interval.interval.Interval.closure">
-<em class="property"><span class="k"><span class="pre">abstract</span></span><span class="w"> </span><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">closure</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Self</span></em><a class="headerlink" href="#splinekit.interval.interval.Interval.closure" title="Link to this definition"></a></dt>
+<span class="property"><span class="k"><span class="pre">abstract</span></span><span class="w"> </span><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">closure</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Self</span></span><a class="headerlink" href="#splinekit.interval.interval.Interval.closure" title="Link to this definition"></a></dt>
 <dd><p id="closure">The smallest closed interval that contains this interval.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
@@ -1117,12 +1117,12 @@ number.</p>
 </ul>
 </dd>
 </dl>
+<hr class="docutils" />
 </dd></dl>
 
-<hr class="docutils" />
 <dl class="py property">
 <dt class="sig sig-object py" id="splinekit.interval.interval.Interval.diameter">
-<em class="property"><span class="k"><span class="pre">abstract</span></span><span class="w"> </span><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">diameter</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#splinekit.interval.interval.Interval.diameter" title="Link to this definition"></a></dt>
+<span class="property"><span class="k"><span class="pre">abstract</span></span><span class="w"> </span><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">diameter</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></span><a class="headerlink" href="#splinekit.interval.interval.Interval.diameter" title="Link to this definition"></a></dt>
 <dd><p id="diameter">The distance between the two endpoints of this interval.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
@@ -1178,12 +1178,12 @@ number.</p>
 </ul>
 </dd>
 </dl>
+<hr class="docutils" />
 </dd></dl>
 
-<hr class="docutils" />
 <dl class="py property">
 <dt class="sig sig-object py" id="splinekit.interval.interval.Interval.midpoint">
-<em class="property"><span class="k"><span class="pre">abstract</span></span><span class="w"> </span><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">midpoint</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#splinekit.interval.interval.Interval.midpoint" title="Link to this definition"></a></dt>
+<span class="property"><span class="k"><span class="pre">abstract</span></span><span class="w"> </span><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">midpoint</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></span><a class="headerlink" href="#splinekit.interval.interval.Interval.midpoint" title="Link to this definition"></a></dt>
 <dd><p id="midpoint">The midway point between the two endpoints of this interval.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
@@ -1233,12 +1233,12 @@ number.</p>
 </ul>
 </dd>
 </dl>
+<hr class="docutils" />
 </dd></dl>
 
-<hr class="docutils" />
 <dl class="py method">
 <dt class="sig sig-object py" id="splinekit.interval.interval.Interval.sortorder">
-<em class="property"><span class="k"><span class="pre">abstractmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">sortorder</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#splinekit.interval.interval.Interval.sortorder" title="Link to this definition"></a></dt>
+<span class="property"><span class="k"><span class="pre">abstractmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">sortorder</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#splinekit.interval.interval.Interval.sortorder" title="Link to this definition"></a></dt>
 <dd><p id="sortorder">Convenience method to sort the intervals. This method is not
 consistent with equal.</p>
 <dl class="field-list simple">
@@ -1286,12 +1286,12 @@ consistent with equal.</p>
 </ul>
 </dd>
 </dl>
+<hr class="docutils" />
 </dd></dl>
 
-<hr class="docutils" />
 <dl class="py method">
 <dt class="sig sig-object py" id="splinekit.interval.interval.Interval.__contains__">
-<em class="property"><span class="k"><span class="pre">abstractmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">__contains__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#splinekit.interval.interval.Interval.__contains__" title="Link to this definition"></a></dt>
+<span class="property"><span class="k"><span class="pre">abstractmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">__contains__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#splinekit.interval.interval.Interval.__contains__" title="Link to this definition"></a></dt>
 <dd><p id="contains">Tests if the number <span class="math notranslate nohighlight">\(x\)</span> is contained in this interval <span class="math notranslate nohighlight">\(U,\)</span>
 as in <span class="math notranslate nohighlight">\(\left(x\in U\right).\)</span></p>
 <dl class="field-list simple">
@@ -1326,12 +1326,12 @@ as in <span class="math notranslate nohighlight">\(\left(x\in U\right).\)</span>
 </div>
 </dd>
 </dl>
+<hr class="docutils" />
 </dd></dl>
 
-<hr class="docutils" />
 <dl class="py method">
 <dt class="sig sig-object py" id="splinekit.interval.interval.Interval.ismember">
-<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ismember</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">s</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Set</span><span class="p"><span class="pre">[</span></span><span class="pre">Self</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#splinekit.interval.interval.Interval.ismember" title="Link to this definition"></a></dt>
+<span class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">ismember</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">s</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Set</span><span class="p"><span class="pre">[</span></span><span class="pre">Self</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#splinekit.interval.interval.Interval.ismember" title="Link to this definition"></a></dt>
 <dd><p id="ismember">Tests the membership of a real number to a set of intervals.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -1368,12 +1368,12 @@ as in <span class="math notranslate nohighlight">\(\left(x\in U\right).\)</span>
 </div>
 </dd>
 </dl>
+<hr class="docutils" />
 </dd></dl>
 
-<hr class="docutils" />
 <dl class="py method">
 <dt class="sig sig-object py" id="splinekit.interval.interval.Interval.enclosure">
-<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">enclosure</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Set</span><span class="p"><span class="pre">[</span></span><span class="pre">Self</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Self</span></span></span><a class="headerlink" href="#splinekit.interval.interval.Interval.enclosure" title="Link to this definition"></a></dt>
+<span class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">enclosure</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Set</span><span class="p"><span class="pre">[</span></span><span class="pre">Self</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Self</span></span></span><a class="headerlink" href="#splinekit.interval.interval.Interval.enclosure" title="Link to this definition"></a></dt>
 <dd><p id="enclosure">Determines the enclosure (or span) of a set of intervals.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -1413,12 +1413,12 @@ as in <span class="math notranslate nohighlight">\(\left(x\in U\right).\)</span>
 </div>
 </dd>
 </dl>
+<hr class="docutils" />
 </dd></dl>
 
-<hr class="docutils" />
 <dl class="py method">
 <dt class="sig sig-object py" id="splinekit.interval.interval.Interval.complement">
-<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">complement</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Set</span><span class="p"><span class="pre">[</span></span><span class="pre">Self</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Set</span><span class="p"><span class="pre">[</span></span><span class="pre">Self</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#splinekit.interval.interval.Interval.complement" title="Link to this definition"></a></dt>
+<span class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">complement</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Set</span><span class="p"><span class="pre">[</span></span><span class="pre">Self</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Set</span><span class="p"><span class="pre">[</span></span><span class="pre">Self</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#splinekit.interval.interval.Interval.complement" title="Link to this definition"></a></dt>
 <dd><p id="complement">Determines the complement (with respect to the real numbers) of a
 set of intervals.</p>
 <dl class="field-list simple">
@@ -1455,12 +1455,12 @@ not found in <code class="docutils literal notranslate"><span class="pre">s</spa
 </div>
 </dd>
 </dl>
+<hr class="docutils" />
 </dd></dl>
 
-<hr class="docutils" />
 <dl class="py method">
 <dt class="sig sig-object py" id="splinekit.interval.interval.Interval.intersection">
-<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">intersection</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Set</span><span class="p"><span class="pre">[</span></span><span class="pre">Self</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Self</span></span></span><a class="headerlink" href="#splinekit.interval.interval.Interval.intersection" title="Link to this definition"></a></dt>
+<span class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">intersection</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Set</span><span class="p"><span class="pre">[</span></span><span class="pre">Self</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Self</span></span></span><a class="headerlink" href="#splinekit.interval.interval.Interval.intersection" title="Link to this definition"></a></dt>
 <dd><p id="intersection">Determines the intersection of a set of intervals.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -1491,12 +1491,12 @@ jointly in every interval of <code class="docutils literal notranslate"><span cl
 </div>
 </dd>
 </dl>
+<hr class="docutils" />
 </dd></dl>
 
-<hr class="docutils" />
 <dl class="py method">
 <dt class="sig sig-object py" id="splinekit.interval.interval.Interval.union">
-<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">union</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Set</span><span class="p"><span class="pre">[</span></span><span class="pre">Self</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Set</span><span class="p"><span class="pre">[</span></span><span class="pre">Self</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#splinekit.interval.interval.Interval.union" title="Link to this definition"></a></dt>
+<span class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">union</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Set</span><span class="p"><span class="pre">[</span></span><span class="pre">Self</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Set</span><span class="p"><span class="pre">[</span></span><span class="pre">Self</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#splinekit.interval.interval.Interval.union" title="Link to this definition"></a></dt>
 <dd><p id="union">Determines the union of a set of intervals.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -1532,12 +1532,12 @@ found in <code class="docutils literal notranslate"><span class="pre">s</span></
 </div>
 </dd>
 </dl>
+<hr class="docutils" />
 </dd></dl>
 
-<hr class="docutils" />
 <dl class="py method">
 <dt class="sig sig-object py" id="splinekit.interval.interval.Interval.gravitycenter">
-<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">gravitycenter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ivls</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">Self</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#splinekit.interval.interval.Interval.gravitycenter" title="Link to this definition"></a></dt>
+<span class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">gravitycenter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ivls</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">Self</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#splinekit.interval.interval.Interval.gravitycenter" title="Link to this definition"></a></dt>
 <dd><p id="gravitycenter">Determines the center of gravity of a set of weighted intervals.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -1603,9 +1603,9 @@ the system is unbalanced and leans to the right. The center of
 gravity is returned as <code class="docutils literal notranslate"><span class="pre">float(&quot;inf&quot;)</span></code>.</p>
 <p>In some cases, the center of gravity will fail to exist at all.
 If such is the case, <code class="docutils literal notranslate"><span class="pre">float(&quot;nan&quot;)</span></code> is returned.</p>
+<hr class="docutils" />
 </dd></dl>
 
-<hr class="docutils" />
 <dl class="py method">
 <dt class="sig sig-object py" id="splinekit.interval.interval.Interval.iskissing">
 <span class="sig-name descname"><span class="pre">iskissing</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Self</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#splinekit.interval.interval.Interval.iskissing" title="Link to this definition"></a></dt>
@@ -1644,9 +1644,9 @@ as in
 </div>
 </dd>
 </dl>
+<hr class="docutils" />
 </dd></dl>
 
-<hr class="docutils" />
 <dl class="py method">
 <dt class="sig sig-object py" id="splinekit.interval.interval.Interval.isoverlapping">
 <span class="sig-name descname"><span class="pre">isoverlapping</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Self</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#splinekit.interval.interval.Interval.isoverlapping" title="Link to this definition"></a></dt>
@@ -1684,9 +1684,9 @@ at least one number.</p>
 </div>
 </dd>
 </dl>
+<hr class="docutils" />
 </dd></dl>
 
-<hr class="docutils" />
 <dl class="py method">
 <dt class="sig sig-object py" id="splinekit.interval.interval.Interval.partition">
 <span class="sig-name descname"><span class="pre">partition</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cuts</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Set</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Self</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#splinekit.interval.interval.Interval.partition" title="Link to this definition"></a></dt>
@@ -1713,9 +1713,9 @@ to the degenerate <code class="docutils literal notranslate"><span class="pre">S
 [Below(2.0), Singleton(2.0), Open((2.0, 4.0)), Singleton(4.0), Open((4.0, 5.0)), Singleton(5.0)]</p>
 </dd>
 </dl>
+<hr class="docutils" />
 </dd></dl>
 
-<hr class="docutils" />
 <dl class="py method">
 <dt class="sig sig-object py" id="splinekit.interval.interval.Interval.copy">
 <span class="sig-name descname"><span class="pre">copy</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Self</span></span></span><a class="headerlink" href="#splinekit.interval.interval.Interval.copy" title="Link to this definition"></a></dt>
@@ -1739,9 +1739,9 @@ to the degenerate <code class="docutils literal notranslate"><span class="pre">S
 </div>
 </dd>
 </dl>
+<hr class="docutils" />
 </dd></dl>
 
-<hr class="docutils" />
 <dl class="py method">
 <dt class="sig sig-object py" id="splinekit.interval.interval.Interval.__eq__">
 <span class="sig-name descname"><span class="pre">__eq__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">object</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#splinekit.interval.interval.Interval.__eq__" title="Link to this definition"></a></dt>
@@ -1780,9 +1780,9 @@ as in <span class="math notranslate nohighlight">\(\left(U=V\right)\Leftrightarr
 </div>
 </dd>
 </dl>
+<hr class="docutils" />
 </dd></dl>
 
-<hr class="docutils" />
 <dl class="py method">
 <dt class="sig sig-object py" id="splinekit.interval.interval.Interval.__ne__">
 <span class="sig-name descname"><span class="pre">__ne__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">object</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#splinekit.interval.interval.Interval.__ne__" title="Link to this definition"></a></dt>
@@ -1820,9 +1820,9 @@ as in <span class="math notranslate nohighlight">\(\left(U\neq V\right)\Leftrigh
 </div>
 </dd>
 </dl>
+<hr class="docutils" />
 </dd></dl>
 
-<hr class="docutils" />
 <dl class="py method">
 <dt class="sig sig-object py" id="splinekit.interval.interval.Interval.__lt__">
 <span class="sig-name descname"><span class="pre">__lt__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Self</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#splinekit.interval.interval.Interval.__lt__" title="Link to this definition"></a></dt>
@@ -1862,9 +1862,9 @@ as in <span class="math notranslate nohighlight">\(\left(U\neq V\right)\Leftrigh
 </div>
 </dd>
 </dl>
+<hr class="docutils" />
 </dd></dl>
 
-<hr class="docutils" />
 <dl class="py method">
 <dt class="sig sig-object py" id="splinekit.interval.interval.Interval.__le__">
 <span class="sig-name descname"><span class="pre">__le__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Self</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#splinekit.interval.interval.Interval.__le__" title="Link to this definition"></a></dt>
@@ -1896,9 +1896,9 @@ as in <span class="math notranslate nohighlight">\(\left(U\subseteq V\right)\Lef
 </div>
 </dd>
 </dl>
+<hr class="docutils" />
 </dd></dl>
 
-<hr class="docutils" />
 <dl class="py method">
 <dt class="sig sig-object py" id="splinekit.interval.interval.Interval.__neg__">
 <span class="sig-name descname"><span class="pre">__neg__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Set</span><span class="p"><span class="pre">[</span></span><span class="pre">Self</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#splinekit.interval.interval.Interval.__neg__" title="Link to this definition"></a></dt>
@@ -1923,9 +1923,9 @@ every real number except those found in this interval <span class="math notransl
 </div>
 </dd>
 </dl>
+<hr class="docutils" />
 </dd></dl>
 
-<hr class="docutils" />
 <dl class="py method">
 <dt class="sig sig-object py" id="splinekit.interval.interval.Interval.__sub__">
 <span class="sig-name descname"><span class="pre">__sub__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Self</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Set</span><span class="p"><span class="pre">[</span></span><span class="pre">Self</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#splinekit.interval.interval.Interval.__sub__" title="Link to this definition"></a></dt>
@@ -1953,9 +1953,9 @@ in <span class="math notranslate nohighlight">\(U\setminus V:=\{x\in U|x\not\in 
 </div>
 </dd>
 </dl>
+<hr class="docutils" />
 </dd></dl>
 
-<hr class="docutils" />
 <dl class="py method">
 <dt class="sig sig-object py" id="splinekit.interval.interval.Interval.__and__">
 <span class="sig-name descname"><span class="pre">__and__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Self</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Self</span></span></span><a class="headerlink" href="#splinekit.interval.interval.Interval.__and__" title="Link to this definition"></a></dt>
@@ -1983,9 +1983,9 @@ of both this interval <span class="math notranslate nohighlight">\(U\)</span> an
 </div>
 </dd>
 </dl>
+<hr class="docutils" />
 </dd></dl>
 
-<hr class="docutils" />
 <dl class="py method">
 <dt class="sig sig-object py" id="splinekit.interval.interval.Interval.__or__">
 <span class="sig-name descname"><span class="pre">__or__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Self</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Set</span><span class="p"><span class="pre">[</span></span><span class="pre">Self</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#splinekit.interval.interval.Interval.__or__" title="Link to this definition"></a></dt>
@@ -2014,9 +2014,9 @@ of this interval <span class="math notranslate nohighlight">\(U\)</span> and all
 </div>
 </dd>
 </dl>
+<hr class="docutils" />
 </dd></dl>
 
-<hr class="docutils" />
 <dl class="py method">
 <dt class="sig sig-object py" id="splinekit.interval.interval.Interval.__xor__">
 <span class="sig-name descname"><span class="pre">__xor__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Self</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Set</span><span class="p"><span class="pre">[</span></span><span class="pre">Self</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#splinekit.interval.interval.Interval.__xor__" title="Link to this definition"></a></dt>

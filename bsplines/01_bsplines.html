@@ -8,7 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>B-Splines [module] &mdash; splinekit  documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
       <link rel="stylesheet" type="text/css" href="../_static/plot_directive.css" />
       <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
       <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=2f8eb179" />
@@ -17,12 +17,12 @@
       <script src="../_static/jquery.js?v=5d32c60e"></script>
       <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
       <script src="../_static/documentation_options.js?v=5929fcd5"></script>
-      <script src="../_static/doctools.js?v=9bcbadda"></script>
-      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
       <script src="../_static/design-tabs.js?v=f930bc37"></script>
       <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
       <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-      <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -67,8 +67,6 @@
 <li class="toctree-l3"><a class="reference internal" href="#splinekit.bsplines.grad_b_spline"><code class="docutils literal notranslate"><span class="pre">grad_b_spline()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#splinekit.bsplines.diff_b_spline"><code class="docutils literal notranslate"><span class="pre">diff_b_spline()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#splinekit.bsplines.mscale_filter"><code class="docutils literal notranslate"><span class="pre">mscale_filter()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#splinekit.bsplines.annihil_1"><code class="docutils literal notranslate"><span class="pre">annihil_1()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#splinekit.bsplines.annihil_2"><code class="docutils literal notranslate"><span class="pre">annihil_2()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#splinekit.bsplines.ib_coeff"><code class="docutils literal notranslate"><span class="pre">ib_coeff()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#splinekit.bsplines.cardinal_b_spline"><code class="docutils literal notranslate"><span class="pre">cardinal_b_spline()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#splinekit.bsplines.dual_b_spline"><code class="docutils literal notranslate"><span class="pre">dual_b_spline()</span></code></a></li>
@@ -173,9 +171,9 @@ the Dirac delta distribution and where <span class="math notranslate nohighlight
 </div>
 </dd>
 </dl>
+<hr class="docutils" />
 </dd></dl>
 
-<hr class="docutils" />
 <dl class="py function">
 <dt class="sig sig-object py" id="splinekit.bsplines.b_spline">
 <span class="sig-prename descclassname"><span class="pre">splinekit.bsplines.</span></span><span class="sig-name descname"><span class="pre">b_spline</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">degree</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#splinekit.bsplines.b_spline" title="Link to this definition"></a></dt>
@@ -203,7 +201,7 @@ are computed as</p>
 <a class="reference internal" href="../glossary/glossary-polynomials.html#def-vandermonde-vector"><span class="std std-ref">Vandermonde vector</span></a> of argument <span class="math notranslate nohighlight">\(\chi\)</span>
 and degree <span class="math notranslate nohighlight">\(n.\)</span></p>
 <p>As computed above, the fact that the Vandermonde vector has the domain
-<span class="math notranslate nohighlight">\([0,1)\)</span> greatly favors numerical stability since the range of each
+<span class="math notranslate nohighlight">\([0,1)\)</span> greatly favors numerical stability since the image of each
 of its components is also <span class="math notranslate nohighlight">\([0,1).\)</span></p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -241,9 +239,9 @@ of its components is also <span class="math notranslate nohighlight">\([0,1).\)<
 </div>
 </dd>
 </dl>
+<hr class="docutils" />
 </dd></dl>
 
-<hr class="docutils" />
 <dl class="py function">
 <dt class="sig sig-object py" id="splinekit.bsplines.b_spline_support">
 <span class="sig-prename descclassname"><span class="pre">splinekit.bsplines.</span></span><span class="sig-name descname"><span class="pre">b_spline_support</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">degree</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="../interval/interval/01_interval.html#splinekit.interval.interval.Interval" title="splinekit.interval.interval.Interval"><span class="pre">Interval</span></a></span></span><a class="headerlink" href="#splinekit.bsplines.b_spline_support" title="Link to this definition"></a></dt>
@@ -281,9 +279,9 @@ support the <a class="reference internal" href="../interval/bounded/02_open.html
 </div>
 </dd>
 </dl>
+<hr class="docutils" />
 </dd></dl>
 
-<hr class="docutils" />
 <dl class="py function">
 <dt class="sig sig-object py" id="splinekit.bsplines.b_spline_variance">
 <span class="sig-prename descclassname"><span class="pre">splinekit.bsplines.</span></span><span class="sig-name descname"><span class="pre">b_spline_variance</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">degree</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#splinekit.bsplines.b_spline_variance" title="Link to this definition"></a></dt>
@@ -317,9 +315,9 @@ support the <a class="reference internal" href="../interval/bounded/02_open.html
 </div>
 </dd>
 </dl>
+<hr class="docutils" />
 </dd></dl>
 
-<hr class="docutils" />
 <dl class="py function">
 <dt class="sig sig-object py" id="splinekit.bsplines.pole">
 <span class="sig-prename descclassname"><span class="pre">splinekit.bsplines.</span></span><span class="sig-name descname"><span class="pre">pole</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">degree</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ndarray</span><span class="p"><span class="pre">[</span></span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">dtype</span><span class="p"><span class="pre">[</span></span><span class="pre">float64</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#splinekit.bsplines.pole" title="Link to this definition"></a></dt>
@@ -367,9 +365,9 @@ that</p>
 <p>The results of this method are cached. If the returned results are
 mutated, the cache gets modified and the next call will return corrupted
 values.</p>
+<hr class="docutils" />
 </dd></dl>
 
-<hr class="docutils" />
 <dl class="py function">
 <dt class="sig sig-object py" id="splinekit.bsplines.integrated_b_spline">
 <span class="sig-prename descclassname"><span class="pre">splinekit.bsplines.</span></span><span class="sig-name descname"><span class="pre">integrated_b_spline</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">degree</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#splinekit.bsplines.integrated_b_spline" title="Link to this definition"></a></dt>
@@ -396,7 +394,7 @@ the <span class="math notranslate nohighlight">\((r+1)\)</span>-th row of the
 <a class="reference internal" href="../glossary/glossary-polynomials.html#def-vandermonde-vector"><span class="std std-ref">Vandermonde vector</span></a> of argument
 <span class="math notranslate nohighlight">\(\chi\)</span> and degree <span class="math notranslate nohighlight">\(n+1.\)</span></p>
 <p>As computed above, the fact that the Vandermonde vector has the domain
-<span class="math notranslate nohighlight">\([0,1)\)</span> greatly favors numerical stability since the range of each
+<span class="math notranslate nohighlight">\([0,1)\)</span> greatly favors numerical stability since the image of each
 of its components is also <span class="math notranslate nohighlight">\([0,1).\)</span></p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -424,9 +422,9 @@ of its components is also <span class="math notranslate nohighlight">\([0,1).\)<
 </div>
 </dd>
 </dl>
+<hr class="docutils" />
 </dd></dl>
 
-<hr class="docutils" />
 <dl class="py function">
 <dt class="sig sig-object py" id="splinekit.bsplines.grad_b_spline">
 <span class="sig-prename descclassname"><span class="pre">splinekit.bsplines.</span></span><span class="sig-name descname"><span class="pre">grad_b_spline</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">degree</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#splinekit.bsplines.grad_b_spline" title="Link to this definition"></a></dt>
@@ -458,7 +456,7 @@ the <span class="math notranslate nohighlight">\((r+1)\)</span>-th row of the
 <a class="reference internal" href="../glossary/glossary-polynomials.html#def-vandermonde-vector"><span class="std std-ref">Vandermonde vector</span></a> of argument
 <span class="math notranslate nohighlight">\(\chi\)</span> and degree <span class="math notranslate nohighlight">\(\left(n-1\right).\)</span></p>
 <p>As computed above, the fact that the Vandermonde vector has the domain
-<span class="math notranslate nohighlight">\([0,1)\)</span> greatly favors numerical stability since the range of each
+<span class="math notranslate nohighlight">\([0,1)\)</span> greatly favors numerical stability since the image of each
 of its components is also <span class="math notranslate nohighlight">\([0,1).\)</span></p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -501,9 +499,9 @@ of its components is also <span class="math notranslate nohighlight">\([0,1).\)<
 </div>
 </dd>
 </dl>
+<hr class="docutils" />
 </dd></dl>
 
-<hr class="docutils" />
 <dl class="py function">
 <dt class="sig sig-object py" id="splinekit.bsplines.diff_b_spline">
 <span class="sig-prename descclassname"><span class="pre">splinekit.bsplines.</span></span><span class="sig-name descname"><span class="pre">diff_b_spline</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">degree</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">differentiation_order</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#splinekit.bsplines.diff_b_spline" title="Link to this definition"></a></dt>
@@ -583,9 +581,9 @@ w^{n}[r][c]\,\chi^{c-d},\]</div>
 </div>
 </dd>
 </dl>
+<hr class="docutils" />
 </dd></dl>
 
-<hr class="docutils" />
 <dl class="py function">
 <dt class="sig sig-object py" id="splinekit.bsplines.mscale_filter">
 <span class="sig-prename descclassname"><span class="pre">splinekit.bsplines.</span></span><span class="sig-name descname"><span class="pre">mscale_filter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">degree</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scale</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ndarray</span><span class="p"><span class="pre">[</span></span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">dtype</span><span class="p"><span class="pre">[</span></span><span class="pre">float64</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#splinekit.bsplines.mscale_filter" title="Link to this definition"></a></dt>
@@ -635,101 +633,9 @@ filter <span class="math notranslate nohighlight">\(h^{n}_{M}\)</span> that appe
 <p>The results of this method are cached. If the returned results are
 mutated, the cache gets modified and the next call will return corrupted
 values.</p>
+<hr class="docutils" />
 </dd></dl>
 
-<hr class="docutils" />
-<dl class="py function">
-<dt class="sig sig-object py" id="splinekit.bsplines.annihil_1">
-<span class="sig-prename descclassname"><span class="pre">splinekit.bsplines.</span></span><span class="sig-name descname"><span class="pre">annihil_1</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">k</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">degree</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#splinekit.bsplines.annihil_1" title="Link to this definition"></a></dt>
-<dd><p id="annihil-1">B-spline-annihilating sequence of Chebysheffian coefficients of the first
-type.</p>
-<p>Returns the <span class="math notranslate nohighlight">\(k\)</span>-th component of the sequence <span class="math notranslate nohighlight">\(a_{n,1}.\)</span>
-For any <span class="math notranslate nohighlight">\(q\in{\mathbb{Z}},\)</span> this sequence satisfies that</p>
-<div class="math notranslate nohighlight">
-\[0=\sum_{k\in{\mathbb{Z}}}\,a_{n,1}[k]\,\beta^{n}(q-k),\]</div>
-<p>where <span class="math notranslate nohighlight">\(\beta^{n}\)</span> is the <a class="reference internal" href="../spline_utilities/01_spline_utilities.html#db-frac"><span class="std std-ref">polynomial B-spline</span></a> of
-degree <span class="math notranslate nohighlight">\(n\in{\mathbb{N}}.\)</span> The sequence <span class="math notranslate nohighlight">\(a_{n,1}\)</span> is trivially
-zero for <code class="docutils literal notranslate"><span class="pre">degree</span> <span class="pre">=</span> <span class="pre">0</span></code> and <code class="docutils literal notranslate"><span class="pre">degree</span> <span class="pre">=</span> <span class="pre">1</span></code>. For higher degrees, it is
-nontrivial and <a class="reference internal" href="../glossary/glossary-terminology.html#def-even-symmetry"><span class="std std-ref">even-symmetric</span></a>.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>k</strong> (<em>int</em>) – Index of the coefficient.</p></li>
-<li><p><strong>degree</strong> (<em>int</em>) – Nonnegative degree of the B-spline.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>A component of the B-spline-annihilating sequence of type 1.</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>float</p>
-</dd>
-</dl>
-<p class="rubric">Examples</p>
-<dl>
-<dt>Load the library.</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">splinekit</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sk</span>
-</pre></div>
-</div>
-</dd>
-<dt>The even sequence that annihilates a cubic B-spline takes a unit value at the origin.</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">sk</span><span class="o">.</span><span class="n">annihil_1</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
-<span class="go">1.0</span>
-</pre></div>
-</div>
-</dd>
-</dl>
-<p class="rubric">Notes</p>
-<p>The results of this method are cached. If the returned results are
-mutated, the cache gets modified and the next call will return corrupted
-values.</p>
-</dd></dl>
-
-<hr class="docutils" />
-<dl class="py function">
-<dt class="sig sig-object py" id="splinekit.bsplines.annihil_2">
-<span class="sig-prename descclassname"><span class="pre">splinekit.bsplines.</span></span><span class="sig-name descname"><span class="pre">annihil_2</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">k</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">degree</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#splinekit.bsplines.annihil_2" title="Link to this definition"></a></dt>
-<dd><p id="annihil-2">B-spline-annihilating sequence of Chebysheffian coefficients of the second
-type.</p>
-<p>Returns the <span class="math notranslate nohighlight">\(k\)</span>-th component of the sequence <span class="math notranslate nohighlight">\(a_{n,2}.\)</span>
-For any <span class="math notranslate nohighlight">\(q\in{\mathbb{Z}},\)</span> this sequence satisfies that</p>
-<div class="math notranslate nohighlight">
-\[0=\sum_{k\in{\mathbb{Z}}}\,a_{n,2}[k]\,\beta^{n}(q-k),\]</div>
-<p>where <span class="math notranslate nohighlight">\(\beta^{n}\)</span> is the <a class="reference internal" href="../spline_utilities/01_spline_utilities.html#db-frac"><span class="std std-ref">polynomial B-spline</span></a> of
-degree <span class="math notranslate nohighlight">\(n\in{\mathbb{N}}.\)</span> The sequence <span class="math notranslate nohighlight">\(a_{n,2}\)</span> is trivially
-zero for <code class="docutils literal notranslate"><span class="pre">degree</span> <span class="pre">=</span> <span class="pre">0</span></code> and <code class="docutils literal notranslate"><span class="pre">degree</span> <span class="pre">=</span> <span class="pre">1</span></code>. For higher degrees, it is
-nontrivial and <a class="reference internal" href="../glossary/glossary-terminology.html#def-odd-symmetry"><span class="std std-ref">odd-symmetric</span></a>.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>k</strong> (<em>int</em>) – Index of the coefficient.</p></li>
-<li><p><strong>degree</strong> (<em>int</em>) – Nonnegative degree of the B-spline.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>A component of the B-spline-annihilating sequence of type 2.</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>float</p>
-</dd>
-</dl>
-<p class="rubric">Examples</p>
-<dl>
-<dt>Load the library.</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">splinekit</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sk</span>
-</pre></div>
-</div>
-</dd>
-<dt>The odd sequence that annihilates a cubic B-spline is the square root of three at index one.</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">k</span><span class="o">.</span><span class="n">annihil_2</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span>
-<span class="go">2.999999999999996</span>
-</pre></div>
-</div>
-</dd>
-</dl>
-<p class="rubric">Notes</p>
-<p>The results of this method are cached. If the returned results are
-mutated, the cache gets modified and the next call will return corrupted
-values.</p>
-</dd></dl>
-
-<hr class="docutils" />
 <dl class="py function">
 <dt class="sig sig-object py" id="splinekit.bsplines.ib_coeff">
 <span class="sig-prename descclassname"><span class="pre">splinekit.bsplines.</span></span><span class="sig-name descname"><span class="pre">ib_coeff</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">k</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">degree</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#splinekit.bsplines.ib_coeff" title="Link to this definition"></a></dt>
@@ -787,9 +693,9 @@ component-wise.</p>
 <p>The results of this method are cached. If the returned results are
 mutated, the cache gets modified and the next call will return corrupted
 values.</p>
+<hr class="docutils" />
 </dd></dl>
 
-<hr class="docutils" />
 <dl class="py function">
 <dt class="sig sig-object py" id="splinekit.bsplines.cardinal_b_spline">
 <span class="sig-prename descclassname"><span class="pre">splinekit.bsplines.</span></span><span class="sig-name descname"><span class="pre">cardinal_b_spline</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">degree</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#splinekit.bsplines.cardinal_b_spline" title="Link to this definition"></a></dt>
@@ -844,9 +750,9 @@ evaluated at the argument <span class="math notranslate nohighlight">\(x.\)</spa
 </div>
 </dd>
 </dl>
+<hr class="docutils" />
 </dd></dl>
 
-<hr class="docutils" />
 <dl class="py function">
 <dt class="sig sig-object py" id="splinekit.bsplines.dual_b_spline">
 <span class="sig-prename descclassname"><span class="pre">splinekit.bsplines.</span></span><span class="sig-name descname"><span class="pre">dual_b_spline</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">dual_degree</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">primal_degree</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#splinekit.bsplines.dual_b_spline" title="Link to this definition"></a></dt>
@@ -889,9 +795,9 @@ argument <span class="math notranslate nohighlight">\(x.\)</span> This function 
 </div>
 </dd>
 </dl>
+<hr class="docutils" />
 </dd></dl>
 
-<hr class="docutils" />
 <dl class="py function">
 <dt class="sig sig-object py" id="splinekit.bsplines.spline_polynomial">
 <span class="sig-prename descclassname"><span class="pre">splinekit.bsplines.</span></span><span class="sig-name descname"><span class="pre">spline_polynomial</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">spline_degree</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">monomial_degree</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">poly</span></span></span><a class="headerlink" href="#splinekit.bsplines.spline_polynomial" title="Link to this definition"></a></dt>
@@ -952,9 +858,13 @@ above.</p>
 <p>The results of this method are cached. If the returned results are
 mutated, the cache gets modified and the next call will return corrupted
 values.</p>
+<p>The returned polynomial <code class="docutils literal notranslate"><span class="pre">polyQQ</span></code> is valid over the <code class="docutils literal notranslate"><span class="pre">sympy</span></code> domain
+<code class="docutils literal notranslate"><span class="pre">&quot;QQ&quot;</span></code>. If it is desired to evaluate it at floating-point arguments,
+it may be convenient to perform the conversion
+<code class="docutils literal notranslate"><span class="pre">polyRR</span> <span class="pre">=</span> <span class="pre">sympy.Poly.from_poly(polyQQ,</span> <span class="pre">domain</span> <span class="pre">=</span> <span class="pre">&quot;RR&quot;)</span></code>.</p>
+<hr class="docutils" />
 </dd></dl>
 
-<hr class="docutils" />
 <dl class="py function">
 <dt class="sig sig-object py" id="splinekit.bsplines.partition_of_monomial">
 <span class="sig-prename descclassname"><span class="pre">splinekit.bsplines.</span></span><span class="sig-name descname"><span class="pre">partition_of_monomial</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">spline_degree</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">monomial_degree</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">poly</span></span></span><a class="headerlink" href="#splinekit.bsplines.partition_of_monomial" title="Link to this definition"></a></dt>
@@ -1017,9 +927,9 @@ above.</p>
 <p>The results of this method are cached. If the returned results are
 mutated, the cache gets modified and the next call will return corrupted
 values.</p>
+<hr class="docutils" />
 </dd></dl>
 
-<hr class="docutils" />
 <dl class="py function">
 <dt class="sig sig-object py" id="splinekit.bsplines.convolve_b_spline_monomial">
 <span class="sig-prename descclassname"><span class="pre">splinekit.bsplines.</span></span><span class="sig-name descname"><span class="pre">convolve_b_spline_monomial</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">spline_degree</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spline_differentiation_order</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">monomial_degree</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">poly</span></span></span><a class="headerlink" href="#splinekit.bsplines.convolve_b_spline_monomial" title="Link to this definition"></a></dt>
@@ -1072,7 +982,7 @@ above.</p>
 </div>
 </dd>
 <dt>Polynomial obtained by convolving the Hessian of a B-spline of degree zero with a quartic monomial.</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">sk</span><span class="o">.</span><span class="n">convolve_b_spline_monomial</span><span class="p">(</span><span class="n">spline_degree</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">spline_differentiation_order</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">monomial_degree</span> <span class="o">=</span> <span class="mi">4</span><span class="p">))</span>
-<span class="go">Poly(12*x**2 + 1, x, domain=&#39;QQ&#39;)</span>
+<span class="go">oly(12*x**2 + 1, x, domain=&#39;QQ&#39;)</span>
 </pre></div>
 </div>
 </dd>
@@ -1081,6 +991,10 @@ above.</p>
 <p>The results of this method are cached. If the returned results are
 mutated, the cache gets modified and the next call will return corrupted
 values.</p>
+<p>The returned polynomial <code class="docutils literal notranslate"><span class="pre">polyQQ</span></code> is valid over the <code class="docutils literal notranslate"><span class="pre">sympy</span></code> domain
+<code class="docutils literal notranslate"><span class="pre">&quot;QQ&quot;</span></code>. If it is desired to evaluate it at floating-point arguments,
+it may be convenient to perform the conversion
+<code class="docutils literal notranslate"><span class="pre">polyRR</span> <span class="pre">=</span> <span class="pre">sympy.Poly.from_poly(polyQQ,</span> <span class="pre">domain</span> <span class="pre">=</span> <span class="pre">&quot;RR&quot;)</span></code>.</p>
 </dd></dl>
 
 </section>

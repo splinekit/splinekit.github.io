@@ -8,7 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Closed [class] &mdash; splinekit  documentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
-      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=9edc463e" />
       <link rel="stylesheet" type="text/css" href="../../_static/plot_directive.css" />
       <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
       <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=2f8eb179" />
@@ -17,12 +17,12 @@
       <script src="../../_static/jquery.js?v=5d32c60e"></script>
       <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
       <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
-      <script src="../../_static/doctools.js?v=9bcbadda"></script>
-      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
       <script src="../../_static/design-tabs.js?v=f930bc37"></script>
       <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
       <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-      <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -115,147 +115,147 @@ closed intervals between a pair of finite real numbers.</p>
 <hr class="docutils" />
 <dl class="py class">
 <dt class="sig sig-object py" id="splinekit.interval.closed.Closed">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">splinekit.interval.closed.</span></span><span class="sig-name descname"><span class="pre">Closed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bounds</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#splinekit.interval.closed.Closed" title="Link to this definition"></a></dt>
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">splinekit.interval.closed.</span></span><span class="sig-name descname"><span class="pre">Closed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bounds</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#splinekit.interval.closed.Closed" title="Link to this definition"></a></dt>
 <dd><p>Bases: <a class="reference internal" href="../interval/01_interval.html#splinekit.interval.interval.Interval" title="splinekit.interval.interval.Interval"><code class="xref py py-class docutils literal notranslate"><span class="pre">Interval</span></code></a>, <a class="reference internal" href="01_bounded.html#splinekit.interval.bounded.Bounded" title="splinekit.interval.bounded.Bounded"><code class="xref py py-class docutils literal notranslate"><span class="pre">Bounded</span></code></a></p>
 <p id="closed">The bounded interval
 <span class="math notranslate nohighlight">\(\{x\in{\mathbb{R}}|x_{0}\leq x\leq x_{1}\}=[x_{0},x_{1}].\)</span></p>
 <hr class="docutils" />
 <dl class="py property">
 <dt class="sig sig-object py" id="splinekit.interval.closed.Closed.infimum">
-<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">infimum</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#splinekit.interval.closed.Closed.infimum" title="Link to this definition"></a></dt>
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">infimum</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></span><a class="headerlink" href="#splinekit.interval.closed.Closed.infimum" title="Link to this definition"></a></dt>
 <dd><p>Left endpoint.</p>
+<hr class="docutils" />
 </dd></dl>
 
-<hr class="docutils" />
 <dl class="py property">
 <dt class="sig sig-object py" id="splinekit.interval.closed.Closed.supremum">
-<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">supremum</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#splinekit.interval.closed.Closed.supremum" title="Link to this definition"></a></dt>
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">supremum</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></span><a class="headerlink" href="#splinekit.interval.closed.Closed.supremum" title="Link to this definition"></a></dt>
 <dd><p>Right endpoint.</p>
+<hr class="docutils" />
 </dd></dl>
 
-<hr class="docutils" />
 <dl class="py property">
 <dt class="sig sig-object py" id="splinekit.interval.closed.Closed.isleftopen">
-<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">isleftopen</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#splinekit.interval.closed.Closed.isleftopen" title="Link to this definition"></a></dt>
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">isleftopen</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></span><a class="headerlink" href="#splinekit.interval.closed.Closed.isleftopen" title="Link to this definition"></a></dt>
 <dd><p><code class="docutils literal notranslate"><span class="pre">False</span></code></p>
+<hr class="docutils" />
 </dd></dl>
 
-<hr class="docutils" />
 <dl class="py property">
 <dt class="sig sig-object py" id="splinekit.interval.closed.Closed.isrightopen">
-<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">isrightopen</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#splinekit.interval.closed.Closed.isrightopen" title="Link to this definition"></a></dt>
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">isrightopen</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></span><a class="headerlink" href="#splinekit.interval.closed.Closed.isrightopen" title="Link to this definition"></a></dt>
 <dd><p><code class="docutils literal notranslate"><span class="pre">False</span></code></p>
+<hr class="docutils" />
 </dd></dl>
 
-<hr class="docutils" />
 <dl class="py property">
 <dt class="sig sig-object py" id="splinekit.interval.closed.Closed.isopen">
-<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">isopen</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#splinekit.interval.closed.Closed.isopen" title="Link to this definition"></a></dt>
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">isopen</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></span><a class="headerlink" href="#splinekit.interval.closed.Closed.isopen" title="Link to this definition"></a></dt>
 <dd><p><code class="docutils literal notranslate"><span class="pre">False</span></code></p>
+<hr class="docutils" />
 </dd></dl>
 
-<hr class="docutils" />
 <dl class="py property">
 <dt class="sig sig-object py" id="splinekit.interval.closed.Closed.ishalfopen">
-<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ishalfopen</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#splinekit.interval.closed.Closed.ishalfopen" title="Link to this definition"></a></dt>
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">ishalfopen</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></span><a class="headerlink" href="#splinekit.interval.closed.Closed.ishalfopen" title="Link to this definition"></a></dt>
 <dd><p><code class="docutils literal notranslate"><span class="pre">False</span></code></p>
+<hr class="docutils" />
 </dd></dl>
 
-<hr class="docutils" />
 <dl class="py property">
 <dt class="sig sig-object py" id="splinekit.interval.closed.Closed.isclosed">
-<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">isclosed</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#splinekit.interval.closed.Closed.isclosed" title="Link to this definition"></a></dt>
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">isclosed</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></span><a class="headerlink" href="#splinekit.interval.closed.Closed.isclosed" title="Link to this definition"></a></dt>
 <dd><p><code class="docutils literal notranslate"><span class="pre">True</span></code></p>
+<hr class="docutils" />
 </dd></dl>
 
-<hr class="docutils" />
 <dl class="py property">
 <dt class="sig sig-object py" id="splinekit.interval.closed.Closed.isleftbounded">
-<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">isleftbounded</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#splinekit.interval.closed.Closed.isleftbounded" title="Link to this definition"></a></dt>
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">isleftbounded</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></span><a class="headerlink" href="#splinekit.interval.closed.Closed.isleftbounded" title="Link to this definition"></a></dt>
 <dd><p><code class="docutils literal notranslate"><span class="pre">True</span></code></p>
+<hr class="docutils" />
 </dd></dl>
 
-<hr class="docutils" />
 <dl class="py property">
 <dt class="sig sig-object py" id="splinekit.interval.closed.Closed.isrightbounded">
-<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">isrightbounded</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#splinekit.interval.closed.Closed.isrightbounded" title="Link to this definition"></a></dt>
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">isrightbounded</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></span><a class="headerlink" href="#splinekit.interval.closed.Closed.isrightbounded" title="Link to this definition"></a></dt>
 <dd><p><code class="docutils literal notranslate"><span class="pre">True</span></code></p>
+<hr class="docutils" />
 </dd></dl>
 
-<hr class="docutils" />
 <dl class="py property">
 <dt class="sig sig-object py" id="splinekit.interval.closed.Closed.ishalfbounded">
-<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ishalfbounded</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#splinekit.interval.closed.Closed.ishalfbounded" title="Link to this definition"></a></dt>
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">ishalfbounded</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></span><a class="headerlink" href="#splinekit.interval.closed.Closed.ishalfbounded" title="Link to this definition"></a></dt>
 <dd><p><code class="docutils literal notranslate"><span class="pre">False</span></code></p>
+<hr class="docutils" />
 </dd></dl>
 
-<hr class="docutils" />
 <dl class="py property">
 <dt class="sig sig-object py" id="splinekit.interval.closed.Closed.isbounded">
-<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">isbounded</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#splinekit.interval.closed.Closed.isbounded" title="Link to this definition"></a></dt>
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">isbounded</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></span><a class="headerlink" href="#splinekit.interval.closed.Closed.isbounded" title="Link to this definition"></a></dt>
 <dd><p><code class="docutils literal notranslate"><span class="pre">True</span></code></p>
+<hr class="docutils" />
 </dd></dl>
 
-<hr class="docutils" />
 <dl class="py property">
 <dt class="sig sig-object py" id="splinekit.interval.closed.Closed.isdegenerate">
-<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">isdegenerate</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#splinekit.interval.closed.Closed.isdegenerate" title="Link to this definition"></a></dt>
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">isdegenerate</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></span><a class="headerlink" href="#splinekit.interval.closed.Closed.isdegenerate" title="Link to this definition"></a></dt>
 <dd><p><code class="docutils literal notranslate"><span class="pre">False</span></code></p>
+<hr class="docutils" />
 </dd></dl>
 
-<hr class="docutils" />
 <dl class="py property">
 <dt class="sig sig-object py" id="splinekit.interval.closed.Closed.isproper">
-<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">isproper</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#splinekit.interval.closed.Closed.isproper" title="Link to this definition"></a></dt>
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">isproper</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></span><a class="headerlink" href="#splinekit.interval.closed.Closed.isproper" title="Link to this definition"></a></dt>
 <dd><p><code class="docutils literal notranslate"><span class="pre">True</span></code></p>
+<hr class="docutils" />
 </dd></dl>
 
-<hr class="docutils" />
 <dl class="py property">
 <dt class="sig sig-object py" id="splinekit.interval.closed.Closed.interior">
-<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">interior</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Self</span></em><a class="headerlink" href="#splinekit.interval.closed.Closed.interior" title="Link to this definition"></a></dt>
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">interior</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Self</span></span><a class="headerlink" href="#splinekit.interval.closed.Closed.interior" title="Link to this definition"></a></dt>
 <dd><p><code class="docutils literal notranslate"><span class="pre">Open((self.infimum,</span> <span class="pre">self.supremum))</span></code></p>
+<hr class="docutils" />
 </dd></dl>
 
-<hr class="docutils" />
 <dl class="py property">
 <dt class="sig sig-object py" id="splinekit.interval.closed.Closed.closure">
-<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">closure</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Self</span></em><a class="headerlink" href="#splinekit.interval.closed.Closed.closure" title="Link to this definition"></a></dt>
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">closure</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Self</span></span><a class="headerlink" href="#splinekit.interval.closed.Closed.closure" title="Link to this definition"></a></dt>
 <dd><p><code class="docutils literal notranslate"><span class="pre">Closed((self.infimum,</span> <span class="pre">self.supremum))</span></code></p>
+<hr class="docutils" />
 </dd></dl>
 
-<hr class="docutils" />
 <dl class="py property">
 <dt class="sig sig-object py" id="splinekit.interval.closed.Closed.diameter">
-<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">diameter</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#splinekit.interval.closed.Closed.diameter" title="Link to this definition"></a></dt>
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">diameter</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></span><a class="headerlink" href="#splinekit.interval.closed.Closed.diameter" title="Link to this definition"></a></dt>
 <dd><p><code class="docutils literal notranslate"><span class="pre">self.supremum</span> <span class="pre">-</span> <span class="pre">self.infimum</span></code></p>
+<hr class="docutils" />
 </dd></dl>
 
-<hr class="docutils" />
 <dl class="py property">
 <dt class="sig sig-object py" id="splinekit.interval.closed.Closed.midpoint">
-<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">midpoint</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#splinekit.interval.closed.Closed.midpoint" title="Link to this definition"></a></dt>
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">midpoint</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></span><a class="headerlink" href="#splinekit.interval.closed.Closed.midpoint" title="Link to this definition"></a></dt>
 <dd><p><code class="docutils literal notranslate"><span class="pre">0.5</span> <span class="pre">*</span> <span class="pre">(self.supremum</span> <span class="pre">+</span> <span class="pre">self.infimum)</span></code></p>
+<hr class="docutils" />
 </dd></dl>
 
-<hr class="docutils" />
 <dl class="py method">
 <dt class="sig sig-object py" id="splinekit.interval.closed.Closed.sortorder">
 <span class="sig-name descname"><span class="pre">sortorder</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#splinekit.interval.closed.Closed.sortorder" title="Link to this definition"></a></dt>
 <dd><p><code class="docutils literal notranslate"><span class="pre">self.midpoint</span></code></p>
+<hr class="docutils" />
 </dd></dl>
 
-<hr class="docutils" />
 <dl class="py method">
 <dt class="sig sig-object py" id="splinekit.interval.closed.Closed.__contains__">
 <span class="sig-name descname"><span class="pre">__contains__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#splinekit.interval.closed.Closed.__contains__" title="Link to this definition"></a></dt>
 <dd><p><code class="docutils literal notranslate"><span class="pre">self.leftbound</span> <span class="pre">&lt;=</span> <span class="pre">x</span> <span class="pre">&lt;=</span> <span class="pre">self.rightbound</span></code></p>
+<hr class="docutils" />
 </dd></dl>
 
-<hr class="docutils" />
 <dl class="py method">
 <dt class="sig sig-object py" id="splinekit.interval.closed.Closed.__new__">
-<em class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">__new__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cls</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bounds</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Self</span></span></span><a class="headerlink" href="#splinekit.interval.closed.Closed.__new__" title="Link to this definition"></a></dt>
+<span class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">__new__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cls</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bounds</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Self</span></span></span><a class="headerlink" href="#splinekit.interval.closed.Closed.__new__" title="Link to this definition"></a></dt>
 <dd><p>Creates the bounded closed interval
 <span class="math notranslate nohighlight">\(\{x\in{\mathbb{R}}|x_{0}\leq x\leq x_{1}\}=[x_{0},x_{1}]\)</span> that
 contains all numbers that are not smaller than <span class="math notranslate nohighlight">\(x_{0}\)</span> and not

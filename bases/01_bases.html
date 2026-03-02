@@ -8,7 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Bases [module] &mdash; splinekit  documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
       <link rel="stylesheet" type="text/css" href="../_static/plot_directive.css" />
       <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
       <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=2f8eb179" />
@@ -17,12 +17,12 @@
       <script src="../_static/jquery.js?v=5d32c60e"></script>
       <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
       <script src="../_static/documentation_options.js?v=5929fcd5"></script>
-      <script src="../_static/doctools.js?v=9bcbadda"></script>
-      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
       <script src="../_static/design-tabs.js?v=f930bc37"></script>
       <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
       <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-      <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -100,7 +100,7 @@
 <p>Here are the data of the class <a class="reference internal" href="#module-splinekit.bases" title="splinekit.bases"><code class="xref py py-class docutils literal notranslate"><span class="pre">splinekit.bases</span></code></a>.</p>
 <dl class="py class" id="module-splinekit.bases">
 <dt class="sig sig-object py" id="splinekit.bases.Bases">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">splinekit.bases.</span></span><span class="sig-name descname"><span class="pre">Bases</span></span><a class="headerlink" href="#splinekit.bases.Bases" title="Link to this definition"></a></dt>
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">splinekit.bases.</span></span><span class="sig-name descname"><span class="pre">Bases</span></span><a class="headerlink" href="#splinekit.bases.Bases" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p id="bases">The class that codifies the standard bases of splines.</p>
 <p>The <a class="reference internal" href="../glossary/glossary-splines.html#def-uniform-spline"><span class="std std-ref">uniform splines</span></a> are
@@ -130,20 +130,20 @@ basis is the <a class="reference internal" href="../glossary/glossary-splines.ht
 \[f(x)=\sum_{k\in{\mathbb{Z}}}\,c[k]\,\beta^{n}(x-k).\]</div>
 </li>
 <li><p>For <code class="docutils literal notranslate"><span class="pre">splinekit.Bases.CARDINAL</span></code>, the coefficients are <span class="math notranslate nohighlight">\(f\)</span> and
-the basis is the <a class="reference internal" href="../glossary/glossary-splines.html#def-cardinal-b-spline"><span class="std std-ref">cardinal spline</span></a>
+the basis is the <a class="reference internal" href="../glossary/glossary-splines.html#def-cardinal-b-spline"><span class="std std-ref">cardinal B-spline</span></a>
 <span class="math notranslate nohighlight">\(\eta^{n},\)</span> so that</p>
 <div class="math notranslate nohighlight">
 \[f(x)=\sum_{k\in{\mathbb{Z}}}\,f(k)\,\eta^{n}(x-k).\]</div>
 </li>
 <li><p>For <code class="docutils literal notranslate"><span class="pre">splinekit.Bases.DUAL</span></code>, the coefficients are <span class="math notranslate nohighlight">\(g\)</span> and the
-basis is the <a class="reference internal" href="../glossary/glossary-splines.html#def-dual-b-spline"><span class="std std-ref">polynomial dual b-spline</span></a>
+basis is the <a class="reference internal" href="../glossary/glossary-splines.html#def-dual-b-spline"><span class="std std-ref">polynomial dual B-spline</span></a>
 <span class="math notranslate nohighlight">\(\mathring{\beta}^{n,n},\)</span> so that</p>
 <div class="math notranslate nohighlight">
 \[f(x)=\sum_{k\in{\mathbb{Z}}}\,g[k]\,\mathring{\beta}^{n,n}(x-k).\]</div>
 </li>
 <li><p>For <code class="docutils literal notranslate"><span class="pre">splinekit.Bases.ORTHONORMAL</span></code>, the coefficients are <span class="math notranslate nohighlight">\(a\)</span>
 and the basis is the
-<a class="reference internal" href="../glossary/glossary-splines.html#def-orthonormal-b-spline"><span class="std std-ref">polynomial orthonormal b-spline</span></a>
+<a class="reference internal" href="../glossary/glossary-splines.html#def-orthonormal-b-spline"><span class="std std-ref">polynomial orthonormal B-spline</span></a>
 <span class="math notranslate nohighlight">\(\phi^{n},\)</span> so that</p>
 <div class="math notranslate nohighlight">
 \[f(x)=\sum_{k\in{\mathbb{Z}}}\,a[k]\,\phi^{n}(x-k).\]</div>

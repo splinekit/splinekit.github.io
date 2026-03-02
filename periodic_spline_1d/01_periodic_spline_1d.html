@@ -8,7 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Periodic Spline 1D [module] &mdash; splinekit  documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
       <link rel="stylesheet" type="text/css" href="../_static/plot_directive.css" />
       <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
       <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=2f8eb179" />
@@ -17,12 +17,12 @@
       <script src="../_static/jquery.js?v=5d32c60e"></script>
       <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
       <script src="../_static/documentation_options.js?v=5929fcd5"></script>
-      <script src="../_static/doctools.js?v=9bcbadda"></script>
-      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
       <script src="../_static/design-tabs.js?v=f930bc37"></script>
       <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
       <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-      <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -88,6 +88,7 @@
 <li class="toctree-l4"><a class="reference internal" href="#splinekit.periodic_spline_1d.PeriodicSpline1D.variance"><code class="docutils literal notranslate"><span class="pre">PeriodicSpline1D.variance()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#splinekit.periodic_spline_1d.PeriodicSpline1D.lower_bound"><code class="docutils literal notranslate"><span class="pre">PeriodicSpline1D.lower_bound()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#splinekit.periodic_spline_1d.PeriodicSpline1D.upper_bound"><code class="docutils literal notranslate"><span class="pre">PeriodicSpline1D.upper_bound()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#splinekit.periodic_spline_1d.PeriodicSpline1D.image"><code class="docutils literal notranslate"><span class="pre">PeriodicSpline1D.image()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#splinekit.periodic_spline_1d.PeriodicSpline1D.get_knots"><code class="docutils literal notranslate"><span class="pre">PeriodicSpline1D.get_knots()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#splinekit.periodic_spline_1d.PeriodicSpline1D.zeros"><code class="docutils literal notranslate"><span class="pre">PeriodicSpline1D.zeros()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#splinekit.periodic_spline_1d.PeriodicSpline1D.zero_crossings"><code class="docutils literal notranslate"><span class="pre">PeriodicSpline1D.zero_crossings()</span></code></a></li>
@@ -228,6 +229,7 @@
 <li><p><a class="reference internal" href="#periodic-spline-1d-variance"><span class="std std-ref">variance</span></a></p></li>
 <li><p><a class="reference internal" href="#periodic-spline-1d-lower-bound"><span class="std std-ref">lower_bound</span></a></p></li>
 <li><p><a class="reference internal" href="#periodic-spline-1d-upper-bound"><span class="std std-ref">upper_bound</span></a></p></li>
+<li><p><a class="reference internal" href="#periodic-spline-1d-image"><span class="std std-ref">image</span></a></p></li>
 </ul>
 </li>
 <li><p>Locations of Interest</p>
@@ -278,7 +280,7 @@
 <hr class="docutils" />
 <dl class="py class">
 <dt class="sig sig-object py" id="splinekit.periodic_spline_1d.PeriodicSpline1D">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">splinekit.periodic_spline_1d.</span></span><span class="sig-name descname"><span class="pre">PeriodicSpline1D</span></span><a class="headerlink" href="#splinekit.periodic_spline_1d.PeriodicSpline1D" title="Link to this definition"></a></dt>
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">splinekit.periodic_spline_1d.</span></span><span class="sig-name descname"><span class="pre">PeriodicSpline1D</span></span><a class="headerlink" href="#splinekit.periodic_spline_1d.PeriodicSpline1D" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p id="periodic-spline-1d">The class that maintains and operates on a polynomial one-dimensional
 uniform spline with periodic padding.</p>
@@ -375,12 +377,12 @@ vanishing delay, and value zero.</p>
 </div>
 </dd>
 </dl>
+<hr class="docutils" />
 </dd></dl>
 
-<hr class="docutils" />
 <dl class="py method">
 <dt class="sig sig-object py" id="splinekit.periodic_spline_1d.PeriodicSpline1D.periodized_b_spline">
-<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">periodized_b_spline</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">period</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">degree</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#splinekit.periodic_spline_1d.PeriodicSpline1D" title="splinekit.periodic_spline_1d.PeriodicSpline1D"><span class="pre">PeriodicSpline1D</span></a></span></span><a class="headerlink" href="#splinekit.periodic_spline_1d.PeriodicSpline1D.periodized_b_spline" title="Link to this definition"></a></dt>
+<span class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">periodized_b_spline</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">period</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">degree</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#splinekit.periodic_spline_1d.PeriodicSpline1D" title="splinekit.periodic_spline_1d.PeriodicSpline1D"><span class="pre">PeriodicSpline1D</span></a></span></span><a class="headerlink" href="#splinekit.periodic_spline_1d.PeriodicSpline1D.periodized_b_spline" title="Link to this definition"></a></dt>
 <dd><p id="periodic-spline-1d-periodized-b-spline">The constructor of a periodized B-spline.</p>
 <p>This constructor populates the attributes of a <code class="docutils literal notranslate"><span class="pre">PeriodicSpline1D</span></code>
 object that represents the one-dimensional spline</p>
@@ -425,12 +427,12 @@ B-spline.</p></li>
 </ul>
 </dd>
 </dl>
+<hr class="docutils" />
 </dd></dl>
 
-<hr class="docutils" />
 <dl class="py method">
 <dt class="sig sig-object py" id="splinekit.periodic_spline_1d.PeriodicSpline1D.periodized_cardinal_b_spline">
-<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">periodized_cardinal_b_spline</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">period</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">degree</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#splinekit.periodic_spline_1d.PeriodicSpline1D" title="splinekit.periodic_spline_1d.PeriodicSpline1D"><span class="pre">PeriodicSpline1D</span></a></span></span><a class="headerlink" href="#splinekit.periodic_spline_1d.PeriodicSpline1D.periodized_cardinal_b_spline" title="Link to this definition"></a></dt>
+<span class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">periodized_cardinal_b_spline</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">period</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">degree</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#splinekit.periodic_spline_1d.PeriodicSpline1D" title="splinekit.periodic_spline_1d.PeriodicSpline1D"><span class="pre">PeriodicSpline1D</span></a></span></span><a class="headerlink" href="#splinekit.periodic_spline_1d.PeriodicSpline1D.periodized_cardinal_b_spline" title="Link to this definition"></a></dt>
 <dd><p id="periodic-spline-1d-periodized-cardinal-b-spline">The constructor of a periodized cardinal B-spline.</p>
 <p>This constructor populates the attributes of a <code class="docutils literal notranslate"><span class="pre">PeriodicSpline1D</span></code>
 object that represents the one-dimensional spline</p>
@@ -475,12 +477,12 @@ cardinal B-spline.</p></li>
 </ul>
 </dd>
 </dl>
+<hr class="docutils" />
 </dd></dl>
 
-<hr class="docutils" />
 <dl class="py method">
 <dt class="sig sig-object py" id="splinekit.periodic_spline_1d.PeriodicSpline1D.periodized_dual_b_spline">
-<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">periodized_dual_b_spline</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">period</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dual_degree</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">primal_degree</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#splinekit.periodic_spline_1d.PeriodicSpline1D" title="splinekit.periodic_spline_1d.PeriodicSpline1D"><span class="pre">PeriodicSpline1D</span></a></span></span><a class="headerlink" href="#splinekit.periodic_spline_1d.PeriodicSpline1D.periodized_dual_b_spline" title="Link to this definition"></a></dt>
+<span class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">periodized_dual_b_spline</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">period</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dual_degree</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">primal_degree</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#splinekit.periodic_spline_1d.PeriodicSpline1D" title="splinekit.periodic_spline_1d.PeriodicSpline1D"><span class="pre">PeriodicSpline1D</span></a></span></span><a class="headerlink" href="#splinekit.periodic_spline_1d.PeriodicSpline1D.periodized_dual_b_spline" title="Link to this definition"></a></dt>
 <dd><p id="periodic-spline-1d-periodized-dual-b-spline">The constructor of a periodized dual B-spline.</p>
 <p>This constructor populates the attributes of a <code class="docutils literal notranslate"><span class="pre">PeriodicSpline1D</span></code>
 object that represents the one-dimensional spline</p>
@@ -529,12 +531,12 @@ periodized dual B-spline.</p></li>
 </ul>
 </dd>
 </dl>
+<hr class="docutils" />
 </dd></dl>
 
-<hr class="docutils" />
 <dl class="py method">
 <dt class="sig sig-object py" id="splinekit.periodic_spline_1d.PeriodicSpline1D.periodized_orthonormal_b_spline">
-<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">periodized_orthonormal_b_spline</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">period</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">degree</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#splinekit.periodic_spline_1d.PeriodicSpline1D" title="splinekit.periodic_spline_1d.PeriodicSpline1D"><span class="pre">PeriodicSpline1D</span></a></span></span><a class="headerlink" href="#splinekit.periodic_spline_1d.PeriodicSpline1D.periodized_orthonormal_b_spline" title="Link to this definition"></a></dt>
+<span class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">periodized_orthonormal_b_spline</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">period</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">degree</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#splinekit.periodic_spline_1d.PeriodicSpline1D" title="splinekit.periodic_spline_1d.PeriodicSpline1D"><span class="pre">PeriodicSpline1D</span></a></span></span><a class="headerlink" href="#splinekit.periodic_spline_1d.PeriodicSpline1D.periodized_orthonormal_b_spline" title="Link to this definition"></a></dt>
 <dd><p id="periodic-spline-1d-periodized-orthonormal-b-spline">The constructor of a periodized orthonormal B-spline.</p>
 <p>This constructor populates the attributes of a <code class="docutils literal notranslate"><span class="pre">PeriodicSpline1D</span></code>
 object that represents the one-dimensional spline</p>
@@ -580,12 +582,12 @@ orthonormal B-spline.</p></li>
 </ul>
 </dd>
 </dl>
+<hr class="docutils" />
 </dd></dl>
 
-<hr class="docutils" />
 <dl class="py method">
 <dt class="sig sig-object py" id="splinekit.periodic_spline_1d.PeriodicSpline1D.from_samples">
-<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_samples</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">samples</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span><span class="p"><span class="pre">[</span></span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">dtype</span><span class="p"><span class="pre">[</span></span><span class="pre">float64</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">degree</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">delay</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">regularized</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#splinekit.periodic_spline_1d.PeriodicSpline1D" title="splinekit.periodic_spline_1d.PeriodicSpline1D"><span class="pre">PeriodicSpline1D</span></a></span></span><a class="headerlink" href="#splinekit.periodic_spline_1d.PeriodicSpline1D.from_samples" title="Link to this definition"></a></dt>
+<span class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">from_samples</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">samples</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span><span class="p"><span class="pre">[</span></span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">dtype</span><span class="p"><span class="pre">[</span></span><span class="pre">float64</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">degree</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">delay</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">regularized</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#splinekit.periodic_spline_1d.PeriodicSpline1D" title="splinekit.periodic_spline_1d.PeriodicSpline1D"><span class="pre">PeriodicSpline1D</span></a></span></span><a class="headerlink" href="#splinekit.periodic_spline_1d.PeriodicSpline1D.from_samples" title="Link to this definition"></a></dt>
 <dd><p id="periodic-spline-1d-from-samples">A constructor from data samples.</p>
 <p>This constructor populates the attributes of a <code class="docutils literal notranslate"><span class="pre">PeriodicSpline1D</span></code>
 object, which represents the one-dimensional spline</p>
@@ -608,6 +610,10 @@ any non-half-integer delay <span class="math notranslate nohighlight">\(\delta x
 \left({\mathbb{Z}}+\frac{1}{2}\right),\)</span> this time without
 restriction on the parity of the positive period
 <span class="math notranslate nohighlight">\(K\in{\mathbb{N}}+1.\)</span></p></li>
+<li><p>For an even period <span class="math notranslate nohighlight">\(K\in2\,{\mathbb{N}}+2\)</span> combined with
+a half-integer delay <span class="math notranslate nohighlight">\(\delta x\in{\mathbb{Z}}+\frac{1}{2},\)</span>
+the directive <code class="docutils literal notranslate"><span class="pre">regularized</span> <span class="pre">==</span> <span class="pre">False</span></code> is disregraded and
+regularization is enforced.</p></li>
 <li><p>When <code class="docutils literal notranslate"><span class="pre">regularized</span> <span class="pre">==</span> <span class="pre">True</span></code>, the interpolation condition is still
 honored for all odd periods. For <a class="reference internal" href="../glossary/glossary-numbers.html#def-even"><span class="std std-ref">even</span></a> periods
 <span class="math notranslate nohighlight">\(K\in2\,{\mathbb{N}}+2,\)</span> however, this constructor
@@ -659,12 +665,12 @@ spline.</p></li>
 </ul>
 </dd>
 </dl>
+<hr class="docutils" />
 </dd></dl>
 
-<hr class="docutils" />
 <dl class="py method">
 <dt class="sig sig-object py" id="splinekit.periodic_spline_1d.PeriodicSpline1D.from_smoothed_samples">
-<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_smoothed_samples</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">samples</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span><span class="p"><span class="pre">[</span></span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">dtype</span><span class="p"><span class="pre">[</span></span><span class="pre">float64</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">degree</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">delay</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">smoothing</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span><span class="p"><span class="pre">[</span></span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">dtype</span><span class="p"><span class="pre">[</span></span><span class="pre">float64</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#splinekit.periodic_spline_1d.PeriodicSpline1D" title="splinekit.periodic_spline_1d.PeriodicSpline1D"><span class="pre">PeriodicSpline1D</span></a></span></span><a class="headerlink" href="#splinekit.periodic_spline_1d.PeriodicSpline1D.from_smoothed_samples" title="Link to this definition"></a></dt>
+<span class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">from_smoothed_samples</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">samples</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span><span class="p"><span class="pre">[</span></span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">dtype</span><span class="p"><span class="pre">[</span></span><span class="pre">float64</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">degree</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">delay</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">smoothing</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span><span class="p"><span class="pre">[</span></span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">dtype</span><span class="p"><span class="pre">[</span></span><span class="pre">float64</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#splinekit.periodic_spline_1d.PeriodicSpline1D" title="splinekit.periodic_spline_1d.PeriodicSpline1D"><span class="pre">PeriodicSpline1D</span></a></span></span><a class="headerlink" href="#splinekit.periodic_spline_1d.PeriodicSpline1D.from_smoothed_samples" title="Link to this definition"></a></dt>
 <dd><p id="periodic-spline-1d-from-smoothed-samples">A constructor from data samples.</p>
 <p>This constructor populates the attributes of a <code class="docutils literal notranslate"><span class="pre">PeriodicSpline1D</span></code>
 object, which represents the one-dimensional spline</p>
@@ -682,7 +688,8 @@ at the integers.</p>
 {\mathrm{d}}x.\]</div>
 <p>The first term encourages the spline to interpolate the samples, while
 the second term discourages the spline derivatives to be large, as
-controlled by the vector <span class="math notranslate nohighlight">\(\lambda\)</span> of smoothing parameters.</p>
+controlled by the vector <span class="math notranslate nohighlight">\(\left(\lambda[m]\right)_{m=0}^{n}\)</span> of
+smoothing parameters.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -728,12 +735,12 @@ weights.</p></li>
 </ul>
 </dd>
 </dl>
+<hr class="docutils" />
 </dd></dl>
 
-<hr class="docutils" />
 <dl class="py method">
 <dt class="sig sig-object py" id="splinekit.periodic_spline_1d.PeriodicSpline1D.from_spline_coeff">
-<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_spline_coeff</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">spline_coeff</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span><span class="p"><span class="pre">[</span></span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">dtype</span><span class="p"><span class="pre">[</span></span><span class="pre">float64</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">degree</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">delay</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.0</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#splinekit.periodic_spline_1d.PeriodicSpline1D" title="splinekit.periodic_spline_1d.PeriodicSpline1D"><span class="pre">PeriodicSpline1D</span></a></span></span><a class="headerlink" href="#splinekit.periodic_spline_1d.PeriodicSpline1D.from_spline_coeff" title="Link to this definition"></a></dt>
+<span class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">from_spline_coeff</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">spline_coeff</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span><span class="p"><span class="pre">[</span></span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">dtype</span><span class="p"><span class="pre">[</span></span><span class="pre">float64</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">degree</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">delay</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.0</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#splinekit.periodic_spline_1d.PeriodicSpline1D" title="splinekit.periodic_spline_1d.PeriodicSpline1D"><span class="pre">PeriodicSpline1D</span></a></span></span><a class="headerlink" href="#splinekit.periodic_spline_1d.PeriodicSpline1D.from_spline_coeff" title="Link to this definition"></a></dt>
 <dd><p id="periodic-spline-1d-from-spline-coeff">A constructor from spline coefficients.</p>
 <p>This constructor populates the attributes of a <code class="docutils literal notranslate"><span class="pre">PeriodicSpline1D</span></code>
 object with the provided parameters. The created object retains a copy
@@ -778,12 +785,12 @@ spline.</p></li>
 </ul>
 </dd>
 </dl>
+<hr class="docutils" />
 </dd></dl>
 
-<hr class="docutils" />
 <dl class="py method">
 <dt class="sig sig-object py" id="splinekit.periodic_spline_1d.PeriodicSpline1D.add">
-<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">add</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">augend</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#splinekit.periodic_spline_1d.PeriodicSpline1D" title="splinekit.periodic_spline_1d.PeriodicSpline1D"><span class="pre">PeriodicSpline1D</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">addend</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#splinekit.periodic_spline_1d.PeriodicSpline1D" title="splinekit.periodic_spline_1d.PeriodicSpline1D"><span class="pre">PeriodicSpline1D</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#splinekit.periodic_spline_1d.PeriodicSpline1D" title="splinekit.periodic_spline_1d.PeriodicSpline1D"><span class="pre">PeriodicSpline1D</span></a></span></span><a class="headerlink" href="#splinekit.periodic_spline_1d.PeriodicSpline1D.add" title="Link to this definition"></a></dt>
+<span class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">add</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">augend</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#splinekit.periodic_spline_1d.PeriodicSpline1D" title="splinekit.periodic_spline_1d.PeriodicSpline1D"><span class="pre">PeriodicSpline1D</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">addend</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#splinekit.periodic_spline_1d.PeriodicSpline1D" title="splinekit.periodic_spline_1d.PeriodicSpline1D"><span class="pre">PeriodicSpline1D</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#splinekit.periodic_spline_1d.PeriodicSpline1D" title="splinekit.periodic_spline_1d.PeriodicSpline1D"><span class="pre">PeriodicSpline1D</span></a></span></span><a class="headerlink" href="#splinekit.periodic_spline_1d.PeriodicSpline1D.add" title="Link to this definition"></a></dt>
 <dd><p id="periodic-spline-1d-add">Create a spline from the sum of two splines.</p>
 <p>Given two <code class="docutils literal notranslate"><span class="pre">PeriodicSpline1D</span></code> objects of identical period <span class="math notranslate nohighlight">\(K,\)</span>
 degree <span class="math notranslate nohighlight">\(n,\)</span> and delay <span class="math notranslate nohighlight">\(\delta x,\)</span> this constructor
@@ -830,12 +837,12 @@ The created object has period <span class="math notranslate nohighlight">\(K,\)<
 </ul>
 </dd>
 </dl>
+<hr class="docutils" />
 </dd></dl>
 
-<hr class="docutils" />
 <dl class="py method">
 <dt class="sig sig-object py" id="splinekit.periodic_spline_1d.PeriodicSpline1D.add_projected">
-<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">add_projected</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">augend</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#splinekit.periodic_spline_1d.PeriodicSpline1D" title="splinekit.periodic_spline_1d.PeriodicSpline1D"><span class="pre">PeriodicSpline1D</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">addend</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#splinekit.periodic_spline_1d.PeriodicSpline1D" title="splinekit.periodic_spline_1d.PeriodicSpline1D"><span class="pre">PeriodicSpline1D</span></a></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">degree</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">delay</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.0</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#splinekit.periodic_spline_1d.PeriodicSpline1D" title="splinekit.periodic_spline_1d.PeriodicSpline1D"><span class="pre">PeriodicSpline1D</span></a></span></span><a class="headerlink" href="#splinekit.periodic_spline_1d.PeriodicSpline1D.add_projected" title="Link to this definition"></a></dt>
+<span class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">add_projected</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">augend</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#splinekit.periodic_spline_1d.PeriodicSpline1D" title="splinekit.periodic_spline_1d.PeriodicSpline1D"><span class="pre">PeriodicSpline1D</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">addend</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#splinekit.periodic_spline_1d.PeriodicSpline1D" title="splinekit.periodic_spline_1d.PeriodicSpline1D"><span class="pre">PeriodicSpline1D</span></a></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">degree</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">delay</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.0</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#splinekit.periodic_spline_1d.PeriodicSpline1D" title="splinekit.periodic_spline_1d.PeriodicSpline1D"><span class="pre">PeriodicSpline1D</span></a></span></span><a class="headerlink" href="#splinekit.periodic_spline_1d.PeriodicSpline1D.add_projected" title="Link to this definition"></a></dt>
 <dd><p id="periodic-spline-1d-add-projected">Create a spline of arbitrary degree and delay from the sum of two
 splines.</p>
 <p>Given two <code class="docutils literal notranslate"><span class="pre">PeriodicSpline1D</span></code> objects of identical period <span class="math notranslate nohighlight">\(K,\)</span>
@@ -904,12 +911,12 @@ approximates the sum of <code class="docutils literal notranslate"><span class="
 </ul>
 </dd>
 </dl>
+<hr class="docutils" />
 </dd></dl>
 
-<hr class="docutils" />
 <dl class="py method">
 <dt class="sig sig-object py" id="splinekit.periodic_spline_1d.PeriodicSpline1D.convolve">
-<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">convolve</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s1</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#splinekit.periodic_spline_1d.PeriodicSpline1D" title="splinekit.periodic_spline_1d.PeriodicSpline1D"><span class="pre">PeriodicSpline1D</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">s2</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#splinekit.periodic_spline_1d.PeriodicSpline1D" title="splinekit.periodic_spline_1d.PeriodicSpline1D"><span class="pre">PeriodicSpline1D</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#splinekit.periodic_spline_1d.PeriodicSpline1D" title="splinekit.periodic_spline_1d.PeriodicSpline1D"><span class="pre">PeriodicSpline1D</span></a></span></span><a class="headerlink" href="#splinekit.periodic_spline_1d.PeriodicSpline1D.convolve" title="Link to this definition"></a></dt>
+<span class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">convolve</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s1</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#splinekit.periodic_spline_1d.PeriodicSpline1D" title="splinekit.periodic_spline_1d.PeriodicSpline1D"><span class="pre">PeriodicSpline1D</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">s2</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#splinekit.periodic_spline_1d.PeriodicSpline1D" title="splinekit.periodic_spline_1d.PeriodicSpline1D"><span class="pre">PeriodicSpline1D</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#splinekit.periodic_spline_1d.PeriodicSpline1D" title="splinekit.periodic_spline_1d.PeriodicSpline1D"><span class="pre">PeriodicSpline1D</span></a></span></span><a class="headerlink" href="#splinekit.periodic_spline_1d.PeriodicSpline1D.convolve" title="Link to this definition"></a></dt>
 <dd><p id="periodic-spline-1d-convolve">Create a spline from the convolution of two splines.</p>
 <p>Given two <code class="docutils literal notranslate"><span class="pre">PeriodicSpline1D</span></code> objects of identical period <span class="math notranslate nohighlight">\(K,\)</span>
 independent degree <span class="math notranslate nohighlight">\((n_{1}, n_{2}),\)</span> and independent delay
@@ -963,12 +970,12 @@ s_{2}(x)&amp;=&amp;\sum_{k\in{\mathbb{Z}}}\,c_{2}[{k\bmod K}]\,
 <dd class="field-odd"><p><strong>ValueError</strong> – Raised when <code class="docutils literal notranslate"><span class="pre">s1.period</span> <span class="pre">!=</span> <span class="pre">s2.period</span></code>.</p>
 </dd>
 </dl>
+<hr class="docutils" />
 </dd></dl>
 
-<hr class="docutils" />
 <dl class="py method">
 <dt class="sig sig-object py" id="splinekit.periodic_spline_1d.PeriodicSpline1D.normed_cross_correlate">
-<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">normed_cross_correlate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s1</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#splinekit.periodic_spline_1d.PeriodicSpline1D" title="splinekit.periodic_spline_1d.PeriodicSpline1D"><span class="pre">PeriodicSpline1D</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">s2</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#splinekit.periodic_spline_1d.PeriodicSpline1D" title="splinekit.periodic_spline_1d.PeriodicSpline1D"><span class="pre">PeriodicSpline1D</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#splinekit.periodic_spline_1d.PeriodicSpline1D" title="splinekit.periodic_spline_1d.PeriodicSpline1D"><span class="pre">PeriodicSpline1D</span></a></span></span><a class="headerlink" href="#splinekit.periodic_spline_1d.PeriodicSpline1D.normed_cross_correlate" title="Link to this definition"></a></dt>
+<span class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">normed_cross_correlate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s1</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#splinekit.periodic_spline_1d.PeriodicSpline1D" title="splinekit.periodic_spline_1d.PeriodicSpline1D"><span class="pre">PeriodicSpline1D</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">s2</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#splinekit.periodic_spline_1d.PeriodicSpline1D" title="splinekit.periodic_spline_1d.PeriodicSpline1D"><span class="pre">PeriodicSpline1D</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#splinekit.periodic_spline_1d.PeriodicSpline1D" title="splinekit.periodic_spline_1d.PeriodicSpline1D"><span class="pre">PeriodicSpline1D</span></a></span></span><a class="headerlink" href="#splinekit.periodic_spline_1d.PeriodicSpline1D.normed_cross_correlate" title="Link to this definition"></a></dt>
 <dd><p id="periodic-spline-1d-normed-cross-correlate">Create a spline from the normalized cross-correlation of two splines.</p>
 <p>Given two <code class="docutils literal notranslate"><span class="pre">PeriodicSpline1D</span></code> objects of identical period <span class="math notranslate nohighlight">\(K,\)</span>
 independent degree <span class="math notranslate nohighlight">\((n_{1}, n_{2}),\)</span> and independent delay
@@ -1034,12 +1041,12 @@ and <code class="docutils literal notranslate"><span class="pre">s2</span></code
 </ul>
 </dd>
 </dl>
+<hr class="docutils" />
 </dd></dl>
 
-<hr class="docutils" />
 <dl class="py method">
 <dt class="sig sig-object py" id="splinekit.periodic_spline_1d.PeriodicSpline1D.eval_piecewise_polynomials_at">
-<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">eval_piecewise_polynomials_at</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">polynomials</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../periodic_nonuniform_piecewise/01_periodic_nonuniform_piecewise.html#splinekit.periodic_nonuniform_piecewise.PeriodicNonuniformPiecewise" title="splinekit.periodic_nonuniform_piecewise.PeriodicNonuniformPiecewise"><span class="pre">PeriodicNonuniformPiecewise</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#splinekit.periodic_spline_1d.PeriodicSpline1D.eval_piecewise_polynomials_at" title="Link to this definition"></a></dt>
+<span class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">eval_piecewise_polynomials_at</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">polynomials</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../periodic_nonuniform_piecewise/01_periodic_nonuniform_piecewise.html#splinekit.periodic_nonuniform_piecewise.PeriodicNonuniformPiecewise" title="splinekit.periodic_nonuniform_piecewise.PeriodicNonuniformPiecewise"><span class="pre">PeriodicNonuniformPiecewise</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#splinekit.periodic_spline_1d.PeriodicSpline1D.eval_piecewise_polynomials_at" title="Link to this definition"></a></dt>
 <dd><p id="periodic-spline-1d-eval-piecewise-polynomials-at">The ordinate of a piecewise polynomial at an arbitrary abscissa.</p>
 <p>Evaluated at the abscissa <code class="docutils literal notranslate"><span class="pre">x</span></code>, this function returns the value of a
 given <a class="reference internal" href="../periodic_nonuniform_piecewise/01_periodic_nonuniform_piecewise.html#periodicnonuniformpiecewise"><span class="std std-ref">PeriodicNonuniformPiecewise</span></a>
@@ -1093,12 +1100,12 @@ polynomial.</p>
 </dd>
 </dl>
 </div>
+<hr class="docutils" />
 </dd></dl>
 
-<hr class="docutils" />
 <dl class="py method">
 <dt class="sig sig-object py" id="splinekit.periodic_spline_1d.PeriodicSpline1D.eval_piecewise_sgn_at">
-<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">eval_piecewise_sgn_at</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sgn</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../periodic_nonuniform_piecewise/01_periodic_nonuniform_piecewise.html#splinekit.periodic_nonuniform_piecewise.PeriodicNonuniformPiecewise" title="splinekit.periodic_nonuniform_piecewise.PeriodicNonuniformPiecewise"><span class="pre">PeriodicNonuniformPiecewise</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#splinekit.periodic_spline_1d.PeriodicSpline1D.eval_piecewise_sgn_at" title="Link to this definition"></a></dt>
+<span class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">eval_piecewise_sgn_at</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sgn</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../periodic_nonuniform_piecewise/01_periodic_nonuniform_piecewise.html#splinekit.periodic_nonuniform_piecewise.PeriodicNonuniformPiecewise" title="splinekit.periodic_nonuniform_piecewise.PeriodicNonuniformPiecewise"><span class="pre">PeriodicNonuniformPiecewise</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#splinekit.periodic_spline_1d.PeriodicSpline1D.eval_piecewise_sgn_at" title="Link to this definition"></a></dt>
 <dd><p id="periodic-spline-1d-eval-piecewise-sgn-at">The signum, at an arbitrary abscissa, of the
 PeriodicNonuniformPiecewise object returned by the function
 piecewise_sgn().</p>
@@ -1151,9 +1158,9 @@ signum.</p>
 </dd>
 </dl>
 </div>
+<hr class="docutils" />
 </dd></dl>
 
-<hr class="docutils" />
 <dl class="py method">
 <dt class="sig sig-object py" id="splinekit.periodic_spline_1d.PeriodicSpline1D.copy">
 <span class="sig-name descname"><span class="pre">copy</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#splinekit.periodic_spline_1d.PeriodicSpline1D" title="splinekit.periodic_spline_1d.PeriodicSpline1D"><span class="pre">PeriodicSpline1D</span></a></span></span><a class="headerlink" href="#splinekit.periodic_spline_1d.PeriodicSpline1D.copy" title="Link to this definition"></a></dt>
@@ -1188,12 +1195,12 @@ signum.</p>
 </div>
 </dd>
 </dl>
+<hr class="docutils" />
 </dd></dl>
 
-<hr class="docutils" />
 <dl class="py method">
 <dt class="sig sig-object py" id="splinekit.periodic_spline_1d.PeriodicSpline1D.plot">
-<span class="sig-name descname"><span class="pre">plot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">subplot</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">plt.Figure</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">plt.Axes</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">plotdomain</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../interval/interval/01_interval.html#splinekit.interval.interval.Interval" title="splinekit.interval.interval.Interval"><span class="pre">Interval</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">RR()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plotrange</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../interval/interval/01_interval.html#splinekit.interval.interval.Interval" title="splinekit.interval.interval.Interval"><span class="pre">Interval</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">RR()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plotpoints</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">line_fmt</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'-C0'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">line_width</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">marker_fmt</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'oC0'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stem_fmt</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'-C0'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">knot_marker</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'o'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">knot_color</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'k'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">periodbound_marker_fmt</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'or'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">periodbound_stem_fmt</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'-r'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#splinekit.periodic_spline_1d.PeriodicSpline1D.plot" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">plot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">subplot</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">plt.Figure</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">plt.Axes</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">plotdomain</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../interval/interval/01_interval.html#splinekit.interval.interval.Interval" title="splinekit.interval.interval.Interval"><span class="pre">Interval</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">RR()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plotrange</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../interval/interval/01_interval.html#splinekit.interval.interval.Interval" title="splinekit.interval.interval.Interval"><span class="pre">Interval</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">RR()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plotpoints</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">curve_fmt</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'-C0'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">curve_lw</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">curve_markerfmt</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'oC0'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">curvestem_linefmt</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'-C0'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">knot_marker</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'o'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">knot_color</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'k'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">periodbound_markerfmt</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'or'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">periodboundstem_linefmt</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'-r'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#splinekit.periodic_spline_1d.PeriodicSpline1D.plot" title="Link to this definition"></a></dt>
 <dd><dl class="field-list simple" id="periodic-spline-1d-plot">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -1201,17 +1208,17 @@ signum.</p>
 <li><p><strong>plotdomain</strong> (<a class="reference internal" href="../interval/interval/01_interval.html#splinekit.interval.interval.Interval" title="splinekit.interval.interval.Interval"><em>Interval</em></a>) – The domain over which this spline is drawn.</p></li>
 <li><p><strong>plotrange</strong> (<a class="reference internal" href="../interval/interval/01_interval.html#splinekit.interval.interval.Interval" title="splinekit.interval.interval.Interval"><em>Interval</em></a>) – The range over which this spline is drawn.</p></li>
 <li><p><strong>plotpoints</strong> (<em>int</em>) – The number of points sampled over <code class="docutils literal notranslate"><span class="pre">plotdomain</span></code>.</p></li>
-<li><p><strong>line_fmt</strong> (<em>str</em>) – The format of the line depicting the spline curve.</p></li>
-<li><p><strong>line_width</strong> (<em>float</em>) – The width of the line depicting the spline curve.</p></li>
-<li><p><strong>marker_fmt</strong> (<em>str</em>) – The format of the markers at the integer samples of the spline
+<li><p><strong>curve_fmt</strong> (<em>str</em>) – The format of the line depicting the spline curve.</p></li>
+<li><p><strong>curve_lw</strong> (<em>float</em>) – The width of the line depicting the spline curve.</p></li>
+<li><p><strong>curve_markerfmt</strong> (<em>str</em>) – The format of the markers at the integer samples of the spline
 curve.</p></li>
-<li><p><strong>stem_fmt</strong> (<em>str</em>) – The format of the stem line at the integer samples of the spline
+<li><p><strong>curvestem_linefmt</strong> (<em>str</em>) – The format of the stem line at the integer samples of the spline
 curve.</p></li>
 <li><p><strong>knot_marker</strong> (<em>str</em>) – The format of the markers at the knots of the spline curve.</p></li>
 <li><p><strong>knot_color</strong> (<em>str</em>) – The color of the markers at the knots of the spline curve.</p></li>
-<li><p><strong>periodbound_marker_fmt</strong> (<em>str</em>) – The format of the marker at the origin of this spline, repeated at
+<li><p><strong>periodbound_markerfmt</strong> (<em>str</em>) – The format of the marker at the origin of this spline, repeated at
 all periods.</p></li>
-<li><p><strong>periodbound_stem_fmt</strong> (<em>str</em>) – The format of the stem at the origin of this spline, repeated at
+<li><p><strong>periodboundstem_linefmt</strong> (<em>str</em>) – The format of the stem at the origin of this spline, repeated at
 all periods.</p></li>
 </ul>
 </dd>
@@ -1263,9 +1270,9 @@ The number of such segments is <code class="docutils literal notranslate"><span 
 sampled regularly over the domain that results from the
 <code class="docutils literal notranslate"><span class="pre">plotdomain</span></code> directive.</p></li>
 </ul>
-<p><em>line_fmt</em></p>
+<p><em>curve_fmt</em></p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">line_fmt</span></code> is a format string passed to the property <code class="docutils literal notranslate"><span class="pre">fmt</span></code> of
+<li><p><code class="docutils literal notranslate"><span class="pre">curve_fmt</span></code> is a format string passed to the property <code class="docutils literal notranslate"><span class="pre">fmt</span></code> of
 <code class="docutils literal notranslate"><span class="pre">matplotlib.axes.Axes.plot</span></code>. This string has the three fields
 <code class="docutils literal notranslate"><span class="pre">[marker][line][color]</span></code>.</p></li>
 <li><p>The
@@ -1278,15 +1285,17 @@ use is discouraged (leave it blank).</p></li>
 field corresponds to the color of the spline curve.</p></li>
 <li><p>The default line format is <code class="docutils literal notranslate"><span class="pre">&quot;-C0&quot;</span></code>, which means no marker and
 solid lines rendered in default-property color blue.</p></li>
+<li><p>Set <code class="docutils literal notranslate"><span class="pre">curve_fmt</span> <span class="pre">=</span> <span class="pre">&quot;None&quot;</span></code> to draw everything except the spline
+curve.</p></li>
 </ul>
-<p><em>line_width</em></p>
+<p><em>curve_lw</em></p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">line_width</span></code> is the width passed to the property <code class="docutils literal notranslate"><span class="pre">linewidth</span></code>
-of <code class="docutils literal notranslate"><span class="pre">matplotlib.axes.Axes.plot</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">curve_lw</span></code> is the width passed to the property <code class="docutils literal notranslate"><span class="pre">lw</span></code> of
+<code class="docutils literal notranslate"><span class="pre">matplotlib.axes.Axes.plot</span></code>.</p></li>
 </ul>
-<p><em>marker_fmt</em></p>
+<p><em>curve_markerfmt</em></p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">marker_fmt</span></code> is a format string passed to the property
+<li><p><code class="docutils literal notranslate"><span class="pre">curve_markerfmt</span></code> is a format string passed to the property
 <code class="docutils literal notranslate"><span class="pre">markerfmt</span></code> of <code class="docutils literal notranslate"><span class="pre">matplotlib.pyplot.stem</span></code>. This string has the
 two fields <code class="docutils literal notranslate"><span class="pre">[marker][color]</span></code>.</p></li>
 <li><p>The <a class="reference internal" href="matplotlib-marker.html#matplotlib-marker"><span class="std std-ref">matplotlib markers</span></a> of the
@@ -1298,13 +1307,15 @@ field corresponds to the color of the markers.</p></li>
 take the shape of a circle and are rendered in default-property
 color blue.</p></li>
 <li><p>If the shape is not given, use the marker <code class="docutils literal notranslate"><span class="pre">&quot;o&quot;</span></code>. If the color is
-not given, use the color from <code class="docutils literal notranslate"><span class="pre">stem_fmt</span></code>.</p></li>
+not given, use the color from <code class="docutils literal notranslate"><span class="pre">curvestem_linefmt</span></code>.</p></li>
+<li><p>Set <code class="docutils literal notranslate"><span class="pre">curve_markerfmt</span> <span class="pre">=</span> <span class="pre">&quot;</span> <span class="pre">&quot;</span></code> (a space, not an empty string) to
+draw a plot without markers.</p></li>
 </ul>
-<p><em>stem_fmt</em></p>
+<p><em>curvestem_linefmt</em></p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">stem_fmt</span></code> is a format string passed to the property <code class="docutils literal notranslate"><span class="pre">linefmt</span></code>
-of <code class="docutils literal notranslate"><span class="pre">matplotlib.pyplot.stem</span></code>. This string has the two fields
-<code class="docutils literal notranslate"><span class="pre">[line][color]</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">curvestem_linefmt</span></code> is a format string passed to the property
+<code class="docutils literal notranslate"><span class="pre">linefmt</span></code>  of <code class="docutils literal notranslate"><span class="pre">matplotlib.pyplot.stem</span></code>. This string has the
+two fields <code class="docutils literal notranslate"><span class="pre">[line][color]</span></code>.</p></li>
 <li><p>The <a class="reference internal" href="matplotlib-linestyle.html#matplotlib-linestyle"><span class="std std-ref">matplotlib line style</span></a> of the
 <code class="docutils literal notranslate"><span class="pre">[line]</span></code> field corresponds to the line style of the stem lines
 at the integer samples of the spline curve.</p></li>
@@ -1312,7 +1323,7 @@ at the integer samples of the spline curve.</p></li>
 field corresponds to the color of the stem lines.</p></li>
 <li><p>The default format of the stem lines is <code class="docutils literal notranslate"><span class="pre">&quot;-C0&quot;</span></code>, which means
 solid lines rendered in default-property color blue.</p></li>
-<li><p>To avoid stem lines entirely, set their format to <code class="docutils literal notranslate"><span class="pre">&quot;None&quot;</span></code>.</p></li>
+<li><p>Set <code class="docutils literal notranslate"><span class="pre">curvestem_linefmt</span> <span class="pre">=</span> <span class="pre">&quot;None&quot;</span></code> To avoid drawing stem lines.</p></li>
 </ul>
 <p><em>knot_marker</em></p>
 <ul class="simple">
@@ -1323,6 +1334,8 @@ one field <code class="docutils literal notranslate"><span class="pre">[marker]<
 <code class="docutils literal notranslate"><span class="pre">[marker]</span></code> field will be plotted at each knot of the spline.</p></li>
 <li><p>The default format of the knot markers is <code class="docutils literal notranslate"><span class="pre">&quot;o&quot;</span></code>, which means
 that knots take the shape of a circle.</p></li>
+<li><p>Set <code class="docutils literal notranslate"><span class="pre">knot_marker</span> <span class="pre">=</span> <span class="pre">&quot;</span> <span class="pre">&quot;</span></code> (a space, not an empty string) to draw a
+plot without knots.</p></li>
 </ul>
 <p><em>knot_color</em></p>
 <ul class="simple">
@@ -1334,9 +1347,9 @@ field corresponds to the color of the knots.</p></li>
 <li><p>The default color of the knots is <code class="docutils literal notranslate"><span class="pre">&quot;k&quot;</span></code>, which means they are
 rendered in base-color black.</p></li>
 </ul>
-<p><em>periodbound_marker_fmt</em></p>
+<p><em>periodbound_markerfmt</em></p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">periodbound_marker_fmt</span></code> is a format string passed to the
+<li><p><code class="docutils literal notranslate"><span class="pre">periodbound_markerfmt</span></code> is a format string passed to the
 property <code class="docutils literal notranslate"><span class="pre">markerfmt</span></code> of <code class="docutils literal notranslate"><span class="pre">matplotlib.pyplot.stem</span></code>. This string
 has the two fields <code class="docutils literal notranslate"><span class="pre">[color][marker]</span></code>.</p></li>
 <li><p>The <a class="reference internal" href="matplotlib-color.html#matplotlib-color"><span class="std std-ref">matplotlib color</span></a> of the <code class="docutils literal notranslate"><span class="pre">[color]</span></code>
@@ -1347,10 +1360,12 @@ field corresponds to the color of the period-bound markers.</p></li>
 <li><p>The default format of the period-bound markers is <code class="docutils literal notranslate"><span class="pre">&quot;or&quot;</span></code>, which
 means they take the shape of a circle and are rendered in
 base-color red.</p></li>
+<li><p>Set <code class="docutils literal notranslate"><span class="pre">periodbound_markerfmt</span> <span class="pre">=</span> <span class="pre">&quot;</span> <span class="pre">&quot;</span></code> (a space, not an empty string)
+to draw a plot without specific period-bound markers.</p></li>
 </ul>
-<p><em>periodbound_stem_fmt</em></p>
+<p><em>periodboundstem_linefmt</em></p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">periodbound_stem_fmt</span></code> is a format string passed to the
+<li><p><code class="docutils literal notranslate"><span class="pre">periodboundstem_linefmt</span></code> is a format string passed to the
 property <code class="docutils literal notranslate"><span class="pre">linefmt</span></code> of <code class="docutils literal notranslate"><span class="pre">matplotlib.pyplot.stem</span></code>. This string
 has the two fields <code class="docutils literal notranslate"><span class="pre">[line][color]</span></code>.</p></li>
 <li><p>The <a class="reference internal" href="matplotlib-linestyle.html#matplotlib-linestyle"><span class="std std-ref">matplotlib line style</span></a> of the
@@ -1361,7 +1376,8 @@ They are drawn one period apart, at
 field corresponds to the color of the period-bound stem lines.</p></li>
 <li><p>The default format of the period-bound stem lines is <code class="docutils literal notranslate"><span class="pre">&quot;-r&quot;</span></code>,
 which means solid lines rendered in base-color red.</p></li>
-<li><p>To avoid stem lines entirely, set their format to <code class="docutils literal notranslate"><span class="pre">&quot;None&quot;</span></code>.</p></li>
+<li><p>Set <code class="docutils literal notranslate"><span class="pre">periodboundstem_linefmt</span> <span class="pre">=</span> <span class="pre">&quot;None&quot;</span></code> To avoid drawing specific
+stem lines at the period boundaries.</p></li>
 </ul>
 <p class="rubric">Examples</p>
 <dl>
@@ -1395,9 +1411,9 @@ which means solid lines rendered in base-color red.</p></li>
 </ul>
 </dd>
 </dl>
+<hr class="docutils" />
 </dd></dl>
 
-<hr class="docutils" />
 <dl class="py method">
 <dt class="sig sig-object py" id="splinekit.periodic_spline_1d.PeriodicSpline1D.at">
 <span class="sig-name descname"><span class="pre">at</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#splinekit.periodic_spline_1d.PeriodicSpline1D.at" title="Link to this definition"></a></dt>
@@ -1423,7 +1439,7 @@ is the <a class="reference internal" href="../spline_utilities/01_spline_utiliti
 \in{\mathbb{R}},\)</span> <span class="math notranslate nohighlight">\(r=\left\lceil\xi\right\rceil\in
 {\mathbb{Z}},\)</span> and <span class="math notranslate nohighlight">\(\chi=\left(r-\xi\right)\in[0,1).\)</span></p>
 <p>As computed above, the fact that the Vandermonde vector has the domain
-<span class="math notranslate nohighlight">\([0,1)\)</span> greatly favors numerical stability since the range of
+<span class="math notranslate nohighlight">\([0,1)\)</span> greatly favors numerical stability since the image of
 each of its components is <span class="math notranslate nohighlight">\([0,1].\)</span></p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -1451,9 +1467,9 @@ each of its components is <span class="math notranslate nohighlight">\([0,1].\)<
 </div>
 </dd>
 </dl>
+<hr class="docutils" />
 </dd></dl>
 
-<hr class="docutils" />
 <dl class="py method">
 <dt class="sig sig-object py" id="splinekit.periodic_spline_1d.PeriodicSpline1D.get_samples">
 <span class="sig-name descname"><span class="pre">get_samples</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">starting_at</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">support_length</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">oversampling</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ndarray</span><span class="p"><span class="pre">[</span></span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">dtype</span><span class="p"><span class="pre">[</span></span><span class="pre">float64</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#splinekit.periodic_spline_1d.PeriodicSpline1D.get_samples" title="Link to this definition"></a></dt>
@@ -1522,9 +1538,9 @@ length of the spline.</p></li>
 </ul>
 </dd>
 </dl>
+<hr class="docutils" />
 </dd></dl>
 
-<hr class="docutils" />
 <dl class="py method">
 <dt class="sig sig-object py" id="splinekit.periodic_spline_1d.PeriodicSpline1D.mean">
 <span class="sig-name descname"><span class="pre">mean</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#splinekit.periodic_spline_1d.PeriodicSpline1D.mean" title="Link to this definition"></a></dt>
@@ -1560,9 +1576,9 @@ defined by</p>
 </div>
 </dd>
 </dl>
+<hr class="docutils" />
 </dd></dl>
 
-<hr class="docutils" />
 <dl class="py method">
 <dt class="sig sig-object py" id="splinekit.periodic_spline_1d.PeriodicSpline1D.variance">
 <span class="sig-name descname"><span class="pre">variance</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#splinekit.periodic_spline_1d.PeriodicSpline1D.variance" title="Link to this definition"></a></dt>
@@ -1600,9 +1616,9 @@ defined by</p>
 </div>
 </dd>
 </dl>
+<hr class="docutils" />
 </dd></dl>
 
-<hr class="docutils" />
 <dl class="py method">
 <dt class="sig sig-object py" id="splinekit.periodic_spline_1d.PeriodicSpline1D.lower_bound">
 <span class="sig-name descname"><span class="pre">lower_bound</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">degree</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#splinekit.periodic_spline_1d.PeriodicSpline1D" title="splinekit.periodic_spline_1d.PeriodicSpline1D"><span class="pre">PeriodicSpline1D</span></a></span></span><a class="headerlink" href="#splinekit.periodic_spline_1d.PeriodicSpline1D.lower_bound" title="Link to this definition"></a></dt>
@@ -1646,19 +1662,16 @@ lower-bounds this spline.</p>
 </dd>
 </dl>
 <p class="rubric">Notes</p>
-<p>The bound relies on two properties. One is that
-<span class="math notranslate nohighlight">\(x^{n}\geq x^{n+1}\)</span> for <span class="math notranslate nohighlight">\(x\in(0,1)\)</span> and
-<span class="math notranslate nohighlight">\(n\in{\mathbb{N}}.\)</span> The other is that
-<a class="reference internal" href="../glossary/glossary-splines.html#def-b-spline"><span class="std std-ref">B-splines</span></a> are nonnegative. The bound is
-reasonably sharp and fast to compute.</p>
+<p>The bound relies on the fact that <a class="reference internal" href="../glossary/glossary-splines.html#def-b-spline"><span class="std std-ref">B-splines</span></a> are
+nonnegative. The bound is reasonably sharp and fast to compute.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Raises<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>ValueError</strong> – Raised when <code class="docutils literal notranslate"><span class="pre">degree</span></code> is <a class="reference internal" href="../glossary/glossary-numbers.html#def-negative"><span class="std std-ref">negative</span></a>.</p>
 </dd>
 </dl>
+<hr class="docutils" />
 </dd></dl>
 
-<hr class="docutils" />
 <dl class="py method">
 <dt class="sig sig-object py" id="splinekit.periodic_spline_1d.PeriodicSpline1D.upper_bound">
 <span class="sig-name descname"><span class="pre">upper_bound</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">degree</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#splinekit.periodic_spline_1d.PeriodicSpline1D" title="splinekit.periodic_spline_1d.PeriodicSpline1D"><span class="pre">PeriodicSpline1D</span></a></span></span><a class="headerlink" href="#splinekit.periodic_spline_1d.PeriodicSpline1D.upper_bound" title="Link to this definition"></a></dt>
@@ -1702,19 +1715,51 @@ upper-bounds this spline.</p>
 </dd>
 </dl>
 <p class="rubric">Notes</p>
-<p>The bound relies on two properties. One is that
-<span class="math notranslate nohighlight">\(x^{n}\geq x^{n+1}\)</span> for <span class="math notranslate nohighlight">\(x\in(0,1)\)</span> and
-<span class="math notranslate nohighlight">\(n\in{\mathbb{N}}.\)</span> The other is that
-<a class="reference internal" href="../glossary/glossary-splines.html#def-b-spline"><span class="std std-ref">B-splines</span></a> are nonnegative. The bound is
-reasonably sharp and fast to compute.</p>
+<p>The bound relies on the fact that <a class="reference internal" href="../glossary/glossary-splines.html#def-b-spline"><span class="std std-ref">B-splines</span></a> are
+nonnegative. The bound is reasonably sharp and fast to compute.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Raises<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>ValueError</strong> – Raised when <code class="docutils literal notranslate"><span class="pre">degree</span></code> is <a class="reference internal" href="../glossary/glossary-numbers.html#def-negative"><span class="std std-ref">negative</span></a>.</p>
 </dd>
 </dl>
+<hr class="docutils" />
 </dd></dl>
 
+<dl class="py method">
+<dt class="sig sig-object py" id="splinekit.periodic_spline_1d.PeriodicSpline1D.image">
+<span class="sig-name descname"><span class="pre">image</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="../interval/interval/01_interval.html#splinekit.interval.interval.Interval" title="splinekit.interval.interval.Interval"><span class="pre">Interval</span></a></span></span><a class="headerlink" href="#splinekit.periodic_spline_1d.PeriodicSpline1D.image" title="Link to this definition"></a></dt>
+<dd><p id="periodic-spline-1d-image">An interval that gives the enclosure of the image of this spline.</p>
+<p>This function returns a closed interval whose lower and upper bounds
+are the minimal and maximal values that the spline takes over one
+period. When the spline is of degree zero, this interval is the
+enclosure of the image of the spline. For higher degrees, it is the
+image itself.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The image of this spline.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="../interval/interval/01_interval.html#splinekit.interval.interval.Interval" title="splinekit.interval.interval.Interval">Interval</a></p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<dl>
+<dt>Load the libraries.</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">splinekit</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sk</span>
+</pre></div>
+</div>
+</dd>
+<dt>Create a spline and get its image.</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">c</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="o">-</span><span class="mi">7</span><span class="p">],</span> <span class="n">dtype</span> <span class="o">=</span> <span class="nb">float</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">s</span> <span class="o">=</span> <span class="n">sk</span><span class="o">.</span><span class="n">PeriodicSpline1D</span><span class="o">.</span><span class="n">from_spline_coeff</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">degree</span> <span class="o">=</span> <span class="mi">3</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">s</span><span class="o">.</span><span class="n">image</span><span class="p">()</span>
+<span class="go">Closed((-3.354648431614539, 5.354648431614539))</span>
+</pre></div>
+</div>
+</dd>
+</dl>
 <hr class="docutils" />
+</dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py" id="splinekit.periodic_spline_1d.PeriodicSpline1D.get_knots">
 <span class="sig-name descname"><span class="pre">get_knots</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">domain</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../interval/interval/01_interval.html#splinekit.interval.interval.Interval" title="splinekit.interval.interval.Interval"><span class="pre">Interval</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">RR()</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ndarray</span><span class="p"><span class="pre">[</span></span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">dtype</span><span class="p"><span class="pre">[</span></span><span class="pre">float64</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#splinekit.periodic_spline_1d.PeriodicSpline1D.get_knots" title="Link to this definition"></a></dt>
@@ -1781,9 +1826,9 @@ of the bounds.</p></li>
 returned array. For instance, a constant-valued spline is infinitely
 differentiable and thus has no knots. Yet, the returned array is still
 populated with the splits between the spline pieces.</p>
+<hr class="docutils" />
 </dd></dl>
 
-<hr class="docutils" />
 <dl class="py method">
 <dt class="sig sig-object py" id="splinekit.periodic_spline_1d.PeriodicSpline1D.zeros">
 <span class="sig-name descname"><span class="pre">zeros</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../interval/interval/01_interval.html#splinekit.interval.interval.Interval" title="splinekit.interval.interval.Interval"><span class="pre">Interval</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#splinekit.periodic_spline_1d.PeriodicSpline1D.zeros" title="Link to this definition"></a></dt>
@@ -1829,9 +1874,9 @@ spline.</p></li>
 </div>
 </dd>
 </dl>
+<hr class="docutils" />
 </dd></dl>
 
-<hr class="docutils" />
 <dl class="py method">
 <dt class="sig sig-object py" id="splinekit.periodic_spline_1d.PeriodicSpline1D.zero_crossings">
 <span class="sig-name descname"><span class="pre">zero_crossings</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../interval/interval/01_interval.html#splinekit.interval.interval.Interval" title="splinekit.interval.interval.Interval"><span class="pre">Interval</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#splinekit.periodic_spline_1d.PeriodicSpline1D.zero_crossings" title="Link to this definition"></a></dt>
@@ -1888,12 +1933,12 @@ spline.</p></li>
 </div>
 </dd>
 </dl>
+<hr class="docutils" />
 </dd></dl>
 
-<hr class="docutils" />
 <dl class="py class">
 <dt class="sig sig-object py" id="splinekit.periodic_spline_1d.PeriodicSpline1D.Extremum">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Extremum</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">domain</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../interval/interval/01_interval.html#splinekit.interval.interval.Interval" title="splinekit.interval.interval.Interval"><span class="pre">Interval</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#splinekit.periodic_spline_1d.PeriodicSpline1D.Extremum" title="Link to this definition"></a></dt>
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">Extremum</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">domain</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../interval/interval/01_interval.html#splinekit.interval.interval.Interval" title="splinekit.interval.interval.Interval"><span class="pre">Interval</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#splinekit.periodic_spline_1d.PeriodicSpline1D.Extremum" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">NamedTuple</span></code></p>
 <p id="periodic-spline-1d-extremum">Each <code class="docutils literal notranslate"><span class="pre">Extremum</span></code> object is a named tuple made of two fields. The
 first field is named <code class="docutils literal notranslate"><span class="pre">domain</span></code> and contains an
@@ -1904,20 +1949,20 @@ extremum extends. The second field is named <code class="docutils literal notran
 <hr class="docutils" />
 <dl class="py attribute">
 <dt class="sig sig-object py" id="splinekit.periodic_spline_1d.PeriodicSpline1D.Extremum.domain">
-<span class="sig-name descname"><span class="pre">domain</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="../interval/interval/01_interval.html#splinekit.interval.interval.Interval" title="splinekit.interval.interval.Interval"><span class="pre">Interval</span></a></em><a class="headerlink" href="#splinekit.periodic_spline_1d.PeriodicSpline1D.Extremum.domain" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">domain</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="../interval/interval/01_interval.html#splinekit.interval.interval.Interval" title="splinekit.interval.interval.Interval"><span class="pre">Interval</span></a></span><a class="headerlink" href="#splinekit.periodic_spline_1d.PeriodicSpline1D.Extremum.domain" title="Link to this definition"></a></dt>
 <dd><p id="periodic-spline-1d-extremum-domain">the domain of this extremum.</p>
+<hr class="docutils" />
 </dd></dl>
 
-<hr class="docutils" />
 <dl class="py attribute">
 <dt class="sig sig-object py" id="splinekit.periodic_spline_1d.PeriodicSpline1D.Extremum.value">
-<span class="sig-name descname"><span class="pre">value</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#splinekit.periodic_spline_1d.PeriodicSpline1D.Extremum.value" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">value</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></span><a class="headerlink" href="#splinekit.periodic_spline_1d.PeriodicSpline1D.Extremum.value" title="Link to this definition"></a></dt>
 <dd><p id="periodic-spline-1d-extremum-value">The value of this extremum.</p>
-</dd></dl>
-
-</dd></dl>
-
 <hr class="docutils" />
+</dd></dl>
+
+</dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py" id="splinekit.periodic_spline_1d.PeriodicSpline1D.extrema">
 <span class="sig-name descname"><span class="pre">extrema</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#splinekit.periodic_spline_1d.PeriodicSpline1D.Extremum" title="splinekit.periodic_spline_1d.PeriodicSpline1D.Extremum"><span class="pre">Extremum</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#splinekit.periodic_spline_1d.PeriodicSpline1D.extrema" title="Link to this definition"></a></dt>
@@ -1970,9 +2015,9 @@ spline.</p></li>
 </div>
 </dd>
 </dl>
+<hr class="docutils" />
 </dd></dl>
 
-<hr class="docutils" />
 <dl class="py method">
 <dt class="sig sig-object py" id="splinekit.periodic_spline_1d.PeriodicSpline1D.plus">
 <span class="sig-name descname"><span class="pre">plus</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">constant</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#splinekit.periodic_spline_1d.PeriodicSpline1D" title="splinekit.periodic_spline_1d.PeriodicSpline1D"><span class="pre">PeriodicSpline1D</span></a></span></span><a class="headerlink" href="#splinekit.periodic_spline_1d.PeriodicSpline1D.plus" title="Link to this definition"></a></dt>
@@ -2007,9 +2052,9 @@ letting <code class="docutils literal notranslate"><span class="pre">constant</s
 </div>
 </dd>
 </dl>
+<hr class="docutils" />
 </dd></dl>
 
-<hr class="docutils" />
 <dl class="py method">
 <dt class="sig sig-object py" id="splinekit.periodic_spline_1d.PeriodicSpline1D.times">
 <span class="sig-name descname"><span class="pre">times</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">constant</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#splinekit.periodic_spline_1d.PeriodicSpline1D" title="splinekit.periodic_spline_1d.PeriodicSpline1D"><span class="pre">PeriodicSpline1D</span></a></span></span><a class="headerlink" href="#splinekit.periodic_spline_1d.PeriodicSpline1D.times" title="Link to this definition"></a></dt>
@@ -2044,9 +2089,9 @@ letting <code class="docutils literal notranslate"><span class="pre">constant</s
 </div>
 </dd>
 </dl>
+<hr class="docutils" />
 </dd></dl>
 
-<hr class="docutils" />
 <dl class="py method">
 <dt class="sig sig-object py" id="splinekit.periodic_spline_1d.PeriodicSpline1D.negated">
 <span class="sig-name descname"><span class="pre">negated</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#splinekit.periodic_spline_1d.PeriodicSpline1D" title="splinekit.periodic_spline_1d.PeriodicSpline1D"><span class="pre">PeriodicSpline1D</span></a></span></span><a class="headerlink" href="#splinekit.periodic_spline_1d.PeriodicSpline1D.negated" title="Link to this definition"></a></dt>
@@ -2081,9 +2126,9 @@ the spline
 </div>
 </dd>
 </dl>
+<hr class="docutils" />
 </dd></dl>
 
-<hr class="docutils" />
 <dl class="py method">
 <dt class="sig sig-object py" id="splinekit.periodic_spline_1d.PeriodicSpline1D.mirrored">
 <span class="sig-name descname"><span class="pre">mirrored</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#splinekit.periodic_spline_1d.PeriodicSpline1D" title="splinekit.periodic_spline_1d.PeriodicSpline1D"><span class="pre">PeriodicSpline1D</span></a></span></span><a class="headerlink" href="#splinekit.periodic_spline_1d.PeriodicSpline1D.mirrored" title="Link to this definition"></a></dt>
@@ -2118,9 +2163,9 @@ the spline
 </div>
 </dd>
 </dl>
+<hr class="docutils" />
 </dd></dl>
 
-<hr class="docutils" />
 <dl class="py method">
 <dt class="sig sig-object py" id="splinekit.periodic_spline_1d.PeriodicSpline1D.fractionalized_delay">
 <span class="sig-name descname"><span class="pre">fractionalized_delay</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#splinekit.periodic_spline_1d.PeriodicSpline1D" title="splinekit.periodic_spline_1d.PeriodicSpline1D"><span class="pre">PeriodicSpline1D</span></a></span></span><a class="headerlink" href="#splinekit.periodic_spline_1d.PeriodicSpline1D.fractionalized_delay" title="Link to this definition"></a></dt>
@@ -2160,9 +2205,9 @@ smaller than <span class="math notranslate nohighlight">\(1.\)</span></p>
 </div>
 </dd>
 </dl>
+<hr class="docutils" />
 </dd></dl>
 
-<hr class="docutils" />
 <dl class="py method">
 <dt class="sig sig-object py" id="splinekit.periodic_spline_1d.PeriodicSpline1D.delayed_by">
 <span class="sig-name descname"><span class="pre">delayed_by</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dx</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#splinekit.periodic_spline_1d.PeriodicSpline1D" title="splinekit.periodic_spline_1d.PeriodicSpline1D"><span class="pre">PeriodicSpline1D</span></a></span></span><a class="headerlink" href="#splinekit.periodic_spline_1d.PeriodicSpline1D.delayed_by" title="Link to this definition"></a></dt>
@@ -2198,9 +2243,9 @@ where the delay <span class="math notranslate nohighlight">\(\Delta x\)</span> i
 </div>
 </dd>
 </dl>
+<hr class="docutils" />
 </dd></dl>
 
-<hr class="docutils" />
 <dl class="py method">
 <dt class="sig sig-object py" id="splinekit.periodic_spline_1d.PeriodicSpline1D.differentiated">
 <span class="sig-name descname"><span class="pre">differentiated</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">order</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#splinekit.periodic_spline_1d.PeriodicSpline1D" title="splinekit.periodic_spline_1d.PeriodicSpline1D"><span class="pre">PeriodicSpline1D</span></a></span></span><a class="headerlink" href="#splinekit.periodic_spline_1d.PeriodicSpline1D.differentiated" title="Link to this definition"></a></dt>
@@ -2244,9 +2289,9 @@ where the delay <span class="math notranslate nohighlight">\(\Delta x\)</span> i
 </ul>
 </dd>
 </dl>
+<hr class="docutils" />
 </dd></dl>
 
-<hr class="docutils" />
 <dl class="py method">
 <dt class="sig sig-object py" id="splinekit.periodic_spline_1d.PeriodicSpline1D.gradient">
 <span class="sig-name descname"><span class="pre">gradient</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#splinekit.periodic_spline_1d.PeriodicSpline1D" title="splinekit.periodic_spline_1d.PeriodicSpline1D"><span class="pre">PeriodicSpline1D</span></a></span></span><a class="headerlink" href="#splinekit.periodic_spline_1d.PeriodicSpline1D.gradient" title="Link to this definition"></a></dt>
@@ -2288,9 +2333,9 @@ that</p>
     <a class="reference internal" href="../glossary/glossary-numbers.html#def-positive"><span class="std std-ref">nonpositive</span></a>.</p>
 </dd>
 </dl>
+<hr class="docutils" />
 </dd></dl>
 
-<hr class="docutils" />
 <dl class="py method">
 <dt class="sig sig-object py" id="splinekit.periodic_spline_1d.PeriodicSpline1D.anti_grad">
 <span class="sig-name descname"><span class="pre">anti_grad</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#splinekit.periodic_spline_1d.PeriodicSpline1D" title="splinekit.periodic_spline_1d.PeriodicSpline1D"><span class="pre">PeriodicSpline1D</span></a></span></span><a class="headerlink" href="#splinekit.periodic_spline_1d.PeriodicSpline1D.anti_grad" title="Link to this definition"></a></dt>
@@ -2327,9 +2372,9 @@ that</p>
 </div>
 </dd>
 </dl>
+<hr class="docutils" />
 </dd></dl>
 
-<hr class="docutils" />
 <dl class="py method">
 <dt class="sig sig-object py" id="splinekit.periodic_spline_1d.PeriodicSpline1D.integrate">
 <span class="sig-name descname"><span class="pre">integrate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lower_bound</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">upper_bound</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#splinekit.periodic_spline_1d.PeriodicSpline1D.integrate" title="Link to this definition"></a></dt>
@@ -2368,9 +2413,9 @@ upper bound <span class="math notranslate nohighlight">\(x_{1},\)</span> as defi
 </div>
 </dd>
 </dl>
+<hr class="docutils" />
 </dd></dl>
 
-<hr class="docutils" />
 <dl class="py method">
 <dt class="sig sig-object py" id="splinekit.periodic_spline_1d.PeriodicSpline1D.fourier_coeff">
 <span class="sig-name descname"><span class="pre">fourier_coeff</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nu</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">complex</span></span></span><a class="headerlink" href="#splinekit.periodic_spline_1d.PeriodicSpline1D.fourier_coeff" title="Link to this definition"></a></dt>
@@ -2412,9 +2457,9 @@ coefficients <span class="math notranslate nohighlight">\(F\)</span> is such tha
 </div>
 </dd>
 </dl>
+<hr class="docutils" />
 </dd></dl>
 
-<hr class="docutils" />
 <dl class="py method">
 <dt class="sig sig-object py" id="splinekit.periodic_spline_1d.PeriodicSpline1D.piecewise_polynomials">
 <span class="sig-name descname"><span class="pre">piecewise_polynomials</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">symbol</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'x'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="../periodic_nonuniform_piecewise/01_periodic_nonuniform_piecewise.html#splinekit.periodic_nonuniform_piecewise.PeriodicNonuniformPiecewise" title="splinekit.periodic_nonuniform_piecewise.PeriodicNonuniformPiecewise"><span class="pre">PeriodicNonuniformPiecewise</span></a></span></span><a class="headerlink" href="#splinekit.periodic_spline_1d.PeriodicSpline1D.piecewise_polynomials" title="Link to this definition"></a></dt>
@@ -2502,9 +2547,9 @@ a valid Python identifier.</p>
 </div>
 </dd>
 </dl>
+<hr class="docutils" />
 </dd></dl>
 
-<hr class="docutils" />
 <dl class="py method">
 <dt class="sig sig-object py" id="splinekit.periodic_spline_1d.PeriodicSpline1D.piecewise_sgn">
 <span class="sig-name descname"><span class="pre">piecewise_sgn</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="../periodic_nonuniform_piecewise/01_periodic_nonuniform_piecewise.html#splinekit.periodic_nonuniform_piecewise.PeriodicNonuniformPiecewise" title="splinekit.periodic_nonuniform_piecewise.PeriodicNonuniformPiecewise"><span class="pre">PeriodicNonuniformPiecewise</span></a></span></span><a class="headerlink" href="#splinekit.periodic_spline_1d.PeriodicSpline1D.piecewise_sgn" title="Link to this definition"></a></dt>
@@ -2549,9 +2594,9 @@ the constraint that <span class="math notranslate nohighlight">\({\mathbb{X}}_{p
 </div>
 </dd>
 </dl>
+<hr class="docutils" />
 </dd></dl>
 
-<hr class="docutils" />
 <dl class="py method">
 <dt class="sig sig-object py" id="splinekit.periodic_spline_1d.PeriodicSpline1D.projected">
 <span class="sig-name descname"><span class="pre">projected</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">degree</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">delay</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.0</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#splinekit.periodic_spline_1d.PeriodicSpline1D" title="splinekit.periodic_spline_1d.PeriodicSpline1D"><span class="pre">PeriodicSpline1D</span></a></span></span><a class="headerlink" href="#splinekit.periodic_spline_1d.PeriodicSpline1D.projected" title="Link to this definition"></a></dt>
@@ -2597,9 +2642,9 @@ polynomial spline.</p></li>
 <dd class="field-odd"><p><strong>ValueError</strong> – Raised when <code class="docutils literal notranslate"><span class="pre">degree</span></code> is <a class="reference internal" href="../glossary/glossary-numbers.html#def-negative"><span class="std std-ref">negative</span></a>.</p>
 </dd>
 </dl>
+<hr class="docutils" />
 </dd></dl>
 
-<hr class="docutils" />
 <dl class="py method">
 <dt class="sig sig-object py" id="splinekit.periodic_spline_1d.PeriodicSpline1D.upscaled">
 <span class="sig-name descname"><span class="pre">upscaled</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">magnification</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#splinekit.periodic_spline_1d.PeriodicSpline1D" title="splinekit.periodic_spline_1d.PeriodicSpline1D"><span class="pre">PeriodicSpline1D</span></a></span></span><a class="headerlink" href="#splinekit.periodic_spline_1d.PeriodicSpline1D.upscaled" title="Link to this definition"></a></dt>
@@ -2642,9 +2687,9 @@ of <span class="math notranslate nohighlight">\(s.\)</span></p>
 <dd class="field-odd"><p><strong>ValueError</strong> – Raised when <code class="docutils literal notranslate"><span class="pre">magnification</span></code> is <a class="reference internal" href="../glossary/glossary-numbers.html#def-positive"><span class="std std-ref">nonpositive</span></a>.</p>
 </dd>
 </dl>
+<hr class="docutils" />
 </dd></dl>
 
-<hr class="docutils" />
 <dl class="py method">
 <dt class="sig sig-object py" id="splinekit.periodic_spline_1d.PeriodicSpline1D.upscaled_projected">
 <span class="sig-name descname"><span class="pre">upscaled_projected</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">magnification</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">degree</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">delay</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.0</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#splinekit.periodic_spline_1d.PeriodicSpline1D" title="splinekit.periodic_spline_1d.PeriodicSpline1D"><span class="pre">PeriodicSpline1D</span></a></span></span><a class="headerlink" href="#splinekit.periodic_spline_1d.PeriodicSpline1D.upscaled_projected" title="Link to this definition"></a></dt>
@@ -2697,9 +2742,9 @@ polynomial spline.</p></li>
 </ul>
 </dd>
 </dl>
+<hr class="docutils" />
 </dd></dl>
 
-<hr class="docutils" />
 <dl class="py method">
 <dt class="sig sig-object py" id="splinekit.periodic_spline_1d.PeriodicSpline1D.downscaled_projected">
 <span class="sig-name descname"><span class="pre">downscaled_projected</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">minification</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">degree</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">delay</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.0</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#splinekit.periodic_spline_1d.PeriodicSpline1D" title="splinekit.periodic_spline_1d.PeriodicSpline1D"><span class="pre">PeriodicSpline1D</span></a></span></span><a class="headerlink" href="#splinekit.periodic_spline_1d.PeriodicSpline1D.downscaled_projected" title="Link to this definition"></a></dt>
@@ -2751,9 +2796,9 @@ polynomial spline.</p></li>
 </ul>
 </dd>
 </dl>
+<hr class="docutils" />
 </dd></dl>
 
-<hr class="docutils" />
 <dl class="py method">
 <dt class="sig sig-object py" id="splinekit.periodic_spline_1d.PeriodicSpline1D.rescaled_projected">
 <span class="sig-name descname"><span class="pre">rescaled_projected</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">period</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">degree</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">delay</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.0</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#splinekit.periodic_spline_1d.PeriodicSpline1D" title="splinekit.periodic_spline_1d.PeriodicSpline1D"><span class="pre">PeriodicSpline1D</span></a></span></span><a class="headerlink" href="#splinekit.periodic_spline_1d.PeriodicSpline1D.rescaled_projected" title="Link to this definition"></a></dt>

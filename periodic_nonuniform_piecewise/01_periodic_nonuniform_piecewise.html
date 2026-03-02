@@ -8,7 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Periodic Nonuniform Piecewise [module] &mdash; splinekit  documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
       <link rel="stylesheet" type="text/css" href="../_static/plot_directive.css" />
       <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
       <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=2f8eb179" />
@@ -17,12 +17,12 @@
       <script src="../_static/jquery.js?v=5d32c60e"></script>
       <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
       <script src="../_static/documentation_options.js?v=5929fcd5"></script>
-      <script src="../_static/doctools.js?v=9bcbadda"></script>
-      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
       <script src="../_static/design-tabs.js?v=f930bc37"></script>
       <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
       <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-      <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -108,7 +108,7 @@
 <hr class="docutils" />
 <dl class="py class">
 <dt class="sig sig-object py" id="splinekit.periodic_nonuniform_piecewise.PeriodicNonuniformPiecewise">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">splinekit.periodic_nonuniform_piecewise.</span></span><span class="sig-name descname"><span class="pre">PeriodicNonuniformPiecewise</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pieces</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#splinekit.periodic_nonuniform_piecewise.PeriodicNonuniformPiecewise.Piece" title="splinekit.periodic_nonuniform_piecewise.PeriodicNonuniformPiecewise.Piece"><span class="pre">Piece</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">period</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#splinekit.periodic_nonuniform_piecewise.PeriodicNonuniformPiecewise" title="Link to this definition"></a></dt>
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">splinekit.periodic_nonuniform_piecewise.</span></span><span class="sig-name descname"><span class="pre">PeriodicNonuniformPiecewise</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pieces</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#splinekit.periodic_nonuniform_piecewise.PeriodicNonuniformPiecewise.Piece" title="splinekit.periodic_nonuniform_piecewise.PeriodicNonuniformPiecewise.Piece"><span class="pre">Piece</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">period</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#splinekit.periodic_nonuniform_piecewise.PeriodicNonuniformPiecewise" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p id="periodicnonuniformpiecewise">The class that maintains a valid periodic partition of a closed-open
 proper interval of integer diameter with zero as left bound.</p>
@@ -123,7 +123,7 @@ and provides a convenience method to access the appropriate piece at any
 <hr class="docutils" />
 <dl class="py property">
 <dt class="sig sig-object py" id="splinekit.periodic_nonuniform_piecewise.PeriodicNonuniformPiecewise.pieces">
-<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">pieces</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#splinekit.periodic_nonuniform_piecewise.PeriodicNonuniformPiecewise.Piece" title="splinekit.periodic_nonuniform_piecewise.PeriodicNonuniformPiecewise.Piece"><span class="pre">Piece</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#splinekit.periodic_nonuniform_piecewise.PeriodicNonuniformPiecewise.pieces" title="Link to this definition"></a></dt>
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">pieces</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#splinekit.periodic_nonuniform_piecewise.PeriodicNonuniformPiecewise.Piece" title="splinekit.periodic_nonuniform_piecewise.PeriodicNonuniformPiecewise.Piece"><span class="pre">Piece</span></a><span class="p"><span class="pre">]</span></span></span><a class="headerlink" href="#splinekit.periodic_nonuniform_piecewise.PeriodicNonuniformPiecewise.pieces" title="Link to this definition"></a></dt>
 <dd><p>The list of all pieces associated to this
 <code class="docutils literal notranslate"><span class="pre">PeriodicNonuniformPiecewise</span></code> instance, sorted by increasing domain.</p>
 <dl class="field-list simple">
@@ -134,12 +134,12 @@ and provides a convenience method to access the appropriate piece at any
 <dd class="field-even"><p>list of <a class="reference internal" href="#splinekit.periodic_nonuniform_piecewise.PeriodicNonuniformPiecewise.Piece" title="splinekit.periodic_nonuniform_piecewise.PeriodicNonuniformPiecewise.Piece">Piece</a></p>
 </dd>
 </dl>
+<hr class="docutils" />
 </dd></dl>
 
-<hr class="docutils" />
 <dl class="py property">
 <dt class="sig sig-object py" id="splinekit.periodic_nonuniform_piecewise.PeriodicNonuniformPiecewise.period">
-<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">period</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#splinekit.periodic_nonuniform_piecewise.PeriodicNonuniformPiecewise.period" title="Link to this definition"></a></dt>
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">period</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></span><a class="headerlink" href="#splinekit.periodic_nonuniform_piecewise.PeriodicNonuniformPiecewise.period" title="Link to this definition"></a></dt>
 <dd><p>The period associated to this <code class="docutils literal notranslate"><span class="pre">PeriodicNonuniformPiecewise</span></code> instance.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
@@ -149,12 +149,12 @@ and provides a convenience method to access the appropriate piece at any
 <dd class="field-even"><p>int</p>
 </dd>
 </dl>
+<hr class="docutils" />
 </dd></dl>
 
-<hr class="docutils" />
 <dl class="py class">
 <dt class="sig sig-object py" id="splinekit.periodic_nonuniform_piecewise.PeriodicNonuniformPiecewise.Piece">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Piece</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">domain</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../interval/interval/01_interval.html#splinekit.interval.interval.Interval" title="splinekit.interval.interval.Interval"><span class="pre">Interval</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">item</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#splinekit.periodic_nonuniform_piecewise.PeriodicNonuniformPiecewise.Piece" title="Link to this definition"></a></dt>
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">Piece</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">domain</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../interval/interval/01_interval.html#splinekit.interval.interval.Interval" title="splinekit.interval.interval.Interval"><span class="pre">Interval</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">item</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#splinekit.periodic_nonuniform_piecewise.PeriodicNonuniformPiecewise.Piece" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">NamedTuple</span></code></p>
 <p id="piece">Each piece of a <code class="docutils literal notranslate"><span class="pre">PeriodicNonuniformPiecewise</span></code> object is a named
 tuple made of two fields. The first field is named <code class="docutils literal notranslate"><span class="pre">domain</span></code> and is
@@ -164,20 +164,20 @@ carries the attributes of the piece—often, a function.</p>
 <hr class="docutils" />
 <dl class="py attribute">
 <dt class="sig sig-object py" id="splinekit.periodic_nonuniform_piecewise.PeriodicNonuniformPiecewise.Piece.domain">
-<span class="sig-name descname"><span class="pre">domain</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="../interval/interval/01_interval.html#splinekit.interval.interval.Interval" title="splinekit.interval.interval.Interval"><span class="pre">Interval</span></a></em><a class="headerlink" href="#splinekit.periodic_nonuniform_piecewise.PeriodicNonuniformPiecewise.Piece.domain" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">domain</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="../interval/interval/01_interval.html#splinekit.interval.interval.Interval" title="splinekit.interval.interval.Interval"><span class="pre">Interval</span></a></span><a class="headerlink" href="#splinekit.periodic_nonuniform_piecewise.PeriodicNonuniformPiecewise.Piece.domain" title="Link to this definition"></a></dt>
 <dd><p>The domain of the piece.</p>
+<hr class="docutils" />
 </dd></dl>
 
-<hr class="docutils" />
 <dl class="py attribute">
 <dt class="sig sig-object py" id="splinekit.periodic_nonuniform_piecewise.PeriodicNonuniformPiecewise.Piece.item">
-<span class="sig-name descname"><span class="pre">item</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Any</span></em><a class="headerlink" href="#splinekit.periodic_nonuniform_piecewise.PeriodicNonuniformPiecewise.Piece.item" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">item</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Any</span></span><a class="headerlink" href="#splinekit.periodic_nonuniform_piecewise.PeriodicNonuniformPiecewise.Piece.item" title="Link to this definition"></a></dt>
 <dd><p>The item of the piece.</p>
-</dd></dl>
-
-</dd></dl>
-
 <hr class="docutils" />
+</dd></dl>
+
+</dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py" id="splinekit.periodic_nonuniform_piecewise.PeriodicNonuniformPiecewise.item_at">
 <span class="sig-name descname"><span class="pre">item_at</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Any</span></span></span><a class="headerlink" href="#splinekit.periodic_nonuniform_piecewise.PeriodicNonuniformPiecewise.item_at" title="Link to this definition"></a></dt>

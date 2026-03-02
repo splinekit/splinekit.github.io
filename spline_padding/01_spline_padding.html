@@ -8,7 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Spline Padding [module] &mdash; splinekit  documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
       <link rel="stylesheet" type="text/css" href="../_static/plot_directive.css" />
       <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
       <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=2f8eb179" />
@@ -17,12 +17,12 @@
       <script src="../_static/jquery.js?v=5d32c60e"></script>
       <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
       <script src="../_static/documentation_options.js?v=5929fcd5"></script>
-      <script src="../_static/doctools.js?v=9bcbadda"></script>
-      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
       <script src="../_static/design-tabs.js?v=f930bc37"></script>
       <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
       <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-      <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -207,9 +207,9 @@ extended by periodic padding. The padded data <span class="math notranslate nohi
 </div>
 </dd>
 </dl>
+<hr class="docutils" />
 </dd></dl>
 
-<hr class="docutils" />
 <dl class="py function">
 <dt class="sig sig-object py" id="splinekit.spline_padding.change_basis_p">
 <span class="sig-prename descclassname"><span class="pre">splinekit.spline_padding.</span></span><span class="sig-name descname"><span class="pre">change_basis_p</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span><span class="p"><span class="pre">[</span></span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">dtype</span><span class="p"><span class="pre">[</span></span><span class="pre">float64</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">degree</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">source_basis</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../bases/01_bases.html#splinekit.bases.Bases" title="splinekit.bases.Bases"><span class="pre">Bases</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">target_basis</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../bases/01_bases.html#splinekit.bases.Bases" title="splinekit.bases.Bases"><span class="pre">Bases</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#splinekit.spline_padding.change_basis_p" title="Link to this definition"></a></dt>
@@ -260,12 +260,12 @@ sum of integer-shifted bases of the type <code class="docutils literal notransla
 </dl>
 <p class="rubric">Notes</p>
 <p>The computations are performed in-place.</p>
+<hr class="docutils" />
 </dd></dl>
 
-<hr class="docutils" />
 <dl class="py function">
 <dt class="sig sig-object py" id="splinekit.spline_padding.samples_to_coeff_p">
-<span class="sig-prename descclassname"><span class="pre">splinekit.spline_padding.</span></span><span class="sig-name descname"><span class="pre">samples_to_coeff_p</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span><span class="p"><span class="pre">[</span></span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">dtype</span><span class="p"><span class="pre">[</span></span><span class="pre">float64</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">degree</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#splinekit.spline_padding.samples_to_coeff_p" title="Link to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">splinekit.spline_padding.</span></span><span class="sig-name descname"><span class="pre">samples_to_coeff_p</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span><span class="p"><span class="pre">[</span></span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">dtype</span><span class="p"><span class="pre">[</span></span><span class="pre">float64</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">degree</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pure_python</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#splinekit.spline_padding.samples_to_coeff_p" title="Link to this definition"></a></dt>
 <dd><p id="samples-to-coeff-p">In-place conversion of data samples into spline coefficients under
 periodic padding.</p>
 <p>Replaces a one-dimensional <code class="docutils literal notranslate"><span class="pre">numpy.ndarray</span></code> of data samples <span class="math notranslate nohighlight">\(f\)</span> by
@@ -282,6 +282,7 @@ are assumed to conform to a <a class="reference internal" href="#pad-p"><span cl
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>data</strong> (<em>np.ndarray</em><em>[</em><em>tuple</em><em>[</em><em>int</em><em>]</em><em>, </em><em>np.dtype</em><em>[</em><em>np.float64</em><em>]</em><em>]</em><em>,</em>) – Data to convert from samples to coefficients.</p></li>
 <li><p><strong>degree</strong> (<em>int</em>) – Nonnegative degree of the polynomial B-spline.</p></li>
+<li><p><strong>pure_python</strong> (<em>bool</em>) – The directive that forces the computations to be performed in Python.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
@@ -312,9 +313,9 @@ are assumed to conform to a <a class="reference internal" href="#pad-p"><span cl
 </dl>
 <p class="rubric">Notes</p>
 <p>The computations are performed in-place.</p>
+<hr class="docutils" />
 </dd></dl>
 
-<hr class="docutils" />
 <dl class="py function">
 <dt class="sig sig-object py" id="splinekit.spline_padding.coeff_to_samples_p">
 <span class="sig-prename descclassname"><span class="pre">splinekit.spline_padding.</span></span><span class="sig-name descname"><span class="pre">coeff_to_samples_p</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span><span class="p"><span class="pre">[</span></span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">dtype</span><span class="p"><span class="pre">[</span></span><span class="pre">float64</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">degree</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#splinekit.spline_padding.coeff_to_samples_p" title="Link to this definition"></a></dt>
@@ -364,9 +365,9 @@ are assumed to conform to a <a class="reference internal" href="#pad-p"><span cl
 </dl>
 <p class="rubric">Notes</p>
 <p>The computations are performed in-place.</p>
+<hr class="docutils" />
 </dd></dl>
 
-<hr class="docutils" />
 <dl class="py function">
 <dt class="sig sig-object py" id="splinekit.spline_padding.coeff_to_ortho_p">
 <span class="sig-prename descclassname"><span class="pre">splinekit.spline_padding.</span></span><span class="sig-name descname"><span class="pre">coeff_to_ortho_p</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span><span class="p"><span class="pre">[</span></span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">dtype</span><span class="p"><span class="pre">[</span></span><span class="pre">float64</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">degree</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#splinekit.spline_padding.coeff_to_ortho_p" title="Link to this definition"></a></dt>
@@ -428,9 +429,9 @@ The spline coefficients are assumed to conform to a
 </dl>
 <p class="rubric">Notes</p>
 <p>The computations are performed in-place.</p>
+<hr class="docutils" />
 </dd></dl>
 
-<hr class="docutils" />
 <dl class="py function">
 <dt class="sig sig-object py" id="splinekit.spline_padding.ortho_to_coeff_p">
 <span class="sig-prename descclassname"><span class="pre">splinekit.spline_padding.</span></span><span class="sig-name descname"><span class="pre">ortho_to_coeff_p</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span><span class="p"><span class="pre">[</span></span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">dtype</span><span class="p"><span class="pre">[</span></span><span class="pre">float64</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">degree</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#splinekit.spline_padding.ortho_to_coeff_p" title="Link to this definition"></a></dt>
@@ -492,9 +493,9 @@ of period <span class="math notranslate nohighlight">\(K.\)</span></p>
 </dl>
 <p class="rubric">Notes</p>
 <p>The computations are performed in-place.</p>
+<hr class="docutils" />
 </dd></dl>
 
-<hr class="docutils" />
 <dl class="py function">
 <dt class="sig sig-object py" id="splinekit.spline_padding.pad_n">
 <span class="sig-prename descclassname"><span class="pre">splinekit.spline_padding.</span></span><span class="sig-name descname"><span class="pre">pad_n</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span><span class="p"><span class="pre">[</span></span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">dtype</span><span class="p"><span class="pre">[</span></span><span class="pre">float64</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">at</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#splinekit.spline_padding.pad_n" title="Link to this definition"></a></dt>
@@ -591,12 +592,12 @@ narrow-mirror padding imply the periodicity</p>
 </div>
 </dd>
 </dl>
+<hr class="docutils" />
 </dd></dl>
 
-<hr class="docutils" />
 <dl class="py function">
 <dt class="sig sig-object py" id="splinekit.spline_padding.samples_to_coeff_n">
-<span class="sig-prename descclassname"><span class="pre">splinekit.spline_padding.</span></span><span class="sig-name descname"><span class="pre">samples_to_coeff_n</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span><span class="p"><span class="pre">[</span></span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">dtype</span><span class="p"><span class="pre">[</span></span><span class="pre">float64</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">degree</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#splinekit.spline_padding.samples_to_coeff_n" title="Link to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">splinekit.spline_padding.</span></span><span class="sig-name descname"><span class="pre">samples_to_coeff_n</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span><span class="p"><span class="pre">[</span></span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">dtype</span><span class="p"><span class="pre">[</span></span><span class="pre">float64</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">degree</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pure_python</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#splinekit.spline_padding.samples_to_coeff_n" title="Link to this definition"></a></dt>
 <dd><p id="samples-to-coeff-n">In-place conversion of data samples into spline coefficients under
 narrow-mirror padding.</p>
 <p>Replaces a one-dimensional <code class="docutils literal notranslate"><span class="pre">numpy.ndarray</span></code> of data samples <span class="math notranslate nohighlight">\(f\)</span> by
@@ -613,6 +614,7 @@ are assumed to conform to a <a class="reference internal" href="#pad-n"><span cl
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>data</strong> (<em>np.ndarray</em><em>[</em><em>tuple</em><em>[</em><em>int</em><em>]</em><em>, </em><em>np.dtype</em><em>[</em><em>np.float64</em><em>]</em><em>]</em><em>,</em>) – Data to convert from samples to coefficients.</p></li>
 <li><p><strong>degree</strong> (<em>int</em>) – Nonnegative degree of the polynomial B-spline.</p></li>
+<li><p><strong>pure_python</strong> (<em>bool</em>) – The directive that forces the computations to be performed in Python.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
@@ -640,9 +642,9 @@ are assumed to conform to a <a class="reference internal" href="#pad-n"><span cl
 </dl>
 <p class="rubric">Notes</p>
 <p>The computations are performed in-place.</p>
+<hr class="docutils" />
 </dd></dl>
 
-<hr class="docutils" />
 <dl class="py function">
 <dt class="sig sig-object py" id="splinekit.spline_padding.pad_w">
 <span class="sig-prename descclassname"><span class="pre">splinekit.spline_padding.</span></span><span class="sig-name descname"><span class="pre">pad_w</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span><span class="p"><span class="pre">[</span></span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">dtype</span><span class="p"><span class="pre">[</span></span><span class="pre">float64</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">at</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#splinekit.spline_padding.pad_w" title="Link to this definition"></a></dt>
@@ -739,12 +741,12 @@ wide-mirror padding imply the periodicity</p>
 </div>
 </dd>
 </dl>
+<hr class="docutils" />
 </dd></dl>
 
-<hr class="docutils" />
 <dl class="py function">
 <dt class="sig sig-object py" id="splinekit.spline_padding.samples_to_coeff_w">
-<span class="sig-prename descclassname"><span class="pre">splinekit.spline_padding.</span></span><span class="sig-name descname"><span class="pre">samples_to_coeff_w</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span><span class="p"><span class="pre">[</span></span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">dtype</span><span class="p"><span class="pre">[</span></span><span class="pre">float64</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">degree</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#splinekit.spline_padding.samples_to_coeff_w" title="Link to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">splinekit.spline_padding.</span></span><span class="sig-name descname"><span class="pre">samples_to_coeff_w</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span><span class="p"><span class="pre">[</span></span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">dtype</span><span class="p"><span class="pre">[</span></span><span class="pre">float64</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">degree</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pure_python</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#splinekit.spline_padding.samples_to_coeff_w" title="Link to this definition"></a></dt>
 <dd><p id="samples-to-coeff-w">In-place conversion of data samples into spline coefficients under
 wide-mirror padding.</p>
 <p>Replaces a one-dimensional <code class="docutils literal notranslate"><span class="pre">numpy.ndarray</span></code> of data samples <span class="math notranslate nohighlight">\(f\)</span> by
@@ -761,6 +763,7 @@ are assumed to conform to a <a class="reference internal" href="#pad-w"><span cl
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>data</strong> (<em>np.ndarray</em><em>[</em><em>tuple</em><em>[</em><em>int</em><em>]</em><em>, </em><em>np.dtype</em><em>[</em><em>np.float64</em><em>]</em><em>]</em><em>,</em>) – Data to convert from samples to coefficients.</p></li>
 <li><p><strong>degree</strong> (<em>int</em>) – Nonnegative degree of the polynomial B-spline.</p></li>
+<li><p><strong>pure_python</strong> (<em>bool</em>) – The directive that forces the computations to be performed in Python.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
@@ -788,9 +791,9 @@ are assumed to conform to a <a class="reference internal" href="#pad-w"><span cl
 </dl>
 <p class="rubric">Notes</p>
 <p>The computations are performed in-place.</p>
+<hr class="docutils" />
 </dd></dl>
 
-<hr class="docutils" />
 <dl class="py function">
 <dt class="sig sig-object py" id="splinekit.spline_padding.pad_a">
 <span class="sig-prename descclassname"><span class="pre">splinekit.spline_padding.</span></span><span class="sig-name descname"><span class="pre">pad_a</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span><span class="p"><span class="pre">[</span></span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">dtype</span><span class="p"><span class="pre">[</span></span><span class="pre">float64</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">at</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#splinekit.spline_padding.pad_a" title="Link to this definition"></a></dt>
@@ -888,12 +891,12 @@ anti-mirror padding imply the pseudo periodicity</p>
 </div>
 </dd>
 </dl>
+<hr class="docutils" />
 </dd></dl>
 
-<hr class="docutils" />
 <dl class="py function">
 <dt class="sig sig-object py" id="splinekit.spline_padding.samples_to_coeff_a">
-<span class="sig-prename descclassname"><span class="pre">splinekit.spline_padding.</span></span><span class="sig-name descname"><span class="pre">samples_to_coeff_a</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span><span class="p"><span class="pre">[</span></span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">dtype</span><span class="p"><span class="pre">[</span></span><span class="pre">float64</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">degree</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#splinekit.spline_padding.samples_to_coeff_a" title="Link to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">splinekit.spline_padding.</span></span><span class="sig-name descname"><span class="pre">samples_to_coeff_a</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span><span class="p"><span class="pre">[</span></span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">dtype</span><span class="p"><span class="pre">[</span></span><span class="pre">float64</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">degree</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pure_python</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#splinekit.spline_padding.samples_to_coeff_a" title="Link to this definition"></a></dt>
 <dd><p id="samples-to-coeff-a">In-place conversion of data samples into spline coefficients under
 anti-mirror padding.</p>
 <p>Replaces a one-dimensional <code class="docutils literal notranslate"><span class="pre">numpy.ndarray</span></code> of data samples <span class="math notranslate nohighlight">\(f\)</span> by
@@ -910,6 +913,7 @@ are assumed to conform to a <a class="reference internal" href="#pad-a"><span cl
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>data</strong> (<em>np.ndarray</em><em>[</em><em>tuple</em><em>[</em><em>int</em><em>]</em><em>, </em><em>np.dtype</em><em>[</em><em>np.float64</em><em>]</em><em>]</em><em>,</em>) – Data to convert from samples to coefficients.</p></li>
 <li><p><strong>degree</strong> (<em>int</em>) – Nonnegative degree of the polynomial B-spline.</p></li>
+<li><p><strong>pure_python</strong> (<em>bool</em>) – The directive that forces the computations to be performed in Python.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
@@ -937,9 +941,9 @@ are assumed to conform to a <a class="reference internal" href="#pad-a"><span cl
 </dl>
 <p class="rubric">Notes</p>
 <p>The computations are performed in-place.</p>
+<hr class="docutils" />
 </dd></dl>
 
-<hr class="docutils" />
 <dl class="py function">
 <dt class="sig sig-object py" id="splinekit.spline_padding.pad_np">
 <span class="sig-prename descclassname"><span class="pre">splinekit.spline_padding.</span></span><span class="sig-name descname"><span class="pre">pad_np</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span><span class="p"><span class="pre">[</span></span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">dtype</span><span class="p"><span class="pre">[</span></span><span class="pre">float64</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">at</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#splinekit.spline_padding.pad_np" title="Link to this definition"></a></dt>
@@ -1035,12 +1039,12 @@ nega-periodic padding imply the periodicity</p>
 </div>
 </dd>
 </dl>
+<hr class="docutils" />
 </dd></dl>
 
-<hr class="docutils" />
 <dl class="py function">
 <dt class="sig sig-object py" id="splinekit.spline_padding.samples_to_coeff_np">
-<span class="sig-prename descclassname"><span class="pre">splinekit.spline_padding.</span></span><span class="sig-name descname"><span class="pre">samples_to_coeff_np</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span><span class="p"><span class="pre">[</span></span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">dtype</span><span class="p"><span class="pre">[</span></span><span class="pre">float64</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">degree</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#splinekit.spline_padding.samples_to_coeff_np" title="Link to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">splinekit.spline_padding.</span></span><span class="sig-name descname"><span class="pre">samples_to_coeff_np</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span><span class="p"><span class="pre">[</span></span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">dtype</span><span class="p"><span class="pre">[</span></span><span class="pre">float64</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">degree</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pure_python</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#splinekit.spline_padding.samples_to_coeff_np" title="Link to this definition"></a></dt>
 <dd><p id="samples-to-coeff-np">In-place conversion of data samples into spline coefficients under
 nega-periodic padding.</p>
 <p>Replaces a one-dimensional <code class="docutils literal notranslate"><span class="pre">numpy.ndarray</span></code> of data samples <span class="math notranslate nohighlight">\(f\)</span> by
@@ -1057,6 +1061,7 @@ are assumed to conform to a <a class="reference internal" href="#pad-np"><span c
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>data</strong> (<em>np.ndarray</em><em>[</em><em>tuple</em><em>[</em><em>int</em><em>]</em><em>, </em><em>np.dtype</em><em>[</em><em>np.float64</em><em>]</em><em>]</em><em>,</em>) – Data to convert from samples to coefficients.</p></li>
 <li><p><strong>degree</strong> (<em>int</em>) – Nonnegative degree of the polynomial B-spline.</p></li>
+<li><p><strong>pure_python</strong> (<em>bool</em>) – The directive that forces the computations to be performed in Python.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
@@ -1084,9 +1089,9 @@ are assumed to conform to a <a class="reference internal" href="#pad-np"><span c
 </dl>
 <p class="rubric">Notes</p>
 <p>The computations are performed in-place.</p>
+<hr class="docutils" />
 </dd></dl>
 
-<hr class="docutils" />
 <dl class="py function">
 <dt class="sig sig-object py" id="splinekit.spline_padding.pad_nn">
 <span class="sig-prename descclassname"><span class="pre">splinekit.spline_padding.</span></span><span class="sig-name descname"><span class="pre">pad_nn</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span><span class="p"><span class="pre">[</span></span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">dtype</span><span class="p"><span class="pre">[</span></span><span class="pre">float64</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">at</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#splinekit.spline_padding.pad_nn" title="Link to this definition"></a></dt>
@@ -1185,12 +1190,12 @@ f[k\,\left(K+1\right)-1]&amp;=&amp;0.\end{array}\right.\end{split}\]</div>
 </div>
 </dd>
 </dl>
+<hr class="docutils" />
 </dd></dl>
 
-<hr class="docutils" />
 <dl class="py function">
 <dt class="sig sig-object py" id="splinekit.spline_padding.samples_to_coeff_nn">
-<span class="sig-prename descclassname"><span class="pre">splinekit.spline_padding.</span></span><span class="sig-name descname"><span class="pre">samples_to_coeff_nn</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span><span class="p"><span class="pre">[</span></span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">dtype</span><span class="p"><span class="pre">[</span></span><span class="pre">float64</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">degree</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#splinekit.spline_padding.samples_to_coeff_nn" title="Link to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">splinekit.spline_padding.</span></span><span class="sig-name descname"><span class="pre">samples_to_coeff_nn</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span><span class="p"><span class="pre">[</span></span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">dtype</span><span class="p"><span class="pre">[</span></span><span class="pre">float64</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">degree</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pure_python</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#splinekit.spline_padding.samples_to_coeff_nn" title="Link to this definition"></a></dt>
 <dd><p id="samples-to-coeff-nn">In-place conversion of data samples into spline coefficients under
 nega-narrow-mirror padding.</p>
 <p>Replaces a one-dimensional <code class="docutils literal notranslate"><span class="pre">numpy.ndarray</span></code> of data samples <span class="math notranslate nohighlight">\(f\)</span> by
@@ -1207,6 +1212,7 @@ are assumed to conform to a <a class="reference internal" href="#pad-nn"><span c
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>data</strong> (<em>np.ndarray</em><em>[</em><em>tuple</em><em>[</em><em>int</em><em>]</em><em>, </em><em>np.dtype</em><em>[</em><em>np.float64</em><em>]</em><em>]</em><em>,</em>) – Data to convert from samples to coefficients.</p></li>
 <li><p><strong>degree</strong> (<em>int</em>) – Nonnegative degree of the polynomial B-spline.</p></li>
+<li><p><strong>pure_python</strong> (<em>bool</em>) – The directive that forces the computations to be performed in Python.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
@@ -1234,9 +1240,9 @@ are assumed to conform to a <a class="reference internal" href="#pad-nn"><span c
 </dl>
 <p class="rubric">Notes</p>
 <p>The computations are performed in-place.</p>
+<hr class="docutils" />
 </dd></dl>
 
-<hr class="docutils" />
 <dl class="py function">
 <dt class="sig sig-object py" id="splinekit.spline_padding.pad_nw">
 <span class="sig-prename descclassname"><span class="pre">splinekit.spline_padding.</span></span><span class="sig-name descname"><span class="pre">pad_nw</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span><span class="p"><span class="pre">[</span></span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">dtype</span><span class="p"><span class="pre">[</span></span><span class="pre">float64</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">at</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#splinekit.spline_padding.pad_nw" title="Link to this definition"></a></dt>
@@ -1334,12 +1340,12 @@ nega-wide-mirror padding imply the periodicity</p>
 </div>
 </dd>
 </dl>
+<hr class="docutils" />
 </dd></dl>
 
-<hr class="docutils" />
 <dl class="py function">
 <dt class="sig sig-object py" id="splinekit.spline_padding.samples_to_coeff_nw">
-<span class="sig-prename descclassname"><span class="pre">splinekit.spline_padding.</span></span><span class="sig-name descname"><span class="pre">samples_to_coeff_nw</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span><span class="p"><span class="pre">[</span></span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">dtype</span><span class="p"><span class="pre">[</span></span><span class="pre">float64</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">degree</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#splinekit.spline_padding.samples_to_coeff_nw" title="Link to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">splinekit.spline_padding.</span></span><span class="sig-name descname"><span class="pre">samples_to_coeff_nw</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span><span class="p"><span class="pre">[</span></span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">dtype</span><span class="p"><span class="pre">[</span></span><span class="pre">float64</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">degree</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pure_python</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#splinekit.spline_padding.samples_to_coeff_nw" title="Link to this definition"></a></dt>
 <dd><p id="samples-to-coeff-nw">In-place conversion of data samples into spline coefficients under
 nega-wide-mirror padding.</p>
 <p>Replaces a one-dimensional <code class="docutils literal notranslate"><span class="pre">numpy.ndarray</span></code> of data samples <span class="math notranslate nohighlight">\(f\)</span> by
@@ -1356,6 +1362,7 @@ are assumed to conform to a <a class="reference internal" href="#pad-nw"><span c
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>data</strong> (<em>np.ndarray</em><em>[</em><em>tuple</em><em>[</em><em>int</em><em>]</em><em>, </em><em>np.dtype</em><em>[</em><em>np.float64</em><em>]</em><em>]</em><em>,</em>) – Data to convert from samples to coefficients.</p></li>
 <li><p><strong>degree</strong> (<em>int</em>) – Nonnegative degree of the polynomial B-spline.</p></li>
+<li><p><strong>pure_python</strong> (<em>bool</em>) – The directive that forces the computations to be performed in Python.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
