@@ -13,3 +13,4 @@ Tutorial [toc]
     :caption: Contents:
 
     01_bsplines
+    dummy

@@ -77,4 +77,3 @@ How to evaluate a periodic one-dimensional spline at just one argument or at a s
 :download:`periodicspline1d_polynomials <periodicspline1d_polynomials.ipynb.gz>`
 How to access the polynomial pieces of a piecewise-polynomial periodic one-dimensional spline.
 
-
