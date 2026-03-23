@@ -7,6 +7,11 @@ Jupyter Labs [toc]
       - Jupyter Lab notebooks with examples of use of the ``splinekit`` library.
 
 
+The notebooks below are distributed in compressed format. Their execution relies on the availability of a workable ``Jupyter Lab`` environment and of an installed version of the ``splinekit`` library, along with its dependencies. To install everything in one shot, launch a terminal and issue the command::
+
+    pip install numpy scipy sympy matplotlib jupyterlab ipywidgets splinekit
+
+
 Module ``bsplines``
 ===================
 

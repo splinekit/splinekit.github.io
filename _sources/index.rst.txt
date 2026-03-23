@@ -33,7 +33,6 @@ SplineKit
    :caption: Contents:
 
    installation/index
-   tutorial/index
    jupyter_labs/index
    glossary/index
    periodic_spline_1d/index
