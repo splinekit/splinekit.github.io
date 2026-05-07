@@ -1,0 +1,406 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Padding &mdash; splinekit  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../../_static/plot_directive.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+      <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=2f8eb179" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+      <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Periodic Splines [toc]" href="../spline1d/index.html" />
+    <link rel="prev" title="Padding [toc]" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            splinekit
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Demos [toc]</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../bspline/index.html">B-Splines [toc]</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Padding [toc]</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Padding</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#purpose">Purpose</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#unicity">Unicity</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#available-paddings">Available Paddings</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#periodic-padding">Periodic Padding</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#narrow-mirror-padding">Narrow-Mirror Padding</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#wide-mirror-padding">Wide-Mirror Padding</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#anti-mirror-padding">Anti-Mirror Padding</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#nega-periodic-padding">Nega-Periodic Padding</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#nega-narrow-mirror-padding">Nega-Narrow-Mirror Padding</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#nega-wide-mirror-padding">Nega-Wide-Mirror Padding</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../spline1d/index.html">Periodic Splines [toc]</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../installation/index.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../glossary/index.html">Glossary [toc]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../periodic_spline_1d/index.html">Periodic Spline 1D [toc]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../bsplines/index.html">B-Splines [toc]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../spline_padding/index.html">Spline Padding [toc]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../bases/index.html">Bases [toc]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../periodic_nonuniform_piecewise/index.html">Periodic Nonuniform Piecewise [toc]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../interval/index.html">Interval [package]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../spline_utilities/index.html">Spline Utilities [toc]</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">splinekit</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Demos [toc]</a></li>
+          <li class="breadcrumb-item"><a href="index.html">Padding [toc]</a></li>
+      <li class="breadcrumb-item active">Padding</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/Philippe-Thevenaz/splinekit/blob/main/docs/demos/padding/padding.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="padding">
+<h1>Padding<a class="headerlink" href="#padding" title="Link to this heading"></a></h1>
+<p>How to extend a finite-length vector of data to a virtually infinite-length sequence.</p>
+<hr class="docutils" />
+<section id="purpose">
+<h2>Purpose<a class="headerlink" href="#purpose" title="Link to this heading"></a></h2>
+<p>We wish to build the real function</p>
+<div class="math notranslate nohighlight">
+\[f:{\mathbb{R}}\rightarrow{\mathbb{R}},x\mapsto f(x)=\sum_{k\in{\mathbb{Z}}}\,c[k]\,\varphi(x-k).\]</div>
+<p>There, the sequence <span class="math notranslate nohighlight">\(c\)</span> of coefficients is used to parameterize the function <span class="math notranslate nohighlight">\(f\)</span> and gives us a good many degrees of freedom to shape it to our taste. Moreover, the basis <span class="math notranslate nohighlight">\(\varphi\)</span> is assumed to have the desirable technical property of being a Riesz basis. Among other things, this ensures that the infinite sum found in the construction of <span class="math notranslate nohighlight">\(f\)</span> is always well-behaved.</p>
+<p>The adaptability of <span class="math notranslate nohighlight">\(c\)</span> makes it a tool of choice to represent sampled data as the continuously defined function <span class="math notranslate nohighlight">\(f.\)</span> Given a sequence <span class="math notranslate nohighlight">\(y=\left(y[q]\right)_{q\in{\mathbb{Z}}}\)</span> of regularly indexed samples <span class="math notranslate nohighlight">\(y[q]\)</span> for <span class="math notranslate nohighlight">\(q\in{\mathbb{Z}},\)</span> the purpose of the so-called interpolation procedure is to yield a sequence <span class="math notranslate nohighlight">\(c\)</span> such that the interpolation condition <span class="math notranslate nohighlight">\(f(q)=y[q]\)</span> is satisfied. Fortunately, the assumption of a Riesz basis guarantees the existence of <span class="math notranslate nohighlight">\(c\)</span> for any <span class="math notranslate nohighlight">\(y.\)</span></p>
+<p>In case <span class="math notranslate nohighlight">\(\varphi\)</span> is a B-spline, we shall soon see that there exist infinitely many sequences of coefficients that build the same one sequence of samples. Among all these sequences of coefficients , however, there is one that is of particular interest because it can be obtained by a very efficient algorithm to get <span class="math notranslate nohighlight">\(c\)</span> out of <span class="math notranslate nohighlight">\(y.\)</span></p>
+<p>Unfortunately, the theoretical derivations of the algorithm rely on <span class="math notranslate nohighlight">\(y\)</span> being a <em>sequence</em>, which means that infinitely many samples are required. Now, one never has access to a sequence of samples in practice, only to a finite-dimensional <em>vector</em> <span class="math notranslate nohighlight">\({\mathbf{y}}=\left(y_{q}\right)_{q=1}^{K}\in{\mathbb{R}}^{K}\)</span> of samples. To take advantage of the theoretical derivations of the efficient algorithm, it is thus an unavoidable necessity that a method be engineered that converts the vector <span class="math notranslate nohighlight">\({\mathbf{y}}\)</span> into the sequence <span class="math notranslate nohighlight">\(y.\)</span> We call padding the operation that consists in the engineering of the infinite-length subsequences <span class="math notranslate nohighlight">\(\left(y[k]\right)_{k\in{\mathbb{Z}}_{&lt;0}}\)</span> to the left and <span class="math notranslate nohighlight">\(\left(y[k]\right)_{k\in{\mathbb{Z}}_{\geq K}}\)</span> to the right of the provided finite-length sequence (or finite-dimensional vector) <span class="math notranslate nohighlight">\(\left(y[k]\right)_{k=0}^{K-1}=\left(y_{q}\right)_{q=1}^{K}={\mathbf{y}}.\)</span></p>
+<p>The engineering of <span class="math notranslate nohighlight">\({\mathbf{y}}\Rightarrow y\)</span> is application-dependent and every method is valid. Which one is the best in the context of your application is only a matter of convenience.</p>
+<ul class="simple">
+<li><p>For instance, <span class="math notranslate nohighlight">\({\mathbf{y}}\)</span> could represent angular data, in which case one would have to cope with angular wrapping.</p></li>
+<li><p>Or, <span class="math notranslate nohighlight">\({\mathbf{y}}\)</span> could represent intensity data, in which case one would have to discourage negative intensities in the continuously defined function <span class="math notranslate nohighlight">\(f\)</span> being constructed through the steps <span class="math notranslate nohighlight">\({\mathbf{y}}\Rightarrow y\Rightarrow c\Rightarrow f.\)</span></p></li>
+<li><p>Or, one could pretend that all unobserved samples do vanish and take the special value <span class="math notranslate nohighlight">\(0.\)</span></p></li>
+<li><p>Or, one could assume that the first observed sample <span class="math notranslate nohighlight">\(y[0]\)</span> has indeed the same value as all unobserved samples that came before, while the last observed sample <span class="math notranslate nohighlight">\(y[K-1]\)</span> has the same value as all unobserved samples that folllow.</p></li>
+</ul>
+</section>
+<section id="unicity">
+<h2>Unicity<a class="headerlink" href="#unicity" title="Link to this heading"></a></h2>
+<p>In the sequel, we let <span class="math notranslate nohighlight">\(\varphi\)</span> be a polynomial B-spline of nonnegative integer degree <span class="math notranslate nohighlight">\(n,\)</span> which is a real function <span class="math notranslate nohighlight">\(\beta^{n}:{\mathbb{R}}\rightarrow{\mathbb{R}},x\mapsto\beta^{n}(x).\)</span> For any degree <span class="math notranslate nohighlight">\(n\geq2\)</span> and for <span class="math notranslate nohighlight">\(m\in[1\ldots\left\lfloor n/2\right\rfloor],\)</span> it is known that there exist <span class="math notranslate nohighlight">\(\left\lfloor n/2\right\rfloor\)</span> mutually different, real, negative numbers <span class="math notranslate nohighlight">\(z_{n,m}\)</span> in the open interval <span class="math notranslate nohighlight">\((-1,0)\)</span> that satisfy the relation</p>
+<div class="math notranslate nohighlight">
+\[\frac{1}{\sum_{k\in{\mathbb{Z}}}\,\beta^{n}(k)\,z_{n,m}^{-k}}\not\in{\mathbb{C}}.\]</div>
+<p>These numbers are called the poles of the spline and are such that <span class="math notranslate nohighlight">\(\sum_{k\in{\mathbb{Z}}}\,\beta^{n}(k)\,z_{n,m}^{-k}=0.\)</span> Because B-splines are even-symmetric, the pole reciprocals <span class="math notranslate nohighlight">\(z_{n,m}^{-1}\in{\mathbb{R}}_{&lt;-1}\)</span> satisfy the same relation.</p>
+<p>Suppose now we have identified a sequence <span class="math notranslate nohighlight">\(c\)</span> that verifies the interpolation condition <span class="math notranslate nohighlight">\(y[q]=\sum_{k\in{\mathbb{Z}}}\,c[k]\,\beta^{n}(q-k).\)</span> Then, it turns out that the sequence <span class="math notranslate nohighlight">\(c'[k]=c[k]+\sum_{m=1}^{\left\lfloor n/2\right\rfloor}\,\left(\lambda_{n,m}^{-}\,z_{n,m}^{-k}+\lambda_{n,m}^{+}\,z_{n,m}^{k}\right)\)</span> is also such that <span class="math notranslate nohighlight">\(y[q]=\sum_{k\in{\mathbb{Z}}}\,c'[k]\,\beta^{n}(q-k),\)</span> for any choice of the arbitrary constants <span class="math notranslate nohighlight">\(\lambda_{n,m}^{-},\lambda_{n,m}^{+}\in{\mathbb{R}}.\)</span> One concludes that additional requirements are needed to make the interpolation task well-defined.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">splinekit</span></code> library comes equipped with paddings that guarantee the well-defined interpolation of finite-length data.</p>
+</section>
+<section id="available-paddings">
+<h2>Available Paddings<a class="headerlink" href="#available-paddings" title="Link to this heading"></a></h2>
+<p>The unobserved samples are, well, unobserved. Consequently, every strategy that assigns specific values to them is valid, but some are less practical than others. The <code class="docutils literal notranslate"><span class="pre">splinekit</span></code> library deals with paddings of low complexity; in particular, we focus on some for which the overall organization of <span class="math notranslate nohighlight">\(c,\)</span> <span class="math notranslate nohighlight">\(y,\)</span> and <span class="math notranslate nohighlight">\(f\)</span> can be made consistent and solves the unicity issue. The seven paddings being considered are</p>
+<ul class="simple">
+<li><p>Periodic</p></li>
+<li><p>Narrow Mirror</p></li>
+<li><p>Wide Mirror</p></li>
+<li><p>Anti-Mirror</p></li>
+<li><p>Nega-Periodic</p></li>
+<li><p>Nega-Narrow Mirror</p></li>
+<li><p>Nega-Wide Mirror</p></li>
+</ul>
+<p>Except for the anti-mirror padding, all proposed forms honor some sort of periodicity over <span class="math notranslate nohighlight">\(c,\)</span> albeit the length of a period may differ from the number <span class="math notranslate nohighlight">\(K\)</span> of observed samples. The periodicity of <span class="math notranslate nohighlight">\(c\)</span> then implies that <span class="math notranslate nohighlight">\(y\)</span> and <span class="math notranslate nohighlight">\(f\)</span> are likewise periodic; moreover, the trivial choice <span class="math notranslate nohighlight">\(\lambda_{n,m}^{-}=0\)</span> and <span class="math notranslate nohighlight">\(\lambda_{n,m}^{+}=0\)</span> is the only one that results in the alternative versions <span class="math notranslate nohighlight">\(c'\)</span> of <span class="math notranslate nohighlight">\(c\)</span> being periodic, too, which ensures the unicity of the method and makes the interpolation problem well-defined. In the case of the anti-mirror padding, a similar reasoning also leads to the unicity of the solution.</p>
+<p>We give now a piece of code that illustrates visually the effect of the various paddings on random splines of a specified degree.</p>
+<div class="admonition-jupyter-lab-notebook admonition">
+<p class="admonition-title">Jupyter Lab notebook</p>
+<p><a class="reference external" href="https://splinekit.github.io/splinekit-jupyterlite/notebooks/index.html?path=padding_data.ipynb">Padded splines</a></p>
+</div>
+</section>
+<section id="periodic-padding">
+<h2>Periodic Padding<a class="headerlink" href="#periodic-padding" title="Link to this heading"></a></h2>
+<p>An easy, general-purpose padding approach is to engineer the sequence <span class="math notranslate nohighlight">\(c\)</span> of coefficients to be <span class="math notranslate nohighlight">\(K\)</span>-periodic. This implies that the sequence <span class="math notranslate nohighlight">\(y\)</span> of samples has to be the straighforward <span class="math notranslate nohighlight">\(K\)</span>-periodized version of the vector <span class="math notranslate nohighlight">\({\mathbf{y}}\in{\mathbb{R}}^{K}.\)</span> Ultimately, this also implies that the function <span class="math notranslate nohighlight">\(f\)</span> is itself <span class="math notranslate nohighlight">\(K\)</span>-periodic. In summary, under a periodic padding, the relations being satisfied for any <span class="math notranslate nohighlight">\(k\in{\mathbb{Z}}\)</span> and any <span class="math notranslate nohighlight">\(x\in{\mathbb{R}}\)</span> are</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}c[k]=c[k+K]\;\Rightarrow\;\left\{\begin{array}{rcl}y[k]&amp;=&amp;y[k+K]\\f(x)&amp;=&amp;f(x+K).\end{array}\right.\end{split}\]</div>
+<section id="algorithmic-considerations">
+<h3>Algorithmic Considerations<a class="headerlink" href="#algorithmic-considerations" title="Link to this heading"></a></h3>
+<p>In the context of a straightforward periodic padding, there are three major algorithmic approaches to the solution of the interpolation constraint <span class="math notranslate nohighlight">\(f(q)=y[q]\)</span> for <span class="math notranslate nohighlight">\(q\in[0\ldots K-1].\)</span></p>
+<ol class="arabic simple">
+<li><p>The <strong>linear-algebra approach</strong> first establishes an explicit system of <span class="math notranslate nohighlight">\(K\)</span> linear equations. The <span class="math notranslate nohighlight">\(q\)</span>-th equation of the system would be <span class="math notranslate nohighlight">\(y[q]=\sum_{k=0}^{K-1}\,\left(\sum_{p\in{\mathbb{Z}}}\,\varphi(q-p\,K-k)\right)\,c[k].\)</span> Tools of linear algebra would then be deployed to solve the system in terms of the unknown variables <span class="math notranslate nohighlight">\(c[k].\)</span> The overall computational cost is <span class="math notranslate nohighlight">\({\mathcal{O}}(K^{3})\)</span> when general solvers are used, and the cost would be <span class="math notranslate nohighlight">\({\mathcal{O}}(K^{2})\)</span> for Toeplitz systems. For periodic paddings, the system is circulant and the overall computational cost reduces to <span class="math notranslate nohighlight">\({\mathcal{O}}(K\,\log K)\)</span> with Fourier-based techniques to solve linear-algebra inversion problems.</p></li>
+<li><p>The <strong>discrete-Fourier approach</strong> is best described concisely in matrix notations. Let <span class="math notranslate nohighlight">\({\mathbf{F}}\in{\mathbb{C}}^{K\times K}\)</span> be the discrete-Fourier transform, with the <span class="math notranslate nohighlight">\(\nu\)</span>-th row and <span class="math notranslate nohighlight">\(q\)</span>-th column entry given by <span class="math notranslate nohighlight">\({\mathrm{e}}^{-{\mathrm{j}}\,\left(\nu-1\right)\,\frac{2\,\pi}{K}\,\left(q-1\right)}.\)</span> Let the vector <span class="math notranslate nohighlight">\({\mathbf{c}}\)</span> represent one period of the periodic sequence <span class="math notranslate nohighlight">\(c,\)</span> taken such that the first vector component <span class="math notranslate nohighlight">\(c_{1}\)</span> is the sequence element at the origin <span class="math notranslate nohighlight">\(c[0].\)</span> Moreover, let <span class="math notranslate nohighlight">\({\mathbf{\phi}}=(\sum_{p\in{\mathbb{Z}}}\,\varphi(p\,K+q))_{q=0}^{K-1}\)</span> be the data-independent vector that contains the samples (at the integers) of the periodized version of the basis <span class="math notranslate nohighlight">\(\varphi.\)</span> Then, one has that <span class="math notranslate nohighlight">\({\mathbf{c}}={\mathbf{F}}^{-1}\,\left(\left({\mathbf{F}}\,{\mathbf{y}}\right)\oslash\left({\mathbf{F}}\,{\mathbf{\phi}}\right)\right),\)</span> where <span class="math notranslate nohighlight">\(\oslash\)</span> is an element-wise division. In practice, the Fourier transformation and its inverse are implemented via the fast-Fourier algorithm, in which case the overall computational cost is <span class="math notranslate nohighlight">\({\mathcal{O}}(K\,\log K).\)</span></p></li>
+<li><p>The <strong>recursive-filtering approach</strong> is the one followed in the <code class="docutils literal notranslate"><span class="pre">splinekit</span></code> library. It requires that the basis <span class="math notranslate nohighlight">\(\varphi\)</span> has a finite support, is even-symmetric, and that the poles of the reciprocal of the <span class="math notranslate nohighlight">\(z\)</span>-transform of its samples at the integers are real numbers. These properties are all satisfied by the polynomial B-splines of nonnegative integer degree <span class="math notranslate nohighlight">\(n\in{\mathbb{N}}+2.\)</span></p></li>
+</ol>
+<section id="recursive-filtering">
+<h4>Recursive Filtering<a class="headerlink" href="#recursive-filtering" title="Link to this heading"></a></h4>
+<p>Start the algorithm by letting <span class="math notranslate nohighlight">\({\mathbf{c}}\leftarrow{\mathbf{y}}.\)</span> Then, iteratively for every one of the poles <span class="math notranslate nohighlight">\(z_{n,m}\in(-1,0)\)</span> indexed by <span class="math notranslate nohighlight">\(m\in[1\ldots\left\lfloor n/2\right\rfloor]\)</span> and associated to the degree <span class="math notranslate nohighlight">\(n,\)</span> apply the in-place recursive updates</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\left\{\begin{array}{rcll}c[0]&amp;\leftarrow&amp;\frac{1}{1-z_{n,m}^{K}}\,\left(c[0]+\sum_{k=1}^{K-1}\,z_{n,m}^{k}\,c[K-k]\right)\\c[k]&amp;\leftarrow&amp;c[k]+z_{n,m}\,c[k-1],&amp;k\in[1\ldots K-1]\\c[K-1]&amp;\leftarrow&amp;\frac{\left(1-z_{n,m}\right)^{2}}{1-z_{n,m}^{K}}\,\left(c[K-1]+\sum_{k=0}^{K-2}\,z_{n,m}^{k+1}\,c[k]\right)\\c[K-1-k]&amp;\leftarrow&amp;z_{n,m}\,c[K-k]+\left(1-z_{n,m}\right)^{2}\,c[K-1-k],&amp;k\in[1\ldots K-1].\end{array}\right.\end{split}\]</div>
+<p>The overall computational cost is now <span class="math notranslate nohighlight">\({\mathcal{O}}(K\,\left\lfloor n/2\right\rfloor).\)</span> In practice, some computations can be spared if the sums that appear in the recursive-update equations are truncated at that index <span class="math notranslate nohighlight">\(k\)</span> where the term <span class="math notranslate nohighlight">\(z_{n,m}^{k}\)</span> becomes negligible.</p>
+</section>
+</section>
+<section id="experimental-performance">
+<h3>Experimental Performance<a class="headerlink" href="#experimental-performance" title="Link to this heading"></a></h3>
+<p>The following experiment establishes some simple statistics over the gain in speed achieved by the recursive approach over the fast-Fourier-based one. For each length <span class="math notranslate nohighlight">\(K\)</span> and for each spline degree, we synthesize <span class="math notranslate nohighlight">\(50\)</span> random vectors <span class="math notranslate nohighlight">\({\mathbf{y}}\in{\mathbb{Z}}^{K}\)</span> and let both the Fourier approach and the recursive approach determine the spline coefficients on the same data. We measure the duration of those computations and report by how many times the recursive approach is faster relatively to the Fourier approach. For instance, the number <span class="math notranslate nohighlight">\(2.0\)</span> would mean that the recursive approach would be <span class="math notranslate nohighlight">\(200\%\)</span> times faster or, equivalently, that it runs twice as fast.</p>
+<div class="admonition danger">
+<p class="admonition-title">Danger</p>
+<ul class="simple">
+<li><p>The link below allows you to inspect the notebook. Unfortunately, running it from the browser is meaningless: the timings of the <em>installation-free</em> version are not representative because the Python kernel is WebAssembly-based and does not run natively.</p></li>
+<li><p>If you want to test for realistic timings on your own computer, then you will have to first install in full the <code class="docutils literal notranslate"><span class="pre">splinekit</span></code> library. Only after that will you be able to launch the notebook either as a regular, full-fledged Jupyter Lab or as a module executed by the native Python kernel.</p></li>
+<li><p>The timings reported in the Results Section correspond to those of the native execution.</p></li>
+</ul>
+</div>
+<div class="admonition-jupyter-lab-notebook admonition">
+<p class="admonition-title">Jupyter Lab notebook</p>
+<p><a class="reference external" href="https://splinekit.github.io/splinekit-jupyterlite/notebooks/index.html?path=padding_speed.ipynb">Recursive vs Fourier</a></p>
+</div>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>The notebook is available for download in compressed form from
+<a class="reference download internal" download="" href="../../_downloads/78b5fbe846c5ced52842782b447aa9cf/padding_speed.ipynb.gz"><code class="xref download docutils literal notranslate"><span class="pre">here</span></code></a>. Decompression is achieved from the terminal with <code class="docutils literal notranslate"><span class="pre">gunzip</span> <span class="pre">padding_speed.ipynb.gz</span></code>.</p>
+</div>
+<section id="results">
+<h4>Results<a class="headerlink" href="#results" title="Link to this heading"></a></h4>
+<p>In the first table, the number <span class="math notranslate nohighlight">\(K\)</span> of observed data are powers of two, a situation that is very much to the advantage of the discrete-Fourier methods. On a desktop computer of 2021, typical resulting tables are as follows.</p>
+<p><span class="raw-html"><TABLE frame="hsides" rules="groups">
+<CAPTION>Acceleration for Dyadic Periods</CAPTION>
+<COLGROUP span="2">
+<COLGROUP span="8">
+<TR><TH colspan="2" align="right">Degree&#160;<TH align="right">&#160;2&#160;<TH align="right">&#160;3&#160;<TH align="right">&#160;4&#160;<TH align="right">&#160;5&#160;<TH align="right">&#160;6&#160;<TH align="right">&#160;7&#160;<TH align="right">&#160;8&#160;<TH align="right">&#160;9&#160;
+<TR><TH colspan="2" align="left">Period&#160;
+<TBODY>
+<TR><TD align="left"><I>K</I> =&#160;<TD align="right">1&#160;<TD align="right">&#160;0.5&#160;<TD align="right">&#160;0.5&#160;<TD align="right">&#160;0.5&#160;<TD align="right">&#160;0.5&#160;<TD align="right">&#160;0.4&#160;<TD align="right">&#160;0.5&#160;<TD align="right">&#160;0.5&#160;<TD align="right">&#160;0.5&#160;
+<TR><TD align="left"><I>K</I> =&#160;<TD align="right">2&#160;<TD align="right">&#160;10.2&#160;<TD align="right">&#160;8.0&#160;<TD align="right">&#160;9.9&#160;<TD align="right">&#160;7.0&#160;<TD align="right">&#160;11.0&#160;<TD align="right">&#160;8.8&#160;<TD align="right">&#160;12.7&#160;<TD align="right">&#160;7.7&#160;
+<TR><TD align="left"><I>K</I> =&#160;<TD align="right">4&#160;<TD align="right">&#160;8.3&#160;<TD align="right">&#160;8.2&#160;<TD align="right">&#160;10.1&#160;<TD align="right">&#160;7.6&#160;<TD align="right">&#160;11.6&#160;<TD align="right">&#160;11.6&#160;<TD align="right">&#160;12.6&#160;<TD align="right">&#160;10.9&#160;
+<TR><TD align="left"><I>K</I> =&#160;<TD align="right">8&#160;<TD align="right">&#160;8.9&#160;<TD align="right">&#160;8.8&#160;<TD align="right">&#160;10.2&#160;<TD align="right">&#160;8.1&#160;<TD align="right">&#160;12.5&#160;<TD align="right">&#160;10.3&#160;<TD align="right">&#160;12.7&#160;<TD align="right">&#160;10.5&#160;
+<TR><TD align="left"><I>K</I> =&#160;<TD align="right">16&#160;<TD align="right">&#160;9.8&#160;<TD align="right">&#160;9.7&#160;<TD align="right">&#160;7.9&#160;<TD align="right">&#160;10.0&#160;<TD align="right">&#160;12.0&#160;<TD align="right">&#160;12.2&#160;<TD align="right">&#160;10.7&#160;<TD align="right">&#160;11.7&#160;
+<TR><TD align="left"><I>K</I> =&#160;<TD align="right">32&#160;<TD align="right">&#160;11.5&#160;<TD align="right">&#160;11.4&#160;<TD align="right">&#160;9.8&#160;<TD align="right">&#160;12.4&#160;<TD align="right">&#160;13.0&#160;<TD align="right">&#160;9.9&#160;<TD align="right">&#160;11.4&#160;<TD align="right">&#160;13.7&#160;
+<TR><TD align="left"><I>K</I> =&#160;<TD align="right">64&#160;<TD align="right">&#160;15.2&#160;<TD align="right">&#160;14.8&#160;<TD align="right">&#160;12.6&#160;<TD align="right">&#160;14.7&#160;<TD align="right">&#160;14.5&#160;<TD align="right">&#160;14.5&#160;<TD align="right">&#160;12.4&#160;<TD align="right">&#160;14.5&#160;
+<TR><TD align="left"><I>K</I> =&#160;<TD align="right">128&#160;<TD align="right">&#160;20.4&#160;<TD align="right">&#160;20.4&#160;<TD align="right">&#160;15.6&#160;<TD align="right">&#160;18.2&#160;<TD align="right">&#160;16.6&#160;<TD align="right">&#160;16.5&#160;<TD align="right">&#160;13.7&#160;<TD align="right">&#160;15.4&#160;
+<TR><TD align="left"><I>K</I> =&#160;<TD align="right">256&#160;<TD align="right">&#160;27.8&#160;<TD align="right">&#160;23.8&#160;<TD align="right">&#160;23.1&#160;<TD align="right">&#160;22.6&#160;<TD align="right">&#160;19.4&#160;<TD align="right">&#160;17.4&#160;<TD align="right">&#160;17.0&#160;<TD align="right">&#160;16.7&#160;
+<TR><TD align="left"><I>K</I> =&#160;<TD align="right">512&#160;<TD align="right">&#160;40.3&#160;<TD align="right">&#160;34.9&#160;<TD align="right">&#160;29.4&#160;<TD align="right">&#160;28.9&#160;<TD align="right">&#160;23.3&#160;<TD align="right">&#160;21.4&#160;<TD align="right">&#160;19.3&#160;<TD align="right">&#160;19.0&#160;
+<TR><TD align="left"><I>K</I> =&#160;<TD align="right">1024&#160;<TD align="right">&#160;52.6&#160;<TD align="right">&#160;49.6&#160;<TD align="right">&#160;37.0&#160;<TD align="right">&#160;35.6&#160;<TD align="right">&#160;26.9&#160;<TD align="right">&#160;24.9&#160;<TD align="right">&#160;21.7&#160;<TD align="right">&#160;21.1&#160;
+<TR><TD align="left"><I>K</I> =&#160;<TD align="right">2048&#160;<TD align="right">&#160;75.6&#160;<TD align="right">&#160;69.7&#160;<TD align="right">&#160;44.8&#160;<TD align="right">&#160;42.9&#160;<TD align="right">&#160;31.3&#160;<TD align="right">&#160;29.2&#160;<TD align="right">&#160;23.3&#160;<TD align="right">&#160;23.1&#160;
+<TR><TD align="left"><I>K</I> =&#160;<TD align="right">4096&#160;<TD align="right">&#160;96.5&#160;<TD align="right">&#160;96.6&#160;<TD align="right">&#160;54.1&#160;<TD align="right">&#160;53.1&#160;<TD align="right">&#160;36.8&#160;<TD align="right">&#160;33.4&#160;<TD align="right">&#160;26.5&#160;<TD align="right">&#160;26.5&#160;
+<TR><TD align="left"><I>K</I> =&#160;<TD align="right">8192&#160;<TD align="right">&#160;101.6&#160;<TD align="right">&#160;99.5&#160;<TD align="right">&#160;53.6&#160;<TD align="right">&#160;53.0&#160;<TD align="right">&#160;36.1&#160;<TD align="right">&#160;31.8&#160;<TD align="right">&#160;25.1&#160;<TD align="right">&#160;25.0&#160;
+<TR><TD align="left"><I>K</I> =&#160;<TD align="right">16384&#160;<TD align="right">&#160;107.4&#160;<TD align="right">&#160;105.9&#160;<TD align="right">&#160;55.7&#160;<TD align="right">&#160;55.2&#160;<TD align="right">&#160;38.1&#160;<TD align="right">&#160;32.4&#160;<TD align="right">&#160;25.8&#160;<TD align="right">&#160;25.4&#160;
+</TABLE></span></p>
+<p>In the second table, we repeat the experiment, with the difference that the <span class="math notranslate nohighlight">\(50\)</span> lengths are now chosen uniformly at random in some range. On a desktop computer of 2021, typical resulting tables are as follows.</p>
+<p><span class="raw-html"><TABLE frame="hsides" rules="groups">
+<CAPTION>Acceleration for Random Periods</CAPTION>
+<COLGROUP span="3">
+<COLGROUP span="8">
+<TR><TH colspan="3" align="right">Degree&#160;<TH align="right">&#160;2&#160;<TH align="right">&#160;3&#160;<TH align="right">&#160;4&#160;<TH align="right">&#160;5&#160;<TH align="right">&#160;6&#160;<TH align="right">&#160;7&#160;<TH align="right">&#160;8&#160;<TH align="right">&#160;9&#160;
+<TR><TH colspan="3" align="left">Period Range&#160;
+<TBODY>
+<TR><TD align="right">1&#160;<TD align="left">&#8804; <I>K</I> &#60;&#160;<TD align="right">2&#160;<TD align="right">&#160;0.6&#160;<TD align="right">&#160;0.5&#160;<TD align="right">&#160;0.5&#160;<TD align="right">&#160;0.5&#160;<TD align="right">&#160;0.5&#160;<TD align="right">&#160;0.5&#160;<TD align="right">&#160;0.5&#160;<TD align="right">&#160;0.5&#160;
+<TR><TD align="right">2&#160;<TD align="left">&#8804; <I>K</I> &#60;&#160;<TD align="right">4&#160;<TD align="right">&#160;6.1&#160;<TD align="right">&#160;8.3&#160;<TD align="right">&#160;9.5&#160;<TD align="right">&#160;9.1&#160;<TD align="right">&#160;9.4&#160;<TD align="right">&#160;11.0&#160;<TD align="right">&#160;12.5&#160;<TD align="right">&#160;11.5&#160;
+<TR><TD align="right">4&#160;<TD align="left">&#8804; <I>K</I> &#60;&#160;<TD align="right">8&#160;<TD align="right">&#160;8.6&#160;<TD align="right">&#160;8.2&#160;<TD align="right">&#160;9.8&#160;<TD align="right">&#160;7.6&#160;<TD align="right">&#160;11.4&#160;<TD align="right">&#160;11.3&#160;<TD align="right">&#160;11.5&#160;<TD align="right">&#160;9.8&#160;
+<TR><TD align="right">8&#160;<TD align="left">&#8804; <I>K</I> &#60;&#160;<TD align="right">16&#160;<TD align="right">&#160;9.5&#160;<TD align="right">&#160;9.1&#160;<TD align="right">&#160;10.4&#160;<TD align="right">&#160;8.3&#160;<TD align="right">&#160;9.2&#160;<TD align="right">&#160;11.7&#160;<TD align="right">&#160;12.6&#160;<TD align="right">&#160;10.2&#160;
+<TR><TD align="right">16&#160;<TD align="left">&#8804; <I>K</I> &#60;&#160;<TD align="right">32&#160;<TD align="right">&#160;10.7&#160;<TD align="right">&#160;10.5&#160;<TD align="right">&#160;11.5&#160;<TD align="right">&#160;9.4&#160;<TD align="right">&#160;12.5&#160;<TD align="right">&#160;12.6&#160;<TD align="right">&#160;13.5&#160;<TD align="right">&#160;11.2&#160;
+<TR><TD align="right">32&#160;<TD align="left">&#8804; <I>K</I> &#60;&#160;<TD align="right">64&#160;<TD align="right">&#160;13.4&#160;<TD align="right">&#160;13.4&#160;<TD align="right">&#160;13.7&#160;<TD align="right">&#160;11.3&#160;<TD align="right">&#160;13.9&#160;<TD align="right">&#160;14.3&#160;<TD align="right">&#160;14.2&#160;<TD align="right">&#160;14.4&#160;
+<TR><TD align="right">64&#160;<TD align="left">&#8804; <I>K</I> &#60;&#160;<TD align="right">128&#160;<TD align="right">&#160;19.0&#160;<TD align="right">&#160;18.3&#160;<TD align="right">&#160;14.3&#160;<TD align="right">&#160;17.3&#160;<TD align="right">&#160;16.2&#160;<TD align="right">&#160;16.2&#160;<TD align="right">&#160;13.6&#160;<TD align="right">&#160;15.5&#160;
+<TR><TD align="right">128&#160;<TD align="left">&#8804; <I>K</I> &#60;&#160;<TD align="right">256&#160;<TD align="right">&#160;25.0&#160;<TD align="right">&#160;24.8&#160;<TD align="right">&#160;18.2&#160;<TD align="right">&#160;21.1&#160;<TD align="right">&#160;18.7&#160;<TD align="right">&#160;18.5&#160;<TD align="right">&#160;15.3&#160;<TD align="right">&#160;16.7&#160;
+<TR><TD align="right">256&#160;<TD align="left">&#8804; <I>K</I> &#60;&#160;<TD align="right">512&#160;<TD align="right">&#160;36.3&#160;<TD align="right">&#160;35.8&#160;<TD align="right">&#160;25.1&#160;<TD align="right">&#160;27.6&#160;<TD align="right">&#160;22.7&#160;<TD align="right">&#160;22.3&#160;<TD align="right">&#160;18.2&#160;<TD align="right">&#160;19.1&#160;
+<TR><TD align="right">512&#160;<TD align="left">&#8804; <I>K</I> &#60;&#160;<TD align="right">1024&#160;<TD align="right">&#160;57.3&#160;<TD align="right">&#160;55.9&#160;<TD align="right">&#160;36.1&#160;<TD align="right">&#160;37.9&#160;<TD align="right">&#160;29.5&#160;<TD align="right">&#160;29.2&#160;<TD align="right">&#160;23.1&#160;<TD align="right">&#160;23.8&#160;
+<TR><TD align="right">1024&#160;<TD align="left">&#8804; <I>K</I> &#60;&#160;<TD align="right">2048&#160;<TD align="right">&#160;80.2&#160;<TD align="right">&#160;69.8&#160;<TD align="right">&#160;47.3&#160;<TD align="right">&#160;45.9&#160;<TD align="right">&#160;33.7&#160;<TD align="right">&#160;31.1&#160;<TD align="right">&#160;26.0&#160;<TD align="right">&#160;25.7&#160;
+<TR><TD align="right">2048&#160;<TD align="left">&#8804; <I>K</I> &#60;&#160;<TD align="right">4096&#160;<TD align="right">&#160;106.5&#160;<TD align="right">&#160;102.1&#160;<TD align="right">&#160;62.6&#160;<TD align="right">&#160;61.3&#160;<TD align="right">&#160;43.3&#160;<TD align="right">&#160;38.5&#160;<TD align="right">&#160;31.3&#160;<TD align="right">&#160;30.9&#160;
+<TR><TD align="right">4096&#160;<TD align="left">&#8804; <I>K</I> &#60;&#160;<TD align="right">8192&#160;<TD align="right">&#160;121.8&#160;<TD align="right">&#160;106.9&#160;<TD align="right">&#160;59.6&#160;<TD align="right">&#160;59.3&#160;<TD align="right">&#160;41.0&#160;<TD align="right">&#160;35.8&#160;<TD align="right">&#160;28.6&#160;<TD align="right">&#160;28.3&#160;
+<TR><TD align="right">8192&#160;<TD align="left">&#8804; <I>K</I> &#60;&#160;<TD align="right">16384&#160;<TD align="right">&#160;123.4&#160;<TD align="right">&#160;122.7&#160;<TD align="right">&#160;60.9&#160;<TD align="right">&#160;63.5&#160;<TD align="right">&#160;43.5&#160;<TD align="right">&#160;37.4&#160;<TD align="right">&#160;29.4&#160;<TD align="right">&#160;29.5&#160;
+<TR><TD align="right">16384&#160;<TD align="left">&#8804; <I>K</I> &#60;&#160;<TD align="right">32768&#160;<TD align="right">&#160;133.3&#160;<TD align="right">&#160;130.2&#160;<TD align="right">&#160;68.0&#160;<TD align="right">&#160;67.0&#160;<TD align="right">&#160;45.5&#160;<TD align="right">&#160;39.5&#160;<TD align="right">&#160;31.1&#160;<TD align="right">&#160;32.1&#160;
+</TABLE></span></p>
+</section>
+<section id="discussion">
+<h4>Discussion<a class="headerlink" href="#discussion" title="Link to this heading"></a></h4>
+<p>The conclusion of the experiments is unequivocal: The recursive approach is substantially faster than the fast-Fourier approach, at all lengths (except <span class="math notranslate nohighlight">\(K=1\)</span>), ranges of lengths, and all degrees being investigated.</p>
+</section>
+</section>
+</section>
+<section id="narrow-mirror-padding">
+<h2>Narrow-Mirror Padding<a class="headerlink" href="#narrow-mirror-padding" title="Link to this heading"></a></h2>
+<p>Under a narrow-mirror padding, one assumes <span class="math notranslate nohighlight">\(\forall k\in{\mathbb{Z}}\)</span> that the spline coefficients satisfy</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\left\{\begin{array}{rcl}c[k]&amp;=&amp;c[-k]\\c[k+K-1]&amp;=&amp;c[K-1-k].\end{array}\right.\end{split}\]</div>
+<p>Then, it holds for any <span class="math notranslate nohighlight">\(k\in{\mathbb{Z}}\)</span> and any <span class="math notranslate nohighlight">\(x\in{\mathbb{R}}\)</span> that</p>
+<div class="math notranslate nohighlight">
+\[c[k+2\,K-2]=c[k]\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}\left\{\begin{array}{rcl}y[k]&amp;=&amp;y[-k]\\y[k+K-1]&amp;=&amp;y[K-1-k]\\y[k+2\,K-2]&amp;=&amp;y[k]\end{array}\right.\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}\left\{\begin{array}{rcl}f(x)&amp;=&amp;f(-x)\\f(x+K-1)&amp;=&amp;f(K-1-x)\\f(x+2\,K-2)&amp;=&amp;f(x)\end{array}\right.\end{split}\]</div>
+<section id="id1">
+<h3>Recursive Filtering<a class="headerlink" href="#id1" title="Link to this heading"></a></h3>
+<p>Start the algorithm by letting <span class="math notranslate nohighlight">\({\mathbf{c}}\leftarrow{\mathbf{y}}.\)</span> Then, iteratively for every one of the poles <span class="math notranslate nohighlight">\(z_{n,m}\in(-1,0)\)</span> indexed by <span class="math notranslate nohighlight">\(m\in[1\ldots\left\lfloor n/2\right\rfloor]\)</span> and associated to the degree <span class="math notranslate nohighlight">\(n,\)</span> apply the in-place recursive updates</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\left\{\begin{array}{rcll}c[0]&amp;\leftarrow&amp;\frac{1}{1-z_{n,m}^{2\,K-2}}\,\sum_{k=0}^{K-2}\,z_{n,m}^{k}\,\left(c[k]+z_{n,m}^{K-1}\,c[K-1-k]\right)\\c[k]&amp;\leftarrow&amp;c[k]+z_{n,m}\,c[k-1],&amp;k\in[1\ldots K-1]\\c[K-1]&amp;\leftarrow&amp;\frac{\left(1-z_{n,m}\right)^{2}}{1-z_{n,m}^{2}}\,\left(z_{n,m}\,c[K-2]+c[K-1]\right)\\c[K-1-k]&amp;\leftarrow&amp;z_{n,m}\,c[K-k]+\left(1-z_{n,m}\right)^{2}\,c[K-1-k],&amp;k\in[1\ldots K-1]\end{array}\right.\end{split}\]</div>
+</section>
+</section>
+<section id="wide-mirror-padding">
+<h2>Wide-Mirror Padding<a class="headerlink" href="#wide-mirror-padding" title="Link to this heading"></a></h2>
+<p>Under a wide-mirror padding, one assumes <span class="math notranslate nohighlight">\(\forall k\in{\mathbb{Z}}\)</span> that the spline coefficients satisfy</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\left\{\begin{array}{rcl}c[k]&amp;=&amp;c[-1-k]\\c[k+K]&amp;=&amp;c[K-1-k].\end{array}\right.\end{split}\]</div>
+<p>Then, it holds for any <span class="math notranslate nohighlight">\(k\in{\mathbb{Z}}\)</span> and any <span class="math notranslate nohighlight">\(x\in{\mathbb{R}}\)</span> that</p>
+<div class="math notranslate nohighlight">
+\[c[k+2\,K]=c[k]\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}\left\{\begin{array}{rcl}y[k]&amp;=&amp;y[-1-k]\\y[k+K]&amp;=&amp;y[K-1-k]\\y[k+2\,K]&amp;=&amp;y[k]\end{array}\right.\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}\left\{\begin{array}{rcl}f(x)&amp;=&amp;f(-1-x)\\f(x+K)&amp;=&amp;f(K-1-x)\\f(x+2\,K)&amp;=&amp;f(x)\end{array}\right.\end{split}\]</div>
+<section id="id2">
+<h3>Recursive Filtering<a class="headerlink" href="#id2" title="Link to this heading"></a></h3>
+<p>Start the algorithm by letting <span class="math notranslate nohighlight">\({\mathbf{c}}\leftarrow{\mathbf{y}}.\)</span> Then, iteratively for every one of the poles <span class="math notranslate nohighlight">\(z_{n,m}\in(-1,0)\)</span> indexed by <span class="math notranslate nohighlight">\(m\in[1\ldots\left\lfloor n/2\right\rfloor]\)</span> and associated to the degree <span class="math notranslate nohighlight">\(n,\)</span> apply the in-place recursive updates</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\left\{\begin{array}{rcll}c[0]&amp;\leftarrow&amp;c[0]+\frac{z_{n,m}}{1-z_{n,m}^{2\,K}}\,\sum_{k=0}^{K-1}\,z_{n,m}^{k}\,\left(c[k]+z_{n,m}^{K}\,c[K-1-k]\right)\\c[k]&amp;\leftarrow&amp;c[k]+z_{n,m}\,c[k-1],&amp;k\in[1\ldots K-1]\\c[K-1]&amp;\leftarrow&amp;\left(1-z_{n,m}\right)\,c[K-1]\\c[K-1-k]&amp;\leftarrow&amp;z_{n,m}\,c[K-k]+\left(1-z_{n,m}\right)^{2}\,c[K-1-k],&amp;k\in[1\ldots K-1]\end{array}\right.\end{split}\]</div>
+</section>
+</section>
+<section id="anti-mirror-padding">
+<h2>Anti-Mirror Padding<a class="headerlink" href="#anti-mirror-padding" title="Link to this heading"></a></h2>
+<p>Under an anti-mirror padding, one assumes <span class="math notranslate nohighlight">\(\forall k\in{\mathbb{Z}}\)</span> that the spline coefficients satisfy</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\left\{\begin{array}{rcl}c[k]-c[0]&amp;=&amp;c[0]-c[-k]\\c[k+K-1]-c[K-1]&amp;=&amp;c[K-1]-c[K-1-k]\end{array}\right.\end{split}\]</div>
+<p>Then, it holds for any <span class="math notranslate nohighlight">\(k\in{\mathbb{Z}}\)</span> and any <span class="math notranslate nohighlight">\(x\in{\mathbb{R}}\)</span> that</p>
+<div class="math notranslate nohighlight">
+\[c[k+2\,K-2]=c[k]+2\,\left(c[K-1]-c[0]\right)\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}\left\{\begin{array}{rcl}y[k]-y[0]&amp;=&amp;y[0]-y[-k]\\y[k+K-1]-y[K-1]&amp;=&amp;y[K-1]-y[K-1-k]\\y[k+2\,K-2]&amp;=&amp;y[k]+2\,\left(y[K-1]-y[0]\right)\end{array}\right.\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}\left\{\begin{array}{rcl}f(x)-f(0)&amp;=&amp;f(0)-f(-x)\\f(x+K-1)-f(K-1)&amp;=&amp;f(K-1)-f(K-1-x)\\f(x+2\,K-2)&amp;=&amp;f(x)+2\,\left(f(K-1)-f(0)\right)\end{array}\right.\end{split}\]</div>
+<section id="id3">
+<h3>Recursive Filtering<a class="headerlink" href="#id3" title="Link to this heading"></a></h3>
+<p>Start the algorithm by letting <span class="math notranslate nohighlight">\({\mathbf{c}}\leftarrow{\mathbf{y}}.\)</span> Then, iteratively for every one of the poles <span class="math notranslate nohighlight">\(z_{n,m}\in(-1,0)\)</span> indexed by <span class="math notranslate nohighlight">\(m\in[1\ldots\left\lfloor n/2\right\rfloor]\)</span> and associated to the degree <span class="math notranslate nohighlight">\(n,\)</span> apply the in-place recursive updates</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\left\{\begin{array}{rcll}c[0]&amp;\leftarrow&amp;\frac{1}{1-z_{n,m}^{2\,K-2}}\,\left(\frac{1+z_{n,m}}{1-z_{n,m}}\,\left(c[0]-z_{n,m}^{K-1}\,c[K-1]\right)\right.\\&amp;&amp;\left.\mbox{}-\sum_{k=1}^{K-2}\,z_{n,m}^{k}\,\left(c[k]-z_{n,m}^{K-1}\,c[K-1-k]\right)\right)\\c[k]&amp;\leftarrow&amp;c[k]+z_{n,m}\,c[k-1],&amp;k\in[1\ldots K-1]\\c[K-1]&amp;\leftarrow&amp;c[K-1]-z_{n,m}\,c[K-2]\\c[K-1-k]&amp;\leftarrow&amp;z_{n,m}\,c[K-k]+\left(1-z_{n,m}\right)^{2}\,c[K-1-k],&amp;k\in[1\ldots K-1]\end{array}\right.\end{split}\]</div>
+</section>
+</section>
+<section id="nega-periodic-padding">
+<h2>Nega-Periodic Padding<a class="headerlink" href="#nega-periodic-padding" title="Link to this heading"></a></h2>
+<p>Under a nega-periodic padding, one assumes <span class="math notranslate nohighlight">\(\forall k\in{\mathbb{Z}}\)</span> that the spline coefficients satisfy</p>
+<div class="math notranslate nohighlight">
+\[c[k+K]=-c[k]\]</div>
+<p>Then, it holds for any <span class="math notranslate nohighlight">\(k\in{\mathbb{Z}}\)</span> and any <span class="math notranslate nohighlight">\(x\in{\mathbb{R}}\)</span> that</p>
+<div class="math notranslate nohighlight">
+\[c[k+2\,K]=c[k]\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}\left\{\begin{array}{rcl}y[k+K]&amp;=&amp;-y[k]\\y[k+2\,K]&amp;=&amp;y[k]\end{array}\right.\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}\left\{\begin{array}{rcl}f(x+K)&amp;=&amp;-f(x)\\f(x+2\,K)&amp;=&amp;f(x)\end{array}\right.\end{split}\]</div>
+<section id="id4">
+<h3>Recursive Filtering<a class="headerlink" href="#id4" title="Link to this heading"></a></h3>
+<p>Start the algorithm by letting <span class="math notranslate nohighlight">\({\mathbf{c}}\leftarrow{\mathbf{y}}.\)</span> Then, iteratively for every one of the poles <span class="math notranslate nohighlight">\(z_{n,m}\in(-1,0)\)</span> indexed by <span class="math notranslate nohighlight">\(m\in[1\ldots\left\lfloor n/2\right\rfloor]\)</span> and associated to the degree <span class="math notranslate nohighlight">\(n,\)</span> apply the in-place recursive updates</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\left\{\begin{array}{rcll}c[0]&amp;\leftarrow&amp;c[0]-\frac{z_{n,m}}{1+z_{n,m}^{K}}\,\sum_{k=0}^{K-1}\,z_{n,m}^{K-1-k}\,c[k]\\c[k]&amp;\leftarrow&amp;c[k]+z_{n,m}\,c[k-1],&amp;k\in[1\ldots K-1]\\c[K-1]&amp;\leftarrow&amp;\frac{1-z_{n,m}}{1+z_{n,m}}\,\left(\left(1+z_{n,m}^{2\,K}\right)\,c[K-1]\right.\\&amp;&amp;\left.\mbox{}-\frac{1}{1+z_{n,m}^{K}}\,\sum_{k=0}^{K-1}\,\left(z_{n,m}^{3\,K-1-k}+z_{n,m}^{k+1}\right)\,c[k]\right)\\c[K-1-k]&amp;\leftarrow&amp;z_{n,m}\,c[K-k]+\left(1-z_{n,m}\right)^{2}\,c[K-1-k],&amp;k\in[1\ldots K-1]\end{array}\right.\end{split}\]</div>
+</section>
+</section>
+<section id="nega-narrow-mirror-padding">
+<h2>Nega-Narrow-Mirror Padding<a class="headerlink" href="#nega-narrow-mirror-padding" title="Link to this heading"></a></h2>
+<p>Under a nega-narrow-mirror padding, one assumes <span class="math notranslate nohighlight">\(\forall k\in{\mathbb{Z}}\)</span> that the spline coefficients satisfy</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\left\{\begin{array}{rcl}c[k-1]&amp;=&amp;-c[-1-k]\\c[k+K+1]&amp;=&amp;-c[K-1-k].\end{array}\right.\end{split}\]</div>
+<p>Then, it holds for any <span class="math notranslate nohighlight">\(k\in{\mathbb{Z}}\)</span> and any <span class="math notranslate nohighlight">\(x\in{\mathbb{R}}\)</span> that</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\left\{\begin{array}{rcl}c[k+2\,K+2]&amp;=&amp;c[k]\\c[\left(K+1\right)\,k-1]&amp;=&amp;0\end{array}\right.\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}\left\{\begin{array}{rcl}y[k-1]&amp;=&amp;-y[-1-k]\\y[k+K+1]&amp;=&amp;-y[K-1-k]\\y[k+2\,K+2]&amp;=&amp;y[k]\\y[\left(K+1\right)\,k-1]&amp;=&amp;0\end{array}\right.\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}\left\{\begin{array}{rcl}f(x-1)&amp;=&amp;-f(-1-x)\\f(x+K+1)&amp;=&amp;-f(K-1-x)\\f(x+2\,K+2)&amp;=&amp;f(x)\\f(\left(K+1\right)\,x-1)&amp;=&amp;0\end{array}\right.\end{split}\]</div>
+<section id="id5">
+<h3>Recursive Filtering<a class="headerlink" href="#id5" title="Link to this heading"></a></h3>
+<p>Start the algorithm by letting <span class="math notranslate nohighlight">\({\mathbf{c}}\leftarrow{\mathbf{y}}.\)</span> Then, iteratively for every one of the poles <span class="math notranslate nohighlight">\(z_{n,m}\in(-1,0)\)</span> indexed by <span class="math notranslate nohighlight">\(m\in[1\ldots\left\lfloor n/2\right\rfloor]\)</span> and associated to the degree <span class="math notranslate nohighlight">\(n,\)</span> apply the in-place recursive updates</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\left\{\begin{array}{rcll}c[0]&amp;\leftarrow&amp;c[0]-\frac{z_{n,m}^{2}}{1-z_{n,m}^{2\,K+2}}\,\sum_{k=0}^{K-1}\,z_{n,m}^{k}\,\left(c[k]-z_{n,m}^{K+1}\,c[K-1-k]\right)\\c[k]&amp;\leftarrow&amp;c[k]+z_{n,m}\,c[k-1],&amp;k\in[1\ldots K-1]\\c[K-1]&amp;\leftarrow&amp;\left(1-z_{n,m}\right)^{2}\,c[K-1]\\c[K-1-k]&amp;\leftarrow&amp;z_{n,m}\,c[K-k]+\left(1-z_{n,m}\right)^{2}\,c[K-1-k],&amp;k\in[1\ldots K-1]\end{array}\right.\end{split}\]</div>
+</section>
+</section>
+<section id="nega-wide-mirror-padding">
+<h2>Nega-Wide-Mirror Padding<a class="headerlink" href="#nega-wide-mirror-padding" title="Link to this heading"></a></h2>
+<p>Under a nega-wide-mirror padding, one assumes <span class="math notranslate nohighlight">\(\forall k\in{\mathbb{Z}}\)</span> that the spline coefficients satisfy</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\left\{\begin{array}{rcl}c[k]&amp;=&amp;-c[-1-k]\\c[k+K]&amp;=&amp;-c[K-1-k].\end{array}\right.\end{split}\]</div>
+<p>Then, it holds for any <span class="math notranslate nohighlight">\(k\in{\mathbb{Z}}\)</span> and any <span class="math notranslate nohighlight">\(x\in{\mathbb{R}}\)</span> that</p>
+<div class="math notranslate nohighlight">
+\[c[k+2\,K]=c[k]\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}\left\{\begin{array}{rcl}y[k]&amp;=&amp;-y[-1-k]\\y[k+K]&amp;=&amp;-y[K-1-k]\\y[k+2\,K]&amp;=&amp;y[k]\end{array}\right.\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}\left\{\begin{array}{rcl}f(x)&amp;=&amp;-f(-1-x)\\f(x+K)&amp;=&amp;-f(K-1-x)\\f(x+2\,K)&amp;=&amp;f(x)\end{array}\right.\end{split}\]</div>
+<section id="id6">
+<h3>Recursive Filtering<a class="headerlink" href="#id6" title="Link to this heading"></a></h3>
+<p>Start the algorithm by letting <span class="math notranslate nohighlight">\({\mathbf{c}}\leftarrow{\mathbf{y}}.\)</span> Then, iteratively for every one of the poles <span class="math notranslate nohighlight">\(z_{n,m}\in(-1,0)\)</span> indexed by <span class="math notranslate nohighlight">\(m\in[1\ldots\left\lfloor n/2\right\rfloor]\)</span> and associated to the degree <span class="math notranslate nohighlight">\(n,\)</span> apply the in-place recursive updates</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\left\{\begin{array}{rcll}c[0]&amp;\leftarrow&amp;c[0]-\frac{z_{n,m}}{1-z_{n,m}^{2\,K}}\,\sum_{k=0}^{K-1}\,z_{n,m}^{k}\,\left(c[k]-z_{n,m}^{K}\,c[K-1-k]\right)\\c[k]&amp;\leftarrow&amp;c[k]+z_{n,m}\,c[k-1],&amp;k\in[1\ldots K-1]\\c[K-1]&amp;\leftarrow&amp;\frac{\left(1-z_{n,m}\right)^{2}}{1+z_{n,m}}\,c[K-1]\\c[K-1-k]&amp;\leftarrow&amp;z_{n,m}\,c[K-k]+\left(1-z_{n,m}\right)^{2}\,c[K-1-k],&amp;k\in[1\ldots K-1]\end{array}\right.\end{split}\]</div>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="Padding [toc]" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../spline1d/index.html" class="btn btn-neutral float-right" title="Periodic Splines [toc]" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright .</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

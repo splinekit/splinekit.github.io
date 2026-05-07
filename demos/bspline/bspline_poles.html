@@ -1,0 +1,237 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>B-Spline Poles &mdash; splinekit  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../../_static/plot_directive.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+      <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=2f8eb179" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+      <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Inverse of B-Spline Sequences" href="bspline_inverse.html" />
+    <link rel="prev" title="Spline Bases" href="bspline_bases.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            splinekit
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Demos [toc]</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">B-Splines [toc]</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="hello_bspline.html">Hello B-Spline Family!</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bspline_members.html">B-Spline Members</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bspline_stability.html">Numeric Stability and Speed of B-Splines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bspline_m_scale.html">M-Scale Relation of B-Splines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bspline_vs_pi.html">B-Spline <em>vs</em> <span class="math notranslate nohighlight">\(\pi\)</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="spline_vs_poly.html">Splines, B-Splines, and Polynomials</a></li>
+<li class="toctree-l3"><a class="reference internal" href="spline_engineer_func.html">Splines and Engineering Functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bspline_bases.html">Spline Bases</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">B-Spline Poles</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#poles">Poles</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#imbrication-of-poles">Imbrication of Poles</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#annihilating-sequences">Annihilating Sequences</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pole-values">Pole Values</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="bspline_inverse.html">Inverse of B-Spline Sequences</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../padding/index.html">Padding [toc]</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spline1d/index.html">Periodic Splines [toc]</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../installation/index.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../glossary/index.html">Glossary [toc]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../periodic_spline_1d/index.html">Periodic Spline 1D [toc]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../bsplines/index.html">B-Splines [toc]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../spline_padding/index.html">Spline Padding [toc]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../bases/index.html">Bases [toc]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../periodic_nonuniform_piecewise/index.html">Periodic Nonuniform Piecewise [toc]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../interval/index.html">Interval [package]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../spline_utilities/index.html">Spline Utilities [toc]</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">splinekit</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Demos [toc]</a></li>
+          <li class="breadcrumb-item"><a href="index.html">B-Splines [toc]</a></li>
+      <li class="breadcrumb-item active">B-Spline Poles</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/Philippe-Thevenaz/splinekit/blob/main/docs/demos/bspline/bspline_poles.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="b-spline-poles">
+<h1>B-Spline Poles<a class="headerlink" href="#b-spline-poles" title="Link to this heading"></a></h1>
+<p>Visualization of the so-called B-spline poles and their relation to the annihilating sequences for B-splines.</p>
+<hr class="docutils" />
+<section id="poles">
+<h2>Poles<a class="headerlink" href="#poles" title="Link to this heading"></a></h2>
+<p>The so-called <em>poles</em> are the poles of the reciprocal of the z-transform of the sequence made of the samples at the integers of the polynomial B-spline <span class="math notranslate nohighlight">\(\beta^{n}\)</span> of nonnegative integer degree <span class="math notranslate nohighlight">\(n\in{\mathbb{N}}.\)</span> More precisely, poles are numbers <span class="math notranslate nohighlight">\(z\in{\mathbb{C}}\setminus\{0\}\)</span> such that</p>
+<div class="math notranslate nohighlight">
+\[\frac{1}{\sum_{k\in{\mathbb{Z}}}\,\beta^{n}(k)\,z^{-k}}\not\in{\mathbb{C}}.\]</div>
+<p>It so happens that the B-spline poles are real (their imaginary part is always zero) and negative; they exist for <span class="math notranslate nohighlight">\(n\in{\mathbb{N}}+2.\)</span> Because B-splines are even-symmetric functions, their poles come in reciprocal pairs, the poles of interest being those that lie in the open interval <span class="math notranslate nohighlight">\((-1,0).\)</span> In this interval, <span class="math notranslate nohighlight">\(\left\lfloor n/2\right\rfloor\)</span> of them can be found. They play an important role in spline interpolation, specifically in the process that converts data samples into spline coefficients.</p>
+</section>
+<hr class="docutils" />
+<section id="imbrication-of-poles">
+<h2>Imbrication of Poles<a class="headerlink" href="#imbrication-of-poles" title="Link to this heading"></a></h2>
+<p>Poles of successive degrees are imbricated. We illustrate here this property for a few degrees.</p>
+<div class="admonition-jupyter-lab-notebook admonition">
+<p class="admonition-title">Jupyter Lab notebook</p>
+<p><a class="reference external" href="https://splinekit.github.io/splinekit-jupyterlite/notebooks/index.html?path=bspline_poles.ipynb">Imbrication of poles</a></p>
+</div>
+</section>
+<hr class="docutils" />
+<section id="annihilating-sequences">
+<h2>Annihilating Sequences<a class="headerlink" href="#annihilating-sequences" title="Link to this heading"></a></h2>
+<p>Consider the real function</p>
+<div class="math notranslate nohighlight">
+\[f:{\mathbb{R}}\rightarrow{\mathbb{R}},x\mapsto f(x)=\sum_{k\in{\mathbb{Z}}}\,c[k]\,\beta^{n}(x-k).\]</div>
+<p>Every function <span class="math notranslate nohighlight">\(f\)</span> built this way is said to be a spline. Remarkably, the sum always converges at any <span class="math notranslate nohighlight">\(x\in{\mathbb{R}}\)</span> because B-splines <span class="math notranslate nohighlight">\(\beta^{n}\)</span> have a finite support, so that the convergence happens for any sequence of finite-valued coefficients <span class="math notranslate nohighlight">\(c,\)</span> without further restrictions. Now, let <span class="math notranslate nohighlight">\(c[k]=z_{n,m}^{k},\)</span> where <span class="math notranslate nohighlight">\(z_{n,m}\)</span> is the <span class="math notranslate nohighlight">\(m\)</span>-th pole associated to the B-spline of integer degree <span class="math notranslate nohighlight">\(n\geq2,\)</span> with <span class="math notranslate nohighlight">\(m\in[1\ldots\left\lfloor n/2\right\rfloor].\)</span> Then, from the fact that the sequence <span class="math notranslate nohighlight">\(z_{n,m}^{k}\)</span> is annihilating, it follows for any integer <span class="math notranslate nohighlight">\(q\in{\mathbb{Z}}\)</span> that <span class="math notranslate nohighlight">\(f(q)=\sum_{k\in{\mathbb{Z}}}\,z_{n,m}^{k}\,\beta^{n}(q-k)=z_{n,m}^{q}\,\sum_{k\in{\mathbb{Z}}}\,\beta^{n}(k)\,z_{n,m}^{-k}=0.\)</span> Likewise, the sequence <span class="math notranslate nohighlight">\(z_{n,m}^{-k}\)</span> satisfies the same annihilating property because B-splines are even-symmetric.</p>
+<p>One often deploys splines with the purpose of interpolating data samples. In practice, given a <span class="math notranslate nohighlight">\(Q\)</span>-dimensional vector <span class="math notranslate nohighlight">\({\mathbf{y}}\in{\mathbb{R}}^{Q}\)</span> of samples, it is desired to find a specific sequence of coefficients <span class="math notranslate nohighlight">\(c\)</span> that results in a spline <span class="math notranslate nohighlight">\(f\)</span> satisfying the interpolation constraint <span class="math notranslate nohighlight">\(\left(f(q)\right)_{q=0}^{Q-1}={\mathbf{y}}.\)</span> Unfortunately, the coefficients are not unique. Indeed, suppose that one has found a sequence <span class="math notranslate nohighlight">\(c\)</span> that satisfies the interpolation constraint. Then, other sequences <span class="math notranslate nohighlight">\(c'\)</span> can be established as</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{eqnarray}
+\forall q\in{\mathbb{Z}}:f(q)&amp;=&amp;\sum_{k\in{\mathbb{Z}}}\,c[k]\,\beta^{n}(q-k)\\
+&amp;=&amp;\sum_{k\in{\mathbb{Z}}}\,\underbrace{\left(c[k]+\sum_{m=1}^{\left\lfloor n/2\right\rfloor}\,\left(\lambda_{m}^{-}\,z_{n,m}^{-k}+\lambda_{m}^{+}\,z_{n,m}^{k}\right)\right)}_{c'[k]}\,\beta^{n}(q-k),
+\end{eqnarray}\end{split}\]</div>
+<p>where <span class="math notranslate nohighlight">\(\lambda_{m}^{-}\)</span> and <span class="math notranslate nohighlight">\(\lambda_{m}^{+}\)</span> are unconstrained real numbers which, altogether, provide <span class="math notranslate nohighlight">\(2\,\left\lfloor n/2\right\rfloor\)</span> degrees of liberty.</p>
+<p>We show now examples of non-vanishing odd-symmetric and even-symmetric splines that interpolate the zero-valued data samples <span class="math notranslate nohighlight">\({\mathbf{y}}={\mathbf{0}}.\)</span> (We have retained contributions only of the pole closest to <span class="math notranslate nohighlight">\((-1)\)</span> for simplicity.) The samples at the integers of an original spline of corresponding degree will coincide with the samples of the sum of the original spline and any linear combination of those zero-interpolating splines.</p>
+<div class="admonition-jupyter-lab-notebook admonition">
+<p class="admonition-title">Jupyter Lab notebook</p>
+<p><a class="reference external" href="https://splinekit.github.io/splinekit-jupyterlite/notebooks/index.html?path=bspline_annihilate.ipynb">Annihilating sequences</a></p>
+</div>
+</section>
+<hr class="docutils" />
+<section id="pole-values">
+<h2>Pole Values<a class="headerlink" href="#pole-values" title="Link to this heading"></a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">splinekit</span></code> library relies on precomputed poles stored in a cache for all degrees up to <span class="math notranslate nohighlight">\(n=94.\)</span> If, for some reason, the cache is emptied, the library then relies on direct expressions for the determination of poles of degree <span class="math notranslate nohighlight">\(n\in\{2,3,4,5,6,7,8,9\}.\)</span> For higher degrees, it relies on <code class="docutils literal notranslate"><span class="pre">sympy</span></code> to search poles in terms of roots of polynomials with rational coefficients. However, this evaluation is extremely costly timewise. For instance, on a 2021 desktop computer with libraries from 2025, the one-second threshold is exceeded at even degree <span class="math notranslate nohighlight">\(22\)</span> and odd degree <span class="math notranslate nohighlight">\(27,\)</span> the one-minute threshold is exceeded at even degree <span class="math notranslate nohighlight">\(32\)</span> and odd degree <span class="math notranslate nohighlight">\(35,\)</span> and the one-hour threshold is exceeded at even degree <span class="math notranslate nohighlight">\(40\)</span> and odd degree <span class="math notranslate nohighlight">\(45.\)</span></p>
+<section id="explicit-expressions">
+<h3>Explicit Expressions<a class="headerlink" href="#explicit-expressions" title="Link to this heading"></a></h3>
+<p>Explicit expressions of the poles of B-splines of low degree are known. Why the Abel-Ruffini theorem states that it is not possible to express (in terms of radicals) the roots of arbitrary polynomial equations of high degree, one has to remember that poles do not result from arbitrary equations but from specific ones. Yet, no explicit expression is known for the poles associated to degrees beyond nonic.</p>
+<section id="quadratic-pole">
+<h4>Quadratic Pole<a class="headerlink" href="#quadratic-pole" title="Link to this heading"></a></h4>
+<div class="math notranslate nohighlight">
+\[\begin{split}\left\{\begin{array}{rcl}0&amp;=&amp;\sum_{k=-1}^{1}\,\beta^{2}(k)\,z^{-k}\\z_{2,1}&amp;=&amp;-3+2\,\sqrt{2}\end{array}\right.\end{split}\]</div>
+</section>
+<section id="cubic-pole">
+<h4>Cubic Pole<a class="headerlink" href="#cubic-pole" title="Link to this heading"></a></h4>
+<div class="math notranslate nohighlight">
+\[\begin{split}\left\{\begin{array}{rcl}0&amp;=&amp;\sum_{k=-1}^{1}\,\beta^{3}(k)\,z^{-k}\\z_{3,1}&amp;=&amp;-2+\sqrt{3}\end{array}\right.\end{split}\]</div>
+</section>
+<section id="quartic-poles">
+<h4>Quartic Poles<a class="headerlink" href="#quartic-poles" title="Link to this heading"></a></h4>
+<div class="math notranslate nohighlight">
+\[\begin{split}\left\{\begin{array}{rcl}0&amp;=&amp;\sum_{k=-2}^{2}\,\beta^{4}(k)\,z^{-k}\\z_{4,1}&amp;=&amp;-19+\sqrt{304}+\sqrt{664-\sqrt{438976}}\\z_{4,2}&amp;=&amp;-19-\sqrt{304}+\sqrt{664+\sqrt{438976}}\end{array}\right.\end{split}\]</div>
+</section>
+<section id="quintic-poles">
+<h4>Quintic Poles<a class="headerlink" href="#quintic-poles" title="Link to this heading"></a></h4>
+<div class="math notranslate nohighlight">
+\[\begin{split}\left\{\begin{array}{rcl}0&amp;=&amp;\sum_{k=-2}^{2}\,\beta^{5}(k)\,z^{-k}\\z_{5,1}&amp;=&amp;-\frac{13}{2}+\sqrt{\frac{105}{4}}+\sqrt{\frac{135}{2}-\sqrt{\frac{17745}{4}}}\\z_{5,2}&amp;=&amp;-\frac{13}{2}-\sqrt{\frac{105}{4}}+\sqrt{\frac{135}{2}+\sqrt{\frac{17745}{4}}}\end{array}\right.\end{split}\]</div>
+</section>
+<section id="sextic-poles">
+<h4>Sextic Poles<a class="headerlink" href="#sextic-poles" title="Link to this heading"></a></h4>
+<div class="math notranslate nohighlight">
+\[\begin{split}\left\{\begin{array}{rcl}0&amp;=&amp;\sum_{k=-3}^{3}\,\beta^{6}(k)\,z^{-k}\\\theta&amp;=&amp;\frac{1}{3}\arccos(-\frac{668791}{\sqrt{447872715451}})\\c&amp;=&amp;\sqrt{\frac{122416}{9}}\,\cos{\theta}\\s&amp;=&amp;\sqrt{\frac{122416}{3}}\,\sin{\theta}\\\lambda_{1}&amp;=&amp;\frac{361}{3}-2\,c\\\lambda_{2}&amp;=&amp;\frac{361}{3}+c-s\\\lambda_{3}&amp;=&amp;\frac{361}{3}+c+s\\z_{6,1}&amp;=&amp;\sqrt{\lambda_{1}^{2}-1}-\lambda_{1}\\z_{6,2}&amp;=&amp;\sqrt{\lambda_{2}^{2}-1}-\lambda_{2}\\z_{6,3}&amp;=&amp;\sqrt{\lambda_{3}^{2}-1}-\lambda_{3}\end{array}\right.\end{split}\]</div>
+</section>
+<section id="septimic-poles">
+<h4>Septimic Poles<a class="headerlink" href="#septimic-poles" title="Link to this heading"></a></h4>
+<div class="math notranslate nohighlight">
+\[\begin{split}\left\{\begin{array}{rcl}0&amp;=&amp;\sum_{k=-3}^{3}\,\beta^{7}(k)\,z^{-k}\\\theta&amp;=&amp;\frac{1}{3}\arccos(-\frac{738}{\sqrt{556549}})\\c&amp;=&amp;\sqrt{301}\,\cos{\theta}\\s&amp;=&amp;\sqrt{903}\,\sin{\theta}\\\lambda_{1}&amp;=&amp;20-2\,c\\\lambda_{2}&amp;=&amp;20+c-s\\\lambda_{3}&amp;=&amp;20+c+s\\z_{7,1}&amp;=&amp;\sqrt{\lambda_{1}^{2}-1}-\lambda_{1}\\z_{7,2}&amp;=&amp;\sqrt{\lambda_{2}^{2}-1}-\lambda_{2}\\z_{7,3}&amp;=&amp;\sqrt{\lambda_{3}^{2}-1}-\lambda_{3}\end{array}\right.\end{split}\]</div>
+</section>
+<section id="octic-poles">
+<h4>Octic Poles<a class="headerlink" href="#octic-poles" title="Link to this heading"></a></h4>
+<div class="math notranslate nohighlight">
+\[\begin{split}\left\{\begin{array}{rcl}0&amp;=&amp;\sum_{k=-4}^{4}\,\beta^{8}(k)\,z^{-k}\\\theta&amp;=&amp;\frac{1}{3}\arccos\sqrt{\frac{3191438329707}{3435302785852}}\\\lambda_{0}&amp;=&amp;\sqrt{656944+\sqrt{106853376}\,\cos\theta}\\\lambda&amp;=&amp;\frac{1300071}{2}-\lambda_{0}^{2}\\\rho&amp;=&amp;1638\,\lambda_{0}-\sqrt{4\,\lambda^{2}-250737}\\\nu_{1}&amp;=&amp;\sqrt{\frac{2641593}{2}+\lambda-\rho}\\\nu_{2}&amp;=&amp;\sqrt{\frac{2641593}{2}+\lambda+\rho}\\\mu_{1}&amp;=&amp;-819+\lambda_{0}+\nu_{1}\\\mu_{2}&amp;=&amp;-819+\lambda_{0}-\nu_{1}\\\mu_{3}&amp;=&amp;-819-\lambda_{0}+\nu_{2}\\\mu_{4}&amp;=&amp;-819-\lambda_{0}-\nu_{2}\\z_{8,1}&amp;=&amp;\mu_{1}+\sqrt{\mu_{1}^{2}-1}\\z_{8,2}&amp;=&amp;\mu_{2}+\sqrt{\mu_{2}^{2}-1}\\z_{8,3}&amp;=&amp;\mu_{3}+\sqrt{\mu_{3}^{2}-1}\\z_{8,4}&amp;=&amp;\mu_{4}+\sqrt{\mu_{4}^{2}-1}\end{array}\right.\end{split}\]</div>
+</section>
+<section id="nonic-poles">
+<h4>Nonic Poles<a class="headerlink" href="#nonic-poles" title="Link to this heading"></a></h4>
+<div class="math notranslate nohighlight">
+\[\begin{split}\left\{\begin{array}{rcl}0&amp;=&amp;\sum_{k=-4}^{4}\,\beta^{9}(k)\,z^{-k}\\\theta&amp;=&amp;\frac{1}{3}\arccos\sqrt{\frac{607973645}{699281408}}\\\lambda_{0}&amp;=&amp;\sqrt{\frac{53265}{16}+\sqrt{146160}\,\cos\theta}\\\lambda&amp;=&amp;\frac{48397}{16}-\lambda_{0}^{2}\\\rho&amp;=&amp;\frac{251}{2}\,\lambda_{0}-\sqrt{4\,\lambda^{2}-7936}\\\nu_{1}&amp;=&amp;\sqrt{\frac{55699}{8}+\lambda-\rho}\\\nu_{2}&amp;=&amp;\sqrt{\frac{55699}{8}+\lambda+\rho}\\\mu_{1}&amp;=&amp;-\frac{251}{4}+\lambda_{0}+\nu_{1}\\\mu_{2}&amp;=&amp;-\frac{251}{4}+\lambda_{0}-\nu_{1}\\\mu_{3}&amp;=&amp;-\frac{251}{4}-\lambda_{0}+\nu_{2}\\\mu_{4}&amp;=&amp;-\frac{251}{4}-\lambda_{0}-\nu_{2}\\z_{9,1}&amp;=&amp;\mu_{1}+\sqrt{\mu_{1}^{2}-1}\\z_{9,2}&amp;=&amp;\mu_{2}+\sqrt{\mu_{2}^{2}-1}\\z_{9,3}&amp;=&amp;\mu_{3}+\sqrt{\mu_{3}^{2}-1}\\z_{9,4}&amp;=&amp;\mu_{4}+\sqrt{\mu_{4}^{2}-1}\end{array}\right.\end{split}\]</div>
+</section>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="bspline_bases.html" class="btn btn-neutral float-left" title="Spline Bases" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="bspline_inverse.html" class="btn btn-neutral float-right" title="Inverse of B-Spline Sequences" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright .</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

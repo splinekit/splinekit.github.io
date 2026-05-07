@@ -1,0 +1,157 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>M-Scale Relation of B-Splines &mdash; splinekit  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../../_static/plot_directive.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+      <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=2f8eb179" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+      <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="B-Spline vs \(\pi\)" href="bspline_vs_pi.html" />
+    <link rel="prev" title="Numeric Stability and Speed of B-Splines" href="bspline_stability.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            splinekit
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Demos [toc]</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">B-Splines [toc]</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="hello_bspline.html">Hello B-Spline Family!</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bspline_members.html">B-Spline Members</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bspline_stability.html">Numeric Stability and Speed of B-Splines</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">M-Scale Relation of B-Splines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bspline_vs_pi.html">B-Spline <em>vs</em> <span class="math notranslate nohighlight">\(\pi\)</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="spline_vs_poly.html">Splines, B-Splines, and Polynomials</a></li>
+<li class="toctree-l3"><a class="reference internal" href="spline_engineer_func.html">Splines and Engineering Functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bspline_bases.html">Spline Bases</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bspline_poles.html">B-Spline Poles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bspline_inverse.html">Inverse of B-Spline Sequences</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../padding/index.html">Padding [toc]</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spline1d/index.html">Periodic Splines [toc]</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../installation/index.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../glossary/index.html">Glossary [toc]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../periodic_spline_1d/index.html">Periodic Spline 1D [toc]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../bsplines/index.html">B-Splines [toc]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../spline_padding/index.html">Spline Padding [toc]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../bases/index.html">Bases [toc]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../periodic_nonuniform_piecewise/index.html">Periodic Nonuniform Piecewise [toc]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../interval/index.html">Interval [package]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../spline_utilities/index.html">Spline Utilities [toc]</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">splinekit</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Demos [toc]</a></li>
+          <li class="breadcrumb-item"><a href="index.html">B-Splines [toc]</a></li>
+      <li class="breadcrumb-item active">M-Scale Relation of B-Splines</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/Philippe-Thevenaz/splinekit/blob/main/docs/demos/bspline/bspline_m_scale.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="m-scale-relation-of-b-splines">
+<h1>M-Scale Relation of B-Splines<a class="headerlink" href="#m-scale-relation-of-b-splines" title="Link to this heading"></a></h1>
+<p>Illustration of the multiresolution embedding of the B-spline bases <span class="math notranslate nohighlight">\(\beta.\)</span></p>
+<hr class="docutils" />
+<p>A polynomial B-spline is a real function notated <span class="math notranslate nohighlight">\(\beta^{n}:{\mathbb{R}}\rightarrow{\mathbb{R}},x\mapsto\beta^{n}(x),\)</span> where its nonnegative integer degree <span class="math notranslate nohighlight">\(n\in{\mathbb{N}}\)</span> is typeset as a superscript (not a power). This function has many remarkable properties; here, we focus on multiresolution ones. In particular, it can be established that B-splines satisfy the M-scale equality</p>
+<div class="math notranslate nohighlight">
+\[\beta^{n}({\color{blue}x})=\frac{1}{M^{n}}\,\sum_{k=0}^{\left(M-1\right)\,\left(n+1\right)}\,h^{n}_{M}[k]\,\beta^{n}({\color{blue}M\,x}+\frac{\left(M-1\right)\,\left(n+1\right)}{2}-k),\]</div>
+<p>where <span class="math notranslate nohighlight">\(M\in{\mathbb{N}}+1\)</span> is a positive integer that gives the scale parameter.</p>
+<p>This equality, also called the M-scale relation, tells us that a B-spline at its nominal scale (the left-hand-side member) can be expressed as a finite weighted sum of shifted B-splines of same degree at scale <span class="math notranslate nohighlight">\(M\)</span> (the right-hand-side member). Indeed, the free variable <span class="math notranslate nohighlight">\(\color{blue}x\)</span> is multiplied by <span class="math notranslate nohighlight">\(\color{blue}M\)</span> on the right, but not on the left. The weights are the coefficients <span class="math notranslate nohighlight">\(h^{n}_{M}[k]/M^{n}\)</span> while the shifts <span class="math notranslate nohighlight">\((\frac{\left(M-1\right)\,\left(n+1\right)}{2}-k)\)</span> are integer-valued when at least one of <span class="math notranslate nohighlight">\(M\)</span> or <span class="math notranslate nohighlight">\(n\)</span> is odd.</p>
+<p>The M-scale relation has numerous applications. It is invaluable in the development of algorithms that rely on a multiresolution approach to gradually establish the solution of certain problems. It also has fundamental links with wavelets, which allows for the decomposition of a signal into scale-related local contributions.</p>
+<p>In the following Jupyter Lab notebook, we show the contribution of each term of the right-hand-side of the M-scale equality.</p>
+<div class="admonition-jupyter-lab-notebook admonition">
+<p class="admonition-title">Jupyter Lab notebook</p>
+<p><a class="reference external" href="https://splinekit.github.io/splinekit-jupyterlite/notebooks/index.html?path=bspline_m_scale.ipynb">M-scale relation of B-splines</a></p>
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="bspline_stability.html" class="btn btn-neutral float-left" title="Numeric Stability and Speed of B-Splines" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="bspline_vs_pi.html" class="btn btn-neutral float-right" title="B-Spline vs \(\pi\)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright .</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

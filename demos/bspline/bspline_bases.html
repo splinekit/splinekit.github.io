@@ -1,0 +1,315 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Spline Bases &mdash; splinekit  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../../_static/plot_directive.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+      <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=2f8eb179" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+      <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="B-Spline Poles" href="bspline_poles.html" />
+    <link rel="prev" title="Splines and Engineering Functions" href="spline_engineer_func.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            splinekit
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Demos [toc]</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">B-Splines [toc]</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="hello_bspline.html">Hello B-Spline Family!</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bspline_members.html">B-Spline Members</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bspline_stability.html">Numeric Stability and Speed of B-Splines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bspline_m_scale.html">M-Scale Relation of B-Splines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bspline_vs_pi.html">B-Spline <em>vs</em> <span class="math notranslate nohighlight">\(\pi\)</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="spline_vs_poly.html">Splines, B-Splines, and Polynomials</a></li>
+<li class="toctree-l3"><a class="reference internal" href="spline_engineer_func.html">Splines and Engineering Functions</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Spline Bases</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#roadmap">Roadmap</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#representation-of-numbers">Representation of Numbers</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#b-spline">B-Spline</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#interpolating-cardinal-b-spline">Interpolating Cardinal B-Spline</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#dual-b-spline">Dual B-Spline</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#orthonormal-b-spline">Orthonormal B-Spline</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="bspline_poles.html">B-Spline Poles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bspline_inverse.html">Inverse of B-Spline Sequences</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../padding/index.html">Padding [toc]</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spline1d/index.html">Periodic Splines [toc]</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../installation/index.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../glossary/index.html">Glossary [toc]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../periodic_spline_1d/index.html">Periodic Spline 1D [toc]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../bsplines/index.html">B-Splines [toc]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../spline_padding/index.html">Spline Padding [toc]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../bases/index.html">Bases [toc]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../periodic_nonuniform_piecewise/index.html">Periodic Nonuniform Piecewise [toc]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../interval/index.html">Interval [package]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../spline_utilities/index.html">Spline Utilities [toc]</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">splinekit</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Demos [toc]</a></li>
+          <li class="breadcrumb-item"><a href="index.html">B-Splines [toc]</a></li>
+      <li class="breadcrumb-item active">Spline Bases</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/Philippe-Thevenaz/splinekit/blob/main/docs/demos/bspline/bspline_bases.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="spline-bases">
+<h1>Spline Bases<a class="headerlink" href="#spline-bases" title="Link to this heading"></a></h1>
+<p>Illustration of the B-spline basis  <span class="math notranslate nohighlight">\(\beta,\)</span> the cardinal B-spline basis <span class="math notranslate nohighlight">\(\eta,\)</span> the dual B-spline basis <span class="math notranslate nohighlight">\(\mathring{\beta},\)</span> and the orthonormal B-spline basis <span class="math notranslate nohighlight">\(\phi.\)</span></p>
+<hr class="docutils" />
+<section id="roadmap">
+<h2>Roadmap<a class="headerlink" href="#roadmap" title="Link to this heading"></a></h2>
+<p>We are first going to give the intuition of what a basis is, by making a detour with the representation of numbers. Then, we introduce uniform splines as a weighted sum of integer-shifted bases. We go into greater depth in our general discussion of bases, and then focus on the specific case of the B-spline basis, of which we give just a few of their numerous properties. We end with the illustration of three other kinds of bases.</p>
+</section>
+<hr class="docutils" />
+<section id="representation-of-numbers">
+<h2>Representation of Numbers<a class="headerlink" href="#representation-of-numbers" title="Link to this heading"></a></h2>
+<p>Unlike in the antique world, the modern representation of numbers is positional, with digits. For instance, the number forty-two consists of the decimal digits <span class="math notranslate nohighlight">\(4\)</span> and <span class="math notranslate nohighlight">\(2,\)</span> with <span class="math notranslate nohighlight">\(4\)</span> to the left and <span class="math notranslate nohighlight">\(2\)</span> to the right.</p>
+<p>Digits are the construction blocks of numbers. They are associated to a <em>base</em> (not a basis); in everyday life, the base is ten. In a computer, the binary base is two. Geeks would write octal numbers in base eight or hexadecimal numbers in base sixteen. Assuming the subscript is written in base ten, one would notate</p>
+<div class="math notranslate nohighlight">
+\[42_{10}=101010_{2}=52_{8}=2{\mathrm{A}}_{16}.\]</div>
+<p>Formally, if <span class="math notranslate nohighlight">\(b\)</span> is the base, the synthesis of a nonnegative and finite integer number <span class="math notranslate nohighlight">\(m\in{\mathbb{N}}\)</span> from its digits <span class="math notranslate nohighlight">\(\left(d[k]\right)_{k\in{\mathbb{N}}}\)</span> is understood to be</p>
+<div class="math notranslate nohighlight">
+\[m=\sum_{k\in{\mathbb{N}}}\,d[k]\,b^{k},\;m\in{\mathbb{N}}.\]</div>
+<p>In written form, the digits are ordered by their index, from high index to low index if one goes from left to right. While the synthesis operation involves infinitely many digits, the finite nature of <span class="math notranslate nohighlight">\(m\in{\mathbb{N}}\)</span> imposes that <span class="math notranslate nohighlight">\(d[k]=0\)</span> when <span class="math notranslate nohighlight">\(k\)</span> is sufficiently large. For convenience, the writing of those leftmost digits of value zero is omitted, which results in a finite-length string even if the list of digits is implicitly infinite—at least, to the left.</p>
+<p>The finite characteristic of the string may be of a different nature. Typically, your everyday-life number might possibly be an integer, but sometimes it is also an irrational number <span class="math notranslate nohighlight">\(x\in{\mathbb{R}}\setminus{\mathbb{Q}}.\)</span> In this case, the representation is extended by considering digits <span class="math notranslate nohighlight">\(\left(d[k]\right)_{k\in{\mathbb{Z}}}\)</span> with both negative and positive indices, like in</p>
+<div class="math notranslate nohighlight">
+\[x=\sum_{k\in{\mathbb{Z}}}\,d[k]\,b^{k},\;x\in{\mathbb{R}},\]</div>
+<p>but, by practical necessity, the written form requires a finite-length string. One achieves this by omitting the zeros to the left and truncating the digits to the right. Yet, conceptually, the number of digits is still infinite.</p>
+<p>We have now made the point that a number can be synthesized by an <em>infinite</em> sum of <em>indexed weights</em> (the digits) that multiply some <em>index-dependent operation</em> on a base (the canonic number <span class="math notranslate nohighlight">\(b\)</span> to the power of the index). We have omitted details such as the handling of the sign, or discussed the assumption that the base is an integer or, if it is indeed an integer <span class="math notranslate nohighlight">\(b\in{\mathbb{N}}+2,\)</span> that the digits take integer values restricted to <span class="math notranslate nohighlight">\(d[k]\in[0\ldots b-1].\)</span> The unicity of the representation has been left aside, too.</p>
+<section id="uniform-splines">
+<h3>Uniform Splines<a class="headerlink" href="#uniform-splines" title="Link to this heading"></a></h3>
+<p>Uniform splines are functions. In other words, they are mappings that associate an input real number to some (often different) output number. To be called uniform splines, these functions are not entirely arbitrary but obey some rules and follow some structure. Specifically, they are number-like, written as the functional recipe</p>
+<div class="math notranslate nohighlight">
+\[f:{\mathbb{R}}\rightarrow{\mathbb{R}},x\mapsto f(x)=\sum_{k\in{\mathbb{Z}}}\,c[k]\,\varphi(x-k).\]</div>
+<p>There, the indexed weights <span class="math notranslate nohighlight">\(\left(c[k]\right)_{k\in{\mathbb{Z}}}\)</span> play the same role as the digits <span class="math notranslate nohighlight">\(\left(d[k]\right)_{k\in{\mathbb{Z}}}\)</span> of numbers, while the <em>basis</em> (not the base) <span class="math notranslate nohighlight">\(\varphi\)</span> plays the same role as the base <span class="math notranslate nohighlight">\(b\)</span> of numbers. However, whereas the base was raised to the integer power <span class="math notranslate nohighlight">\(k,\)</span> the basis now is shifted by the integer amount <span class="math notranslate nohighlight">\(k.\)</span> In other words, the coefficients are to the spline what the digits are to the string representation of a number, and the basis is to the spline what the (decimal or binary) base is to the string representation of a number.</p>
+<p>In some elaborate versions of splines, the shift is allowed to take non-integer values and even to vary with the index; here, we limit ourselves to integer shifts, which is the reason why such splines are said to be <em>uniform</em>.</p>
+</section>
+<section id="bases">
+<h3>Bases<a class="headerlink" href="#bases" title="Link to this heading"></a></h3>
+<p>Given the number <span class="math notranslate nohighlight">\(x\)</span>, many a base <span class="math notranslate nohighlight">\(b\)</span> can be adopted to represent its value, with adjusted digits <span class="math notranslate nohighlight">\(d\)</span>. Likewise, given a spline <span class="math notranslate nohighlight">\(f\)</span>, many a basis <span class="math notranslate nohighlight">\(\varphi\)</span> can be adopted to represent the function, with adjusted weights <span class="math notranslate nohighlight">\(c\)</span>. For <span class="math notranslate nohighlight">\(f\)</span> to be truly called a spline, however, the basis itself must adhere to some specific constraints. As we consider only <em>polynomial</em> uniform splines of nonnegative integer degree <span class="math notranslate nohighlight">\(n\in{\mathbb{N}}\)</span>, the basis <span class="math notranslate nohighlight">\(\varphi\)</span> must</p>
+<ul class="simple">
+<li><p>be a piecewise polynomial of degree <span class="math notranslate nohighlight">\(n\)</span> with pieces of unit length;</p></li>
+<li><p>be <span class="math notranslate nohighlight">\(\left(n-1\right)\)</span>-times continuously differentiable and <span class="math notranslate nohighlight">\(n\)</span>-times differentiable;</p></li>
+<li><p>have its <span class="math notranslate nohighlight">\(n\)</span> th derivative be necessarily discontinous in at least one place.</p></li>
+</ul>
+<p>These properties go a long way but are not sufficient. The true technical requirements demand for an understanding that goes beyond calculus and we do not reproduce them here.</p>
+<p>In its canonical form, the basis is possibly the odd- or even-symmetric <em>polynomial simple element</em> of nonnegative integer degree <span class="math notranslate nohighlight">\(n\in{\mathbb{N}},\)</span> a function notated <span class="math notranslate nohighlight">\(\varsigma^{n}\)</span> with <span class="math notranslate nohighlight">\(n\)</span> a superscript—not a power. It maps <span class="math notranslate nohighlight">\(x\in{\mathbb{R}}\)</span> to <span class="math notranslate nohighlight">\(\varsigma^{n}(x)=\frac{1}{2\,n!}\,{\mathrm{sgn}}(x)\,x^{n}.\)</span> Alternatively, it can also be the one-sided function that maps <span class="math notranslate nohighlight">\(x\in{\mathbb{R}}_{&lt;0}\)</span> to <span class="math notranslate nohighlight">\(0\)</span> and <span class="math notranslate nohighlight">\(x\in{\mathbb{R}}_{\geq0}\)</span> to <span class="math notranslate nohighlight">\(x^{n}.\)</span> However, unlike <span class="math notranslate nohighlight">\(\varsigma^{n},\)</span> the one-sided function is restricted to those integer degrees that are positive since it is not well-defined at <span class="math notranslate nohighlight">\(x=0\)</span> for <span class="math notranslate nohighlight">\(n=0\)</span>.</p>
+<p>These canonic versions have their uses since their simplicity facilitates theoretical developments. However, they are terribly bad in practice. In any case, the important thing to remember is that, just like one given number admits a representation in any arbitrary base, one given spline admits a representation in any arbitrary basis.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="b-spline">
+<h2>B-Spline<a class="headerlink" href="#b-spline" title="Link to this heading"></a></h2>
+<p>A basis that ticks many marks, both practical and theoretical, is the so-called polynomial B-spline <span class="math notranslate nohighlight">\(\beta^{n}\)</span> of nonnegative integer degree <span class="math notranslate nohighlight">\(n,\)</span> with <span class="math notranslate nohighlight">\(n\)</span> a superscript. Indeed, a B-spline is the function that is used most often as construction block to build splines. The letter B in B-spline stands for <em>basis</em>. In practice, its most appealing property is its finite support, which is conductive to fast algorithms. At the same time, it has remarkable properties beyond those linked to differentiablity, a few of them being as follows.</p>
+<ul class="simple">
+<li><p><strong>Explicit Formula</strong> A finite number of arithmetic operations is all it takes to compute a B-spline.</p></li>
+<li><p><strong>Rational Mapping</strong> B-splines map rational numbers <span class="math notranslate nohighlight">\(x\in{\mathbb{Q}}\)</span> to rational numbers, which allows computers to make exact computations, if desired.</p></li>
+<li><p><strong>Finite Support</strong> B-splines are bump-like functions that take the value zero except on a central interval of diameter <span class="math notranslate nohighlight">\(n+1.\)</span></p></li>
+<li><p><strong>Symmetry</strong> B-splines are even-symmetric.</p></li>
+<li><p><strong>Nonnegativity</strong> B-splines never take a negative value.</p></li>
+<li><p><strong>Boundedness</strong> B-splines are nonnegative and never exceed the value <span class="math notranslate nohighlight">\(1.\)</span></p></li>
+<li><p><strong>Multiscale Relations</strong> B-splines can be expressed exactly as a weighted sum of shifted B-splines downscaled by an arbitrary positive integer factor. The shifts are trivial and the weights are easy to compute exactly.</p></li>
+<li><p><strong>Order of Approximation</strong> In the theory of approximation, B-splines achieve the desirable property of a maximal order of approximation for their support. In particular, they satisfy the <em>partition of unity</em>.</p></li>
+</ul>
+<p>While a B-spline has many favorable properties, it comes at a price: it is not interpolating, which means that it is not trivial to determine the coefficients that ensure that the spline takes imposed values. More precisely, given the sequence <span class="math notranslate nohighlight">\(\left(y[q]\right)_{q\in{\mathbb{Z}}}\)</span>, some work is required to find <span class="math notranslate nohighlight">\(c_{1}\)</span> such that</p>
+<div class="math notranslate nohighlight">
+\[\left(y[q]\right)_{q\in{\mathbb{Z}}}=\left(\sum_{k\in{\mathbb{R}}}\,c_{1}[k]\,\beta^{n}(q-k)\right)_{q\in{\mathbb{Z}}}.\]</div>
+<p>In the sequel, the B-spline basis provides the reference to which all other bases will be compared. We set</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{eqnarray*}
+f:{\mathbb{R}}\rightarrow{\mathbb{R}},\;x\mapsto f(x)&amp;=&amp;\sum_{k\in{\mathbb{R}}}\,c[k]\,\varphi(x-k)\\
+&amp;=&amp;\sum_{k\in{\mathbb{R}}}\,c_{1}[k]\,\beta^{n}(x-k).
+\end{eqnarray*}\end{split}\]</div>
+<p>Here, we plot a B-spline over its support, indexed by its degree.</p>
+<div class="admonition-jupyter-lab-notebook admonition">
+<p class="admonition-title">Jupyter Lab notebook</p>
+<p><a class="reference external" href="https://splinekit.github.io/splinekit-jupyterlite/notebooks/index.html?path=bspline_member.ipynb">Polynomial B-spline</a></p>
+</div>
+</section>
+<hr class="docutils" />
+<section id="interpolating-cardinal-b-spline">
+<h2>Interpolating Cardinal B-Spline<a class="headerlink" href="#interpolating-cardinal-b-spline" title="Link to this heading"></a></h2>
+<p>There exists a basis <span class="math notranslate nohighlight">\(\eta^{n}\)</span> that happens to be interpolating. It is called a cardinal B-spline. Some of its mathematical properties can be considered less favorable than those of B-splines; most notably, contrarily to B-splines, the support of cardinal B-splines is infinite, which makes it an impractical basis. Yet, its interpolating property, according to which <span class="math notranslate nohighlight">\(\eta^{n}(0)=1\)</span> and <span class="math notranslate nohighlight">\(\eta^{n}(k)=0\)</span> for <span class="math notranslate nohighlight">\(k\in{\mathbb{Z}}\setminus\{0\},\)</span> greatly facilitates the determination of the coefficients of the representation. Indeed, it is enough to let <span class="math notranslate nohighlight">\(c_{2}=y\)</span> to automatically get that</p>
+<div class="math notranslate nohighlight">
+\[\left(y[q]\right)_{q\in{\mathbb{Z}}}=\left(\sum_{k\in{\mathbb{R}}}\,c_{2}[k]\,\eta^{n}(q-k)\right)_{q\in{\mathbb{Z}}}.\]</div>
+<p>It then holds that</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{eqnarray*}
+f:{\mathbb{R}}\rightarrow{\mathbb{R}},\;x\mapsto f(x)&amp;=&amp;\sum_{k\in{\mathbb{R}}}\,c[k]\,\varphi(x-k)\\
+&amp;=&amp;\sum_{k\in{\mathbb{R}}}\,c_{1}[k]\,\beta^{n}(x-k)\\
+&amp;=&amp;\sum_{k\in{\mathbb{R}}}\,c_{2}[k]\,\eta^{n}(x-k).
+\end{eqnarray*}\end{split}\]</div>
+<p>Here, we plot a cardinal B-spline, indexed by its degree.</p>
+<div class="admonition-jupyter-lab-notebook admonition">
+<p class="admonition-title">Jupyter Lab notebook</p>
+<p><a class="reference external" href="https://splinekit.github.io/splinekit-jupyterlite/notebooks/index.html?path=bspline_cardinal.ipynb">Interpolating cardinal B-spline</a></p>
+</div>
+<section id="relation-to-the-cardinal-sine-function">
+<h3>Relation to the Cardinal Sine Function<a class="headerlink" href="#relation-to-the-cardinal-sine-function" title="Link to this heading"></a></h3>
+<p>The function <span class="math notranslate nohighlight">\(f:{\mathbb{R}}\rightarrow{\mathbb{R}},\;x\mapsto\sum_{k\in{\mathbb{R}}}\,c[k]\,\varphi(x-k)\)</span> is a spline only for certain bases <span class="math notranslate nohighlight">\(\varphi.\)</span> A famous case where <span class="math notranslate nohighlight">\(f\)</span> fails to be a spline arises if one chooses <span class="math notranslate nohighlight">\(\sin(\pi\,x)/\left(\pi\,x\right)={\mathrm{sinc}}\,x,\)</span> to play the role of the basis, which is associated to the celebrated Whittaker–Shannon interpolation formula and has strong theoretical properties.</p>
+<p>As it turns out, the cardinal B-spline <span class="math notranslate nohighlight">\(\eta^{n}\)</span> tends (in a functional sense) to <span class="math notranslate nohighlight">\({\mathrm{sinc}}\)</span> when <span class="math notranslate nohighlight">\(n\rightarrow\infty.\)</span> The convergence, however, is poor. In particular, the tails of the <span class="math notranslate nohighlight">\({\mathrm{sinc}}\)</span> function decay in reciprocal fashion, a decay that is much gentler than the exponential decay followed by the tails of the cardinal B-spline.</p>
+<p>We verify now visually over the range <span class="math notranslate nohighlight">\(x\in[-15,15]\)</span> that
+<span class="math notranslate nohighlight">\({\mathrm{sinc}}\,x=\lim_{n\rightarrow\infty}\eta^{n}(x),\)</span> albeit slowly.</p>
+<div class="admonition-jupyter-lab-notebook admonition">
+<p class="admonition-title">Jupyter Lab notebook</p>
+<p><a class="reference external" href="https://splinekit.github.io/splinekit-jupyterlite/notebooks/index.html?path=bspline_sinc.ipynb">Convergence of the cardinal B-spline to the sinc function</a></p>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="dual-b-spline">
+<h2>Dual B-Spline<a class="headerlink" href="#dual-b-spline" title="Link to this heading"></a></h2>
+<p>Let the basis <span class="math notranslate nohighlight">\(\mathring{\beta}^{n_{2},n_{1}}\)</span> of dual degree <span class="math notranslate nohighlight">\(n_{2}\in{\mathbb{N}}\)</span> and primal degree <span class="math notranslate nohighlight">\(n_{1}\in{\mathbb{N}}\)</span> be called a dual B-spline. It is yet another basis that is sometimes used to provide an alternate (equivalent) representation of the spline as</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{eqnarray*}
+f:{\mathbb{R}}\rightarrow{\mathbb{R}},\;x\mapsto f(x)&amp;=&amp;\sum_{k\in{\mathbb{R}}}\,c[k]\,\varphi(x-k)\\
+&amp;=&amp;\sum_{k\in{\mathbb{R}}}\,c_{1}[k]\,\beta^{n}(x-k)\\
+&amp;=&amp;\sum_{k\in{\mathbb{R}}}\,c_{2}[k]\,\eta^{n}(x-k)\\
+&amp;=&amp;\sum_{k\in{\mathbb{R}}}\,c_{3}[k]\,\mathring{\beta}^{n,n_{1}}(x-k).
+\end{eqnarray*}\end{split}\]</div>
+<p>Here, the equality of the representations of <span class="math notranslate nohighlight">\(f\)</span> is achieved only if we set <span class="math notranslate nohighlight">\(n_{2}=n,\)</span> while the primal degree <span class="math notranslate nohighlight">\(n_{1}\in{\mathbb{N}}\)</span> is free. The defining property of a dual B-spline is that it is the unique spline of degree <span class="math notranslate nohighlight">\(n_{2}\)</span> which, once convolved with a B-spline of degree <span class="math notranslate nohighlight">\(n_{1},\)</span> results in a cardinal, interpolating spline. Formally, this is written as</p>
+<div class="math notranslate nohighlight">
+\[\forall x\in{\mathbb{R}}:\eta^{n_{2}+n_{1}+1}(x)=\int_{{\mathbb{R}}}\,\mathring{\beta}^{n_{2},n_{1}}(y)\,\beta^{n_{1}}(x-y)\,{\mathrm{d}}y.\]</div>
+<p>Several algorithms have been designed to take advantage of the interpolating property of <span class="math notranslate nohighlight">\(\mathring{\beta}^{n_{2},n_{1}}*\beta^{n_{1}}\)</span> and of the equivalence of the representation of <span class="math notranslate nohighlight">\(f\)</span> through <span class="math notranslate nohighlight">\(c_{1}\)</span> or <span class="math notranslate nohighlight">\(c_{3}.\)</span></p>
+<p>Here, we show a dual B-spline indexed by its dual degree <span class="math notranslate nohighlight">\(n_{2}\)</span> and its primal degree <span class="math notranslate nohighlight">\(n_{1}.\)</span></p>
+<div class="admonition-jupyter-lab-notebook admonition">
+<p class="admonition-title">Jupyter Lab notebook</p>
+<p><a class="reference external" href="https://splinekit.github.io/splinekit-jupyterlite/notebooks/index.html?path=bspline_dual.ipynb">Dual B-spline</a></p>
+</div>
+<section id="defining-property-of-dual-b-splines">
+<h3>Defining Property of Dual B-Splines<a class="headerlink" href="#defining-property-of-dual-b-splines" title="Link to this heading"></a></h3>
+<p>We verify now visually over the range <span class="math notranslate nohighlight">\(x\in[-15,15]\)</span> that
+<span class="math notranslate nohighlight">\(\eta^{n_{2}+n_{1}+1}(x)=\left(\mathring{\beta}^{n_{2},n_{1}}*\beta^{n_{1}}\right)(x).\)</span></p>
+<div class="admonition-jupyter-lab-notebook admonition">
+<p class="admonition-title">Jupyter Lab notebook</p>
+<p><a class="reference external" href="https://splinekit.github.io/splinekit-jupyterlite/notebooks/index.html?path=bspline_dual_property.ipynb">Dual B-spline property</a></p>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="orthonormal-b-spline">
+<h2>Orthonormal B-Spline<a class="headerlink" href="#orthonormal-b-spline" title="Link to this heading"></a></h2>
+<p>Let the orthonormal B-spline <span class="math notranslate nohighlight">\(\phi^{n}\)</span> of degree <span class="math notranslate nohighlight">\(n\)</span> be a final basis of interest that is sometimes used to provide an alternate (equivalent) representation of the spline as</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{eqnarray*}
+f:{\mathbb{R}}\rightarrow{\mathbb{R}},\;x\mapsto f(x)&amp;=&amp;\sum_{k\in{\mathbb{R}}}\,c[k]\,\varphi(x-k)\\
+&amp;=&amp;\sum_{k\in{\mathbb{R}}}\,c_{1}[k]\,\beta^{n}(x-k)\\
+&amp;=&amp;\sum_{k\in{\mathbb{R}}}\,c_{2}[k]\,\eta^{n}(x-k)\\
+&amp;=&amp;\sum_{k\in{\mathbb{R}}}\,c_{3}[k]\,\mathring{\beta}^{n,n_{1}}(x-k)\\
+&amp;=&amp;\sum_{k\in{\mathbb{R}}}\,c_{4}[k]\,\phi^{n}(x-k).
+\end{eqnarray*}\end{split}\]</div>
+<p>The defining property of the orthonormal B-spline is that it is the unique (up to its sign) spline of degree <span class="math notranslate nohighlight">\(n\)</span> which, once convolved with itself, results in a cardinal, interpolating spline. Formally, this is written as</p>
+<div class="math notranslate nohighlight">
+\[\forall x\in{\mathbb{R}}:\eta^{2\,n+1}(x)=\int_{{\mathbb{R}}}\,\phi^{n}(y)\,\phi^{n}(x-y)\,{\mathrm{d}}y.\]</div>
+<p>Several algorithms have been designed to take advantage of the interpolating property of <span class="math notranslate nohighlight">\(\phi^{n}*\phi^{n}\)</span> and of the equivalence of the representation of <span class="math notranslate nohighlight">\(f\)</span> through <span class="math notranslate nohighlight">\(c_{1}\)</span> or <span class="math notranslate nohighlight">\(c_{4}.\)</span></p>
+<p>Here, we show an orthonormal B-spline indexed by its degree <span class="math notranslate nohighlight">\(n.\)</span></p>
+<div class="admonition-jupyter-lab-notebook admonition">
+<p class="admonition-title">Jupyter Lab notebook</p>
+<p><a class="reference external" href="https://splinekit.github.io/splinekit-jupyterlite/notebooks/index.html?path=bspline_ortho.ipynb">Orthonormal B-spline</a></p>
+</div>
+<section id="defining-property-of-orthonormal-b-splines">
+<h3>Defining Property of Orthonormal B-Splines<a class="headerlink" href="#defining-property-of-orthonormal-b-splines" title="Link to this heading"></a></h3>
+<p>We verify now visually over the range <span class="math notranslate nohighlight">\(x\in[-15,15]\)</span> that
+<span class="math notranslate nohighlight">\(\eta^{2\,n+1}(x)=\left(\phi^{n}*\phi^{n}\right)(x).\)</span></p>
+<div class="admonition-jupyter-lab-notebook admonition">
+<p class="admonition-title">Jupyter Lab notebook</p>
+<p><a class="reference external" href="https://splinekit.github.io/splinekit-jupyterlite/notebooks/index.html?path=bspline_ortho_property.ipynb">Orthonormal B-spline property</a></p>
+</div>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="spline_engineer_func.html" class="btn btn-neutral float-left" title="Splines and Engineering Functions" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="bspline_poles.html" class="btn btn-neutral float-right" title="B-Spline Poles" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright .</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

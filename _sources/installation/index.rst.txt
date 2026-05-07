@@ -1,5 +1,5 @@
 Installation
 ============
 
-.. include:: ../../README.md
-   :parser: myst
+..  include:: ../../README.md
+    :parser: myst

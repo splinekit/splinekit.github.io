@@ -21,10 +21,12 @@
       <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
       <script src="_static/design-tabs.js?v=f930bc37"></script>
       <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+      <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Installation" href="installation/index.html" /> 
+    <link rel="next" title="Demos [toc]" href="demos/index.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -48,11 +50,8 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="demos/index.html">Demos [toc]</a></li>
 <li class="toctree-l1"><a class="reference internal" href="installation/index.html">Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="jupyter_labs/index.html">Jupyter Labs [toc]</a></li>
-<li class="toctree-l1"><a class="reference internal" href="jupyter_labs/index.html#module-bsplines">Module <code class="docutils literal notranslate"><span class="pre">bsplines</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="jupyter_labs/index.html#module-spline-padding">Module <code class="docutils literal notranslate"><span class="pre">spline_padding</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="jupyter_labs/index.html#class-periodicspline1d">Class <code class="docutils literal notranslate"><span class="pre">PeriodicSpline1D</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="glossary/index.html">Glossary [toc]</a></li>
 <li class="toctree-l1"><a class="reference internal" href="periodic_spline_1d/index.html">Periodic Spline 1D [toc]</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bsplines/index.html">B-Splines [toc]</a></li>
@@ -115,18 +114,213 @@ GitHub Source Files</div>
 <div class="toctree-wrapper compound">
 <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="demos/index.html">Demos [toc]</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="demos/bspline/index.html">B-Splines [toc]</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="demos/bspline/hello_bspline.html">Hello B-Spline Family!</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="demos/bspline/hello_bspline.html#a-family-of-b-splines">A Family of B-Splines</a></li>
+<li class="toctree-l4"><a class="reference internal" href="demos/bspline/hello_bspline.html#gradient">Gradient</a></li>
+<li class="toctree-l4"><a class="reference internal" href="demos/bspline/hello_bspline.html#integral">Integral</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="demos/bspline/bspline_members.html">B-Spline Members</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="demos/bspline/bspline_members.html#polynomial-b-spline">Polynomial B-spline</a></li>
+<li class="toctree-l4"><a class="reference internal" href="demos/bspline/bspline_members.html#polynomial-b-spline-derivatives">Polynomial B-Spline Derivatives</a></li>
+<li class="toctree-l4"><a class="reference internal" href="demos/bspline/bspline_members.html#polynomial-b-spline-integral">Polynomial B-Spline Integral</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="demos/bspline/bspline_stability.html">Numeric Stability and Speed of B-Splines</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="demos/bspline/bspline_stability.html#splines">Splines</a></li>
+<li class="toctree-l4"><a class="reference internal" href="demos/bspline/bspline_stability.html#b-splines">B-Splines</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="demos/bspline/bspline_stability.html#classic-formula">Classic Formula</a></li>
+<li class="toctree-l5"><a class="reference internal" href="demos/bspline/bspline_stability.html#de-boor">De Boor</a></li>
+<li class="toctree-l5"><a class="reference internal" href="demos/bspline/bspline_stability.html#splinekit">Splinekit</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="demos/bspline/bspline_stability.html#experiments">Experiments</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="demos/bspline/bspline_stability.html#critical-regime">Critical Regime</a></li>
+<li class="toctree-l5"><a class="reference internal" href="demos/bspline/bspline_stability.html#global-regime-low-degrees">Global Regime, Low Degrees</a></li>
+<li class="toctree-l5"><a class="reference internal" href="demos/bspline/bspline_stability.html#global-regime">Global Regime</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="demos/bspline/bspline_m_scale.html">M-Scale Relation of B-Splines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="demos/bspline/bspline_vs_pi.html">B-Spline <em>vs</em> <span class="math notranslate nohighlight">\(\pi\)</span></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="demos/bspline/bspline_vs_pi.html#value-of-a-b-spline-at-the-origin">Value of a B-Spline at the Origin</a></li>
+<li class="toctree-l4"><a class="reference internal" href="demos/bspline/bspline_vs_pi.html#alternating-sum-of-samples">Alternating Sum of Samples</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="demos/bspline/spline_vs_poly.html">Splines, B-Splines, and Polynomials</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="demos/bspline/spline_vs_poly.html#splines">Splines</a></li>
+<li class="toctree-l4"><a class="reference internal" href="demos/bspline/spline_vs_poly.html#polynomials">Polynomials</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="demos/bspline/spline_vs_poly.html#polynomial-of-degree-left-1-right">Polynomial of Degree <span class="math notranslate nohighlight">\(\left(-1\right)\)</span></a></li>
+<li class="toctree-l5"><a class="reference internal" href="demos/bspline/spline_vs_poly.html#polynomials-of-degree-0-and-partition-of-unity">Polynomials of Degree <span class="math notranslate nohighlight">\(0\)</span> and Partition of Unity</a></li>
+<li class="toctree-l5"><a class="reference internal" href="demos/bspline/spline_vs_poly.html#partition-of-monomials">Partition of Monomials</a></li>
+<li class="toctree-l5"><a class="reference internal" href="demos/bspline/spline_vs_poly.html#spline-coefficients-made-of-discrete-monomials">Spline Coefficients Made of Discrete Monomials</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="demos/bspline/spline_vs_poly.html#monomial-convolved-with-a-b-spline">Monomial Convolved with a B-Spline</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="demos/bspline/spline_engineer_func.html">Splines and Engineering Functions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="demos/bspline/spline_engineer_func.html#sine">Sine</a></li>
+<li class="toctree-l4"><a class="reference internal" href="demos/bspline/spline_engineer_func.html#cosine">Cosine</a></li>
+<li class="toctree-l4"><a class="reference internal" href="demos/bspline/spline_engineer_func.html#interludetrigonometric-exercise"><em>Interlude—Trigonometric Exercise</em></a></li>
+<li class="toctree-l4"><a class="reference internal" href="demos/bspline/spline_engineer_func.html#exponential">Exponential</a></li>
+<li class="toctree-l4"><a class="reference internal" href="demos/bspline/spline_engineer_func.html#gauss-error-function">Gauss Error Function</a></li>
+<li class="toctree-l4"><a class="reference internal" href="demos/bspline/spline_engineer_func.html#interludegaussian-exercise"><em>Interlude—Gaussian Exercise</em></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="demos/bspline/bspline_bases.html">Spline Bases</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="demos/bspline/bspline_bases.html#roadmap">Roadmap</a></li>
+<li class="toctree-l4"><a class="reference internal" href="demos/bspline/bspline_bases.html#representation-of-numbers">Representation of Numbers</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="demos/bspline/bspline_bases.html#uniform-splines">Uniform Splines</a></li>
+<li class="toctree-l5"><a class="reference internal" href="demos/bspline/bspline_bases.html#bases">Bases</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="demos/bspline/bspline_bases.html#b-spline">B-Spline</a></li>
+<li class="toctree-l4"><a class="reference internal" href="demos/bspline/bspline_bases.html#interpolating-cardinal-b-spline">Interpolating Cardinal B-Spline</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="demos/bspline/bspline_bases.html#relation-to-the-cardinal-sine-function">Relation to the Cardinal Sine Function</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="demos/bspline/bspline_bases.html#dual-b-spline">Dual B-Spline</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="demos/bspline/bspline_bases.html#defining-property-of-dual-b-splines">Defining Property of Dual B-Splines</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="demos/bspline/bspline_bases.html#orthonormal-b-spline">Orthonormal B-Spline</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="demos/bspline/bspline_bases.html#defining-property-of-orthonormal-b-splines">Defining Property of Orthonormal B-Splines</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="demos/bspline/bspline_poles.html">B-Spline Poles</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="demos/bspline/bspline_poles.html#poles">Poles</a></li>
+<li class="toctree-l4"><a class="reference internal" href="demos/bspline/bspline_poles.html#imbrication-of-poles">Imbrication of Poles</a></li>
+<li class="toctree-l4"><a class="reference internal" href="demos/bspline/bspline_poles.html#annihilating-sequences">Annihilating Sequences</a></li>
+<li class="toctree-l4"><a class="reference internal" href="demos/bspline/bspline_poles.html#pole-values">Pole Values</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="demos/bspline/bspline_poles.html#explicit-expressions">Explicit Expressions</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="demos/bspline/bspline_inverse.html">Inverse of B-Spline Sequences</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="demos/bspline/bspline_inverse.html#usefulness">Usefulness</a></li>
+<li class="toctree-l4"><a class="reference internal" href="demos/bspline/bspline_inverse.html#non-periodic-case">Non-Periodic Case</a></li>
+<li class="toctree-l4"><a class="reference internal" href="demos/bspline/bspline_inverse.html#periodic-case">Periodic Case</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="demos/padding/index.html">Padding [toc]</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="demos/padding/padding.html">Padding</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="demos/padding/padding.html#purpose">Purpose</a></li>
+<li class="toctree-l4"><a class="reference internal" href="demos/padding/padding.html#unicity">Unicity</a></li>
+<li class="toctree-l4"><a class="reference internal" href="demos/padding/padding.html#available-paddings">Available Paddings</a></li>
+<li class="toctree-l4"><a class="reference internal" href="demos/padding/padding.html#periodic-padding">Periodic Padding</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="demos/padding/padding.html#algorithmic-considerations">Algorithmic Considerations</a></li>
+<li class="toctree-l5"><a class="reference internal" href="demos/padding/padding.html#experimental-performance">Experimental Performance</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="demos/padding/padding.html#narrow-mirror-padding">Narrow-Mirror Padding</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="demos/padding/padding.html#id1">Recursive Filtering</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="demos/padding/padding.html#wide-mirror-padding">Wide-Mirror Padding</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="demos/padding/padding.html#id2">Recursive Filtering</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="demos/padding/padding.html#anti-mirror-padding">Anti-Mirror Padding</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="demos/padding/padding.html#id3">Recursive Filtering</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="demos/padding/padding.html#nega-periodic-padding">Nega-Periodic Padding</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="demos/padding/padding.html#id4">Recursive Filtering</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="demos/padding/padding.html#nega-narrow-mirror-padding">Nega-Narrow-Mirror Padding</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="demos/padding/padding.html#id5">Recursive Filtering</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="demos/padding/padding.html#nega-wide-mirror-padding">Nega-Wide-Mirror Padding</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="demos/padding/padding.html#id6">Recursive Filtering</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="demos/spline1d/index.html">Periodic Splines [toc]</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="demos/spline1d/random1d.html">Random One-Dimensional Splines</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="demos/spline1d/random1d.html#spline-real-functions">Spline Real Functions</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="demos/spline1d/random2d.html">Random Two-Dimensional Spline Curves</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="demos/spline1d/random2d.html#d-curve-with-1d-spline-cartesian-components">2D Curve with 1D Spline Cartesian Components</a></li>
+<li class="toctree-l4"><a class="reference internal" href="demos/spline1d/random2d.html#about-smoothness">About Smoothness</a></li>
+<li class="toctree-l4"><a class="reference internal" href="demos/spline1d/random2d.html#kinks">Kinks</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="demos/spline1d/constructors.html">Constructors of Periodic One-Dimensional Splines</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="demos/spline1d/constructors.html#periodic-one-dimensional-spline-objects">Periodic One-Dimensional Spline Objects</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="demos/spline1d/constructors.html#defining-parameters">Defining Parameters</a></li>
+<li class="toctree-l5"><a class="reference internal" href="demos/spline1d/constructors.html#regularizations">Regularizations</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="demos/spline1d/polynomials.html">Polynomial Pieces of Splines</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="demos/spline1d/polynomials.html#roadmap">Roadmap</a></li>
+<li class="toctree-l4"><a class="reference internal" href="demos/spline1d/polynomials.html#construction-of-the-b-spline-basis">Construction of the B-Spline Basis</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="demos/spline1d/polynomials.html#polynomial-simple-element">Polynomial Simple Element</a></li>
+<li class="toctree-l5"><a class="reference internal" href="demos/spline1d/polynomials.html#b-spline">B-Spline</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="demos/spline1d/polynomials.html#construction-of-a-spline">Construction of a Spline</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="demos/spline1d/polynomials.html#evaluation-of-splines">Evaluation of Splines</a></li>
+<li class="toctree-l5"><a class="reference internal" href="demos/spline1d/polynomials.html#spline-pieces">Spline Pieces</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="demos/spline1d/evaluation.html">Evaluation of Splines</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="demos/spline1d/evaluation.html#linear-algebra-formulation">Linear-Algebra Formulation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="demos/spline1d/evaluation.html#evaluation-at-a-single-argument">Evaluation at a Single Argument</a></li>
+<li class="toctree-l4"><a class="reference internal" href="demos/spline1d/evaluation.html#evaluation-at-multiple-arguments">Evaluation at Multiple Arguments</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="demos/spline1d/evaluation.html#experimental-performance">Experimental Performance</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="demos/spline1d/bounds.html">Upper and Lower Bounds of Splines</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="demos/spline1d/bounds.html#upper-bound">Upper Bound</a></li>
+<li class="toctree-l4"><a class="reference internal" href="demos/spline1d/bounds.html#upper-bound-over-a-unit-interval">Upper Bound Over a Unit Interval</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="demos/spline1d/bounds.html#bound-of-higher-degree">Bound of Higher Degree</a></li>
+<li class="toctree-l5"><a class="reference internal" href="demos/spline1d/bounds.html#bound-of-same-degree">Bound of Same Degree</a></li>
+<li class="toctree-l5"><a class="reference internal" href="demos/spline1d/bounds.html#bound-of-smaller-degree">Bound of Smaller Degree</a></li>
+<li class="toctree-l5"><a class="reference internal" href="demos/spline1d/bounds.html#global-bound">Global Bound</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="demos/spline1d/bounds.html#generalizations">Generalizations</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="installation/index.html">Installation</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="installation/index.html#splinekit-spline-operations">splinekit: Spline Operations</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="installation/index.html#id1">Installation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="installation/index.html#development-environment">Development Environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="installation/index.html#release-notes">Release Notes</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="installation/index.html#id2">0.1.0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="installation/index.html#id3">0.2.1</a></li>
+<li class="toctree-l4"><a class="reference internal" href="installation/index.html#id4">0.2.2</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="jupyter_labs/index.html">Jupyter Labs [toc]</a></li>
-<li class="toctree-l1"><a class="reference internal" href="jupyter_labs/index.html#module-bsplines">Module <code class="docutils literal notranslate"><span class="pre">bsplines</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="jupyter_labs/index.html#module-spline-padding">Module <code class="docutils literal notranslate"><span class="pre">spline_padding</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="jupyter_labs/index.html#class-periodicspline1d">Class <code class="docutils literal notranslate"><span class="pre">PeriodicSpline1D</span></code></a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="glossary/index.html">Glossary [toc]</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="glossary/glossary-numbers.html">Glossary—Numbers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="glossary/glossary-polynomials.html">Glossary—Polynomials</a></li>
@@ -685,7 +879,7 @@ GitHub Source Files</div>
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="installation/index.html" class="btn btn-neutral float-right" title="Installation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="demos/index.html" class="btn btn-neutral float-right" title="Demos [toc]" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

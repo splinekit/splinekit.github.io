@@ -1,5 +1,3 @@
-.. _matplotlib-marker:
-
 :orphan:
 
 ..  role:: raw-html(raw)
@@ -7,6 +5,9 @@
 
 Markers of matplotib
 ====================
+
+..  _matplotlib-marker:
+
     :raw-html:`<TABLE border="1" frame="hsides" rules="groups" align="center">
     <CAPTION>Markers</CAPTION>
     <COLGROUP>
@@ -40,28 +41,28 @@ Markers of matplotib
     <TR><TD style="text-align:center">"_"<TD style="text-align:center"><img src="../_images/m22.png"width="23" height="19"><TD>&#160;hline
     </TABLE>`
 
-.. |point| image:: m00.png
-.. |pixel| image:: m01.png
-.. |circle| image:: m02.png
-.. |triangle down| image:: m03.png
-.. |triangle up| image:: m04.png
-.. |triangle left| image:: m05.png
-.. |triangle right| image:: m06.png
-.. |tri_down| image:: m07.png
-.. |tri_up| image:: m08.png
-.. |tri_left| image:: m09.png
-.. |tri_right| image:: m10.png
-.. |octagon| image:: m11.png
-.. |square| image:: m12.png
-.. |pentagon| image:: m13.png
-.. |plus (filled)| image:: m23.png
-.. |star| image:: m14.png
-.. |hexagon1| image:: m15.png
-.. |hexagon2| image:: m16.png
-.. |plus| image:: m17.png
-.. |cross| image:: m18.png
-.. |cross (filled)| image:: m24.png
-.. |diamond| image:: m19.png
-.. |thin diamond| image:: m20.png
-.. |vline| image:: m21.png
-.. |hline| image:: m22.png
+..  |point| image:: m00.png
+..  |pixel| image:: m01.png
+..  |circle| image:: m02.png
+..  |triangle down| image:: m03.png
+..  |triangle up| image:: m04.png
+..  |triangle left| image:: m05.png
+..  |triangle right| image:: m06.png
+..  |tri_down| image:: m07.png
+..  |tri_up| image:: m08.png
+..  |tri_left| image:: m09.png
+..  |tri_right| image:: m10.png
+..  |octagon| image:: m11.png
+..  |square| image:: m12.png
+..  |pentagon| image:: m13.png
+..  |plus (filled)| image:: m23.png
+..  |star| image:: m14.png
+..  |hexagon1| image:: m15.png
+..  |hexagon2| image:: m16.png
+..  |plus| image:: m17.png
+..  |cross| image:: m18.png
+..  |cross (filled)| image:: m24.png
+..  |diamond| image:: m19.png
+..  |thin diamond| image:: m20.png
+..  |vline| image:: m21.png
+..  |hline| image:: m22.png

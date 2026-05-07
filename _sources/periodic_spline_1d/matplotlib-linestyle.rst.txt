@@ -1,5 +1,3 @@
-.. _matplotlib-linestyle:
-
 :orphan:
 
 ..  role:: raw-html(raw)
@@ -7,6 +5,9 @@
 
 Line Styles of matplotib
 ========================
+
+..  _matplotlib-linestyle:
+
     :raw-html:`<TABLE border="1" frame="hsides" rules="groups" align="center">
     <CAPTION>Line Styles</CAPTION>
     <COLGROUP>

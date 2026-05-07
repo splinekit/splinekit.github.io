@@ -1,0 +1,224 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Upper and Lower Bounds of Splines &mdash; splinekit  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../../_static/plot_directive.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+      <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=2f8eb179" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+      <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Installation" href="../../installation/index.html" />
+    <link rel="prev" title="Evaluation of Splines" href="evaluation.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            splinekit
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Demos [toc]</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../bspline/index.html">B-Splines [toc]</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../padding/index.html">Padding [toc]</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Periodic Splines [toc]</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="random1d.html">Random One-Dimensional Splines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="random2d.html">Random Two-Dimensional Spline Curves</a></li>
+<li class="toctree-l3"><a class="reference internal" href="constructors.html">Constructors of Periodic One-Dimensional Splines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="polynomials.html">Polynomial Pieces of Splines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="evaluation.html">Evaluation of Splines</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Upper and Lower Bounds of Splines</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#upper-bound">Upper Bound</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#upper-bound-over-a-unit-interval">Upper Bound Over a Unit Interval</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#generalizations">Generalizations</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../installation/index.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../glossary/index.html">Glossary [toc]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../periodic_spline_1d/index.html">Periodic Spline 1D [toc]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../bsplines/index.html">B-Splines [toc]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../spline_padding/index.html">Spline Padding [toc]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../bases/index.html">Bases [toc]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../periodic_nonuniform_piecewise/index.html">Periodic Nonuniform Piecewise [toc]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../interval/index.html">Interval [package]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../spline_utilities/index.html">Spline Utilities [toc]</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">splinekit</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Demos [toc]</a></li>
+          <li class="breadcrumb-item"><a href="index.html">Periodic Splines [toc]</a></li>
+      <li class="breadcrumb-item active">Upper and Lower Bounds of Splines</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/Philippe-Thevenaz/splinekit/blob/main/docs/demos/spline1d/bounds.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="upper-and-lower-bounds-of-splines">
+<h1>Upper and Lower Bounds of Splines<a class="headerlink" href="#upper-and-lower-bounds-of-splines" title="Link to this heading"></a></h1>
+<p>How to obtain a periodic one-dimensional spline of arbitrary degree that bounds another spline, by above or by below.</p>
+<hr class="docutils" />
+<section id="upper-bound">
+<h2>Upper Bound<a class="headerlink" href="#upper-bound" title="Link to this heading"></a></h2>
+<p>Let a periodic uniform polynomial spline of positive degree <span class="math notranslate nohighlight">\(n\in{\mathbb{N}}+1\)</span> be the mapping <span class="math notranslate nohighlight">\(f:{\mathbb{R}}\rightarrow{\mathbb{R}},x\mapsto f(x)\)</span> computed as</p>
+<div class="math notranslate nohighlight">
+\[f(x)=\sum_{k\in{\mathbb{Z}}}\,c[{k\bmod K}]\,\beta^{n}(x-\delta x-k).\]</div>
+<p>There, <span class="math notranslate nohighlight">\(K\in{\mathbb{N}}+1\)</span> is its positive integer period and <span class="math notranslate nohighlight">\(\delta x\in{\mathbb{R}}\)</span> is a global delay. The coefficients <span class="math notranslate nohighlight">\(c\)</span> are called the spline coefficients and are free ingredients that allow one to shape the spline. The function <span class="math notranslate nohighlight">\(\beta^{n},\)</span> with <span class="math notranslate nohighlight">\(n\)</span> a superscript (not a power), is a B-spline of degree <span class="math notranslate nohighlight">\(n.\)</span> It has the closed support <span class="math notranslate nohighlight">\({\mathrm{supp}}\{\beta^{n}\}=[-\frac{n+1}{2},\frac{n+1}{2}]\)</span> and is nonnegative, with <span class="math notranslate nohighlight">\(\forall x\in{\mathbb{R}}:\beta^{n}(x)\geq0.\)</span> It is also made of <span class="math notranslate nohighlight">\(n+1\)</span> polynomial pieces of unit length.</p>
+<p>Our purpose here is to build a spline <span class="math notranslate nohighlight">\(g\)</span> of same period <span class="math notranslate nohighlight">\(K\)</span> but arbitrary degree <span class="math notranslate nohighlight">\(m\in{\mathbb{N}}+1,\)</span> with its delay <span class="math notranslate nohighlight">\(\delta y\)</span> and spline coefficients <span class="math notranslate nohighlight">\(u\)</span> chosen such that <span class="math notranslate nohighlight">\(\forall x\in{\mathbb{R}}:g(x)\geq f(x);\)</span> moreover, we would like that the bounding spline <span class="math notranslate nohighlight">\(g\)</span> be reasonably close to <span class="math notranslate nohighlight">\(f\)</span> and that its determination be favorable, computationally. We provide now the main steps that lead to this goal. We first consider a local bound over a single interval of unit length; then, we merge the local bounds to obtain a global one.</p>
+</section>
+<section id="upper-bound-over-a-unit-interval">
+<h2>Upper Bound Over a Unit Interval<a class="headerlink" href="#upper-bound-over-a-unit-interval" title="Link to this heading"></a></h2>
+<p>Consider the periodized interval <span class="math notranslate nohighlight">\({\mathbb{X}}_{r}=\bigcup_{p\in{\mathbb{Z}}}\,[\frac{n-1}{2}+\delta x-r-p\,K,\frac{n-1}{2}+\delta x-r-p\,K+1),\)</span> indexed by <span class="math notranslate nohighlight">\(r\in[0\ldots K-1].\)</span> Over this periodized unit-length interval, it turns out that the spline <span class="math notranslate nohighlight">\(f\)</span> computed as above can also be computed from linear-algebra operations as</p>
+<div class="math notranslate nohighlight">
+\[\forall x\in{\mathbb{X}}_{r}:f(x)={\mathbf{c}}_{r}^{{\mathsf{T}}}\,{\mathbf{W}}^{n}\,{\mathbf{v}}^{n}(\chi),\]</div>
+<p>where</p>
+<ul class="simple">
+<li><p>the vector <span class="math notranslate nohighlight">\({\mathbf{c}}_{r}\in{\mathbb{R}}^{n+1}\)</span> contains <span class="math notranslate nohighlight">\(n+1\)</span> coefficients selected from the <span class="math notranslate nohighlight">\(K\)</span> spline coefficients of <span class="math notranslate nohighlight">\(f\)</span> as <span class="math notranslate nohighlight">\({\mathbf{c}}_{r}=\left(c[{\left(k-r\right)\bmod K}]\right)_{k=0}^{n};\)</span></p></li>
+<li><p>the (invertible) matrix <span class="math notranslate nohighlight">\({\mathbf{W}}^{n}\in{\mathbb{R}}^{\left(n+1\right)\times\left(n+1\right)}\)</span> depends on <span class="math notranslate nohighlight">\(n\)</span> only and is precomputed.</p></li>
+<li><p>the Vandermonde vector <span class="math notranslate nohighlight">\({\mathbf{v}}^{n}\in{\mathbb{R}}^{n+1}\)</span> has degree <span class="math notranslate nohighlight">\(n\)</span> and is such that <span class="math notranslate nohighlight">\(\forall\chi\in{\mathbb{R}}:{\mathbf{v}}^{n}(\chi)=(1,\left(\chi^{k}\right)_{k=1}^{n});\)</span></p></li>
+<li><p>the quantity <span class="math notranslate nohighlight">\(\chi\in[0,1)\)</span> is defined as <span class="math notranslate nohighlight">\(\chi={\mathrm{frac}}(x-\frac{n-1}{2}-\delta x),\)</span> with <span class="math notranslate nohighlight">\({\mathrm{frac}}(x)=\left(x-\left\lfloor x\right\rfloor\right).\)</span></p></li>
+</ul>
+<p>For convenience, let us moreover notate <span class="math notranslate nohighlight">\(\delta y=\frac{n-m}{2}+\delta x,\)</span> <span class="math notranslate nohighlight">\({\mathbf{a}}=\left({\mathbf{W}}^{n}\right)^{{\mathsf{T}}}\,{\mathbf{c}}_{r},\)</span> and <span class="math notranslate nohighlight">\({\mathbf{u}}_{r}=\left({\mathbf{W}}^{m}\right)^{-{\mathsf{T}}}\,{\mathbf{h}}\)</span> for some vector <span class="math notranslate nohighlight">\({\mathbf{h}}\)</span> that will be specified on a case-by-case basis.</p>
+<section id="bound-of-higher-degree">
+<h3>Bound of Higher Degree<a class="headerlink" href="#bound-of-higher-degree" title="Link to this heading"></a></h3>
+<p>Assume for the moment that the degree <span class="math notranslate nohighlight">\(m\)</span> of the bounding spline <span class="math notranslate nohighlight">\(g\)</span> is such that <span class="math notranslate nohighlight">\(m&gt;n&gt;0.\)</span> We want to discover <span class="math notranslate nohighlight">\({\mathbf{u}}_{r}\in{\mathbb{R}}^{m+1}\)</span> such that</p>
+<div class="math notranslate nohighlight">
+\[\forall x\in{\mathbb{X}}_{r}:g(x)={\mathbf{u}}_{r}^{{\mathsf{T}}}\,{\mathbf{W}}^{m}\,{\mathbf{v}}^{m}({\mathrm{frac}}(x-\frac{m-1}{2}-\delta y))\geq{\mathbf{c}}_{r}^{{\mathsf{T}}}\,{\mathbf{W}}^{n}\,{\mathbf{v}}^{n}(\chi)=f(x).\]</div>
+<p>We claim that</p>
+<div class="math notranslate nohighlight">
+\[{\mathbf{h}}=\left({\mathbf{[\![}}k\leq n\,{\mathbf{]\!]}}\,a_{k+1}\right)_{k=0}^{m}\]</div>
+<p>satisfies our requirements, where <span class="math notranslate nohighlight">\({\mathbf{[\![}}\cdot\,{\mathbf{]\!]}}\)</span> denotes the Iverson symbol. Indeed, some algebraic manipulations reveal that the difference <span class="math notranslate nohighlight">\(\left(g(x)-f(x)\right)\)</span> vanishes over <span class="math notranslate nohighlight">\(x\in{\mathbb{X}}_{r}.\)</span></p>
+</section>
+<section id="bound-of-same-degree">
+<h3>Bound of Same Degree<a class="headerlink" href="#bound-of-same-degree" title="Link to this heading"></a></h3>
+<p>Assume now that <span class="math notranslate nohighlight">\(m=n&gt;0.\)</span> Then, the trivial choice <span class="math notranslate nohighlight">\({\mathbf{u}}_{r}={\mathbf{c}}_{r}\)</span> results in <span class="math notranslate nohighlight">\(\forall x\in{\mathbb{X}}_{r}:f(x)=g(x)\geq f(x).\)</span></p>
+</section>
+<section id="bound-of-smaller-degree">
+<h3>Bound of Smaller Degree<a class="headerlink" href="#bound-of-smaller-degree" title="Link to this heading"></a></h3>
+<p>Assume finally that <span class="math notranslate nohighlight">\(n&gt;m&gt;0.\)</span> In this case, letting <span class="math notranslate nohighlight">\({\mathbf{e}}_{m+1}\)</span> be the <span class="math notranslate nohighlight">\(\left(m+1\right)\)</span>-th canonical basis, we claim that</p>
+<div class="math notranslate nohighlight">
+\[{\mathbf{h}}=\left(a_{k+1}\right)_{k=0}^{m}+{\mathbf{e}}_{m+1}\,\sum_{k=m+1}^{n}\,\max(0,a_{k+1})\]</div>
+<p>satisfies our requirements. Indeed, for all <span class="math notranslate nohighlight">\(x\in{\mathbb{X}}_{r},\)</span> some algebraic manipulations lead to</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{eqnarray*}
+0&amp;\leq&amp;{\mathbf{u}}_{r}^{{\mathsf{T}}}\,{\mathbf{W}}^{m}\,{\mathbf{v}}^{m}({\mathrm{frac}}(x-\frac{m-1}{2}-\delta y))-{\mathbf{c}}_{r}^{{\mathsf{T}}}\,{\mathbf{W}}^{n}\,{\mathbf{v}}^{n}(\chi)\\
+&amp;=&amp;\chi^{m}\,\sum_{k=m+1}^{n}\,\left\{\begin{array}{ll}-a_{k+1}\,\chi^{k-m},&amp;a_{k+1}&lt;0\\a_{k+1}\,\left(1-\chi^{k-m}\right),&amp;0\leq a_{k+1}.\end{array}\right.
+\end{eqnarray*}\end{split}\]</div>
+</section>
+<section id="global-bound">
+<h3>Global Bound<a class="headerlink" href="#global-bound" title="Link to this heading"></a></h3>
+<p>We have found above a series of <span class="math notranslate nohighlight">\(K\)</span> vectors <span class="math notranslate nohighlight">\({\mathbf{u}}_{r}\)</span> with <span class="math notranslate nohighlight">\(r\in[0\ldots K-1].\)</span> From this series, we set</p>
+<div class="math notranslate nohighlight">
+\[\forall k\in[0\ldots K-1]:u[k]=\max_{\rho=0}^{m}\,\left[{\mathbf{u}}_{{\left(\rho-k\right)\bmod K}}\right]_{\rho+1}.\]</div>
+<p>Then, we define</p>
+<div class="math notranslate nohighlight">
+\[\forall x\in{\mathbb{X}}_{r}:g(x)=\sum_{k=-r}^{m-r}\,u[{k\bmod K}]\,\beta^{m}(x-\delta y-k)\]</div>
+<p>and observe that</p>
+<div class="math notranslate nohighlight">
+\[\forall x\in{\mathbb{X}}_{r}:{\mathbf{u}}_{r}^{{\mathsf{T}}}\,{\mathbf{W}}^{m}\,{\mathbf{v}}^{m}(\chi)=\sum_{k=-r}^{m-r}\,\left[{\mathbf{u}}_{r}\right]_{k+r+1}\,\beta^{m}(x-\delta y-k).\]</div>
+<p>The nonnegativity of B-splines allows us to finally establish that</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{eqnarray*}
+\forall x\in{\mathbb{X}}_{r}:g(x)-{\mathbf{u}}_{r}^{{\mathsf{T}}}\,{\mathbf{W}}^{m}\,{\mathbf{v}}^{m}(\chi)&amp;=&amp;\sum_{k=0}^{m}\,\left(\left(\max_{\rho=0}^{m}\,\left[{\mathbf{u}}_{{\left(\rho-k+r\right)\bmod K}}\right]_{\rho+1}\right)-\left[{\mathbf{u}}_{r}\right]_{k+1}\right)\,\beta^{m}(x-\delta y+r-k)\\
+&amp;\geq&amp;\sum_{k=0}^{m}\,\left(\left[{\mathbf{u}}_{r}\right]_{k+1}-\left[{\mathbf{u}}_{r}\right]_{k+1}\right)\,\beta^{m}(x-\delta y+r-k)=0,
+\end{eqnarray*}\end{split}\]</div>
+<p>from which we conclude that <span class="math notranslate nohighlight">\(g\)</span> is an upper bound of <span class="math notranslate nohighlight">\(f.\)</span></p>
+</section>
+</section>
+<section id="generalizations">
+<h2>Generalizations<a class="headerlink" href="#generalizations" title="Link to this heading"></a></h2>
+<p>Up to now, we have considered positive degrees both for the spline to be bounded and for the bounding spline. With the same ideas, but without the formalism of linear algebra, bounds can also be established for nonnegative degrees. The class <code class="docutils literal notranslate"><span class="pre">splinekit.PeriodSpline1D</span></code> takes care of it all.</p>
+<p>Given a method that builds an upper-bounding spline, a method to build a lower-bounding spline trivially arises if one considers the negated version of the upper-bounding spline of a negated spline.</p>
+<p>In the following Jupyter Lab notebook, we show the upper-bounding and the lower-bounding splines of a random spline of some arbitrary period, degree, and delay.</p>
+<div class="admonition-jupyter-lab-notebook admonition">
+<p class="admonition-title">Jupyter Lab notebook</p>
+<p><a class="reference external" href="https://splinekit.github.io/splinekit-jupyterlite/notebooks/index.html?path=spline_bounds.ipynb">Bounding splines</a></p>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="evaluation.html" class="btn btn-neutral float-left" title="Evaluation of Splines" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../../installation/index.html" class="btn btn-neutral float-right" title="Installation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright .</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

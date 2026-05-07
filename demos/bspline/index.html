@@ -1,0 +1,278 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>B-Splines [toc] &mdash; splinekit  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../../_static/plot_directive.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+      <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=2f8eb179" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+      <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Hello B-Spline Family!" href="hello_bspline.html" />
+    <link rel="prev" title="Demos [toc]" href="../index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            splinekit
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Demos [toc]</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">B-Splines [toc]</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="hello_bspline.html">Hello B-Spline Family!</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bspline_members.html">B-Spline Members</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bspline_stability.html">Numeric Stability and Speed of B-Splines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bspline_m_scale.html">M-Scale Relation of B-Splines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bspline_vs_pi.html">B-Spline <em>vs</em> <span class="math notranslate nohighlight">\(\pi\)</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="spline_vs_poly.html">Splines, B-Splines, and Polynomials</a></li>
+<li class="toctree-l3"><a class="reference internal" href="spline_engineer_func.html">Splines and Engineering Functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bspline_bases.html">Spline Bases</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bspline_poles.html">B-Spline Poles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bspline_inverse.html">Inverse of B-Spline Sequences</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../padding/index.html">Padding [toc]</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spline1d/index.html">Periodic Splines [toc]</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../installation/index.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../glossary/index.html">Glossary [toc]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../periodic_spline_1d/index.html">Periodic Spline 1D [toc]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../bsplines/index.html">B-Splines [toc]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../spline_padding/index.html">Spline Padding [toc]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../bases/index.html">Bases [toc]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../periodic_nonuniform_piecewise/index.html">Periodic Nonuniform Piecewise [toc]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../interval/index.html">Interval [package]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../spline_utilities/index.html">Spline Utilities [toc]</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">splinekit</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Demos [toc]</a></li>
+      <li class="breadcrumb-item active">B-Splines [toc]</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/Philippe-Thevenaz/splinekit/blob/main/docs/demos/bspline/index.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="b-splines-toc">
+<h1>B-Splines [toc]<a class="headerlink" href="#b-splines-toc" title="Link to this heading"></a></h1>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>Demos</strong></p></td>
+<td><p>These demos illustrate some uses of the <code class="docutils literal notranslate"><span class="pre">splinekit.bsplines</span></code> module.</p></td>
+</tr>
+</tbody>
+</table>
+<p>The demos rely on the Jupyter Lab deployment of Python. They run in-browser and <strong>do not necessitate anything to be installed beforehand</strong>. Edits to the notebooks will persist for a time in the cache of your browser. This duration is ephemeral and uncontrolled; dot not rely on it for persistent storage.</p>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<ul class="simple">
+<li><p>To discard your modifications and revert to the notebooks as distributed, choose the entry &lt;   ⃠ Clear Browser Data&gt; from the menu &lt;Help&gt;.</p></li>
+<li><p>To run code, click on a notebook cell and hit the &lt;SHIFT-CR&gt; keys ⇧⏎.</p></li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="hello_bspline.html">Hello B-Spline Family!</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="hello_bspline.html#a-family-of-b-splines">A Family of B-Splines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hello_bspline.html#gradient">Gradient</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hello_bspline.html#integral">Integral</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="bspline_members.html">B-Spline Members</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="bspline_members.html#polynomial-b-spline">Polynomial B-spline</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bspline_members.html#polynomial-b-spline-derivatives">Polynomial B-Spline Derivatives</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bspline_members.html#polynomial-b-spline-integral">Polynomial B-Spline Integral</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="bspline_stability.html">Numeric Stability and Speed of B-Splines</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="bspline_stability.html#splines">Splines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bspline_stability.html#b-splines">B-Splines</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="bspline_stability.html#classic-formula">Classic Formula</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bspline_stability.html#de-boor">De Boor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bspline_stability.html#splinekit">Splinekit</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="bspline_stability.html#experiments">Experiments</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="bspline_stability.html#critical-regime">Critical Regime</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="bspline_stability.html#results">Results</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bspline_stability.html#discussion-for-the-critical-regime">Discussion for the Critical Regime</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="bspline_stability.html#global-regime-low-degrees">Global Regime, Low Degrees</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="bspline_stability.html#id2">Results</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bspline_stability.html#discussion-for-the-global-regime-low-degrees">Discussion for the Global Regime, Low Degrees</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="bspline_stability.html#global-regime">Global Regime</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="bspline_stability.html#id3">Results</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bspline_stability.html#discussion-for-the-global-regime">Discussion for the Global Regime</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="bspline_m_scale.html">M-Scale Relation of B-Splines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bspline_vs_pi.html">B-Spline <em>vs</em> <span class="math notranslate nohighlight">\(\pi\)</span></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="bspline_vs_pi.html#value-of-a-b-spline-at-the-origin">Value of a B-Spline at the Origin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bspline_vs_pi.html#alternating-sum-of-samples">Alternating Sum of Samples</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="spline_vs_poly.html">Splines, B-Splines, and Polynomials</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="spline_vs_poly.html#splines">Splines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spline_vs_poly.html#polynomials">Polynomials</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="spline_vs_poly.html#polynomial-of-degree-left-1-right">Polynomial of Degree <span class="math notranslate nohighlight">\(\left(-1\right)\)</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="spline_vs_poly.html#polynomials-of-degree-0-and-partition-of-unity">Polynomials of Degree <span class="math notranslate nohighlight">\(0\)</span> and Partition of Unity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="spline_vs_poly.html#partition-of-monomials">Partition of Monomials</a></li>
+<li class="toctree-l3"><a class="reference internal" href="spline_vs_poly.html#spline-coefficients-made-of-discrete-monomials">Spline Coefficients Made of Discrete Monomials</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="spline_vs_poly.html#monomial-convolved-with-a-b-spline">Monomial Convolved with a B-Spline</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="spline_engineer_func.html">Splines and Engineering Functions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="spline_engineer_func.html#sine">Sine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spline_engineer_func.html#cosine">Cosine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spline_engineer_func.html#interludetrigonometric-exercise"><em>Interlude—Trigonometric Exercise</em></a></li>
+<li class="toctree-l2"><a class="reference internal" href="spline_engineer_func.html#exponential">Exponential</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spline_engineer_func.html#gauss-error-function">Gauss Error Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spline_engineer_func.html#interludegaussian-exercise"><em>Interlude—Gaussian Exercise</em></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="bspline_bases.html">Spline Bases</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="bspline_bases.html#roadmap">Roadmap</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bspline_bases.html#representation-of-numbers">Representation of Numbers</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="bspline_bases.html#uniform-splines">Uniform Splines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bspline_bases.html#bases">Bases</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="bspline_bases.html#b-spline">B-Spline</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bspline_bases.html#interpolating-cardinal-b-spline">Interpolating Cardinal B-Spline</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="bspline_bases.html#relation-to-the-cardinal-sine-function">Relation to the Cardinal Sine Function</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="bspline_bases.html#dual-b-spline">Dual B-Spline</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="bspline_bases.html#defining-property-of-dual-b-splines">Defining Property of Dual B-Splines</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="bspline_bases.html#orthonormal-b-spline">Orthonormal B-Spline</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="bspline_bases.html#defining-property-of-orthonormal-b-splines">Defining Property of Orthonormal B-Splines</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="bspline_poles.html">B-Spline Poles</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="bspline_poles.html#poles">Poles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bspline_poles.html#imbrication-of-poles">Imbrication of Poles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bspline_poles.html#annihilating-sequences">Annihilating Sequences</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bspline_poles.html#pole-values">Pole Values</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="bspline_poles.html#explicit-expressions">Explicit Expressions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="bspline_poles.html#quadratic-pole">Quadratic Pole</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bspline_poles.html#cubic-pole">Cubic Pole</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bspline_poles.html#quartic-poles">Quartic Poles</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bspline_poles.html#quintic-poles">Quintic Poles</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bspline_poles.html#sextic-poles">Sextic Poles</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bspline_poles.html#septimic-poles">Septimic Poles</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bspline_poles.html#octic-poles">Octic Poles</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bspline_poles.html#nonic-poles">Nonic Poles</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="bspline_inverse.html">Inverse of B-Spline Sequences</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="bspline_inverse.html#usefulness">Usefulness</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bspline_inverse.html#non-periodic-case">Non-Periodic Case</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bspline_inverse.html#periodic-case">Periodic Case</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../index.html" class="btn btn-neutral float-left" title="Demos [toc]" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="hello_bspline.html" class="btn btn-neutral float-right" title="Hello B-Spline Family!" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright .</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

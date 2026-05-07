@@ -1,0 +1,226 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Splines, B-Splines, and Polynomials &mdash; splinekit  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../../_static/plot_directive.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+      <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=2f8eb179" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+      <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Splines and Engineering Functions" href="spline_engineer_func.html" />
+    <link rel="prev" title="B-Spline vs \(\pi\)" href="bspline_vs_pi.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            splinekit
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Demos [toc]</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">B-Splines [toc]</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="hello_bspline.html">Hello B-Spline Family!</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bspline_members.html">B-Spline Members</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bspline_stability.html">Numeric Stability and Speed of B-Splines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bspline_m_scale.html">M-Scale Relation of B-Splines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bspline_vs_pi.html">B-Spline <em>vs</em> <span class="math notranslate nohighlight">\(\pi\)</span></a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Splines, B-Splines, and Polynomials</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#splines">Splines</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#polynomials">Polynomials</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#monomial-convolved-with-a-b-spline">Monomial Convolved with a B-Spline</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="spline_engineer_func.html">Splines and Engineering Functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bspline_bases.html">Spline Bases</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bspline_poles.html">B-Spline Poles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bspline_inverse.html">Inverse of B-Spline Sequences</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../padding/index.html">Padding [toc]</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spline1d/index.html">Periodic Splines [toc]</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../installation/index.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../glossary/index.html">Glossary [toc]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../periodic_spline_1d/index.html">Periodic Spline 1D [toc]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../bsplines/index.html">B-Splines [toc]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../spline_padding/index.html">Spline Padding [toc]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../bases/index.html">Bases [toc]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../periodic_nonuniform_piecewise/index.html">Periodic Nonuniform Piecewise [toc]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../interval/index.html">Interval [package]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../spline_utilities/index.html">Spline Utilities [toc]</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">splinekit</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Demos [toc]</a></li>
+          <li class="breadcrumb-item"><a href="index.html">B-Splines [toc]</a></li>
+      <li class="breadcrumb-item active">Splines, B-Splines, and Polynomials</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/Philippe-Thevenaz/splinekit/blob/main/docs/demos/bspline/spline_vs_poly.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="splines-b-splines-and-polynomials">
+<h1>Splines, B-Splines, and Polynomials<a class="headerlink" href="#splines-b-splines-and-polynomials" title="Link to this heading"></a></h1>
+<p>How to build a monomial out of B-splines; which polynomial results from the sum of monomial-weighted integer-shifted B-splines; and convolution of a monomial with a B-spline.</p>
+<hr class="docutils" />
+<section id="splines">
+<h2>Splines<a class="headerlink" href="#splines" title="Link to this heading"></a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">splinekit</span></code> library focuses on regular polynomial splines of nonnegative integer degree. These splines are real functions that map the domain <span class="math notranslate nohighlight">\({\mathbb{R}}\)</span> onto the image <span class="math notranslate nohighlight">\({\mathbb{R}}.\)</span></p>
+<ul class="simple">
+<li><p><em>Piecewise Polynomials</em> What makes this particular mapping remarkable is that there exists some partition of the domain into intervals, each interval being such that, there, the piece of spline is a polynomial of a degree that never exceeds the degree of the spline—possibly, a different polynomial over each interval.</p></li>
+<li><p><em>Smoothness</em> Moreover, for the mapping to be called a spline, the polynomial pieces must match in the following sense: Consider three adjacent unit intervals of the partition of <span class="math notranslate nohighlight">\({\mathbb{R}}\)</span>, namely, a central interval with another interval to the left and another one to the right. Now, remember that an independent polyomial is associated to each of the three intervals. With splines, at the boundary between the left interval and the central one, the respective polynomials must take the same value and the same value of their derivatives of all orders except, possibly, the derivative of the order equal to the degree of the spline. The same goes at the central-right boundary.</p></li>
+<li><p><em>Regular</em> For regular splines, each interval is assumed to have a unit diameter.</p></li>
+</ul>
+<p>Splines of degree <span class="math notranslate nohighlight">\(n\)</span> are <span class="math notranslate nohighlight">\(\left(n-1\right)\)</span> times continuously differentiable and <span class="math notranslate nohighlight">\(n\)</span> times differentiable. They are the smoothest piecewise-polynomial functions one can get. It turns out that regular splines always admit a convenient representation through an expression that involves basis functions; in the most practical form, regular splines are written as</p>
+<div class="math notranslate nohighlight">
+\[f:{\mathbb{R}}\rightarrow{\mathbb{R}},x\mapsto f(x)=\sum_{k\in{\mathbb{Z}}}\,c[k]\,\beta^{n}(x-\delta x-k),\]</div>
+<p>where <span class="math notranslate nohighlight">\(c\)</span> are the so-called spline coefficients and where the B-spline <span class="math notranslate nohighlight">\(\beta^{n}\)</span> is the basis function of the degree <span class="math notranslate nohighlight">\(n,\)</span> this degree being typeset as a superscript (not a power). The distinction between a B-spline (with a capital B) and a spline is that the first one is a nonparametric basis, the second one being parameterized by <span class="math notranslate nohighlight">\(c\)</span> and the global delay <span class="math notranslate nohighlight">\(\delta x.\)</span> To simplify the discussion, we assume henceforth that this delay is <span class="math notranslate nohighlight">\(\delta x=0.\)</span></p>
+<p>In this description, there is nothing to prevent one to call a spline any true (non-piecewise) polynomial. We are going now to establish relations between polynomials and spline coefficients.</p>
+</section>
+<hr class="docutils" />
+<section id="polynomials">
+<h2>Polynomials<a class="headerlink" href="#polynomials" title="Link to this heading"></a></h2>
+<section id="polynomial-of-degree-left-1-right">
+<h3>Polynomial of Degree <span class="math notranslate nohighlight">\(\left(-1\right)\)</span><a class="headerlink" href="#polynomial-of-degree-left-1-right" title="Link to this heading"></a></h3>
+<p>The real function that maps every real number to zero is the polynomial <span class="math notranslate nohighlight">\(\pi_{-1}:{\mathbb{R}}\rightarrow{\mathbb{R}},x\mapsto\pi_{-1}(x)=0.\)</span> By convention, the polynomial <span class="math notranslate nohighlight">\(\pi_{-1}\)</span> is said to be of degree <span class="math notranslate nohighlight">\(\left(-1\right).\)</span> Trivially, it is also a spline since one can build it by letting <span class="math notranslate nohighlight">\(c[k]=0\)</span> for all <span class="math notranslate nohighlight">\(k\in{\mathbb{Z}}.\)</span> This is true for any spline degree; in what follows, we silently disregard this particular case and consider only polynomials (and monomials) of nonnegative degree.</p>
+</section>
+<section id="polynomials-of-degree-0-and-partition-of-unity">
+<h3>Polynomials of Degree <span class="math notranslate nohighlight">\(0\)</span> and Partition of Unity<a class="headerlink" href="#polynomials-of-degree-0-and-partition-of-unity" title="Link to this heading"></a></h3>
+<p>A polynomial of degree <span class="math notranslate nohighlight">\(0\)</span> is a real function <span class="math notranslate nohighlight">\(\pi_{0}:{\mathbb{R}}\rightarrow{\mathbb{R}}\setminus\{0\},x\mapsto\pi_{0}(x)=a_{0}\)</span> that maps every real number to the nonzero constant <span class="math notranslate nohighlight">\(a_{0}.\)</span> If we want to build a spline that does the same, we need to find a series <span class="math notranslate nohighlight">\(c_{0}\)</span> of spline coefficients such that</p>
+<div class="math notranslate nohighlight">
+\[a_{0}=\sum_{k\in{\mathbb{Z}}}\,c_{0}[k]\,\beta^{n}(x-k).\]</div>
+<p>Fortunately, for any degree <span class="math notranslate nohighlight">\(n\)</span> and for any argument <span class="math notranslate nohighlight">\(x\in{\mathbb{R}},\)</span> B-splines satisfy the partition-of-unity condition according to which</p>
+<div class="math notranslate nohighlight">
+\[1=\sum_{k\in{\mathbb{Z}}}\,\beta^{n}(x-k).\]</div>
+<p>It is then enough to identify <span class="math notranslate nohighlight">\(c_{0}[k]=a_{0}\)</span> for all <span class="math notranslate nohighlight">\(k\in{\mathbb{Z}}\)</span> to ascertain that a polynomial of degree <span class="math notranslate nohighlight">\(0\)</span> can indeed be represented by a spline.</p>
+</section>
+<section id="partition-of-monomials">
+<h3>Partition of Monomials<a class="headerlink" href="#partition-of-monomials" title="Link to this heading"></a></h3>
+<p>The generic polynomial <span class="math notranslate nohighlight">\(\pi_{n}:{\mathbb{R}}\rightarrow{\mathbb{R}},x\mapsto\pi_{n}(x)=a_{0}+\sum_{m=1}^{n}\,a_{m}\,x^{m}\)</span> is a weighted linear sum of a constant term <span class="math notranslate nohighlight">\(1\)</span> and of canonic monomials <span class="math notranslate nohighlight">\(x^{m},\)</span> with respective weights <span class="math notranslate nohighlight">\(a_{0}\)</span> and <span class="math notranslate nohighlight">\(a_{m}.\)</span> If we want to discover which series <span class="math notranslate nohighlight">\(c\)</span> of spline coefficients is needed to represent <span class="math notranslate nohighlight">\(\pi_{n}\)</span> as a spline, all we need to know is which series <span class="math notranslate nohighlight">\(c_{m}^{n}\)</span> of spline coefficients will represent the monomial <span class="math notranslate nohighlight">\(x^{m}\)</span> as the spline <span class="math notranslate nohighlight">\(\sum_{k\in{\mathbb{Z}}}\,c_{m}^{n}[k]\,\beta^{n}(x-k),\)</span> assuming that <span class="math notranslate nohighlight">\(0&lt;m\leq n.\)</span> Then, the finite-support property of B-splines will alleviate concerns about the convergence of the sums involved and will allow us to write that</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{eqnarray}
+\pi_{n}(x)&amp;=&amp;a_{0}\,\left(\sum_{k\in{\mathbb{Z}}}\,\beta^{n}(x-k)\right)+\sum_{m=1}^{n}\,a_{m}\,\left(\sum_{k\in{\mathbb{Z}}}\,c_{m}^{n}[k]\,\beta^{n}(x-k)\right)\\
+&amp;=&amp;\sum_{k\in{\mathbb{Z}}}\,\left(a_{0}+\sum_{m=1}^{n}\,a_{m}\,c_{m}^{n}[k]\right)\,\beta^{n}(x-k).
+\end{eqnarray}\end{split}\]</div>
+<p>The identification <span class="math notranslate nohighlight">\(c[k]=a_{0}+\sum_{m=1}^{n}\,a_{m}\,c_{m}^{n}[k]\)</span> will finally result in the desired representation <span class="math notranslate nohighlight">\(\pi_{n}(x)=\sum_{k\in{\mathbb{Z}}}\,c[k]\,\beta^{n}(x-k).\)</span></p>
+<p>It turns out that <span class="math notranslate nohighlight">\(c_{m}^{n}[k]\)</span> can itself be expressed as a polynomial in <span class="math notranslate nohighlight">\(k.\)</span> We give now a piece of code that returns the list of polynomials in <span class="math notranslate nohighlight">\(k\)</span> that one must use to weigh B-splines of degree <span class="math notranslate nohighlight">\(n\)</span> to build a monomial of nonnegative degree <span class="math notranslate nohighlight">\(m\leq n\)</span>, as in</p>
+<div class="math notranslate nohighlight">
+\[x^{m}=\sum_{k\in{\mathbb{Z}}}\,c_{m}^{n}[k]\,\beta^{n}(x-k).\]</div>
+<div class="admonition-jupyter-lab-notebook admonition">
+<p class="admonition-title">Jupyter Lab notebook</p>
+<p><a class="reference external" href="https://splinekit.github.io/splinekit-jupyterlite/notebooks/index.html?path=bspline_partition_mono.ipynb">Partition of monomials</a></p>
+</div>
+</section>
+<section id="spline-coefficients-made-of-discrete-monomials">
+<h3>Spline Coefficients Made of Discrete Monomials<a class="headerlink" href="#spline-coefficients-made-of-discrete-monomials" title="Link to this heading"></a></h3>
+<p>As has been revealed just above, those spline coefficients that let a spline build a monomial have an expression that can be nontrivial. We now ask the converse question: What is the function reconstructed by a spline built with (trivial) monomial coefficients? The answer is a nontrivial polynomial of a degree equal to that of the monomial coefficients. Formally, we have that</p>
+<div class="math notranslate nohighlight">
+\[\sum_{k\in{\mathbb{N}}\setminus\{0\}}\,\left(-k\right)^{0}\,\beta^{n}(x+k)+\beta^{n}(x)+\sum_{k\in{\mathbb{N}}\setminus\{0\}}\,k^{0}\,\beta^{n}(x-k)=1\]</div>
+<p>for a weighting monomial of degree <span class="math notranslate nohighlight">\(0,\)</span> and</p>
+<div class="math notranslate nohighlight">
+\[\sum_{k\in{\mathbb{Z}}}\,k^{m}\,\beta^{n}(x-k)=\pi_{m}^{n}(x)\]</div>
+<p>for <span class="math notranslate nohighlight">\(m\in[1\ldots n],\)</span> where <span class="math notranslate nohighlight">\(\pi_{m}^{n}(x)\)</span> is some polynomial in the free variable <span class="math notranslate nohighlight">\(x.\)</span> We give now a piece of code that returns <span class="math notranslate nohighlight">\(\pi_{m}^{n}(x)\)</span> for the spline degree <span class="math notranslate nohighlight">\(n\)</span> and the nonnegative monomial degrees <span class="math notranslate nohighlight">\(m\leq n.\)</span></p>
+<div class="admonition-jupyter-lab-notebook admonition">
+<p class="admonition-title">Jupyter Lab notebook</p>
+<p><a class="reference external" href="https://splinekit.github.io/splinekit-jupyterlite/notebooks/index.html?path=bspline_spline_poly.ipynb">Spline from monomials</a></p>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="monomial-convolved-with-a-b-spline">
+<h2>Monomial Convolved with a B-Spline<a class="headerlink" href="#monomial-convolved-with-a-b-spline" title="Link to this heading"></a></h2>
+<p>The convolution bewteen, on one hand, a monomial <span class="math notranslate nohighlight">\(\left(\cdot\right)^{m}\)</span> of nonnegative integer degree <span class="math notranslate nohighlight">\(m\)</span> and, on the other hand, a B-spline <span class="math notranslate nohighlight">\(\beta^{n}\)</span> of nonnegative integer degree <span class="math notranslate nohighlight">\(n,\)</span> turns out to be the polynomial <span class="math notranslate nohighlight">\(\varpi_{n}^{m}\)</span> of degree <span class="math notranslate nohighlight">\(m\)</span> defined by</p>
+<div class="math notranslate nohighlight">
+\[\int_{\mathbb{R}}\,y^{m}\,\beta^{n}(x-y)\,{\mathrm{d}}y=\varpi_{m}^{n}(x).\]</div>
+<p>We give now a piece of code that returns <span class="math notranslate nohighlight">\(\varpi_{m}^{n}.\)</span></p>
+<div class="admonition-jupyter-lab-notebook admonition">
+<p class="admonition-title">Jupyter Lab notebook</p>
+<p><a class="reference external" href="https://splinekit.github.io/splinekit-jupyterlite/notebooks/index.html?path=bspline_convolve_mono.ipynb">Monomial convolved with a B-spline</a></p>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="bspline_vs_pi.html" class="btn btn-neutral float-left" title="B-Spline vs \(\pi\)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="spline_engineer_func.html" class="btn btn-neutral float-right" title="Splines and Engineering Functions" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright .</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

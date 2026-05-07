@@ -1,0 +1,244 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Polynomial Pieces of Splines &mdash; splinekit  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../../_static/plot_directive.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+      <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=2f8eb179" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+      <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Evaluation of Splines" href="evaluation.html" />
+    <link rel="prev" title="Constructors of Periodic One-Dimensional Splines" href="constructors.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            splinekit
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Demos [toc]</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../bspline/index.html">B-Splines [toc]</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../padding/index.html">Padding [toc]</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Periodic Splines [toc]</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="random1d.html">Random One-Dimensional Splines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="random2d.html">Random Two-Dimensional Spline Curves</a></li>
+<li class="toctree-l3"><a class="reference internal" href="constructors.html">Constructors of Periodic One-Dimensional Splines</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Polynomial Pieces of Splines</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#roadmap">Roadmap</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#construction-of-the-b-spline-basis">Construction of the B-Spline Basis</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#construction-of-a-spline">Construction of a Spline</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="evaluation.html">Evaluation of Splines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bounds.html">Upper and Lower Bounds of Splines</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../installation/index.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../glossary/index.html">Glossary [toc]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../periodic_spline_1d/index.html">Periodic Spline 1D [toc]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../bsplines/index.html">B-Splines [toc]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../spline_padding/index.html">Spline Padding [toc]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../bases/index.html">Bases [toc]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../periodic_nonuniform_piecewise/index.html">Periodic Nonuniform Piecewise [toc]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../interval/index.html">Interval [package]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../spline_utilities/index.html">Spline Utilities [toc]</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">splinekit</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Demos [toc]</a></li>
+          <li class="breadcrumb-item"><a href="index.html">Periodic Splines [toc]</a></li>
+      <li class="breadcrumb-item active">Polynomial Pieces of Splines</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/Philippe-Thevenaz/splinekit/blob/main/docs/demos/spline1d/polynomials.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="polynomial-pieces-of-splines">
+<h1>Polynomial Pieces of Splines<a class="headerlink" href="#polynomial-pieces-of-splines" title="Link to this heading"></a></h1>
+<p>How to access the polynomial pieces of a piecewise-polynomial periodic one-dimensional spline.</p>
+<hr class="docutils" />
+<section id="roadmap">
+<h2>Roadmap<a class="headerlink" href="#roadmap" title="Link to this heading"></a></h2>
+<p>Uniform polynomial splines are piecewise-polynomial functions. In what follows, we are going to provide a detailed derivation that returns the polynomial pieces. We start by defining B-splines and splines; we then propose a numerically stable way to evaluate splines. Then, we twist the evaluation procedure to get the expression of each polynomial piece.</p>
+</section>
+<section id="construction-of-the-b-spline-basis">
+<h2>Construction of the B-Spline Basis<a class="headerlink" href="#construction-of-the-b-spline-basis" title="Link to this heading"></a></h2>
+<p>We first give the fundamental building blocks of uniform polynomial splines.</p>
+<section id="polynomial-simple-element">
+<h3>Polynomial Simple Element<a class="headerlink" href="#polynomial-simple-element" title="Link to this heading"></a></h3>
+<p>Let <span class="math notranslate nohighlight">\(n\in{\mathbb{N}}\)</span> be a nonnegative integer degree. Let <span class="math notranslate nohighlight">\(x\in{\mathbb{R}}\)</span> be some argument. Define the polynomial simple element <span class="math notranslate nohighlight">\(\varsigma^{n}\)</span> of degree <span class="math notranslate nohighlight">\(n\)</span> (the degree being a superscript here, not a power) as the mapping <span class="math notranslate nohighlight">\(\varsigma^{n}:{\mathbb{R}}\rightarrow{\mathbb{R}},x\mapsto\varsigma^{n}(x)\)</span> computed as</p>
+<div class="math notranslate nohighlight">
+\[\varsigma^{n}(x)=\frac{1}{2\,n!}\,{\mathrm{sgn}}(x)\,x^{n}.\]</div>
+<p>There, the signum function maps positive real numbers to <span class="math notranslate nohighlight">\(+1,\)</span> negative real numbers to <span class="math notranslate nohighlight">\(\left(-1\right),\)</span> and zero to <span class="math notranslate nohighlight">\(0.\)</span></p>
+<section id="derivative-of-a-polynomial-simple-element">
+<h4>Derivative of a Polynomial Simple Element<a class="headerlink" href="#derivative-of-a-polynomial-simple-element" title="Link to this heading"></a></h4>
+<p>The <span class="math notranslate nohighlight">\(m\)</span>-th derivative of a polynomial simple element of degree <span class="math notranslate nohighlight">\(n,\)</span> with <span class="math notranslate nohighlight">\(m\in[0\ldots n],\)</span> is</p>
+<div class="math notranslate nohighlight">
+\[\frac{{\mathrm{d}}^{m}\varsigma^{n}(x)}{{\mathrm{d}}x^{m}}=\varsigma^{n-m}(x).\]</div>
+<p>Derivatives of orders that exceed the degree can also be defined, albeit only in a distributional sense.</p>
+</section>
+</section>
+<section id="b-spline">
+<h3>B-Spline<a class="headerlink" href="#b-spline" title="Link to this heading"></a></h3>
+<p>We give now a bootstrap definition of the B-spline <span class="math notranslate nohighlight">\(\beta^{n}\)</span> of nonnegative integer degree <span class="math notranslate nohighlight">\(n\in{\mathbb{N}}\)</span> (the degree being a superscript here, not a power). It is the mapping <span class="math notranslate nohighlight">\(\beta^{n}:{\mathbb{R}}\rightarrow{\mathbb{R}},x\mapsto\beta^{n}(x)\)</span> computed as</p>
+<div class="math notranslate nohighlight">
+\[\beta^{n}(x)=\sum_{k=0}^{n+1}\,\left(-1\right)^{k}\,{n+1\choose k}\,\varsigma^{n}(x+\frac{n+1}{2}-k).\]</div>
+<p>This function is made of polynomial pieces because of the term <span class="math notranslate nohighlight">\(x^{n}\)</span> in the definition of <span class="math notranslate nohighlight">\(\varsigma^{n}.\)</span> Moreover, the support of each piece has unit length, because the argument of <span class="math notranslate nohighlight">\(\varsigma^{n}\)</span> in the definition of <span class="math notranslate nohighlight">\(\beta^{n}\)</span> is shifted by integer <span class="math notranslate nohighlight">\(k.\)</span></p>
+<p>In accord with the definition, the B-spline of degree zero is</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{eqnarray*}
+\beta^{0}(x)&amp;=&amp;\varsigma^{0}(x+\frac{1}{2})-\varsigma^{0}(x-\frac{1}{2})\\
+&amp;=&amp;\left\{\begin{array}{ll}1,&amp;\left|x\right|&lt;\frac{1}{2}\\\frac{1}{2},&amp;\left|x\right|=\frac{1}{2}\\0,&amp;\frac{1}{2}&lt;\left|x\right|.\end{array}\right.
+\end{eqnarray*}\end{split}\]</div>
+<p>Among many important properties, for all degrees <span class="math notranslate nohighlight">\(n\in{\mathbb{N}}\)</span> and for all <span class="math notranslate nohighlight">\(x\in{\mathbb{R}},\)</span> the B-splines thus defined</p>
+<ul class="simple">
+<li><p>have a closed support, with <span class="math notranslate nohighlight">\({\mathrm{supp}}\{\beta^{n}\}=[-\left(n+1\right)/2,\left(n+1\right)/2];\)</span></p></li>
+<li><p>are even-symmetric, with <span class="math notranslate nohighlight">\(\beta^{n}(x)=\beta^{n}(-x);\)</span></p></li>
+<li><p>satisfy the partition-of-unity condition <span class="math notranslate nohighlight">\(\sum_{k\in{\mathbb{Z}}}\,\beta^{n}(x-k)=1.\)</span></p></li>
+</ul>
+<p>These properties hold pointwise true, also for <span class="math notranslate nohighlight">\(n=0\)</span> and <span class="math notranslate nohighlight">\(x=\pm1/2.\)</span></p>
+</section>
+</section>
+<section id="construction-of-a-spline">
+<h2>Construction of a Spline<a class="headerlink" href="#construction-of-a-spline" title="Link to this heading"></a></h2>
+<p>Build now a weighted sum of integer shifts of B-splines, with the weights being provided by the so-called spline coefficients <span class="math notranslate nohighlight">\(c.\)</span> For convenience, we shall restrict ourselves to periodized weights. Let us call this weighted sum a spline—without the B of B-spline. It is yet another mapping <span class="math notranslate nohighlight">\(f:{\mathbb{R}}\rightarrow{\mathbb{R}},x\mapsto f(x);\)</span> it is computed as</p>
+<div class="math notranslate nohighlight">
+\[f(x)=\sum_{k\in{\mathbb{Z}}}\,c[{k\bmod K}]\,\beta^{n}(x-\delta x-k),\]</div>
+<p>where <span class="math notranslate nohighlight">\(K\in{\mathbb{N}}+1\)</span> is its positive integer period, and where <span class="math notranslate nohighlight">\(\delta x\in{\mathbb{R}}\)</span> is some global delay. The infinite sum is guaranteed to converge because B-splines have a closed support.</p>
+<section id="evaluation-of-splines">
+<h3>Evaluation of Splines<a class="headerlink" href="#evaluation-of-splines" title="Link to this heading"></a></h3>
+<p>To evaluate a spline, one needs a procedure to evaluate B-splines. Unfortunately, the bootstrap formulation above reveals that a B-spline is inherently made of additive terms of alternating sign <span class="math notranslate nohighlight">\(\left(-1\right)^{k},\)</span> which results in numerical difficulties. While we keep the bootstrap definition for splines of degree zero, we propose to alleviate the numerical difficulties for splines of positive degrees by computing <span class="math notranslate nohighlight">\(f(x)\)</span> through the equivalent formulation</p>
+<div class="math notranslate nohighlight">
+\[f(x)={\mathbf{c}}_{r}^{{\mathsf{T}}}\,{\mathbf{W}}^{n}\,{\mathbf{v}}^{n}(\chi).\]</div>
+<p>This linear-algebra formulation takes its legitimation in the fact that the bootstrap definition of B-splines as well as the evaluation of splines proposed above are both sums of weighted terms.</p>
+<section id="evaluation-matrix">
+<h4>Evaluation Matrix<a class="headerlink" href="#evaluation-matrix" title="Link to this heading"></a></h4>
+<p>Define the B-spline rational evaluation matrix <span class="math notranslate nohighlight">\({\mathbf{W}}^{n}\in{\mathbb{Q}}^{\left(n+1\right)\times\left(n+1\right)}\)</span> as having a rational component at its <span class="math notranslate nohighlight">\(\left(r+1\right)\)</span>-th row and <span class="math notranslate nohighlight">\(\left(c+1\right)\)</span>-th column given by</p>
+<div class="math notranslate nohighlight">
+\[w_{r+1,c+1}^{n}=\frac{1}{c!}\,\left(\left.\frac{{\mathrm{d}}^{c}\beta^{n}(x)}{{\mathrm{d}}x^{c}}\right|_{x=\frac{n-1}{2}-r}+\frac{1}{2}\,\delta[c-n]\,\left(-1\right)^{n-r}\,{n+1\choose r+1}\right),\]</div>
+<p>where <span class="math notranslate nohighlight">\(\delta[\cdot]\)</span> is a discrete Dirac delta and where the B-spline derivatives are computed as in the bootstrap method. The B-spline rational evaluation matrix depends on <span class="math notranslate nohighlight">\(n\)</span> only and can be precomputed. Since all terms are rationals, this can be done by taking advantage of Python’s <code class="docutils literal notranslate"><span class="pre">fractions</span></code> module to perform exact computations. Once done, the matrix is cached as <code class="docutils literal notranslate"><span class="pre">float</span></code> numbers. In doing so, we let <span class="math notranslate nohighlight">\({\mathbf{W}}^{n}\)</span> carry the burden of the delicate balancing of positive and negative terms that was plaguing the bootstrap computation of B-splines.</p>
+</section>
+<section id="ancillary-variables">
+<h4>Ancillary Variables<a class="headerlink" href="#ancillary-variables" title="Link to this heading"></a></h4>
+<p>Define</p>
+<div class="math notranslate nohighlight">
+\[\xi=\frac{n-1}{2}-x+\delta x\in{\mathbb{R}}\]</div>
+<div class="math notranslate nohighlight">
+\[r=\left\lceil\xi\right\rceil\in{\mathbb{Z}}\]</div>
+<div class="math notranslate nohighlight">
+\[\chi=r-\xi\in[0,1)\]</div>
+</section>
+<section id="vector-of-spline-coefficients">
+<h4>Vector of Spline Coefficients<a class="headerlink" href="#vector-of-spline-coefficients" title="Link to this heading"></a></h4>
+<p>Define</p>
+<div class="math notranslate nohighlight">
+\[{\mathbf{c}}_{r}=\left(c[{\left(k-r\right)\bmod K}]\right)_{k=0}^{n}\in{\mathbb{R}}^{n+1}\]</div>
+</section>
+<section id="vandermonde-vector">
+<h4>Vandermonde Vector<a class="headerlink" href="#vandermonde-vector" title="Link to this heading"></a></h4>
+<p>Define</p>
+<div class="math notranslate nohighlight">
+\[{\mathbf{v}}^{n}(\chi)=\left(\left(1\right)\cup\left(\chi^{k}\right)_{k=1}^{n}\right)\in{\mathbb{R}}^{n+1}\]</div>
+</section>
+</section>
+<section id="spline-pieces">
+<h3>Spline Pieces<a class="headerlink" href="#spline-pieces" title="Link to this heading"></a></h3>
+<p>Although the freedom offered by the choice of the degree <span class="math notranslate nohighlight">\(n,\)</span> the delay <span class="math notranslate nohighlight">\(\delta x,\)</span> and the spline coefficients <span class="math notranslate nohighlight">\(c\)</span> is large and allows one to tune <span class="math notranslate nohighlight">\(f\)</span> in many ways, it remains that <span class="math notranslate nohighlight">\(f\)</span> is not entirely arbitrary but inherits from <span class="math notranslate nohighlight">\(\beta^{n}\)</span> the property of being necessarily a piecewise-polynomial function with unit-length pieces. Our purpose now is to establish the list of polynomials that is associated to a spline of a certain degree, delay, period, and spline coefficients. To do so, instead of considering the argument <span class="math notranslate nohighlight">\(x\)</span> to be the free variable and instead of letting the ancillary variables depend on <span class="math notranslate nohighlight">\(x\)</span> (as we did just above), we now change our perspective and let <span class="math notranslate nohighlight">\(r\in[0\ldots K-1]\)</span> become a <em>free</em> index by which we are going to select each polynomial piece; moreover, we let <span class="math notranslate nohighlight">\(\chi\in[0,1)\)</span> become a <em>free</em> variable, too. We shall take <span class="math notranslate nohighlight">\(\chi\)</span> to be the argument of each polynomial piece. Under this alternate view of the evaluation of splines, where <span class="math notranslate nohighlight">\(x\)</span> is <em>not</em> free anymore but depends on <span class="math notranslate nohighlight">\(\{n,\delta x,r,\chi\},\)</span> we can establish that</p>
+<div class="math notranslate nohighlight">
+\[{\mathbf{c}}_{r}^{{\mathsf{T}}}\,{\mathbf{W}}^{n}\,{\mathbf{v}}^{n}(\chi)=\left[\left({\mathbf{W}}^{n}\right)^{{\mathsf{T}}}\,{\mathbf{c}}_{r}\right]_{1}+\sum_{k=1}^{n}\,\left[\left({\mathbf{W}}^{n}\right)^{{\mathsf{T}}}\,{\mathbf{c}}_{r}\right]_{k+1}\,\chi^{k}\]</div>
+<p>describes the polynomial of the free variable <span class="math notranslate nohighlight">\(\chi\in[0,1),\)</span> indexed by <span class="math notranslate nohighlight">\(r,\)</span> that coincides with the value of the spline over <span class="math notranslate nohighlight">\(x\in[\frac{n-1}{2}+\delta x-q\,K-r,\frac{n+1}{2}+\delta x-q\,K-r),\)</span> where <span class="math notranslate nohighlight">\(q\in{\mathbb{Z}}\)</span> is there to take the periodicity of the spline into account.</p>
+<p>We now propose a few lines of code that create and display a random spline and extract its polynomial pieces.</p>
+<div class="admonition-jupyter-lab-notebook admonition">
+<p class="admonition-title">Jupyter Lab notebook</p>
+<p><a class="reference external" href="https://splinekit.github.io/splinekit-jupyterlite/notebooks/index.html?path=spline_polynomials.ipynb">Polynomial pieces of a spline</a></p>
+</div>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="constructors.html" class="btn btn-neutral float-left" title="Constructors of Periodic One-Dimensional Splines" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="evaluation.html" class="btn btn-neutral float-right" title="Evaluation of Splines" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright .</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

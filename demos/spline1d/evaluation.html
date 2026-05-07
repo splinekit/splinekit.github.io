@@ -1,0 +1,338 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Evaluation of Splines &mdash; splinekit  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../../_static/plot_directive.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+      <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=2f8eb179" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+      <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Upper and Lower Bounds of Splines" href="bounds.html" />
+    <link rel="prev" title="Polynomial Pieces of Splines" href="polynomials.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            splinekit
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Demos [toc]</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../bspline/index.html">B-Splines [toc]</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../padding/index.html">Padding [toc]</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Periodic Splines [toc]</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="random1d.html">Random One-Dimensional Splines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="random2d.html">Random Two-Dimensional Spline Curves</a></li>
+<li class="toctree-l3"><a class="reference internal" href="constructors.html">Constructors of Periodic One-Dimensional Splines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="polynomials.html">Polynomial Pieces of Splines</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Evaluation of Splines</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#linear-algebra-formulation">Linear-Algebra Formulation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#evaluation-at-a-single-argument">Evaluation at a Single Argument</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#evaluation-at-multiple-arguments">Evaluation at Multiple Arguments</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="bounds.html">Upper and Lower Bounds of Splines</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../installation/index.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../glossary/index.html">Glossary [toc]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../periodic_spline_1d/index.html">Periodic Spline 1D [toc]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../bsplines/index.html">B-Splines [toc]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../spline_padding/index.html">Spline Padding [toc]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../bases/index.html">Bases [toc]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../periodic_nonuniform_piecewise/index.html">Periodic Nonuniform Piecewise [toc]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../interval/index.html">Interval [package]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../spline_utilities/index.html">Spline Utilities [toc]</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">splinekit</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Demos [toc]</a></li>
+          <li class="breadcrumb-item"><a href="index.html">Periodic Splines [toc]</a></li>
+      <li class="breadcrumb-item active">Evaluation of Splines</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/Philippe-Thevenaz/splinekit/blob/main/docs/demos/spline1d/evaluation.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="evaluation-of-splines">
+<h1>Evaluation of Splines<a class="headerlink" href="#evaluation-of-splines" title="Link to this heading"></a></h1>
+<p>How to evaluate a periodic one-dimensional spline at just one argument or at a series of arguments.</p>
+<hr class="docutils" />
+<section id="linear-algebra-formulation">
+<h2>Linear-Algebra Formulation<a class="headerlink" href="#linear-algebra-formulation" title="Link to this heading"></a></h2>
+<p>The obects that the class <code class="docutils literal notranslate"><span class="pre">PeriodicSpline1D</span></code> operates upon are mathematical functions and consist in descriptions of mappings <span class="math notranslate nohighlight">\(f:{\mathbb{R}}\rightarrow{\mathbb{R}},x\mapsto f(x).\)</span> Oftentimes, the class allows one to obtain a new <em>mapping</em> from an existing one, for instance the gradient of a spline (not just a number but the whole function <span class="math notranslate nohighlight">\(\dot{f}\)</span>) out of its original form <span class="math notranslate nohighlight">\(f.\)</span> This is all good, but one is sometimes also interested in the more mundane goal of experimenting with a fixed mapping, typically to ask to what number <span class="math notranslate nohighlight">\(f(x)\in{\mathbb{R}}\)</span> is the argument <span class="math notranslate nohighlight">\(x\in{\mathbb{R}}\)</span> mapped to by <span class="math notranslate nohighlight">\(f:{\mathbb{R}}\rightarrow{\mathbb{R}}.\)</span> The <code class="docutils literal notranslate"><span class="pre">splinekit</span></code> library  offers two possibilities to address this goal.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">PeriodicSpline1D.at</span></code> returns the value <span class="math notranslate nohighlight">\(f(x)\)</span> of the spline <span class="math notranslate nohighlight">\(f\)</span> evaluated at <span class="math notranslate nohighlight">\(x.\)</span></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">PeriodicSpline1D.get_samples</span></code> returns an array of values at arguments separated by a uniform step.</p></li>
+</ul>
+<p>The two possibilities rely on the recipe followed by all one-dimensional uniform polynomial splines of nonnegative integer degree <span class="math notranslate nohighlight">\(n\in{\mathbb{N}},\)</span> according to which an argument <span class="math notranslate nohighlight">\(x\)</span> is mapped to the value</p>
+<div class="math notranslate nohighlight">
+\[f(x)=\sum_{k\in{\mathbb{Z}}}\,c[{k\bmod K}]\,\beta^{n}(x-\delta x -k),\]</div>
+<p>where <span class="math notranslate nohighlight">\(K\in{\mathbb{N}}+1\)</span> is a positive integer period, <span class="math notranslate nohighlight">\(c\)</span> is an arbitrary array of <span class="math notranslate nohighlight">\(K\)</span> spline coefficients, <span class="math notranslate nohighlight">\(\beta^{n}\)</span> is a B-spline whose degree <span class="math notranslate nohighlight">\(n\)</span> is typeset in superscript (not a power), and <span class="math notranslate nohighlight">\(\delta x\in{\mathbb{R}}\)</span> is an arbitrary delay. Put simply, a spline is a weighted sum of shifted B-splines.</p>
+<p>Since the support of a B-spline is finite, the sum is finite at any given argument <span class="math notranslate nohighlight">\(x.\)</span> Moreover, since B-splines of positive degrees are themselves made of unit-length pieces of polynomials, one can deploy the formalism of linear-algebra to make the expression of the spline recipe take the form</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{eqnarray*}
+\forall n\in{\mathbb{N}}+1,\forall x\in{\mathbb{R}}:f(x)&amp;=&amp;\left(\begin{array}{c}c[{\left(-m\right)\bmod K}]\\c[{\left(1-m\right)\bmod K}]\\c[{\left(2-m]\right)\bmod K}\\\vdots\\c[{\left(n-m\right)\bmod K}]\end{array}\right)^{{\mathsf{T}}}\,\left(\begin{array}{ccccc}w_{0,0}^{n}&amp;w_{0,1}^{n}&amp;w_{0,2}^{n}&amp;\cdots&amp;w_{0,n}^{n}\\w_{1,0}^{n}&amp;w_{1,1}^{n}&amp;w_{1,2}^{n}&amp;\cdots&amp;w_{1,n}^{n}\\w_{2,0}^{n}&amp;w_{2,1}^{n}&amp;w_{2,2}^{n}&amp;\cdots&amp;w_{2,n}^{n}\\\vdots&amp;\vdots&amp;\vdots&amp;\ddots&amp;\vdots\\w_{n,0}^{n}&amp;w_{n,1}^{n}&amp;w_{n,2}^{n}&amp;\cdots&amp;w_{n,n}^{n}\end{array}\right)\,\left(\begin{array}{c}1\\v\\v^{2}\\\vdots\\v^{n}\end{array}\right)\\
+&amp;=&amp;{\color{blue}{{\mathbf{c}}}}^{{\mathsf{T}}}\,{\color{blue}{{\mathbf{W}}^{n}}}\,{\color{blue}{{\mathbf{v}}^{n}}},
+\end{eqnarray*}\end{split}\]</div>
+<p>where <span class="math notranslate nohighlight">\({\color{blue}{{\mathbf{c}}}}\in{\mathbb{R}}^{n+1}\)</span> is a vector whose <span class="math notranslate nohighlight">\(n+1\)</span> components are extracted from the data-dependent array <span class="math notranslate nohighlight">\(c\)</span> at some integer <span class="math notranslate nohighlight">\(m\in{\mathbb{Z}}\)</span> that depends in discrete fashion on <span class="math notranslate nohighlight">\(\left(x-\delta x\right),\)</span> where <span class="math notranslate nohighlight">\({\color{blue}{{\mathbf{W}}^{n}}}\in{\mathbb{R}}^{\left(n+1\right)\times\left(n+1\right)}\)</span> is a matrix that depends on <span class="math notranslate nohighlight">\(n\)</span> only, and where <span class="math notranslate nohighlight">\({\color{blue}{{\mathbf{v}}^{n}}}\in{\mathbb{R}}^{n+1}\)</span> is a Vandermonde vector whose every component belongs to the interval <span class="math notranslate nohighlight">\([0,1]\)</span> and is made to depend continuously on <span class="math notranslate nohighlight">\(\left(x-\delta x\right).\)</span></p>
+</section>
+<section id="evaluation-at-a-single-argument">
+<h2>Evaluation at a Single Argument<a class="headerlink" href="#evaluation-at-a-single-argument" title="Link to this heading"></a></h2>
+<p>To evaluate a one-dimensional periodic spline <span class="math notranslate nohighlight">\(f\)</span> of positive degree <span class="math notranslate nohighlight">\(n\)</span> at some argument <span class="math notranslate nohighlight">\(x,\)</span> it is enough to compute <span class="math notranslate nohighlight">\({\mathbf{c}}^{{\mathsf{T}}}\,{\mathbf{W}}^{n}\,{\mathbf{v}}^{n}.\)</span> This is precisely what is done by the function call <code class="docutils literal notranslate"><span class="pre">f.at(x)</span></code> in the piece of code below, which otherwise generates and plots a random spline of some arbitrary degree and delay.</p>
+<div class="admonition-jupyter-lab-notebook admonition">
+<p class="admonition-title">Jupyter Lab notebook</p>
+<p><a class="reference external" href="https://splinekit.github.io/splinekit-jupyterlite/notebooks/index.html?path=spline_at_scalar.ipynb">Single argument</a></p>
+</div>
+</section>
+<section id="evaluation-at-multiple-arguments">
+<h2>Evaluation at Multiple Arguments<a class="headerlink" href="#evaluation-at-multiple-arguments" title="Link to this heading"></a></h2>
+<p>We want now to evaluate <span class="math notranslate nohighlight">\(f(x)\)</span> at the <span class="math notranslate nohighlight">\(L\,M\)</span> arguments <span class="math notranslate nohighlight">\(x\in\left\{x_{0}+q/M\right\}_{q=0}^{L\,M-1},\)</span> where <span class="math notranslate nohighlight">\(M\in{\mathbb{N}}+1\)</span> is some positive integer oversampling factor, <span class="math notranslate nohighlight">\(L\in{\mathbb{N}}+1\)</span> is the length of the support over which we want to sample <span class="math notranslate nohighlight">\(f,\)</span> and <span class="math notranslate nohighlight">\(x_{0}\in{\mathbb{R}}\)</span> is the argument of the first sample. To do so, we take advantage of <code class="docutils literal notranslate"><span class="pre">PeriodicSpline1D.get_samples</span></code>. In the next piece of code, we illustrate how the combination of <span class="math notranslate nohighlight">\(L,\)</span> <span class="math notranslate nohighlight">\(M,\)</span> and <span class="math notranslate nohighlight">\(x_{0}\)</span> can be used to specify the arguments where the spline is evaluated.</p>
+<div class="admonition-jupyter-lab-notebook admonition">
+<p class="admonition-title">Jupyter Lab notebook</p>
+<p><a class="reference external" href="https://splinekit.github.io/splinekit-jupyterlite/notebooks/index.html?path=spline_at_array.ipynb">Multiple arguments</a></p>
+</div>
+<section id="experimental-performance">
+<h3>Experimental Performance<a class="headerlink" href="#experimental-performance" title="Link to this heading"></a></h3>
+<p>When we evaluate a spline jointly at multiple arguments spaced regularly as above, it is judicious to pay attention on how the terms of <span class="math notranslate nohighlight">\({\mathbf{c}}^{{\mathsf{T}}}\,{\mathbf{W}}^{n}\,{\mathbf{v}}^{n}\)</span> depend on the variables of interest. In particular, when we compare the computation of <span class="math notranslate nohighlight">\(f(x_{0}+q/M)\)</span> to that of <span class="math notranslate nohighlight">\(f(x_{0}+\left(q+M\right)/M),\)</span> a detailed analysis reveals that the vector <span class="math notranslate nohighlight">\({\mathbf{c}}\)</span> changes, while the vector resulting from the product <span class="math notranslate nohighlight">\({\mathbf{W}}^{n}\,{\mathbf{v}}^{n}\)</span> is identical in the two cases. This invariance leads to computational savings.</p>
+<p>To ascertain their benefit, we propose to time the determination of regularly spaced spline samples through either repeated calls to <code class="docutils literal notranslate"><span class="pre">PeriodicSpline1D.at</span></code> or through a combined call to <code class="docutils literal notranslate"><span class="pre">PeriodicSpline1D.get_samples</span></code>. We report in degree-dependent tables by how many times the global call is faster than the repeated independent calls. For simplicity, we sample a whole period and set <span class="math notranslate nohighlight">\(L=K,\)</span> letting the period <span class="math notranslate nohighlight">\(K\)</span> explore some wide range. We let the oversampling factor <span class="math notranslate nohighlight">\(M\)</span> take values in <span class="math notranslate nohighlight">\(1\)</span> (unit-spaced samples) through <span class="math notranslate nohighlight">\(6\)</span> (samples spaced by <span class="math notranslate nohighlight">\(1/6\)</span>). Finally, to improve the robustness of the reported results, we repeat each timing experiment <span class="math notranslate nohighlight">\(10\)</span> times.</p>
+<div class="admonition danger">
+<p class="admonition-title">Danger</p>
+<ul class="simple">
+<li><p>The link below allows you to inspect the notebook. Unfortunately, running it from the browser is meaningless: the timings of the <em>installation-free</em> version are not representative because the Python kernel is WebAssembly-based and does not run natively.</p></li>
+<li><p>If you want to test for realistic timings on your own computer, then you will have to first install in full the <code class="docutils literal notranslate"><span class="pre">splinekit</span></code> library. Only after that will you be able to launch the notebook either as a regular, full-fledged Jupyter Lab or as a module executed by the native Python kernel.</p></li>
+<li><p>The timings reported in the Results Section correspond to those of the native execution.</p></li>
+</ul>
+</div>
+<div class="admonition-jupyter-lab-notebook admonition">
+<p class="admonition-title">Jupyter Lab notebook</p>
+<p><a class="reference external" href="https://splinekit.github.io/splinekit-jupyterlite/notebooks/index.html?path=spline_evaluation_speed.ipynb">Scalar vs array</a></p>
+</div>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>The notebook is available for download in compressed form from
+<a class="reference download internal" download="" href="../../_downloads/a41c3ecb3557c8fa6895247be03e9340/spline_evaluation_speed.ipynb.gz"><code class="xref download docutils literal notranslate"><span class="pre">here</span></code></a>. Decompression is achieved from the terminal with <code class="docutils literal notranslate"><span class="pre">gunzip</span> <span class="pre">spline_evaluation_speed.ipynb.gz</span></code>.</p>
+</div>
+<section id="results">
+<h4>Results<a class="headerlink" href="#results" title="Link to this heading"></a></h4>
+<p>On a desktop computer of 2021, typical resulting tables are as follows.</p>
+<p><span class="raw-html"><TABLE frame="hsides" rules="groups">
+<CAPTION>Acceleration for Spline Degree <I>n</I> = 1</CAPTION>
+<COLGROUP span="1">
+<COLGROUP span="9">
+<TR><TH colspan="1" align="right">Period&#160;<TH align="right">&#160;2&#160;<TH align="right">&#160;5&#160;<TH align="right">&#160;10&#160;<TH align="right">&#160;20&#160;<TH align="right">&#160;50&#160;<TH align="right">&#160;100&#160;<TH align="right">&#160;200&#160;<TH align="right">&#160;500&#160;<TH align="right">&#160;1000&#160;
+<TR><TH colspan="1" align="left">Oversampling&#160;
+<TBODY>
+<TR><TD align="left"><I>M</I> = 1&#160;<TD align="right">&#160;1.00&#160;<TD align="right">&#160;2.13&#160;<TD align="right">&#160;3.15&#160;<TD align="right">&#160;4.41&#160;<TD align="right">&#160;3.96&#160;<TD align="right">&#160;5.20&#160;<TD align="right">&#160;5.36&#160;<TD align="right">&#160;5.64&#160;<TD align="right">&#160;4.72&#160;
+<TR><TD align="left"><I>M</I> = 2&#160;<TD align="right">&#160;0.98&#160;<TD align="right">&#160;2.32&#160;<TD align="right">&#160;3.64&#160;<TD align="right">&#160;5.13&#160;<TD align="right">&#160;7.03&#160;<TD align="right">&#160;7.95&#160;<TD align="right">&#160;8.39&#160;<TD align="right">&#160;8.90&#160;<TD align="right">&#160;8.92&#160;
+<TR><TD align="left"><I>M</I> = 3&#160;<TD align="right">&#160;1.43&#160;<TD align="right">&#160;2.93&#160;<TD align="right">&#160;4.68&#160;<TD align="right">&#160;6.73&#160;<TD align="right">&#160;9.83&#160;<TD align="right">&#160;11.17&#160;<TD align="right">&#160;12.68&#160;<TD align="right">&#160;13.36&#160;<TD align="right">&#160;13.62&#160;
+<TR><TD align="left"><I>M</I> = 4&#160;<TD align="right">&#160;1.50&#160;<TD align="right">&#160;3.25&#160;<TD align="right">&#160;5.47&#160;<TD align="right">&#160;8.24&#160;<TD align="right">&#160;12.31&#160;<TD align="right">&#160;14.85&#160;<TD align="right">&#160;16.44&#160;<TD align="right">&#160;17.78&#160;<TD align="right">&#160;17.74&#160;
+<TR><TD align="left"><I>M</I> = 5&#160;<TD align="right">&#160;1.74&#160;<TD align="right">&#160;3.54&#160;<TD align="right">&#160;6.01&#160;<TD align="right">&#160;9.39&#160;<TD align="right">&#160;14.61&#160;<TD align="right">&#160;17.77&#160;<TD align="right">&#160;20.19&#160;<TD align="right">&#160;21.71&#160;<TD align="right">&#160;22.38&#160;
+<TR><TD align="left"><I>M</I> = 6&#160;<TD align="right">&#160;1.72&#160;<TD align="right">&#160;3.79&#160;<TD align="right">&#160;6.48&#160;<TD align="right">&#160;10.35&#160;<TD align="right">&#160;16.39&#160;<TD align="right">&#160;20.54&#160;<TD align="right">&#160;23.96&#160;<TD align="right">&#160;25.91&#160;<TD align="right">&#160;26.70&#160;
+</TABLE></span></p>
+<p><span class="raw-html"><TABLE frame="hsides" rules="groups">
+<CAPTION>Acceleration for Spline Degree <I>n</I> = 2</CAPTION>
+<COLGROUP span="1">
+<COLGROUP span="9">
+<TR><TH colspan="1" align="right">Period&#160;<TH align="right">&#160;2&#160;<TH align="right">&#160;5&#160;<TH align="right">&#160;10&#160;<TH align="right">&#160;20&#160;<TH align="right">&#160;50&#160;<TH align="right">&#160;100&#160;<TH align="right">&#160;200&#160;<TH align="right">&#160;500&#160;<TH align="right">&#160;1000&#160;
+<TR><TH colspan="1" align="left">Oversampling&#160;
+<TBODY>
+<TR><TD align="left"><I>M</I> = 1&#160;<TD align="right">&#160;1.16&#160;<TD align="right">&#160;2.09&#160;<TD align="right">&#160;3.01&#160;<TD align="right">&#160;3.91&#160;<TD align="right">&#160;4.78&#160;<TD align="right">&#160;5.28&#160;<TD align="right">&#160;5.56&#160;<TD align="right">&#160;5.66&#160;<TD align="right">&#160;5.68&#160;
+<TR><TD align="left"><I>M</I> = 2&#160;<TD align="right">&#160;1.26&#160;<TD align="right">&#160;2.35&#160;<TD align="right">&#160;3.59&#160;<TD align="right">&#160;5.13&#160;<TD align="right">&#160;6.96&#160;<TD align="right">&#160;7.97&#160;<TD align="right">&#160;8.56&#160;<TD align="right">&#160;8.97&#160;<TD align="right">&#160;8.93&#160;
+<TR><TD align="left"><I>M</I> = 3&#160;<TD align="right">&#160;1.50&#160;<TD align="right">&#160;2.94&#160;<TD align="right">&#160;4.64&#160;<TD align="right">&#160;6.81&#160;<TD align="right">&#160;9.83&#160;<TD align="right">&#160;11.46&#160;<TD align="right">&#160;12.86&#160;<TD align="right">&#160;13.34&#160;<TD align="right">&#160;13.57&#160;
+<TR><TD align="left"><I>M</I> = 4&#160;<TD align="right">&#160;1.67&#160;<TD align="right">&#160;3.24&#160;<TD align="right">&#160;5.31&#160;<TD align="right">&#160;8.09&#160;<TD align="right">&#160;12.45&#160;<TD align="right">&#160;14.50&#160;<TD align="right">&#160;16.10&#160;<TD align="right">&#160;17.47&#160;<TD align="right">&#160;18.04&#160;
+<TR><TD align="left"><I>M</I> = 5&#160;<TD align="right">&#160;1.74&#160;<TD align="right">&#160;3.57&#160;<TD align="right">&#160;5.87&#160;<TD align="right">&#160;9.19&#160;<TD align="right">&#160;14.50&#160;<TD align="right">&#160;17.83&#160;<TD align="right">&#160;20.38&#160;<TD align="right">&#160;21.80&#160;<TD align="right">&#160;22.51&#160;
+<TR><TD align="left"><I>M</I> = 6&#160;<TD align="right">&#160;1.92&#160;<TD align="right">&#160;3.92&#160;<TD align="right">&#160;6.36&#160;<TD align="right">&#160;10.26&#160;<TD align="right">&#160;16.41&#160;<TD align="right">&#160;20.38&#160;<TD align="right">&#160;23.92&#160;<TD align="right">&#160;25.73&#160;<TD align="right">&#160;26.66&#160;
+</TABLE></span></p>
+<p><span class="raw-html"><TABLE frame="hsides" rules="groups">
+<CAPTION>Acceleration for Spline Degree <I>n</I> = 3</CAPTION>
+<COLGROUP span="1">
+<COLGROUP span="9">
+<TR><TH colspan="1" align="right">Period&#160;<TH align="right">&#160;2&#160;<TH align="right">&#160;5&#160;<TH align="right">&#160;10&#160;<TH align="right">&#160;20&#160;<TH align="right">&#160;50&#160;<TH align="right">&#160;100&#160;<TH align="right">&#160;200&#160;<TH align="right">&#160;500&#160;<TH align="right">&#160;1000&#160;
+<TR><TH colspan="1" align="left">Oversampling&#160;
+<TBODY>
+<TR><TD align="left"><I>M</I> = 1&#160;<TD align="right">&#160;1.18&#160;<TD align="right">&#160;1.96&#160;<TD align="right">&#160;2.86&#160;<TD align="right">&#160;3.81&#160;<TD align="right">&#160;4.79&#160;<TD align="right">&#160;5.25&#160;<TD align="right">&#160;5.54&#160;<TD align="right">&#160;5.61&#160;<TD align="right">&#160;5.67&#160;
+<TR><TD align="left"><I>M</I> = 2&#160;<TD align="right">&#160;1.24&#160;<TD align="right">&#160;2.30&#160;<TD align="right">&#160;3.49&#160;<TD align="right">&#160;4.93&#160;<TD align="right">&#160;6.84&#160;<TD align="right">&#160;7.89&#160;<TD align="right">&#160;8.50&#160;<TD align="right">&#160;8.87&#160;<TD align="right">&#160;9.11&#160;
+<TR><TD align="left"><I>M</I> = 3&#160;<TD align="right">&#160;1.55&#160;<TD align="right">&#160;2.99&#160;<TD align="right">&#160;4.58&#160;<TD align="right">&#160;6.67&#160;<TD align="right">&#160;9.76&#160;<TD align="right">&#160;11.47&#160;<TD align="right">&#160;13.11&#160;<TD align="right">&#160;13.23&#160;<TD align="right">&#160;13.66&#160;
+<TR><TD align="left"><I>M</I> = 4&#160;<TD align="right">&#160;1.67&#160;<TD align="right">&#160;3.32&#160;<TD align="right">&#160;5.30&#160;<TD align="right">&#160;8.00&#160;<TD align="right">&#160;12.18&#160;<TD align="right">&#160;14.72&#160;<TD align="right">&#160;16.23&#160;<TD align="right">&#160;17.75&#160;<TD align="right">&#160;17.86&#160;
+<TR><TD align="left"><I>M</I> = 5&#160;<TD align="right">&#160;1.82&#160;<TD align="right">&#160;3.61&#160;<TD align="right">&#160;5.92&#160;<TD align="right">&#160;9.12&#160;<TD align="right">&#160;14.26&#160;<TD align="right">&#160;17.32&#160;<TD align="right">&#160;20.27&#160;<TD align="right">&#160;21.66&#160;<TD align="right">&#160;22.68&#160;
+<TR><TD align="left"><I>M</I> = 6&#160;<TD align="right">&#160;1.91&#160;<TD align="right">&#160;3.89&#160;<TD align="right">&#160;6.39&#160;<TD align="right">&#160;10.03&#160;<TD align="right">&#160;16.05&#160;<TD align="right">&#160;20.47&#160;<TD align="right">&#160;23.82&#160;<TD align="right">&#160;25.92&#160;<TD align="right">&#160;26.19&#160;
+</TABLE></span></p>
+<p><span class="raw-html"><TABLE frame="hsides" rules="groups">
+<CAPTION>Acceleration for Spline Degree <I>n</I> = 4</CAPTION>
+<COLGROUP span="1">
+<COLGROUP span="9">
+<TR><TH colspan="1" align="right">Period&#160;<TH align="right">&#160;2&#160;<TH align="right">&#160;5&#160;<TH align="right">&#160;10&#160;<TH align="right">&#160;20&#160;<TH align="right">&#160;50&#160;<TH align="right">&#160;100&#160;<TH align="right">&#160;200&#160;<TH align="right">&#160;500&#160;<TH align="right">&#160;1000&#160;
+<TR><TH colspan="1" align="left">Oversampling&#160;
+<TBODY>
+<TR><TD align="left"><I>M</I> = 1&#160;<TD align="right">&#160;1.19&#160;<TD align="right">&#160;1.93&#160;<TD align="right">&#160;2.77&#160;<TD align="right">&#160;3.58&#160;<TD align="right">&#160;4.63&#160;<TD align="right">&#160;5.14&#160;<TD align="right">&#160;5.49&#160;<TD align="right">&#160;5.61&#160;<TD align="right">&#160;5.68&#160;
+<TR><TD align="left"><I>M</I> = 2&#160;<TD align="right">&#160;1.26&#160;<TD align="right">&#160;2.27&#160;<TD align="right">&#160;3.50&#160;<TD align="right">&#160;4.90&#160;<TD align="right">&#160;6.78&#160;<TD align="right">&#160;7.80&#160;<TD align="right">&#160;8.60&#160;<TD align="right">&#160;8.87&#160;<TD align="right">&#160;9.20&#160;
+<TR><TD align="left"><I>M</I> = 3&#160;<TD align="right">&#160;1.52&#160;<TD align="right">&#160;2.96&#160;<TD align="right">&#160;4.54&#160;<TD align="right">&#160;6.53&#160;<TD align="right">&#160;9.67&#160;<TD align="right">&#160;11.36&#160;<TD align="right">&#160;12.44&#160;<TD align="right">&#160;13.28&#160;<TD align="right">&#160;13.43&#160;
+<TR><TD align="left"><I>M</I> = 4&#160;<TD align="right">&#160;1.74&#160;<TD align="right">&#160;3.33&#160;<TD align="right">&#160;5.27&#160;<TD align="right">&#160;7.86&#160;<TD align="right">&#160;11.82&#160;<TD align="right">&#160;14.51&#160;<TD align="right">&#160;16.59&#160;<TD align="right">&#160;17.88&#160;<TD align="right">&#160;17.94&#160;
+<TR><TD align="left"><I>M</I> = 5&#160;<TD align="right">&#160;1.77&#160;<TD align="right">&#160;3.78&#160;<TD align="right">&#160;5.92&#160;<TD align="right">&#160;9.04&#160;<TD align="right">&#160;14.23&#160;<TD align="right">&#160;17.09&#160;<TD align="right">&#160;19.86&#160;<TD align="right">&#160;21.93&#160;<TD align="right">&#160;22.42&#160;
+<TR><TD align="left"><I>M</I> = 6&#160;<TD align="right">&#160;1.85&#160;<TD align="right">&#160;4.00&#160;<TD align="right">&#160;6.36&#160;<TD align="right">&#160;9.87&#160;<TD align="right">&#160;15.98&#160;<TD align="right">&#160;20.05&#160;<TD align="right">&#160;23.92&#160;<TD align="right">&#160;25.98&#160;<TD align="right">&#160;26.25&#160;
+</TABLE></span></p>
+<p><span class="raw-html"><TABLE frame="hsides" rules="groups">
+<CAPTION>Acceleration for Spline Degree <I>n</I> = 5</CAPTION>
+<COLGROUP span="1">
+<COLGROUP span="9">
+<TR><TH colspan="1" align="right">Period&#160;<TH align="right">&#160;2&#160;<TH align="right">&#160;5&#160;<TH align="right">&#160;10&#160;<TH align="right">&#160;20&#160;<TH align="right">&#160;50&#160;<TH align="right">&#160;100&#160;<TH align="right">&#160;200&#160;<TH align="right">&#160;500&#160;<TH align="right">&#160;1000&#160;
+<TR><TH colspan="1" align="left">Oversampling&#160;
+<TBODY>
+<TR><TD align="left"><I>M</I> = 1&#160;<TD align="right">&#160;1.21&#160;<TD align="right">&#160;1.86&#160;<TD align="right">&#160;2.61&#160;<TD align="right">&#160;3.50&#160;<TD align="right">&#160;4.55&#160;<TD align="right">&#160;5.12&#160;<TD align="right">&#160;5.53&#160;<TD align="right">&#160;5.56&#160;<TD align="right">&#160;5.69&#160;
+<TR><TD align="left"><I>M</I> = 2&#160;<TD align="right">&#160;1.23&#160;<TD align="right">&#160;2.40&#160;<TD align="right">&#160;3.33&#160;<TD align="right">&#160;4.65&#160;<TD align="right">&#160;6.58&#160;<TD align="right">&#160;7.74&#160;<TD align="right">&#160;8.51&#160;<TD align="right">&#160;8.85&#160;<TD align="right">&#160;9.05&#160;
+<TR><TD align="left"><I>M</I> = 3&#160;<TD align="right">&#160;1.49&#160;<TD align="right">&#160;3.02&#160;<TD align="right">&#160;4.32&#160;<TD align="right">&#160;6.41&#160;<TD align="right">&#160;9.57&#160;<TD align="right">&#160;10.90&#160;<TD align="right">&#160;12.31&#160;<TD align="right">&#160;13.21&#160;<TD align="right">&#160;13.43&#160;
+<TR><TD align="left"><I>M</I> = 4&#160;<TD align="right">&#160;1.71&#160;<TD align="right">&#160;3.51&#160;<TD align="right">&#160;5.14&#160;<TD align="right">&#160;7.66&#160;<TD align="right">&#160;11.86&#160;<TD align="right">&#160;14.16&#160;<TD align="right">&#160;16.05&#160;<TD align="right">&#160;17.43&#160;<TD align="right">&#160;17.88&#160;
+<TR><TD align="left"><I>M</I> = 5&#160;<TD align="right">&#160;1.82&#160;<TD align="right">&#160;3.79&#160;<TD align="right">&#160;5.79&#160;<TD align="right">&#160;8.83&#160;<TD align="right">&#160;13.87&#160;<TD align="right">&#160;17.24&#160;<TD align="right">&#160;19.97&#160;<TD align="right">&#160;21.59&#160;<TD align="right">&#160;22.20&#160;
+<TR><TD align="left"><I>M</I> = 6&#160;<TD align="right">&#160;1.93&#160;<TD align="right">&#160;4.19&#160;<TD align="right">&#160;6.39&#160;<TD align="right">&#160;9.85&#160;<TD align="right">&#160;15.83&#160;<TD align="right">&#160;19.82&#160;<TD align="right">&#160;23.03&#160;<TD align="right">&#160;25.60&#160;<TD align="right">&#160;26.53&#160;
+</TABLE></span></p>
+<p><span class="raw-html"><TABLE frame="hsides" rules="groups">
+<CAPTION>Acceleration for Spline Degree <I>n</I> = 6</CAPTION>
+<COLGROUP span="1">
+<COLGROUP span="9">
+<TR><TH colspan="1" align="right">Period&#160;<TH align="right">&#160;2&#160;<TH align="right">&#160;5&#160;<TH align="right">&#160;10&#160;<TH align="right">&#160;20&#160;<TH align="right">&#160;50&#160;<TH align="right">&#160;100&#160;<TH align="right">&#160;200&#160;<TH align="right">&#160;500&#160;<TH align="right">&#160;1000&#160;
+<TR><TH colspan="1" align="left">Oversampling&#160;
+<TBODY>
+<TR><TD align="left"><I>M</I> = 1&#160;<TD align="right">&#160;1.19&#160;<TD align="right">&#160;1.84&#160;<TD align="right">&#160;2.47&#160;<TD align="right">&#160;3.35&#160;<TD align="right">&#160;4.41&#160;<TD align="right">&#160;4.98&#160;<TD align="right">&#160;5.46&#160;<TD align="right">&#160;5.58&#160;<TD align="right">&#160;5.62&#160;
+<TR><TD align="left"><I>M</I> = 2&#160;<TD align="right">&#160;1.26&#160;<TD align="right">&#160;2.36&#160;<TD align="right">&#160;3.27&#160;<TD align="right">&#160;4.59&#160;<TD align="right">&#160;6.49&#160;<TD align="right">&#160;7.61&#160;<TD align="right">&#160;8.38&#160;<TD align="right">&#160;8.91&#160;<TD align="right">&#160;8.96&#160;
+<TR><TD align="left"><I>M</I> = 3&#160;<TD align="right">&#160;1.54&#160;<TD align="right">&#160;3.05&#160;<TD align="right">&#160;4.27&#160;<TD align="right">&#160;6.21&#160;<TD align="right">&#160;9.22&#160;<TD align="right">&#160;10.12&#160;<TD align="right">&#160;12.25&#160;<TD align="right">&#160;13.07&#160;<TD align="right">&#160;13.37&#160;
+<TR><TD align="left"><I>M</I> = 4&#160;<TD align="right">&#160;1.74&#160;<TD align="right">&#160;3.56&#160;<TD align="right">&#160;5.21&#160;<TD align="right">&#160;7.55&#160;<TD align="right">&#160;11.82&#160;<TD align="right">&#160;13.53&#160;<TD align="right">&#160;16.15&#160;<TD align="right">&#160;17.50&#160;<TD align="right">&#160;17.77&#160;
+<TR><TD align="left"><I>M</I> = 5&#160;<TD align="right">&#160;1.84&#160;<TD align="right">&#160;3.93&#160;<TD align="right">&#160;5.81&#160;<TD align="right">&#160;8.70&#160;<TD align="right">&#160;13.51&#160;<TD align="right">&#160;16.72&#160;<TD align="right">&#160;19.62&#160;<TD align="right">&#160;21.53&#160;<TD align="right">&#160;22.30&#160;
+<TR><TD align="left"><I>M</I> = 6&#160;<TD align="right">&#160;1.90&#160;<TD align="right">&#160;4.22&#160;<TD align="right">&#160;6.35&#160;<TD align="right">&#160;9.71&#160;<TD align="right">&#160;15.67&#160;<TD align="right">&#160;19.47&#160;<TD align="right">&#160;23.18&#160;<TD align="right">&#160;25.44&#160;<TD align="right">&#160;26.61&#160;
+</TABLE></span></p>
+<p><span class="raw-html"><TABLE frame="hsides" rules="groups">
+<CAPTION>Acceleration for Spline Degree <I>n</I> = 7</CAPTION>
+<COLGROUP span="1">
+<COLGROUP span="9">
+<TR><TH colspan="1" align="right">Period&#160;<TH align="right">&#160;2&#160;<TH align="right">&#160;5&#160;<TH align="right">&#160;10&#160;<TH align="right">&#160;20&#160;<TH align="right">&#160;50&#160;<TH align="right">&#160;100&#160;<TH align="right">&#160;200&#160;<TH align="right">&#160;500&#160;<TH align="right">&#160;1000&#160;
+<TR><TH colspan="1" align="left">Oversampling&#160;
+<TBODY>
+<TR><TD align="left"><I>M</I> = 1&#160;<TD align="right">&#160;1.15&#160;<TD align="right">&#160;1.82&#160;<TD align="right">&#160;2.32&#160;<TD align="right">&#160;3.18&#160;<TD align="right">&#160;4.29&#160;<TD align="right">&#160;4.92&#160;<TD align="right">&#160;5.33&#160;<TD align="right">&#160;5.60&#160;<TD align="right">&#160;5.58&#160;
+<TR><TD align="left"><I>M</I> = 2&#160;<TD align="right">&#160;1.23&#160;<TD align="right">&#160;2.37&#160;<TD align="right">&#160;3.17&#160;<TD align="right">&#160;4.42&#160;<TD align="right">&#160;6.32&#160;<TD align="right">&#160;7.39&#160;<TD align="right">&#160;8.20&#160;<TD align="right">&#160;8.71&#160;<TD align="right">&#160;8.97&#160;
+<TR><TD align="left"><I>M</I> = 3&#160;<TD align="right">&#160;1.59&#160;<TD align="right">&#160;3.05&#160;<TD align="right">&#160;4.27&#160;<TD align="right">&#160;6.03&#160;<TD align="right">&#160;8.79&#160;<TD align="right">&#160;11.06&#160;<TD align="right">&#160;12.15&#160;<TD align="right">&#160;13.11&#160;<TD align="right">&#160;13.36&#160;
+<TR><TD align="left"><I>M</I> = 4&#160;<TD align="right">&#160;1.75&#160;<TD align="right">&#160;3.52&#160;<TD align="right">&#160;5.04&#160;<TD align="right">&#160;7.37&#160;<TD align="right">&#160;9.16&#160;<TD align="right">&#160;13.77&#160;<TD align="right">&#160;15.80&#160;<TD align="right">&#160;17.45&#160;<TD align="right">&#160;18.00&#160;
+<TR><TD align="left"><I>M</I> = 5&#160;<TD align="right">&#160;1.83&#160;<TD align="right">&#160;3.89&#160;<TD align="right">&#160;5.71&#160;<TD align="right">&#160;8.53&#160;<TD align="right">&#160;13.43&#160;<TD align="right">&#160;16.77&#160;<TD align="right">&#160;19.49&#160;<TD align="right">&#160;21.47&#160;<TD align="right">&#160;22.55&#160;
+<TR><TD align="left"><I>M</I> = 6&#160;<TD align="right">&#160;1.98&#160;<TD align="right">&#160;4.22&#160;<TD align="right">&#160;6.30&#160;<TD align="right">&#160;9.55&#160;<TD align="right">&#160;15.05&#160;<TD align="right">&#160;19.28&#160;<TD align="right">&#160;23.05&#160;<TD align="right">&#160;25.61&#160;<TD align="right">&#160;26.28&#160;
+</TABLE></span></p>
+<p><span class="raw-html"><TABLE frame="hsides" rules="groups">
+<CAPTION>Acceleration for Spline Degree <I>n</I> = 8</CAPTION>
+<COLGROUP span="1">
+<COLGROUP span="9">
+<TR><TH colspan="1" align="right">Period&#160;<TH align="right">&#160;2&#160;<TH align="right">&#160;5&#160;<TH align="right">&#160;10&#160;<TH align="right">&#160;20&#160;<TH align="right">&#160;50&#160;<TH align="right">&#160;100&#160;<TH align="right">&#160;200&#160;<TH align="right">&#160;500&#160;<TH align="right">&#160;1000&#160;
+<TR><TH colspan="1" align="left">Oversampling&#160;
+<TBODY>
+<TR><TD align="left"><I>M</I> = 1&#160;<TD align="right">&#160;1.16&#160;<TD align="right">&#160;1.79&#160;<TD align="right">&#160;2.23&#160;<TD align="right">&#160;3.03&#160;<TD align="right">&#160;4.12&#160;<TD align="right">&#160;4.82&#160;<TD align="right">&#160;5.30&#160;<TD align="right">&#160;5.53&#160;<TD align="right">&#160;5.58&#160;
+<TR><TD align="left"><I>M</I> = 2&#160;<TD align="right">&#160;1.29&#160;<TD align="right">&#160;2.39&#160;<TD align="right">&#160;3.13&#160;<TD align="right">&#160;4.34&#160;<TD align="right">&#160;6.22&#160;<TD align="right">&#160;7.26&#160;<TD align="right">&#160;8.22&#160;<TD align="right">&#160;8.74&#160;<TD align="right">&#160;8.91&#160;
+<TR><TD align="left"><I>M</I> = 3&#160;<TD align="right">&#160;1.59&#160;<TD align="right">&#160;3.05&#160;<TD align="right">&#160;4.13&#160;<TD align="right">&#160;5.88&#160;<TD align="right">&#160;9.05&#160;<TD align="right">&#160;10.61&#160;<TD align="right">&#160;12.07&#160;<TD align="right">&#160;12.87&#160;<TD align="right">&#160;13.47&#160;
+<TR><TD align="left"><I>M</I> = 4&#160;<TD align="right">&#160;1.69&#160;<TD align="right">&#160;3.56&#160;<TD align="right">&#160;4.98&#160;<TD align="right">&#160;7.24&#160;<TD align="right">&#160;9.13&#160;<TD align="right">&#160;13.60&#160;<TD align="right">&#160;15.73&#160;<TD align="right">&#160;17.38&#160;<TD align="right">&#160;17.58&#160;
+<TR><TD align="left"><I>M</I> = 5&#160;<TD align="right">&#160;1.92&#160;<TD align="right">&#160;3.97&#160;<TD align="right">&#160;5.68&#160;<TD align="right">&#160;8.35&#160;<TD align="right">&#160;13.16&#160;<TD align="right">&#160;16.59&#160;<TD align="right">&#160;19.47&#160;<TD align="right">&#160;21.11&#160;<TD align="right">&#160;22.08&#160;
+<TR><TD align="left"><I>M</I> = 6&#160;<TD align="right">&#160;2.01&#160;<TD align="right">&#160;4.27&#160;<TD align="right">&#160;6.32&#160;<TD align="right">&#160;9.42&#160;<TD align="right">&#160;15.10&#160;<TD align="right">&#160;19.25&#160;<TD align="right">&#160;22.72&#160;<TD align="right">&#160;25.02&#160;<TD align="right">&#160;25.68&#160;
+</TABLE></span></p>
+<p><span class="raw-html"><TABLE frame="hsides" rules="groups">
+<CAPTION>Acceleration for Spline Degree <I>n</I> = 9</CAPTION>
+<COLGROUP span="1">
+<COLGROUP span="9">
+<TR><TH colspan="1" align="right">Period&#160;<TH align="right">&#160;2&#160;<TH align="right">&#160;5&#160;<TH align="right">&#160;10&#160;<TH align="right">&#160;20&#160;<TH align="right">&#160;50&#160;<TH align="right">&#160;100&#160;<TH align="right">&#160;200&#160;<TH align="right">&#160;500&#160;<TH align="right">&#160;1000&#160;
+<TR><TH colspan="1" align="left">Oversampling&#160;
+<TBODY>
+<TR><TD align="left"><I>M</I> = 1&#160;<TD align="right">&#160;1.15&#160;<TD align="right">&#160;1.75&#160;<TD align="right">&#160;2.16&#160;<TD align="right">&#160;2.92&#160;<TD align="right">&#160;4.02&#160;<TD align="right">&#160;4.70&#160;<TD align="right">&#160;5.23&#160;<TD align="right">&#160;5.50&#160;<TD align="right">&#160;5.60&#160;
+<TR><TD align="left"><I>M</I> = 2&#160;<TD align="right">&#160;1.30&#160;<TD align="right">&#160;2.37&#160;<TD align="right">&#160;3.06&#160;<TD align="right">&#160;4.25&#160;<TD align="right">&#160;6.03&#160;<TD align="right">&#160;7.17&#160;<TD align="right">&#160;8.12&#160;<TD align="right">&#160;8.78&#160;<TD align="right">&#160;8.92&#160;
+<TR><TD align="left"><I>M</I> = 3&#160;<TD align="right">&#160;1.59&#160;<TD align="right">&#160;3.06&#160;<TD align="right">&#160;4.13&#160;<TD align="right">&#160;5.76&#160;<TD align="right">&#160;8.96&#160;<TD align="right">&#160;10.33&#160;<TD align="right">&#160;12.16&#160;<TD align="right">&#160;12.98&#160;<TD align="right">&#160;13.42&#160;
+<TR><TD align="left"><I>M</I> = 4&#160;<TD align="right">&#160;1.79&#160;<TD align="right">&#160;3.56&#160;<TD align="right">&#160;4.95&#160;<TD align="right">&#160;7.10&#160;<TD align="right">&#160;10.77&#160;<TD align="right">&#160;13.69&#160;<TD align="right">&#160;14.68&#160;<TD align="right">&#160;17.40&#160;<TD align="right">&#160;17.55&#160;
+<TR><TD align="left"><I>M</I> = 5&#160;<TD align="right">&#160;1.85&#160;<TD align="right">&#160;3.91&#160;<TD align="right">&#160;5.66&#160;<TD align="right">&#160;8.20&#160;<TD align="right">&#160;12.90&#160;<TD align="right">&#160;16.29&#160;<TD align="right">&#160;19.33&#160;<TD align="right">&#160;21.35&#160;<TD align="right">&#160;22.24&#160;
+<TR><TD align="left"><I>M</I> = 6&#160;<TD align="right">&#160;1.96&#160;<TD align="right">&#160;4.28&#160;<TD align="right">&#160;6.33&#160;<TD align="right">&#160;9.45&#160;<TD align="right">&#160;14.22&#160;<TD align="right">&#160;19.29&#160;<TD align="right">&#160;22.71&#160;<TD align="right">&#160;25.16&#160;<TD align="right">&#160;25.79&#160;
+</TABLE></span></p>
+</section>
+<section id="discussion">
+<h4>Discussion<a class="headerlink" href="#discussion" title="Link to this heading"></a></h4>
+<p>The gain in computational efficiency is substantial. It increases with the oversampling factor and with the period of the spline. The degree of the spline does not play much of a role.</p>
+</section>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="polynomials.html" class="btn btn-neutral float-left" title="Polynomial Pieces of Splines" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="bounds.html" class="btn btn-neutral float-right" title="Upper and Lower Bounds of Splines" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright .</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

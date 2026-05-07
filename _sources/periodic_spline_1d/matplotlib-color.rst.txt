@@ -1,5 +1,3 @@
-.. _matplotlib-color:
-
 :orphan:
 
 ..  role:: raw-html(raw)
@@ -7,6 +5,9 @@
 
 Colors of matplotib
 ===================
+
+.. _matplotlib-color:
+
     The color abbreviations are single-letter codes.
     :raw-html:`<TABLE border="1" frame="hsides" rules="groups" align="center">
     <CAPTION>Base Colors</CAPTION>

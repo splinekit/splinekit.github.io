@@ -1,14 +1,16 @@
 Spline Padding [toc]
 ====================
 
-.. list-table::
-   :widths: 25 75
-   :header-rows: 0
+..  splinekit/docs/spline_padding/index.rst
 
-   * - **Spline Padding**
-     - **spline_padding** is a module of ``splinekit``. It provides the tools to extend data sequences with finite-support to infinite support.
+..  list-table::
+    :widths: 25 75
+    :header-rows: 0
 
-.. toctree::
-   :maxdepth: 0
+    * - **Spline Padding**
+      - **spline_padding** is a module of ``splinekit``. It provides the tools to extend data sequences with finite-support to infinite support.
 
-   01_spline_padding
+..  toctree::
+    :maxdepth: 0
+
+    01_spline_padding

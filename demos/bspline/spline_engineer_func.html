@@ -1,0 +1,229 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Splines and Engineering Functions &mdash; splinekit  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../../_static/plot_directive.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+      <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=2f8eb179" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+      <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Spline Bases" href="bspline_bases.html" />
+    <link rel="prev" title="Splines, B-Splines, and Polynomials" href="spline_vs_poly.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            splinekit
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Demos [toc]</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">B-Splines [toc]</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="hello_bspline.html">Hello B-Spline Family!</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bspline_members.html">B-Spline Members</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bspline_stability.html">Numeric Stability and Speed of B-Splines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bspline_m_scale.html">M-Scale Relation of B-Splines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bspline_vs_pi.html">B-Spline <em>vs</em> <span class="math notranslate nohighlight">\(\pi\)</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="spline_vs_poly.html">Splines, B-Splines, and Polynomials</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Splines and Engineering Functions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#sine">Sine</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cosine">Cosine</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#interludetrigonometric-exercise"><em>Interlude—Trigonometric Exercise</em></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#exponential">Exponential</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gauss-error-function">Gauss Error Function</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#interludegaussian-exercise"><em>Interlude—Gaussian Exercise</em></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="bspline_bases.html">Spline Bases</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bspline_poles.html">B-Spline Poles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bspline_inverse.html">Inverse of B-Spline Sequences</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../padding/index.html">Padding [toc]</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spline1d/index.html">Periodic Splines [toc]</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../installation/index.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../glossary/index.html">Glossary [toc]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../periodic_spline_1d/index.html">Periodic Spline 1D [toc]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../bsplines/index.html">B-Splines [toc]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../spline_padding/index.html">Spline Padding [toc]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../bases/index.html">Bases [toc]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../periodic_nonuniform_piecewise/index.html">Periodic Nonuniform Piecewise [toc]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../interval/index.html">Interval [package]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../spline_utilities/index.html">Spline Utilities [toc]</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">splinekit</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Demos [toc]</a></li>
+          <li class="breadcrumb-item"><a href="index.html">B-Splines [toc]</a></li>
+      <li class="breadcrumb-item active">Splines and Engineering Functions</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/Philippe-Thevenaz/splinekit/blob/main/docs/demos/bspline/spline_engineer_func.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="splines-and-engineering-functions">
+<h1>Splines and Engineering Functions<a class="headerlink" href="#splines-and-engineering-functions" title="Link to this heading"></a></h1>
+<p>Relation of the B-spline basis <span class="math notranslate nohighlight">\(\beta\)</span> to <span class="math notranslate nohighlight">\(\sin,\)</span> <span class="math notranslate nohighlight">\(\cos,\)</span> <span class="math notranslate nohighlight">\(\exp,\)</span> <span class="math notranslate nohighlight">\({\mathrm{erf}},\)</span> and the Gaussian function.</p>
+<hr class="docutils" />
+<section id="sine">
+<h2>Sine<a class="headerlink" href="#sine" title="Link to this heading"></a></h2>
+<p>The alternating sum of the integer shifts of the first derivative of a B-spline approaches the sine function as the degree tends to infinity. More precisely, it holds that</p>
+<div class="math notranslate nohighlight">
+\[\sin(\nu\,\pi)=-\frac{1}{4}\,\lim_{n\rightarrow\infty}\left(\frac{\pi}{2}\right)^{n}\,\sum_{k\in{\mathbb{Z}}}\,\left(-1\right)^{k}\,\dot{\beta}^{n}(\nu-k).\]</div>
+<p>We give now a piece of code where we verify this property visually over the single period <span class="math notranslate nohighlight">\(\nu\in[-1,1].\)</span></p>
+<div class="admonition-jupyter-lab-notebook admonition">
+<p class="admonition-title">Jupyter Lab notebook</p>
+<p><a class="reference external" href="https://splinekit.github.io/splinekit-jupyterlite/notebooks/index.html?path=bspline_vs_sin.ipynb">Sine from splines</a></p>
+</div>
+</section>
+<hr class="docutils" />
+<section id="cosine">
+<h2>Cosine<a class="headerlink" href="#cosine" title="Link to this heading"></a></h2>
+<p>The alternating sum of the half-integer shifts of the first derivative of a B-spline approaches the cosine function as the degree tends to infinity. More precisely, it holds that</p>
+<div class="math notranslate nohighlight">
+\[\cos(\nu\,\pi)=-\frac{1}{4}\,\lim_{n\rightarrow\infty}\left(\frac{\pi}{2}\right)^{n}\,\sum_{k\in{\mathbb{Z}}}\,\left(-1\right)^{k}\,\dot{\beta}^{n}(\nu+\frac{1}{2}-k).\]</div>
+<p>We give now a piece of code where we verify this property visually over the single period <span class="math notranslate nohighlight">\(\nu\in[-1,1].\)</span></p>
+<div class="admonition-jupyter-lab-notebook admonition">
+<p class="admonition-title">Jupyter Lab notebook</p>
+<p><a class="reference external" href="https://splinekit.github.io/splinekit-jupyterlite/notebooks/index.html?path=bspline_vs_cos.ipynb">Cosine from splines</a></p>
+</div>
+</section>
+<hr class="docutils" />
+<section id="interludetrigonometric-exercise">
+<h2><em>Interlude—Trigonometric Exercise</em><a class="headerlink" href="#interludetrigonometric-exercise" title="Link to this heading"></a></h2>
+<p><em>To compute the spline approximation of the sine function, we have given above an explicit approach that relies on a sum of several evaluations of the</em> <code class="docutils literal notranslate"><span class="pre">splinekit.grad_b_spline</span></code> <em>function.  Conversely, to compute the spline approximation of the cosine function, we have given above an approach that relies on the higher-level</em> <code class="docutils literal notranslate"><span class="pre">splinekit.PeriodSpline1D</span></code> <em>class.</em></p>
+<ul class="simple">
+<li><p><em>As first exercise, we propose that one computes the spline approximation of the sine by relying on the high-level class. (Hint: it is as simple as commenting out a single line of the spline approximation of the cosine.)</em></p></li>
+<li><p><em>As second exercise, we propose that one computes the spline approximation of the cosine by relying on an explicit approach. The second exercise is more difficult that the first one.</em></p></li>
+</ul>
+<div class="admonition-jupyter-lab-notebook admonition">
+<p class="admonition-title">Jupyter Lab notebook</p>
+<p><a class="reference external" href="https://splinekit.github.io/splinekit-jupyterlite/notebooks/index.html?path=bspline_trigo_exo.ipynb">Solutions of the trigonometric exercises</a></p>
+</div>
+</section>
+<hr class="docutils" />
+<section id="exponential">
+<h2>Exponential<a class="headerlink" href="#exponential" title="Link to this heading"></a></h2>
+<p>The exponential function can be approximated as a weighted sum of the derivatives of B-splines. More precisely, let an arbitrary order of differentiation be <span class="math notranslate nohighlight">\(q\in{\mathbb{N}}\)</span> and let the degree of the B-spline be large enough to allow for <span class="math notranslate nohighlight">\(q\)</span>-times differentiation, by setting it to be <span class="math notranslate nohighlight">\(n=p+q\)</span> with <span class="math notranslate nohighlight">\(p\in{\mathbb{N}}.\)</span> Then, it holds for <span class="math notranslate nohighlight">\(x\in{\mathbb{R}}\)</span> that the B-spline <span class="math notranslate nohighlight">\(\beta^{n}\)</span> is such that</p>
+<div class="math notranslate nohighlight">
+\[{\mathrm{e}}^{x}=\frac{1}{2^{q+1}}\,\lim_{p\rightarrow\infty}a^{-p-1}\,\sum_{k\in{\mathbb{Z}}}\,\left(1+\sqrt{2}\right)^{k}\,\frac{{\mathrm{d}}^{q}\beta^{p+q}(\left(a\,x-k\right)/2)}{{\mathrm{d}}x^{q}},\]</div>
+<p>where we have introduced the constant <span class="math notranslate nohighlight">\(a=1/{\mathrm{arcsinh}}(1).\)</span></p>
+<p>We give now a piece of code where we verify this property visually over the range <span class="math notranslate nohighlight">\(x\in[-2,2].\)</span></p>
+<div class="admonition-jupyter-lab-notebook admonition">
+<p class="admonition-title">Jupyter Lab notebook</p>
+<p><a class="reference external" href="https://splinekit.github.io/splinekit-jupyterlite/notebooks/index.html?path=bspline_vs_exp.ipynb">Exponential from splines</a></p>
+</div>
+</section>
+<hr class="docutils" />
+<section id="gauss-error-function">
+<h2>Gauss Error Function<a class="headerlink" href="#gauss-error-function" title="Link to this heading"></a></h2>
+<p>Polynomial B-splines are bump-like functions that converge to a Gaussian when the degree grows. More precisely, <span class="math notranslate nohighlight">\(\forall x\in{\mathbb{R}}\)</span> it holds that</p>
+<div class="math notranslate nohighlight">
+\[\frac{1}{\sigma_{0}\,\sqrt{2\,\pi}}\,{\mathrm{e}}^{-\frac{x^{2}}{2\,\sigma_{0}^{2}}}=\lim_{n\rightarrow\infty}\beta^{n}(x\,\sqrt{n+1})\,\sqrt{n+1},\]</div>
+<p>where we have indroduced the constant <span class="math notranslate nohighlight">\(\sigma_{0}=1/\sqrt{12}.\)</span> Therefore, it is without surprise that the integral of a spline converges to the <span class="math notranslate nohighlight">\({\mathrm{erf}}\)</span> function as the degree grows, too. Indeed, one has <span class="math notranslate nohighlight">\(\forall x\in{\mathbb{R}}\)</span> that</p>
+<div class="math notranslate nohighlight">
+\[{\mathrm{erf}}(x)=-1+2\,\lim_{n\rightarrow\infty}\int_{0}^{x\,\sqrt{\frac{n+1}{6}}}\,\beta^{n}(y)\,{\mathrm{d}}y.\]</div>
+<p>We give now a piece of code where we verify this property visually over the range <span class="math notranslate nohighlight">\(x\in[-3,3].\)</span></p>
+<div class="admonition-jupyter-lab-notebook admonition">
+<p class="admonition-title">Jupyter Lab notebook</p>
+<p><a class="reference external" href="https://splinekit.github.io/splinekit-jupyterlite/notebooks/index.html?path=bspline_vs_erf.ipynb">Erf from splines</a></p>
+</div>
+</section>
+<hr class="docutils" />
+<section id="interludegaussian-exercise">
+<h2><em>Interlude—Gaussian Exercise</em><a class="headerlink" href="#interludegaussian-exercise" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><em>As exercise, we propose to modify the code of the</em> <span class="math notranslate nohighlight">\({\mathrm{erf}}\)</span> <em>case to verify visually that the B-spline of degree</em> <span class="math notranslate nohighlight">\(n\in{\mathbb{N}}\)</span> <em>converges to a Gaussian when the degree grows. As icing on the cake, we suggest to perform the visualization over the support of the approximating B-spline.</em></p></li>
+</ul>
+<div class="admonition-jupyter-lab-notebook admonition">
+<p class="admonition-title">Jupyter Lab notebook</p>
+<p><a class="reference external" href="https://splinekit.github.io/splinekit-jupyterlite/notebooks/index.html?path=bspline_gauss_exo.ipynb">Solution of the Gaussian exercises</a></p>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="spline_vs_poly.html" class="btn btn-neutral float-left" title="Splines, B-Splines, and Polynomials" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="bspline_bases.html" class="btn btn-neutral float-right" title="Spline Bases" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright .</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
