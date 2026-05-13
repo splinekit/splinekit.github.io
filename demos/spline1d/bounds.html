@@ -62,7 +62,7 @@
 <li class="toctree-l3"><a class="reference internal" href="evaluation.html">Evaluation of Splines</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">Upper and Lower Bounds of Splines</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#upper-bound">Upper Bound</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#upper-bound-over-a-unit-interval">Upper Bound Over a Unit Interval</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#upper-bound-over-a-unit-interval">Upper Bound over a Unit Interval</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#generalizations">Generalizations</a></li>
 </ul>
 </li>
@@ -120,7 +120,7 @@
 <p>Our purpose here is to build a spline <span class="math notranslate nohighlight">\(g\)</span> of same period <span class="math notranslate nohighlight">\(K\)</span> but arbitrary degree <span class="math notranslate nohighlight">\(m\in{\mathbb{N}}+1,\)</span> with its delay <span class="math notranslate nohighlight">\(\delta y\)</span> and spline coefficients <span class="math notranslate nohighlight">\(u\)</span> chosen such that <span class="math notranslate nohighlight">\(\forall x\in{\mathbb{R}}:g(x)\geq f(x);\)</span> moreover, we would like that the bounding spline <span class="math notranslate nohighlight">\(g\)</span> be reasonably close to <span class="math notranslate nohighlight">\(f\)</span> and that its determination be favorable, computationally. We provide now the main steps that lead to this goal. We first consider a local bound over a single interval of unit length; then, we merge the local bounds to obtain a global one.</p>
 </section>
 <section id="upper-bound-over-a-unit-interval">
-<h2>Upper Bound Over a Unit Interval<a class="headerlink" href="#upper-bound-over-a-unit-interval" title="Link to this heading"></a></h2>
+<h2>Upper Bound over a Unit Interval<a class="headerlink" href="#upper-bound-over-a-unit-interval" title="Link to this heading"></a></h2>
 <p>Consider the periodized interval <span class="math notranslate nohighlight">\({\mathbb{X}}_{r}=\bigcup_{p\in{\mathbb{Z}}}\,[\frac{n-1}{2}+\delta x-r-p\,K,\frac{n-1}{2}+\delta x-r-p\,K+1),\)</span> indexed by <span class="math notranslate nohighlight">\(r\in[0\ldots K-1].\)</span> Over this periodized unit-length interval, it turns out that the spline <span class="math notranslate nohighlight">\(f\)</span> computed as above can also be computed from linear-algebra operations as</p>
 <div class="math notranslate nohighlight">
 \[\forall x\in{\mathbb{X}}_{r}:f(x)={\mathbf{c}}_{r}^{{\mathsf{T}}}\,{\mathbf{W}}^{n}\,{\mathbf{v}}^{n}(\chi),\]</div>
@@ -178,6 +178,7 @@
 <p>from which we conclude that <span class="math notranslate nohighlight">\(g\)</span> is an upper bound of <span class="math notranslate nohighlight">\(f.\)</span></p>
 </section>
 </section>
+<hr class="docutils" />
 <section id="generalizations">
 <h2>Generalizations<a class="headerlink" href="#generalizations" title="Link to this heading"></a></h2>
 <p>Up to now, we have considered positive degrees both for the spline to be bounded and for the bounding spline. With the same ideas, but without the formalism of linear algebra, bounds can also be established for nonnegative degrees. The class <code class="docutils literal notranslate"><span class="pre">splinekit.PeriodSpline1D</span></code> takes care of it all.</p>

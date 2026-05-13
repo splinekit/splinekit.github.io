@@ -4,7 +4,7 @@ SplineKit
 
 ..  splinekit/docs/index.rst
 
-**SplineKit** is a Python-based open-source software library aimed at the manipulation of one-dimensional periodic splines.
+**splinekit** is a Python-based open-source software library aimed at the manipulation of one-dimensional periodic splines.
 
 ..  grid:: 2
     :gutter: 2

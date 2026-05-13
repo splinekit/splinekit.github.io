@@ -16,7 +16,7 @@ Linear-Algebra Formulation
 The obects that the class ``PeriodicSpline1D`` operates upon are mathematical functions and consist in descriptions of mappings :math:`f:{\mathbb{R}}\rightarrow{\mathbb{R}},x\mapsto f(x).` Oftentimes, the class allows one to obtain a new *mapping* from an existing one, for instance the gradient of a spline (not just a number but the whole function :math:`\dot{f}`) out of its original form :math:`f.` This is all good, but one is sometimes also interested in the more mundane goal of experimenting with a fixed mapping, typically to ask to what number :math:`f(x)\in{\mathbb{R}}` is the argument :math:`x\in{\mathbb{R}}` mapped to by :math:`f:{\mathbb{R}}\rightarrow{\mathbb{R}}.` The ``splinekit`` library  offers two possibilities to address this goal.
 
 *   ``PeriodicSpline1D.at`` returns the value :math:`f(x)` of the spline :math:`f` evaluated at :math:`x.`
-*   ``PeriodicSpline1D.get_samples`` returns an array of values at arguments separated by a uniform step.
+*   ``PeriodicSpline1D.get_samples`` returns an array of values at arguments separated by a constant step.
 
 The two possibilities rely on the recipe followed by all one-dimensional uniform polynomial splines of nonnegative integer degree :math:`n\in{\mathbb{N}},` according to which an argument :math:`x` is mapped to the value
 
@@ -29,11 +29,13 @@ Since the support of a B-spline is finite, the sum is finite at any given argume
 
 ..  math::
         \begin{eqnarray*}
-        \forall n\in{\mathbb{N}}+1,\forall x\in{\mathbb{R}}:f(x)&=&\left(\begin{array}{c}c[{\left(-m\right)\bmod K}]\\c[{\left(1-m\right)\bmod K}]\\c[{\left(2-m]\right)\bmod K}\\\vdots\\c[{\left(n-m\right)\bmod K}]\end{array}\right)^{{\mathsf{T}}}\,\left(\begin{array}{ccccc}w_{0,0}^{n}&w_{0,1}^{n}&w_{0,2}^{n}&\cdots&w_{0,n}^{n}\\w_{1,0}^{n}&w_{1,1}^{n}&w_{1,2}^{n}&\cdots&w_{1,n}^{n}\\w_{2,0}^{n}&w_{2,1}^{n}&w_{2,2}^{n}&\cdots&w_{2,n}^{n}\\\vdots&\vdots&\vdots&\ddots&\vdots\\w_{n,0}^{n}&w_{n,1}^{n}&w_{n,2}^{n}&\cdots&w_{n,n}^{n}\end{array}\right)\,\left(\begin{array}{c}1\\v\\v^{2}\\\vdots\\v^{n}\end{array}\right)\\
+        \forall n\in{\mathbb{N}}+1,\forall x\in{\mathbb{R}}:f(x)&=&\left(\begin{array}{c}c[{\left(-r\right)\bmod K}]\\c[{\left(1-r\right)\bmod K}]\\c[{\left(2-r]\right)\bmod K}\\\vdots\\c[{\left(n-r\right)\bmod K}]\end{array}\right)^{{\mathsf{T}}}\,\left(\begin{array}{ccccc}w_{0,0}^{n}&w_{0,1}^{n}&w_{0,2}^{n}&\cdots&w_{0,n}^{n}\\w_{1,0}^{n}&w_{1,1}^{n}&w_{1,2}^{n}&\cdots&w_{1,n}^{n}\\w_{2,0}^{n}&w_{2,1}^{n}&w_{2,2}^{n}&\cdots&w_{2,n}^{n}\\\vdots&\vdots&\vdots&\ddots&\vdots\\w_{n,0}^{n}&w_{n,1}^{n}&w_{n,2}^{n}&\cdots&w_{n,n}^{n}\end{array}\right)\,\left(\begin{array}{c}1\\v\\v^{2}\\\vdots\\v^{n}\end{array}\right)\\
         &=&{\color{blue}{{\mathbf{c}}}}^{{\mathsf{T}}}\,{\color{blue}{{\mathbf{W}}^{n}}}\,{\color{blue}{{\mathbf{v}}^{n}}},
         \end{eqnarray*}
 
-where :math:`{\color{blue}{{\mathbf{c}}}}\in{\mathbb{R}}^{n+1}` is a vector whose :math:`n+1` components are extracted from the data-dependent array :math:`c` at some integer :math:`m\in{\mathbb{Z}}` that depends in discrete fashion on :math:`\left(x-\delta x\right),` where :math:`{\color{blue}{{\mathbf{W}}^{n}}}\in{\mathbb{R}}^{\left(n+1\right)\times\left(n+1\right)}` is a matrix that depends on :math:`n` only, and where :math:`{\color{blue}{{\mathbf{v}}^{n}}}\in{\mathbb{R}}^{n+1}` is a Vandermonde vector whose every component belongs to the interval :math:`[0,1]` and is made to depend continuously on :math:`\left(x-\delta x\right).`
+where :math:`{\color{blue}{{\mathbf{c}}}}\in{\mathbb{R}}^{n+1}` is a vector whose :math:`n+1` components are extracted from the data-dependent array :math:`c` at some integer :math:`r\in{\mathbb{Z}}` that depends in discrete fashion on :math:`\left(x-\delta x\right),` where :math:`{\color{blue}{{\mathbf{W}}^{n}}}\in{\mathbb{R}}^{\left(n+1\right)\times\left(n+1\right)}` is a matrix that depends on :math:`n` only, and where :math:`{\color{blue}{{\mathbf{v}}^{n}}}\in{\mathbb{R}}^{n+1}` is a Vandermonde vector whose every component belongs to the interval :math:`[0,1]` and is made to depend continuously on :math:`\left(x-\delta x\right).`
+
+----
 
 Evaluation at a Single Argument
 -------------------------------
@@ -44,17 +46,21 @@ To evaluate a one-dimensional periodic spline :math:`f` of positive degree :math
 
     `Single argument <https://splinekit.github.io/splinekit-jupyterlite/notebooks/index.html?path=spline_at_scalar.ipynb>`_
 
+----
+
 Evaluation at Multiple Arguments
 --------------------------------
 
-We want now to evaluate :math:`f(x)` at the :math:`L\,M` arguments :math:`x\in\left\{x_{0}+q/M\right\}_{q=0}^{L\,M-1},` where :math:`M\in{\mathbb{N}}+1` is some positive integer oversampling factor, :math:`L\in{\mathbb{N}}+1` is the length of the support over which we want to sample :math:`f,` and :math:`x_{0}\in{\mathbb{R}}` is the argument of the first sample. To do so, we take advantage of ``PeriodicSpline1D.get_samples``. In the next piece of code, we illustrate how the combination of :math:`L,` :math:`M,` and :math:`x_{0}` can be used to specify the arguments where the spline is evaluated.
+We want now to evaluate :math:`f(x)` at the :math:`L\,M` arguments :math:`x\in\left\{x_{0}+k/M\right\}_{k=0}^{L\,M-1},` where :math:`M\in{\mathbb{N}}+1` is some positive integer oversampling factor, :math:`L\in{\mathbb{N}}+1` is the length of the support over which we want to sample :math:`f,` and :math:`x_{0}\in{\mathbb{R}}` is the argument of the first sample. To do so, we take advantage of ``PeriodicSpline1D.get_samples``. In the next piece of code, we illustrate how the combination of :math:`L,` :math:`M,` and :math:`x_{0}` can be used to specify the arguments where the spline is evaluated.
 
 ..  admonition:: Jupyter Lab notebook
 
     `Multiple arguments <https://splinekit.github.io/splinekit-jupyterlite/notebooks/index.html?path=spline_at_array.ipynb>`_
 
+----
+
 Experimental Performance
-^^^^^^^^^^^^^^^^^^^^^^^^
+------------------------
 
 When we evaluate a spline jointly at multiple arguments spaced regularly as above, it is judicious to pay attention on how the terms of :math:`{\mathbf{c}}^{{\mathsf{T}}}\,{\mathbf{W}}^{n}\,{\mathbf{v}}^{n}` depend on the variables of interest. In particular, when we compare the computation of :math:`f(x_{0}+q/M)` to that of :math:`f(x_{0}+\left(q+M\right)/M),` a detailed analysis reveals that the vector :math:`{\mathbf{c}}` changes, while the vector resulting from the product :math:`{\mathbf{W}}^{n}\,{\mathbf{v}}^{n}` is identical in the two cases. This invariance leads to computational savings.
 

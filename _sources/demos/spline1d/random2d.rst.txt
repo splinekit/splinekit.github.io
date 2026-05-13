@@ -27,10 +27,10 @@ An interesting question that arises is as follows: Is the curve smooth? Certainl
 
 ..  admonition:: Jupyter Lab notebook
 
-    `Random 2D Spline <https://splinekit.github.io/splinekit-jupyterlite/notebooks/index.html?path=spline_random_2d.ipynb>`_
+    `Random 2D spline <https://splinekit.github.io/splinekit-jupyterlite/notebooks/index.html?path=spline_random_2d.ipynb>`_
 
 Kinks
------
+^^^^^
 
 The plot makes apparent that there are surprisingly many locations where the curvature is very pronounced, so that the curve is possibly singular at such locations even though the components are never singular. Those places where curve singularities exist are called *kinks*; they emerge from the joint interplay between the gradients and the second-order derivatives of the two Cartesian components of the curve.
 

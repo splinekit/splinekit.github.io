@@ -25,7 +25,7 @@ Glossary—Splines
 
 ..  _def-orthonormal_b_spline:
 
-**Polynomial Orthonormal B-Spline** A polynomial orthonormal B-spline is notated :math:`\phi^{n}.` It is a real function indexed by a :ref:`nonnegative<def-negative>` integer degree :math:`n.` It is uniquely defined as the :ref:`uniform spline<def-uniform_spline>` of degree :math:`n` that is :ref:`integer-shift-orthonormal<def-integer-shift_orthonormal>` to itself, so that :math:`{\mathbf{[\![}}k=0\,{\mathbf{]\!]}}=\int_{-\infty}^{\infty}\,\phi^{n}(x)\,\phi^{n}(x+k)\,{\mathrm{d}}x,` along with :math:`\phi^{n}(x)=\sum_{k\in{\mathbb{Z}}}\,p[k]\,\beta^{n}(x-k)` for some well-chosen sequence :math:`p,` where the notation :math:`{\mathbf{[\![}}P\,{\mathbf{]\!]}}` is that of the :ref:`Iverson bracket<def-iverson>`.
+**Polynomial Orthonormal B-Spline** A polynomial orthonormal B-spline is notated :math:`\phi^{n}.` It is a real function indexed by a :ref:`nonnegative<def-negative>` integer degree :math:`n.` It is uniquely defined as the :ref:`uniform spline<def-uniform_spline>` of degree :math:`n` that is :ref:`integer-shift-orthonormal<def-integer-shift_orthonormal>` to itself, so that :math:`{\mathbf{[\![}}k=0\,{\mathbf{]\!]}}=\int_{-\infty}^{\infty}\,\phi^{n}(x)\,\phi^{n}(x+k)\,{\mathrm{d}}x,` along with :math:`0<\phi^{n}(0)` and :math:`\phi^{n}(x)=\sum_{k\in{\mathbb{Z}}}\,p[k]\,\beta^{n}(x-k)` for some well-chosen sequence :math:`p,` where the notation :math:`{\mathbf{[\![}}P\,{\mathbf{]\!]}}` is that of the :ref:`Iverson bracket<def-iverson>`.
 
 ..  _def-knots:
 

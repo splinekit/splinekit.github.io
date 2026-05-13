@@ -79,7 +79,7 @@ To evaluate a spline, one needs a procedure to evaluate B-splines. Unfortunately
 ..  math::
         f(x)={\mathbf{c}}_{r}^{{\mathsf{T}}}\,{\mathbf{W}}^{n}\,{\mathbf{v}}^{n}(\chi).
 
-This linear-algebra formulation takes its legitimation in the fact that the bootstrap definition of B-splines as well as the evaluation of splines proposed above are both sums of weighted terms.
+This linear-algebra formulation takes its legitimation in the fact that the bootstrap definition of B-splines as well as the evaluation of splines proposed above are both finite sums of weighted terms.
 
 Evaluation Matrix
 """""""""""""""""
@@ -119,7 +119,7 @@ Vandermonde Vector
 Define
 
 ..  math::
-        {\mathbf{v}}^{n}(\chi)=\left(\left(1\right)\cup\left(\chi^{k}\right)_{k=1}^{n}\right)\in{\mathbb{R}}^{n+1}
+        {\mathbf{v}}^{n}(\chi)=(1,\left(\chi^{k}\right)_{k=1}^{n})\in{\mathbb{R}}^{n+1}
 
 Spline Pieces
 ^^^^^^^^^^^^^

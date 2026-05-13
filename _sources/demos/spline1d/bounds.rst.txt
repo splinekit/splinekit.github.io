@@ -17,7 +17,7 @@ There, :math:`K\in{\mathbb{N}}+1` is its positive integer period and :math:`\del
 
 Our purpose here is to build a spline :math:`g` of same period :math:`K` but arbitrary degree :math:`m\in{\mathbb{N}}+1,` with its delay :math:`\delta y` and spline coefficients :math:`u` chosen such that :math:`\forall x\in{\mathbb{R}}:g(x)\geq f(x);` moreover, we would like that the bounding spline :math:`g` be reasonably close to :math:`f` and that its determination be favorable, computationally. We provide now the main steps that lead to this goal. We first consider a local bound over a single interval of unit length; then, we merge the local bounds to obtain a global one.
 
-Upper Bound Over a Unit Interval
+Upper Bound over a Unit Interval
 --------------------------------
 
 Consider the periodized interval :math:`{\mathbb{X}}_{r}=\bigcup_{p\in{\mathbb{Z}}}\,[\frac{n-1}{2}+\delta x-r-p\,K,\frac{n-1}{2}+\delta x-r-p\,K+1),` indexed by :math:`r\in[0\ldots K-1].` Over this periodized unit-length interval, it turns out that the spline :math:`f` computed as above can also be computed from linear-algebra operations as
@@ -97,6 +97,8 @@ The nonnegativity of B-splines allows us to finally establish that
         \end{eqnarray*}
 
 from which we conclude that :math:`g` is an upper bound of :math:`f.`
+
+----
 
 Generalizations
 ---------------

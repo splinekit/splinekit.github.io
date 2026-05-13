@@ -42,7 +42,7 @@ The classic, productive representation of the :math:`m`-th derivative of a B-spl
 ..  math::
         \frac{{\mathrm{d}}^{m}\beta^{n}(x)}{{\mathrm{d}}x^{m}}=\sum_{k=0}^{n+1}\,{\color{blue}\left(-1\right)^{k}}\,{n+1\choose k}\,\varsigma^{n-m}(x+\frac{n+1}{2}-k).
 
-(To compute a non-differentiated B-spline, simply set :math:`m=0.`) Unfortunately, the term :math:`{\color{blue}\left(-1\right)^{k}}` results in additive contributions that tend to cancel each other. This spells numerical trouble, even if the polynomial simple element :math:`\varsigma^{n}:{\mathbb{R}}\rightarrow{\mathbb{R}},x\mapsto\varsigma^{n}(x)=\frac{1}{2\,n!}\,{\mathrm{sgn}}(x)\,x^{n}` has the flavor of a well-behaved canonic monomial. Another issue lies with the growth of the binomial coefficients with respect to the degree.
+(To compute a non-differentiated B-spline, simply set :math:`m=0.`) Unfortunately, the term :math:`{\color{blue}\left(-1\right)^{k}}` results in additive contributions that tend to cancel each other. This spells numerical trouble, even if the polynomial simple element :math:`\varsigma^{n}:{\mathbb{R}}\rightarrow{\mathbb{R}},x\mapsto\varsigma^{n}(x)=\frac{1}{2\,n!}\,{\mathrm{sgn}}(x)\,x^{n}` has the flavor of a well-behaved canonic monomial. Another issue lies with the growth of the binomial coefficients with respect to the degree, which ultimately leads to a delicate balance between large numbers.
 
 De Boor
 ^^^^^^^
@@ -54,7 +54,7 @@ Other computational recipes have been devised. For instance, the De Boor's recur
 ..  math::
         \beta^{n}(x)=\frac{1}{n}\,\left(\left(x+\frac{n+1}{2}\right)\,\beta^{n-1}(x+\frac{1}{2})-\left(x-\frac{n+1}{2}\right)\,\beta^{n-1}(x-\frac{1}{2})\right).
 
-Splinekit
+splinekit
 ^^^^^^^^^
 
 In the ``splinekit`` library, B-splines of degree :math:`n=0` are computed as in the classic or the De Boor's approach. B-splines of positive degree, however, are computed as the scalar product

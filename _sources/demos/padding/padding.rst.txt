@@ -68,6 +68,8 @@ We give now a piece of code that illustrates visually the effect of the various 
 
     `Padded splines <https://splinekit.github.io/splinekit-jupyterlite/notebooks/index.html?path=padding_data.ipynb>`_
 
+----
+
 Periodic Padding
 ----------------
 
@@ -178,6 +180,8 @@ Discussion
 
 The conclusion of the experiments is unequivocal: The recursive approach is substantially faster than the fast-Fourier approach, at all lengths (except :math:`K=1`), ranges of lengths, and all degrees being investigated.
 
+----
+
 Narrow-Mirror Padding
 ---------------------
 
@@ -204,6 +208,8 @@ Start the algorithm by letting :math:`{\mathbf{c}}\leftarrow{\mathbf{y}}.` Then,
 
 ..  math::
         \left\{\begin{array}{rcll}c[0]&\leftarrow&\frac{1}{1-z_{n,m}^{2\,K-2}}\,\sum_{k=0}^{K-2}\,z_{n,m}^{k}\,\left(c[k]+z_{n,m}^{K-1}\,c[K-1-k]\right)\\c[k]&\leftarrow&c[k]+z_{n,m}\,c[k-1],&k\in[1\ldots K-1]\\c[K-1]&\leftarrow&\frac{\left(1-z_{n,m}\right)^{2}}{1-z_{n,m}^{2}}\,\left(z_{n,m}\,c[K-2]+c[K-1]\right)\\c[K-1-k]&\leftarrow&z_{n,m}\,c[K-k]+\left(1-z_{n,m}\right)^{2}\,c[K-1-k],&k\in[1\ldots K-1]\end{array}\right.
+
+----
 
 Wide-Mirror Padding
 -------------------
@@ -232,6 +238,8 @@ Start the algorithm by letting :math:`{\mathbf{c}}\leftarrow{\mathbf{y}}.` Then,
 ..  math::
         \left\{\begin{array}{rcll}c[0]&\leftarrow&c[0]+\frac{z_{n,m}}{1-z_{n,m}^{2\,K}}\,\sum_{k=0}^{K-1}\,z_{n,m}^{k}\,\left(c[k]+z_{n,m}^{K}\,c[K-1-k]\right)\\c[k]&\leftarrow&c[k]+z_{n,m}\,c[k-1],&k\in[1\ldots K-1]\\c[K-1]&\leftarrow&\left(1-z_{n,m}\right)\,c[K-1]\\c[K-1-k]&\leftarrow&z_{n,m}\,c[K-k]+\left(1-z_{n,m}\right)^{2}\,c[K-1-k],&k\in[1\ldots K-1]\end{array}\right.
 
+----
+
 Anti-Mirror Padding
 -------------------
 
@@ -258,6 +266,8 @@ Start the algorithm by letting :math:`{\mathbf{c}}\leftarrow{\mathbf{y}}.` Then,
 
 ..  math::
         \left\{\begin{array}{rcll}c[0]&\leftarrow&\frac{1}{1-z_{n,m}^{2\,K-2}}\,\left(\frac{1+z_{n,m}}{1-z_{n,m}}\,\left(c[0]-z_{n,m}^{K-1}\,c[K-1]\right)\right.\\&&\left.\mbox{}-\sum_{k=1}^{K-2}\,z_{n,m}^{k}\,\left(c[k]-z_{n,m}^{K-1}\,c[K-1-k]\right)\right)\\c[k]&\leftarrow&c[k]+z_{n,m}\,c[k-1],&k\in[1\ldots K-1]\\c[K-1]&\leftarrow&c[K-1]-z_{n,m}\,c[K-2]\\c[K-1-k]&\leftarrow&z_{n,m}\,c[K-k]+\left(1-z_{n,m}\right)^{2}\,c[K-1-k],&k\in[1\ldots K-1]\end{array}\right.
+
+----
 
 Nega-Periodic Padding
 ---------------------
@@ -286,6 +296,8 @@ Start the algorithm by letting :math:`{\mathbf{c}}\leftarrow{\mathbf{y}}.` Then,
 ..  math::
         \left\{\begin{array}{rcll}c[0]&\leftarrow&c[0]-\frac{z_{n,m}}{1+z_{n,m}^{K}}\,\sum_{k=0}^{K-1}\,z_{n,m}^{K-1-k}\,c[k]\\c[k]&\leftarrow&c[k]+z_{n,m}\,c[k-1],&k\in[1\ldots K-1]\\c[K-1]&\leftarrow&\frac{1-z_{n,m}}{1+z_{n,m}}\,\left(\left(1+z_{n,m}^{2\,K}\right)\,c[K-1]\right.\\&&\left.\mbox{}-\frac{1}{1+z_{n,m}^{K}}\,\sum_{k=0}^{K-1}\,\left(z_{n,m}^{3\,K-1-k}+z_{n,m}^{k+1}\right)\,c[k]\right)\\c[K-1-k]&\leftarrow&z_{n,m}\,c[K-k]+\left(1-z_{n,m}\right)^{2}\,c[K-1-k],&k\in[1\ldots K-1]\end{array}\right.
 
+----
+
 Nega-Narrow-Mirror Padding
 --------------------------
 
@@ -312,6 +324,8 @@ Start the algorithm by letting :math:`{\mathbf{c}}\leftarrow{\mathbf{y}}.` Then,
 
 ..  math::
         \left\{\begin{array}{rcll}c[0]&\leftarrow&c[0]-\frac{z_{n,m}^{2}}{1-z_{n,m}^{2\,K+2}}\,\sum_{k=0}^{K-1}\,z_{n,m}^{k}\,\left(c[k]-z_{n,m}^{K+1}\,c[K-1-k]\right)\\c[k]&\leftarrow&c[k]+z_{n,m}\,c[k-1],&k\in[1\ldots K-1]\\c[K-1]&\leftarrow&\left(1-z_{n,m}\right)^{2}\,c[K-1]\\c[K-1-k]&\leftarrow&z_{n,m}\,c[K-k]+\left(1-z_{n,m}\right)^{2}\,c[K-1-k],&k\in[1\ldots K-1]\end{array}\right.
+
+----
 
 Nega-Wide-Mirror Padding
 ------------------------

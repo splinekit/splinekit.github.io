@@ -25,4 +25,4 @@ We give now a piece of code that animates a spline whose coefficients are drawn 
 
 ..  admonition:: Jupyter Lab notebook
 
-    `Random 1D Spline <https://splinekit.github.io/splinekit-jupyterlite/notebooks/index.html?path=spline_random_1d.ipynb>`_
+    `Random 1D spline <https://splinekit.github.io/splinekit-jupyterlite/notebooks/index.html?path=spline_random_1d.ipynb>`_

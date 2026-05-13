@@ -164,7 +164,7 @@
 <p>To evaluate a spline, one needs a procedure to evaluate B-splines. Unfortunately, the bootstrap formulation above reveals that a B-spline is inherently made of additive terms of alternating sign <span class="math notranslate nohighlight">\(\left(-1\right)^{k},\)</span> which results in numerical difficulties. While we keep the bootstrap definition for splines of degree zero, we propose to alleviate the numerical difficulties for splines of positive degrees by computing <span class="math notranslate nohighlight">\(f(x)\)</span> through the equivalent formulation</p>
 <div class="math notranslate nohighlight">
 \[f(x)={\mathbf{c}}_{r}^{{\mathsf{T}}}\,{\mathbf{W}}^{n}\,{\mathbf{v}}^{n}(\chi).\]</div>
-<p>This linear-algebra formulation takes its legitimation in the fact that the bootstrap definition of B-splines as well as the evaluation of splines proposed above are both sums of weighted terms.</p>
+<p>This linear-algebra formulation takes its legitimation in the fact that the bootstrap definition of B-splines as well as the evaluation of splines proposed above are both finite sums of weighted terms.</p>
 <section id="evaluation-matrix">
 <h4>Evaluation Matrix<a class="headerlink" href="#evaluation-matrix" title="Link to this heading"></a></h4>
 <p>Define the B-spline rational evaluation matrix <span class="math notranslate nohighlight">\({\mathbf{W}}^{n}\in{\mathbb{Q}}^{\left(n+1\right)\times\left(n+1\right)}\)</span> as having a rational component at its <span class="math notranslate nohighlight">\(\left(r+1\right)\)</span>-th row and <span class="math notranslate nohighlight">\(\left(c+1\right)\)</span>-th column given by</p>
@@ -192,7 +192,7 @@
 <h4>Vandermonde Vector<a class="headerlink" href="#vandermonde-vector" title="Link to this heading"></a></h4>
 <p>Define</p>
 <div class="math notranslate nohighlight">
-\[{\mathbf{v}}^{n}(\chi)=\left(\left(1\right)\cup\left(\chi^{k}\right)_{k=1}^{n}\right)\in{\mathbb{R}}^{n+1}\]</div>
+\[{\mathbf{v}}^{n}(\chi)=(1,\left(\chi^{k}\right)_{k=1}^{n})\in{\mathbb{R}}^{n+1}\]</div>
 </section>
 </section>
 <section id="spline-pieces">

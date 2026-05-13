@@ -64,7 +64,7 @@
 <li class="toctree-l4"><a class="reference internal" href="#roadmap">Roadmap</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#representation-of-numbers">Representation of Numbers</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#b-spline">B-Spline</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#interpolating-cardinal-b-spline">Interpolating Cardinal B-Spline</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cardinal-b-spline">Cardinal B-Spline</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#dual-b-spline">Dual B-Spline</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#orthonormal-b-spline">Orthonormal B-Spline</a></li>
 </ul>
@@ -120,13 +120,13 @@
 <hr class="docutils" />
 <section id="roadmap">
 <h2>Roadmap<a class="headerlink" href="#roadmap" title="Link to this heading"></a></h2>
-<p>We are first going to give the intuition of what a basis is, by making a detour with the representation of numbers. Then, we introduce uniform splines as a weighted sum of integer-shifted bases. We go into greater depth in our general discussion of bases, and then focus on the specific case of the B-spline basis, of which we give just a few of their numerous properties. We end with the illustration of three other kinds of bases.</p>
+<p>We are first going to give the intuition of what a basis is, by making a detour with the representation of numbers. Then, we introduce uniform splines as weighted sums of integer-shifted bases. We go into greater depth in our general discussion of bases, and then focus on the specific case of the B-spline basis, of which we give just a few of their numerous properties. We end with the illustration of three other kinds of bases.</p>
 </section>
 <hr class="docutils" />
 <section id="representation-of-numbers">
 <h2>Representation of Numbers<a class="headerlink" href="#representation-of-numbers" title="Link to this heading"></a></h2>
 <p>Unlike in the antique world, the modern representation of numbers is positional, with digits. For instance, the number forty-two consists of the decimal digits <span class="math notranslate nohighlight">\(4\)</span> and <span class="math notranslate nohighlight">\(2,\)</span> with <span class="math notranslate nohighlight">\(4\)</span> to the left and <span class="math notranslate nohighlight">\(2\)</span> to the right.</p>
-<p>Digits are the construction blocks of numbers. They are associated to a <em>base</em> (not a basis); in everyday life, the base is ten. In a computer, the binary base is two. Geeks would write octal numbers in base eight or hexadecimal numbers in base sixteen. Assuming the subscript is written in base ten, one would notate</p>
+<p>Digits are the construction blocks of numbers. They are associated to a <em>base</em> (not a basis); in everyday life, the base is ten. In a computer, the binary base is two. Geeks would write octal numbers in base eight or hexadecimal numbers in base sixteen. Assuming the base is written as a base-ten subscript, one would notate</p>
 <div class="math notranslate nohighlight">
 \[42_{10}=101010_{2}=52_{8}=2{\mathrm{A}}_{16}.\]</div>
 <p>Formally, if <span class="math notranslate nohighlight">\(b\)</span> is the base, the synthesis of a nonnegative and finite integer number <span class="math notranslate nohighlight">\(m\in{\mathbb{N}}\)</span> from its digits <span class="math notranslate nohighlight">\(\left(d[k]\right)_{k\in{\mathbb{N}}}\)</span> is understood to be</p>
@@ -137,10 +137,10 @@
 <div class="math notranslate nohighlight">
 \[x=\sum_{k\in{\mathbb{Z}}}\,d[k]\,b^{k},\;x\in{\mathbb{R}},\]</div>
 <p>but, by practical necessity, the written form requires a finite-length string. One achieves this by omitting the zeros to the left and truncating the digits to the right. Yet, conceptually, the number of digits is still infinite.</p>
-<p>We have now made the point that a number can be synthesized by an <em>infinite</em> sum of <em>indexed weights</em> (the digits) that multiply some <em>index-dependent operation</em> on a base (the canonic number <span class="math notranslate nohighlight">\(b\)</span> to the power of the index). We have omitted details such as the handling of the sign, or discussed the assumption that the base is an integer or, if it is indeed an integer <span class="math notranslate nohighlight">\(b\in{\mathbb{N}}+2,\)</span> that the digits take integer values restricted to <span class="math notranslate nohighlight">\(d[k]\in[0\ldots b-1].\)</span> The unicity of the representation has been left aside, too.</p>
+<p>We have now made the point that a number can be synthesized by an <em>infinite</em> sum of <em>indexed weights</em> (the digits) that multiply some <em>index-dependent operation</em> on a base (the canonic number <span class="math notranslate nohighlight">\(b\)</span> to the power of the index). We have omitted details such as the handling of the sign, or discussed the assumption that the base is an integer or, if it is indeed an integer <span class="math notranslate nohighlight">\(b\in{\mathbb{N}}+2,\)</span> that the digits take integer values restricted to <span class="math notranslate nohighlight">\(d[k]\in[0\ldots b-1].\)</span> The discussion of the unicity of the representation has been left aside, too.</p>
 <section id="uniform-splines">
 <h3>Uniform Splines<a class="headerlink" href="#uniform-splines" title="Link to this heading"></a></h3>
-<p>Uniform splines are functions. In other words, they are mappings that associate an input real number to some (often different) output number. To be called uniform splines, these functions are not entirely arbitrary but obey some rules and follow some structure. Specifically, they are number-like, written as the functional recipe</p>
+<p>Uniform splines are real functions. In other words, they are mappings that associate an input real number to some (often different) output number. To be called uniform splines, these functions are not entirely arbitrary but obey some rules and follow some structure. Specifically, they are number-like, written as the functional recipe</p>
 <div class="math notranslate nohighlight">
 \[f:{\mathbb{R}}\rightarrow{\mathbb{R}},x\mapsto f(x)=\sum_{k\in{\mathbb{Z}}}\,c[k]\,\varphi(x-k).\]</div>
 <p>There, the indexed weights <span class="math notranslate nohighlight">\(\left(c[k]\right)_{k\in{\mathbb{Z}}}\)</span> play the same role as the digits <span class="math notranslate nohighlight">\(\left(d[k]\right)_{k\in{\mathbb{Z}}}\)</span> of numbers, while the <em>basis</em> (not the base) <span class="math notranslate nohighlight">\(\varphi\)</span> plays the same role as the base <span class="math notranslate nohighlight">\(b\)</span> of numbers. However, whereas the base was raised to the integer power <span class="math notranslate nohighlight">\(k,\)</span> the basis now is shifted by the integer amount <span class="math notranslate nohighlight">\(k.\)</span> In other words, the coefficients are to the spline what the digits are to the string representation of a number, and the basis is to the spline what the (decimal or binary) base is to the string representation of a number.</p>
@@ -152,7 +152,7 @@
 <ul class="simple">
 <li><p>be a piecewise polynomial of degree <span class="math notranslate nohighlight">\(n\)</span> with pieces of unit length;</p></li>
 <li><p>be <span class="math notranslate nohighlight">\(\left(n-1\right)\)</span>-times continuously differentiable and <span class="math notranslate nohighlight">\(n\)</span>-times differentiable;</p></li>
-<li><p>have its <span class="math notranslate nohighlight">\(n\)</span> th derivative be necessarily discontinous in at least one place.</p></li>
+<li><p>have its <span class="math notranslate nohighlight">\(n\)</span>-th derivative be necessarily discontinous in at least one place.</p></li>
 </ul>
 <p>These properties go a long way but are not sufficient. The true technical requirements demand for an understanding that goes beyond calculus and we do not reproduce them here.</p>
 <p>In its canonical form, the basis is possibly the odd- or even-symmetric <em>polynomial simple element</em> of nonnegative integer degree <span class="math notranslate nohighlight">\(n\in{\mathbb{N}},\)</span> a function notated <span class="math notranslate nohighlight">\(\varsigma^{n}\)</span> with <span class="math notranslate nohighlight">\(n\)</span> a superscript—not a power. It maps <span class="math notranslate nohighlight">\(x\in{\mathbb{R}}\)</span> to <span class="math notranslate nohighlight">\(\varsigma^{n}(x)=\frac{1}{2\,n!}\,{\mathrm{sgn}}(x)\,x^{n}.\)</span> Alternatively, it can also be the one-sided function that maps <span class="math notranslate nohighlight">\(x\in{\mathbb{R}}_{&lt;0}\)</span> to <span class="math notranslate nohighlight">\(0\)</span> and <span class="math notranslate nohighlight">\(x\in{\mathbb{R}}_{\geq0}\)</span> to <span class="math notranslate nohighlight">\(x^{n}.\)</span> However, unlike <span class="math notranslate nohighlight">\(\varsigma^{n},\)</span> the one-sided function is restricted to those integer degrees that are positive since it is not well-defined at <span class="math notranslate nohighlight">\(x=0\)</span> for <span class="math notranslate nohighlight">\(n=0\)</span>.</p>
@@ -165,7 +165,7 @@
 <p>A basis that ticks many marks, both practical and theoretical, is the so-called polynomial B-spline <span class="math notranslate nohighlight">\(\beta^{n}\)</span> of nonnegative integer degree <span class="math notranslate nohighlight">\(n,\)</span> with <span class="math notranslate nohighlight">\(n\)</span> a superscript. Indeed, a B-spline is the function that is used most often as construction block to build splines. The letter B in B-spline stands for <em>basis</em>. In practice, its most appealing property is its finite support, which is conductive to fast algorithms. At the same time, it has remarkable properties beyond those linked to differentiablity, a few of them being as follows.</p>
 <ul class="simple">
 <li><p><strong>Explicit Formula</strong> A finite number of arithmetic operations is all it takes to compute a B-spline.</p></li>
-<li><p><strong>Rational Mapping</strong> B-splines map rational numbers <span class="math notranslate nohighlight">\(x\in{\mathbb{Q}}\)</span> to rational numbers, which allows computers to make exact computations, if desired.</p></li>
+<li><p><strong>Rational Mapping</strong> B-splines map rational numbers <span class="math notranslate nohighlight">\(x\in{\mathbb{Q}}\)</span> to rational numbers, which allows computers to make exact rational computations, if desired.</p></li>
 <li><p><strong>Finite Support</strong> B-splines are bump-like functions that take the value zero except on a central interval of diameter <span class="math notranslate nohighlight">\(n+1.\)</span></p></li>
 <li><p><strong>Symmetry</strong> B-splines are even-symmetric.</p></li>
 <li><p><strong>Nonnegativity</strong> B-splines never take a negative value.</p></li>
@@ -189,8 +189,8 @@ f:{\mathbb{R}}\rightarrow{\mathbb{R}},\;x\mapsto f(x)&amp;=&amp;\sum_{k\in{\math
 </div>
 </section>
 <hr class="docutils" />
-<section id="interpolating-cardinal-b-spline">
-<h2>Interpolating Cardinal B-Spline<a class="headerlink" href="#interpolating-cardinal-b-spline" title="Link to this heading"></a></h2>
+<section id="cardinal-b-spline">
+<h2>Cardinal B-Spline<a class="headerlink" href="#cardinal-b-spline" title="Link to this heading"></a></h2>
 <p>There exists a basis <span class="math notranslate nohighlight">\(\eta^{n}\)</span> that happens to be interpolating. It is called a cardinal B-spline. Some of its mathematical properties can be considered less favorable than those of B-splines; most notably, contrarily to B-splines, the support of cardinal B-splines is infinite, which makes it an impractical basis. Yet, its interpolating property, according to which <span class="math notranslate nohighlight">\(\eta^{n}(0)=1\)</span> and <span class="math notranslate nohighlight">\(\eta^{n}(k)=0\)</span> for <span class="math notranslate nohighlight">\(k\in{\mathbb{Z}}\setminus\{0\},\)</span> greatly facilitates the determination of the coefficients of the representation. Indeed, it is enough to let <span class="math notranslate nohighlight">\(c_{2}=y\)</span> to automatically get that</p>
 <div class="math notranslate nohighlight">
 \[\left(y[q]\right)_{q\in{\mathbb{Z}}}=\left(\sum_{k\in{\mathbb{R}}}\,c_{2}[k]\,\eta^{n}(q-k)\right)_{q\in{\mathbb{Z}}}.\]</div>
@@ -204,11 +204,11 @@ f:{\mathbb{R}}\rightarrow{\mathbb{R}},\;x\mapsto f(x)&amp;=&amp;\sum_{k\in{\math
 <p>Here, we plot a cardinal B-spline, indexed by its degree.</p>
 <div class="admonition-jupyter-lab-notebook admonition">
 <p class="admonition-title">Jupyter Lab notebook</p>
-<p><a class="reference external" href="https://splinekit.github.io/splinekit-jupyterlite/notebooks/index.html?path=bspline_cardinal.ipynb">Interpolating cardinal B-spline</a></p>
+<p><a class="reference external" href="https://splinekit.github.io/splinekit-jupyterlite/notebooks/index.html?path=bspline_cardinal.ipynb">Cardinal B-spline</a></p>
 </div>
 <section id="relation-to-the-cardinal-sine-function">
 <h3>Relation to the Cardinal Sine Function<a class="headerlink" href="#relation-to-the-cardinal-sine-function" title="Link to this heading"></a></h3>
-<p>The function <span class="math notranslate nohighlight">\(f:{\mathbb{R}}\rightarrow{\mathbb{R}},\;x\mapsto\sum_{k\in{\mathbb{R}}}\,c[k]\,\varphi(x-k)\)</span> is a spline only for certain bases <span class="math notranslate nohighlight">\(\varphi.\)</span> A famous case where <span class="math notranslate nohighlight">\(f\)</span> fails to be a spline arises if one chooses <span class="math notranslate nohighlight">\(\sin(\pi\,x)/\left(\pi\,x\right)={\mathrm{sinc}}\,x,\)</span> to play the role of the basis, which is associated to the celebrated Whittaker–Shannon interpolation formula and has strong theoretical properties.</p>
+<p>The function <span class="math notranslate nohighlight">\(f:{\mathbb{R}}\rightarrow{\mathbb{R}},\;x\mapsto\sum_{k\in{\mathbb{R}}}\,c[k]\,\varphi(x-k)\)</span> is a spline only for certain bases <span class="math notranslate nohighlight">\(\varphi.\)</span> A famous case where <span class="math notranslate nohighlight">\(f\)</span> fails to be a spline arises if one chooses <span class="math notranslate nohighlight">\(\sin(\pi\,x)/\left(\pi\,x\right)={\mathrm{sinc}}\,x\)</span> to play the role of the basis, which is associated to the celebrated Whittaker–Shannon interpolation formula and has strong theoretical properties.</p>
 <p>As it turns out, the cardinal B-spline <span class="math notranslate nohighlight">\(\eta^{n}\)</span> tends (in a functional sense) to <span class="math notranslate nohighlight">\({\mathrm{sinc}}\)</span> when <span class="math notranslate nohighlight">\(n\rightarrow\infty.\)</span> The convergence, however, is poor. In particular, the tails of the <span class="math notranslate nohighlight">\({\mathrm{sinc}}\)</span> function decay in reciprocal fashion, a decay that is much gentler than the exponential decay followed by the tails of the cardinal B-spline.</p>
 <p>We verify now visually over the range <span class="math notranslate nohighlight">\(x\in[-15,15]\)</span> that
 <span class="math notranslate nohighlight">\({\mathrm{sinc}}\,x=\lim_{n\rightarrow\infty}\eta^{n}(x),\)</span> albeit slowly.</p>

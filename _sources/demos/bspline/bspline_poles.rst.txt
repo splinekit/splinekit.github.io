@@ -13,7 +13,7 @@ The so-called *poles* are the poles of the reciprocal of the z-transform of the 
 ..  math::
         \frac{1}{\sum_{k\in{\mathbb{Z}}}\,\beta^{n}(k)\,z^{-k}}\not\in{\mathbb{C}}.
 
-It so happens that the B-spline poles are real (their imaginary part is always zero) and negative; they exist for :math:`n\in{\mathbb{N}}+2.` Because B-splines are even-symmetric functions, their poles come in reciprocal pairs, the poles of interest being those that lie in the open interval :math:`(-1,0).` In this interval, :math:`\left\lfloor n/2\right\rfloor` of them can be found. They play an important role in spline interpolation, specifically in the process that converts data samples into spline coefficients.
+It so happens that the B-spline poles are in fact real (their imaginary part is always zero), and negative; they exist for :math:`n\in{\mathbb{N}}+2.` Because B-splines are even-symmetric functions, their poles come in reciprocal pairs, the poles of interest being those that lie in the open interval :math:`(-1,0).` In this interval, :math:`\left\lfloor n/2\right\rfloor` of them can be found. They play an important role in spline interpolation, specifically in the process that converts data samples into spline coefficients.
 
 ----
 
@@ -36,7 +36,7 @@ Consider the real function
 ..  math::
         f:{\mathbb{R}}\rightarrow{\mathbb{R}},x\mapsto f(x)=\sum_{k\in{\mathbb{Z}}}\,c[k]\,\beta^{n}(x-k).
 
-Every function :math:`f` built this way is said to be a spline. Remarkably, the sum always converges at any :math:`x\in{\mathbb{R}}` because B-splines :math:`\beta^{n}` have a finite support, so that the convergence happens for any sequence of finite-valued coefficients :math:`c,` without further restrictions. Now, let :math:`c[k]=z_{n,m}^{k},` where :math:`z_{n,m}` is the :math:`m`-th pole associated to the B-spline of integer degree :math:`n\geq2,` with :math:`m\in[1\ldots\left\lfloor n/2\right\rfloor].` Then, from the fact that the sequence :math:`z_{n,m}^{k}` is annihilating, it follows for any integer :math:`q\in{\mathbb{Z}}` that :math:`f(q)=\sum_{k\in{\mathbb{Z}}}\,z_{n,m}^{k}\,\beta^{n}(q-k)=z_{n,m}^{q}\,\sum_{k\in{\mathbb{Z}}}\,\beta^{n}(k)\,z_{n,m}^{-k}=0.` Likewise, the sequence :math:`z_{n,m}^{-k}` satisfies the same annihilating property because B-splines are even-symmetric.
+Every function :math:`f` built this way is said to be a spline. Remarkably, the sum always converges at any :math:`x\in{\mathbb{R}}` because B-splines :math:`\beta^{n}` have a finite support, so that the convergence happens for any sequence of finite-valued coefficients :math:`c,` without further restrictions. Now, for any :math:`k\in{\mathbb{Z}}` let :math:`c[k]=z_{n,m}^{k},` where :math:`z_{n,m}` is the :math:`m`-th pole associated to the B-spline of integer degree :math:`n\geq2,` with :math:`m\in[1\ldots\left\lfloor n/2\right\rfloor].` Then, from the fact that the sequence :math:`z_{n,m}^{k}` annihilates B-splines, it follows for any integer :math:`q\in{\mathbb{Z}}` that :math:`f(q)=\sum_{k\in{\mathbb{Z}}}\,z_{n,m}^{k}\,\beta^{n}(q-k)=z_{n,m}^{q}\,\sum_{k\in{\mathbb{Z}}}\,\beta^{n}(k)\,z_{n,m}^{-k}=0.` Likewise, the sequence :math:`z_{n,m}^{-k}` satisfies the same annihilating property because B-splines are even-symmetric.
 
 One often deploys splines with the purpose of interpolating data samples. In practice, given a :math:`Q`-dimensional vector :math:`{\mathbf{y}}\in{\mathbb{R}}^{Q}` of samples, it is desired to find a specific sequence of coefficients :math:`c` that results in a spline :math:`f` satisfying the interpolation constraint :math:`\left(f(q)\right)_{q=0}^{Q-1}={\mathbf{y}}.` Unfortunately, the coefficients are not unique. Indeed, suppose that one has found a sequence :math:`c` that satisfies the interpolation constraint. Then, other sequences :math:`c'` can be established as
 
@@ -48,7 +48,7 @@ One often deploys splines with the purpose of interpolating data samples. In pra
 
 where :math:`\lambda_{m}^{-}` and :math:`\lambda_{m}^{+}` are unconstrained real numbers which, altogether, provide :math:`2\,\left\lfloor n/2\right\rfloor` degrees of liberty.
 
-We show now examples of non-vanishing odd-symmetric and even-symmetric splines that interpolate the zero-valued data samples :math:`{\mathbf{y}}={\mathbf{0}}.` (We have retained contributions only of the pole closest to :math:`(-1)` for simplicity.) The samples at the integers of an original spline of corresponding degree will coincide with the samples of the sum of the original spline and any linear combination of those zero-interpolating splines.
+We show now examples of nontrivial odd-symmetric and even-symmetric splines that interpolate the zero-valued data samples :math:`{\mathbf{y}}={\mathbf{0}}.` (We have retained contributions only of the pole closest to :math:`(-1)` for simplicity.) The samples at the integers of an original spline of corresponding degree will coincide with the samples of the sum of the original spline and any linear combination of those zero-interpolating splines.
 
 ..  admonition:: Jupyter Lab notebook
 

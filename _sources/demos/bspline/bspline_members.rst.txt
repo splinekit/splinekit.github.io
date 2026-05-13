@@ -20,7 +20,7 @@ A polynomial B-spline is a function that is characterized by its degree, has a f
 Polynomial B-Spline Derivatives
 -------------------------------
 
-B-spline polynomial functions are as smooth as one can get them to be. As they are made of pieces of polynomials between knots, they are infinitely differentiable over each piece. At the location of a knot, where two different polynomials meet, they are not infinitely differentiable anymore, but they are functions that are differentiable as many times as possible while honoring a property known as the partition of unity. Here, we plot a B-spline and all its finite derivatives.
+B-spline polynomial functions are as smooth as one can get them to be. As they are made of pieces of polynomials between knots, they are infinitely differentiable over the interior of each piece. At the location of a knot, where two different polynomials meet, they are not infinitely differentiable anymore, but they are functions that are differentiable as many times as possible while honoring a property known as the partition of unity. Here, we plot a B-spline and all its finite derivatives.
 
 ..  admonition:: Jupyter Lab notebook
 

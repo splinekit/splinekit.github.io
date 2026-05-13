@@ -78,7 +78,7 @@ Polynomial B-splines are bump-like functions that converge to a Gaussian when th
 ..  math::
         \frac{1}{\sigma_{0}\,\sqrt{2\,\pi}}\,{\mathrm{e}}^{-\frac{x^{2}}{2\,\sigma_{0}^{2}}}=\lim_{n\rightarrow\infty}\beta^{n}(x\,\sqrt{n+1})\,\sqrt{n+1},
 
-where we have indroduced the constant :math:`\sigma_{0}=1/\sqrt{12}.` Therefore, it is without surprise that the integral of a spline converges to the :math:`{\mathrm{erf}}` function as the degree grows, too. Indeed, one has :math:`\forall x\in{\mathbb{R}}` that
+where we have introduced the constant :math:`\sigma_{0}=1/\sqrt{12}.` Therefore, it is without surprise that the integral of a spline converges to the :math:`{\mathrm{erf}}` function as the degree grows, too. Indeed, one has :math:`\forall x\in{\mathbb{R}}` that
 
 ..  math::
         {\mathrm{erf}}(x)=-1+2\,\lim_{n\rightarrow\infty}\int_{0}^{x\,\sqrt{\frac{n+1}{6}}}\,\beta^{n}(y)\,{\mathrm{d}}y.
@@ -87,7 +87,7 @@ We give now a piece of code where we verify this property visually over the rang
 
 ..  admonition:: Jupyter Lab notebook
 
-    `Erf from splines <https://splinekit.github.io/splinekit-jupyterlite/notebooks/index.html?path=bspline_vs_erf.ipynb>`_
+    `erf from splines <https://splinekit.github.io/splinekit-jupyterlite/notebooks/index.html?path=bspline_vs_erf.ipynb>`_
 
 ----
 

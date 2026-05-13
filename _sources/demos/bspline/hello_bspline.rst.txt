@@ -31,7 +31,7 @@ B-splines of degree :math:`n` are :math:`n`-times differentiable, and continuous
 Integral
 --------
 
-B-splines are functions that have a finite :ref:`support<def-support>`. In their specific case, this means that these functions take the value zero for all arguments outside of some bounded interval. More precisely, :math:`\forall x\in{\mathbb{R}}\setminus[-\frac{n+1}{2},\frac{n+1}{2}]:\beta^{n}(x)=0` for :math:`n\in{\mathbb{N}}.` Moreover, B-splines never have any singularity. Consequently, their integral is always well-defined. We plot in the next Jupyter Lab the integral :math:`\int_{-\infty}^{x}\,\beta^{n}(y)\,{\mathrm{d}}y` of the B-splines of degree :math:`0` to :math:`9.`
+B-splines are functions that have a finite support. In their specific case, this means that these functions take the value zero for all arguments outside of some bounded interval. More precisely, :math:`\forall x\in{\mathbb{R}}\setminus[-\frac{n+1}{2},\frac{n+1}{2}]:\beta^{n}(x)=0` for :math:`n\in{\mathbb{N}}.` Moreover, B-splines never have any singularity. Consequently, their integral is always well-defined. We plot in the next Jupyter Lab the integral :math:`\int_{-\infty}^{x}\,\beta^{n}(y)\,{\mathrm{d}}y` of the B-splines of degree :math:`0` to :math:`9.`
 
 ..  admonition:: Jupyter Lab notebook
 

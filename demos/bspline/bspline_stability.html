@@ -135,7 +135,7 @@ discussion of their relative merits in terms of speed and numerical accuracy.</p
 <p><span class="math notranslate nohighlight">\((2)\)</span></p>
 <div class="math notranslate nohighlight">
 \[\frac{{\mathrm{d}}^{m}\beta^{n}(x)}{{\mathrm{d}}x^{m}}=\sum_{k=0}^{n+1}\,{\color{blue}\left(-1\right)^{k}}\,{n+1\choose k}\,\varsigma^{n-m}(x+\frac{n+1}{2}-k).\]</div>
-<p>(To compute a non-differentiated B-spline, simply set <span class="math notranslate nohighlight">\(m=0.\)</span>) Unfortunately, the term <span class="math notranslate nohighlight">\({\color{blue}\left(-1\right)^{k}}\)</span> results in additive contributions that tend to cancel each other. This spells numerical trouble, even if the polynomial simple element <span class="math notranslate nohighlight">\(\varsigma^{n}:{\mathbb{R}}\rightarrow{\mathbb{R}},x\mapsto\varsigma^{n}(x)=\frac{1}{2\,n!}\,{\mathrm{sgn}}(x)\,x^{n}\)</span> has the flavor of a well-behaved canonic monomial. Another issue lies with the growth of the binomial coefficients with respect to the degree.</p>
+<p>(To compute a non-differentiated B-spline, simply set <span class="math notranslate nohighlight">\(m=0.\)</span>) Unfortunately, the term <span class="math notranslate nohighlight">\({\color{blue}\left(-1\right)^{k}}\)</span> results in additive contributions that tend to cancel each other. This spells numerical trouble, even if the polynomial simple element <span class="math notranslate nohighlight">\(\varsigma^{n}:{\mathbb{R}}\rightarrow{\mathbb{R}},x\mapsto\varsigma^{n}(x)=\frac{1}{2\,n!}\,{\mathrm{sgn}}(x)\,x^{n}\)</span> has the flavor of a well-behaved canonic monomial. Another issue lies with the growth of the binomial coefficients with respect to the degree, which ultimately leads to a delicate balance between large numbers.</p>
 </section>
 <section id="de-boor">
 <h3>De Boor<a class="headerlink" href="#de-boor" title="Link to this heading"></a></h3>
@@ -145,7 +145,7 @@ discussion of their relative merits in terms of speed and numerical accuracy.</p
 \[\beta^{n}(x)=\frac{1}{n}\,\left(\left(x+\frac{n+1}{2}\right)\,\beta^{n-1}(x+\frac{1}{2})-\left(x-\frac{n+1}{2}\right)\,\beta^{n-1}(x-\frac{1}{2})\right).\]</div>
 </section>
 <section id="splinekit">
-<h3>Splinekit<a class="headerlink" href="#splinekit" title="Link to this heading"></a></h3>
+<h3>splinekit<a class="headerlink" href="#splinekit" title="Link to this heading"></a></h3>
 <p>In the <code class="docutils literal notranslate"><span class="pre">splinekit</span></code> library, B-splines of degree <span class="math notranslate nohighlight">\(n=0\)</span> are computed as in the classic or the De Boor’s approach. B-splines of positive degree, however, are computed as the scalar product</p>
 <p><span class="math notranslate nohighlight">\((4)\)</span></p>
 <div class="math notranslate nohighlight">

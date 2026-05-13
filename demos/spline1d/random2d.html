@@ -59,7 +59,6 @@
 <li class="toctree-l3 current"><a class="current reference internal" href="#">Random Two-Dimensional Spline Curves</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#d-curve-with-1d-spline-cartesian-components">2D Curve with 1D Spline Cartesian Components</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#about-smoothness">About Smoothness</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#kinks">Kinks</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="constructors.html">Constructors of Periodic One-Dimensional Splines</a></li>
@@ -128,11 +127,10 @@
 <p>An interesting question that arises is as follows: Is the curve smooth? Certainly, being splines, its Cartesian components are! To answer in a practical way our question about the smoothness of the curve as a whole (as opposed to the smoothness of its Cartesian components in isolation), we provide below a piece of code that displays <span class="math notranslate nohighlight">\({\mathbf{f}}(t)\)</span> for <span class="math notranslate nohighlight">\(t\)</span> over an evolving running window. There, we let the two series <span class="math notranslate nohighlight">\(c_{1}\)</span> and <span class="math notranslate nohighlight">\(c_{2}\)</span> of spline coefficients be independent samples of a random variable that follows a Gaussian normal distribution.</p>
 <div class="admonition-jupyter-lab-notebook admonition">
 <p class="admonition-title">Jupyter Lab notebook</p>
-<p><a class="reference external" href="https://splinekit.github.io/splinekit-jupyterlite/notebooks/index.html?path=spline_random_2d.ipynb">Random 2D Spline</a></p>
+<p><a class="reference external" href="https://splinekit.github.io/splinekit-jupyterlite/notebooks/index.html?path=spline_random_2d.ipynb">Random 2D spline</a></p>
 </div>
-</section>
 <section id="kinks">
-<h2>Kinks<a class="headerlink" href="#kinks" title="Link to this heading"></a></h2>
+<h3>Kinks<a class="headerlink" href="#kinks" title="Link to this heading"></a></h3>
 <p>The plot makes apparent that there are surprisingly many locations where the curvature is very pronounced, so that the curve is possibly singular at such locations even though the components are never singular. Those places where curve singularities exist are called <em>kinks</em>; they emerge from the joint interplay between the gradients and the second-order derivatives of the two Cartesian components of the curve.</p>
 <p>The osculating circle has a signed radius. When the radius is negative, the circle is on one side of the curve, and is on the other side when the radius is positive. Thus, there are three mechanisms at work to let the radius meet or cross the zero value and, possibly, give birth to kinks.</p>
 <ul class="simple">
@@ -141,6 +139,7 @@
 <li><p>Finally, the radius also moves from one side of the curve to the other whenever <span class="math notranslate nohighlight">\(\lim_{\tau\downarrow0}\rho(t-\tau)=\pm\infty\)</span> and <span class="math notranslate nohighlight">\(\lim_{\tau\downarrow0}\rho(t+\tau)=\mp\infty.\)</span> In those cases, the curve straightens, and the osculating circle becomes a straight line at the location where <span class="math notranslate nohighlight">\(\rho\)</span> is singular. No kink arises in this benign situation and the change of side of the osculating circle is graceful.</p></li>
 </ul>
 <p>Finally, fake kinks are observed when the radius of the oscillating circle does not truly vanish, but just happens to become smaller than the threshold at which kinks are detected. This mostly corresponds to zeros of even multiplicity, without the zero value been actually met.</p>
+</section>
 </section>
 </section>
 

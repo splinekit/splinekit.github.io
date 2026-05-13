@@ -173,13 +173,13 @@
 <p>Polynomial B-splines are bump-like functions that converge to a Gaussian when the degree grows. More precisely, <span class="math notranslate nohighlight">\(\forall x\in{\mathbb{R}}\)</span> it holds that</p>
 <div class="math notranslate nohighlight">
 \[\frac{1}{\sigma_{0}\,\sqrt{2\,\pi}}\,{\mathrm{e}}^{-\frac{x^{2}}{2\,\sigma_{0}^{2}}}=\lim_{n\rightarrow\infty}\beta^{n}(x\,\sqrt{n+1})\,\sqrt{n+1},\]</div>
-<p>where we have indroduced the constant <span class="math notranslate nohighlight">\(\sigma_{0}=1/\sqrt{12}.\)</span> Therefore, it is without surprise that the integral of a spline converges to the <span class="math notranslate nohighlight">\({\mathrm{erf}}\)</span> function as the degree grows, too. Indeed, one has <span class="math notranslate nohighlight">\(\forall x\in{\mathbb{R}}\)</span> that</p>
+<p>where we have introduced the constant <span class="math notranslate nohighlight">\(\sigma_{0}=1/\sqrt{12}.\)</span> Therefore, it is without surprise that the integral of a spline converges to the <span class="math notranslate nohighlight">\({\mathrm{erf}}\)</span> function as the degree grows, too. Indeed, one has <span class="math notranslate nohighlight">\(\forall x\in{\mathbb{R}}\)</span> that</p>
 <div class="math notranslate nohighlight">
 \[{\mathrm{erf}}(x)=-1+2\,\lim_{n\rightarrow\infty}\int_{0}^{x\,\sqrt{\frac{n+1}{6}}}\,\beta^{n}(y)\,{\mathrm{d}}y.\]</div>
 <p>We give now a piece of code where we verify this property visually over the range <span class="math notranslate nohighlight">\(x\in[-3,3].\)</span></p>
 <div class="admonition-jupyter-lab-notebook admonition">
 <p class="admonition-title">Jupyter Lab notebook</p>
-<p><a class="reference external" href="https://splinekit.github.io/splinekit-jupyterlite/notebooks/index.html?path=bspline_vs_erf.ipynb">Erf from splines</a></p>
+<p><a class="reference external" href="https://splinekit.github.io/splinekit-jupyterlite/notebooks/index.html?path=bspline_vs_erf.ipynb">erf from splines</a></p>
 </div>
 </section>
 <hr class="docutils" />
