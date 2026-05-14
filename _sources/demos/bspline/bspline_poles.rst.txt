@@ -41,10 +41,10 @@ Every function :math:`f` built this way is said to be a spline. Remarkably, the 
 One often deploys splines with the purpose of interpolating data samples. In practice, given a :math:`Q`-dimensional vector :math:`{\mathbf{y}}\in{\mathbb{R}}^{Q}` of samples, it is desired to find a specific sequence of coefficients :math:`c` that results in a spline :math:`f` satisfying the interpolation constraint :math:`\left(f(q)\right)_{q=0}^{Q-1}={\mathbf{y}}.` Unfortunately, the coefficients are not unique. Indeed, suppose that one has found a sequence :math:`c` that satisfies the interpolation constraint. Then, other sequences :math:`c'` can be established as
 
 ..  math::
-        \begin{eqnarray}
+        \begin{array}{rcl}
         \forall q\in{\mathbb{Z}}:f(q)&=&\sum_{k\in{\mathbb{Z}}}\,c[k]\,\beta^{n}(q-k)\\
         &=&\sum_{k\in{\mathbb{Z}}}\,\underbrace{\left(c[k]+\sum_{m=1}^{\left\lfloor n/2\right\rfloor}\,\left(\lambda_{m}^{-}\,z_{n,m}^{-k}+\lambda_{m}^{+}\,z_{n,m}^{k}\right)\right)}_{c'[k]}\,\beta^{n}(q-k),
-        \end{eqnarray}
+        \end{array}
 
 where :math:`\lambda_{m}^{-}` and :math:`\lambda_{m}^{+}` are unconstrained real numbers which, altogether, provide :math:`2\,\left\lfloor n/2\right\rfloor` degrees of liberty.
 

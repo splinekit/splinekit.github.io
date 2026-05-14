@@ -56,10 +56,10 @@ Partition of Monomials
 The generic polynomial :math:`\pi_{n}:{\mathbb{R}}\rightarrow{\mathbb{R}},x\mapsto\pi_{n}(x)=a_{0}+\sum_{m=1}^{n}\,a_{m}\,x^{m}` is a weighted linear sum of a constant term :math:`1` and of canonic monomials :math:`x^{m},` with respective weights :math:`a_{0}` and :math:`a_{m}.` If we want to discover the spline coefficients :math:`c` needed to represent :math:`\pi_{n}` as a spline, all we need to know is which are the spline coefficients :math:`c_{m}^{n}` that will represent the monomial of degree :math:`m` as the spline :math:`\sum_{k\in{\mathbb{Z}}}\,c_{m}^{n}[k]\,\beta^{n}(x-k)` for :math:`x\in{\mathbb{R}},` assuming that :math:`0<m\leq n.` Then, the finite-support property of B-splines will alleviate concerns about the convergence of the sums involved and will allow us to write that
 
 ..  math::
-        \begin{eqnarray}
+        \begin{array}{rcl}
         \pi_{n}(x)&=&a_{0}\,\left(\sum_{k\in{\mathbb{Z}}}\,\beta^{n}(x-k)\right)+\sum_{m=1}^{n}\,a_{m}\,\left(\sum_{k\in{\mathbb{Z}}}\,c_{m}^{n}[k]\,\beta^{n}(x-k)\right)\\
         &=&\sum_{k\in{\mathbb{Z}}}\,\left(a_{0}+\sum_{m=1}^{n}\,a_{m}\,c_{m}^{n}[k]\right)\,\beta^{n}(x-k).
-        \end{eqnarray}
+        \end{array}
 
 The identification :math:`c[k]=a_{0}+\sum_{m=1}^{n}\,a_{m}\,c_{m}^{n}[k]` for :math:`k\in{\mathbb{Z}}` will finally result in the desired representation :math:`\pi_{n}(x)=\sum_{k\in{\mathbb{Z}}}\,c[k]\,\beta^{n}(x-k)` for :math:`x\in{\mathbb{R}}.`
 

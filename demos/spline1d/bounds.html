@@ -153,10 +153,10 @@
 \[{\mathbf{h}}=\left(a_{k+1}\right)_{k=0}^{m}+{\mathbf{e}}_{m+1}\,\sum_{k=m+1}^{n}\,\max(0,a_{k+1})\]</div>
 <p>satisfies our requirements. Indeed, for all <span class="math notranslate nohighlight">\(x\in{\mathbb{X}}_{r},\)</span> some algebraic manipulations lead to</p>
 <div class="math notranslate nohighlight">
-\[\begin{split}\begin{eqnarray*}
+\[\begin{split}\begin{array}{rcl}
 0&amp;\leq&amp;{\mathbf{u}}_{r}^{{\mathsf{T}}}\,{\mathbf{W}}^{m}\,{\mathbf{v}}^{m}({\mathrm{frac}}(x-\frac{m-1}{2}-\delta y))-{\mathbf{c}}_{r}^{{\mathsf{T}}}\,{\mathbf{W}}^{n}\,{\mathbf{v}}^{n}(\chi)\\
 &amp;=&amp;\chi^{m}\,\sum_{k=m+1}^{n}\,\left\{\begin{array}{ll}-a_{k+1}\,\chi^{k-m},&amp;a_{k+1}&lt;0\\a_{k+1}\,\left(1-\chi^{k-m}\right),&amp;0\leq a_{k+1}.\end{array}\right.
-\end{eqnarray*}\end{split}\]</div>
+\end{array}\end{split}\]</div>
 </section>
 <section id="global-bound">
 <h3>Global Bound<a class="headerlink" href="#global-bound" title="Link to this heading"></a></h3>
@@ -171,10 +171,10 @@
 \[\forall x\in{\mathbb{X}}_{r}:{\mathbf{u}}_{r}^{{\mathsf{T}}}\,{\mathbf{W}}^{m}\,{\mathbf{v}}^{m}(\chi)=\sum_{k=-r}^{m-r}\,\left[{\mathbf{u}}_{r}\right]_{k+r+1}\,\beta^{m}(x-\delta y-k).\]</div>
 <p>The nonnegativity of B-splines allows us to finally establish that</p>
 <div class="math notranslate nohighlight">
-\[\begin{split}\begin{eqnarray*}
+\[\begin{split}\begin{array}{rcl}
 \forall x\in{\mathbb{X}}_{r}:g(x)-{\mathbf{u}}_{r}^{{\mathsf{T}}}\,{\mathbf{W}}^{m}\,{\mathbf{v}}^{m}(\chi)&amp;=&amp;\sum_{k=0}^{m}\,\left(\left(\max_{\rho=0}^{m}\,\left[{\mathbf{u}}_{{\left(\rho-k+r\right)\bmod K}}\right]_{\rho+1}\right)-\left[{\mathbf{u}}_{r}\right]_{k+1}\right)\,\beta^{m}(x-\delta y+r-k)\\
 &amp;\geq&amp;\sum_{k=0}^{m}\,\left(\left[{\mathbf{u}}_{r}\right]_{k+1}-\left[{\mathbf{u}}_{r}\right]_{k+1}\right)\,\beta^{m}(x-\delta y+r-k)=0,
-\end{eqnarray*}\end{split}\]</div>
+\end{array}\end{split}\]</div>
 <p>from which we conclude that <span class="math notranslate nohighlight">\(g\)</span> is an upper bound of <span class="math notranslate nohighlight">\(f.\)</span></p>
 </section>
 </section>

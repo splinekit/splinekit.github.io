@@ -24,10 +24,10 @@ B-splines are continuously defined functions :math:`\beta^{n}:{\mathbb{R}}\right
 One question that arises now is whether the sequence :math:`b^{n}` possesses a discrete-convolution inverse sequence. Let us notate such inverse sequence as :math:`\left(b^{n}\right)^{-1}.` What we are primarily asking is whether there exists :math:`\left(b^{n}\right)^{-1}` such that
 
 ..  math::
-        \begin{eqnarray*}
+        \begin{array}{rcl}
         \forall k\in{\mathbb{Z}}:{\mathbf{[\![}}k=0\,{\mathbf{]\!]}}&=&\left(\left(b^{n}\right)^{-1}*b^{n}\right)[k]\\
         &=&\sum_{q\in{\mathbb{Z}}}\,\left(b^{n}\right)^{-1}[q]\,b^{n}[k-q],
-        \end{eqnarray*}
+        \end{array}
 
 where the notation :math:`{\mathbf{[\![}}\cdot\,{\mathbf{]\!]}}` is that of the Iverson bracket. (From a mathematical point of view, let us observe that the convolution is always well-defined because of the finite-support property of :math:`b^{n}.`)
 

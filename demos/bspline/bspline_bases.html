@@ -178,10 +178,10 @@
 \[\left(y[q]\right)_{q\in{\mathbb{Z}}}=\left(\sum_{k\in{\mathbb{R}}}\,c_{1}[k]\,\beta^{n}(q-k)\right)_{q\in{\mathbb{Z}}}.\]</div>
 <p>In the sequel, the B-spline basis provides the reference to which all other bases will be compared. We set</p>
 <div class="math notranslate nohighlight">
-\[\begin{split}\begin{eqnarray*}
+\[\begin{split}\begin{array}{rcl}
 f:{\mathbb{R}}\rightarrow{\mathbb{R}},\;x\mapsto f(x)&amp;=&amp;\sum_{k\in{\mathbb{R}}}\,c[k]\,\varphi(x-k)\\
 &amp;=&amp;\sum_{k\in{\mathbb{R}}}\,c_{1}[k]\,\beta^{n}(x-k).
-\end{eqnarray*}\end{split}\]</div>
+\end{array}\end{split}\]</div>
 <p>Here, we plot a B-spline over its support, indexed by its degree.</p>
 <div class="admonition-jupyter-lab-notebook admonition">
 <p class="admonition-title">Jupyter Lab notebook</p>
@@ -196,11 +196,11 @@ f:{\mathbb{R}}\rightarrow{\mathbb{R}},\;x\mapsto f(x)&amp;=&amp;\sum_{k\in{\math
 \[\left(y[q]\right)_{q\in{\mathbb{Z}}}=\left(\sum_{k\in{\mathbb{R}}}\,c_{2}[k]\,\eta^{n}(q-k)\right)_{q\in{\mathbb{Z}}}.\]</div>
 <p>It then holds that</p>
 <div class="math notranslate nohighlight">
-\[\begin{split}\begin{eqnarray*}
+\[\begin{split}\begin{array}{rcl}
 f:{\mathbb{R}}\rightarrow{\mathbb{R}},\;x\mapsto f(x)&amp;=&amp;\sum_{k\in{\mathbb{R}}}\,c[k]\,\varphi(x-k)\\
 &amp;=&amp;\sum_{k\in{\mathbb{R}}}\,c_{1}[k]\,\beta^{n}(x-k)\\
 &amp;=&amp;\sum_{k\in{\mathbb{R}}}\,c_{2}[k]\,\eta^{n}(x-k).
-\end{eqnarray*}\end{split}\]</div>
+\end{array}\end{split}\]</div>
 <p>Here, we plot a cardinal B-spline, indexed by its degree.</p>
 <div class="admonition-jupyter-lab-notebook admonition">
 <p class="admonition-title">Jupyter Lab notebook</p>
@@ -223,12 +223,12 @@ f:{\mathbb{R}}\rightarrow{\mathbb{R}},\;x\mapsto f(x)&amp;=&amp;\sum_{k\in{\math
 <h2>Dual B-Spline<a class="headerlink" href="#dual-b-spline" title="Link to this heading"></a></h2>
 <p>Let the basis <span class="math notranslate nohighlight">\(\mathring{\beta}^{n_{2},n_{1}}\)</span> of dual degree <span class="math notranslate nohighlight">\(n_{2}\in{\mathbb{N}}\)</span> and primal degree <span class="math notranslate nohighlight">\(n_{1}\in{\mathbb{N}}\)</span> be called a dual B-spline. It is yet another basis that is sometimes used to provide an alternate (equivalent) representation of the spline as</p>
 <div class="math notranslate nohighlight">
-\[\begin{split}\begin{eqnarray*}
+\[\begin{split}\begin{array}{rcl}
 f:{\mathbb{R}}\rightarrow{\mathbb{R}},\;x\mapsto f(x)&amp;=&amp;\sum_{k\in{\mathbb{R}}}\,c[k]\,\varphi(x-k)\\
 &amp;=&amp;\sum_{k\in{\mathbb{R}}}\,c_{1}[k]\,\beta^{n}(x-k)\\
 &amp;=&amp;\sum_{k\in{\mathbb{R}}}\,c_{2}[k]\,\eta^{n}(x-k)\\
 &amp;=&amp;\sum_{k\in{\mathbb{R}}}\,c_{3}[k]\,\mathring{\beta}^{n,n_{1}}(x-k).
-\end{eqnarray*}\end{split}\]</div>
+\end{array}\end{split}\]</div>
 <p>Here, the equality of the representations of <span class="math notranslate nohighlight">\(f\)</span> is achieved only if we set <span class="math notranslate nohighlight">\(n_{2}=n,\)</span> while the primal degree <span class="math notranslate nohighlight">\(n_{1}\in{\mathbb{N}}\)</span> is free. The defining property of a dual B-spline is that it is the unique spline of degree <span class="math notranslate nohighlight">\(n_{2}\)</span> which, once convolved with a B-spline of degree <span class="math notranslate nohighlight">\(n_{1},\)</span> results in a cardinal, interpolating spline. Formally, this is written as</p>
 <div class="math notranslate nohighlight">
 \[\forall x\in{\mathbb{R}}:\eta^{n_{2}+n_{1}+1}(x)=\int_{{\mathbb{R}}}\,\mathring{\beta}^{n_{2},n_{1}}(y)\,\beta^{n_{1}}(x-y)\,{\mathrm{d}}y.\]</div>
@@ -253,13 +253,13 @@ f:{\mathbb{R}}\rightarrow{\mathbb{R}},\;x\mapsto f(x)&amp;=&amp;\sum_{k\in{\math
 <h2>Orthonormal B-Spline<a class="headerlink" href="#orthonormal-b-spline" title="Link to this heading"></a></h2>
 <p>Let the orthonormal B-spline <span class="math notranslate nohighlight">\(\phi^{n}\)</span> of degree <span class="math notranslate nohighlight">\(n\)</span> be a final basis of interest that is sometimes used to provide an alternate (equivalent) representation of the spline as</p>
 <div class="math notranslate nohighlight">
-\[\begin{split}\begin{eqnarray*}
+\[\begin{split}\begin{array}{rcl}
 f:{\mathbb{R}}\rightarrow{\mathbb{R}},\;x\mapsto f(x)&amp;=&amp;\sum_{k\in{\mathbb{R}}}\,c[k]\,\varphi(x-k)\\
 &amp;=&amp;\sum_{k\in{\mathbb{R}}}\,c_{1}[k]\,\beta^{n}(x-k)\\
 &amp;=&amp;\sum_{k\in{\mathbb{R}}}\,c_{2}[k]\,\eta^{n}(x-k)\\
 &amp;=&amp;\sum_{k\in{\mathbb{R}}}\,c_{3}[k]\,\mathring{\beta}^{n,n_{1}}(x-k)\\
 &amp;=&amp;\sum_{k\in{\mathbb{R}}}\,c_{4}[k]\,\phi^{n}(x-k).
-\end{eqnarray*}\end{split}\]</div>
+\end{array}\end{split}\]</div>
 <p>The defining property of the orthonormal B-spline is that it is the unique (up to its sign) spline of degree <span class="math notranslate nohighlight">\(n\)</span> which, once convolved with itself, results in a cardinal, interpolating spline. Formally, this is written as</p>
 <div class="math notranslate nohighlight">
 \[\forall x\in{\mathbb{R}}:\eta^{2\,n+1}(x)=\int_{{\mathbb{R}}}\,\phi^{n}(y)\,\phi^{n}(x-y)\,{\mathrm{d}}y.\]</div>

@@ -128,10 +128,10 @@ its periodized version.</p>
 \[\forall k\in{\mathbb{Z}}\setminus[-\left\lfloor\frac{n}{2}\right\rfloor\ldots\left\lfloor\frac{n}{2}\right\rfloor]:0=b^{n}[k].\]</div>
 <p>One question that arises now is whether the sequence <span class="math notranslate nohighlight">\(b^{n}\)</span> possesses a discrete-convolution inverse sequence. Let us notate such inverse sequence as <span class="math notranslate nohighlight">\(\left(b^{n}\right)^{-1}.\)</span> What we are primarily asking is whether there exists <span class="math notranslate nohighlight">\(\left(b^{n}\right)^{-1}\)</span> such that</p>
 <div class="math notranslate nohighlight">
-\[\begin{split}\begin{eqnarray*}
+\[\begin{split}\begin{array}{rcl}
 \forall k\in{\mathbb{Z}}:{\mathbf{[\![}}k=0\,{\mathbf{]\!]}}&amp;=&amp;\left(\left(b^{n}\right)^{-1}*b^{n}\right)[k]\\
 &amp;=&amp;\sum_{q\in{\mathbb{Z}}}\,\left(b^{n}\right)^{-1}[q]\,b^{n}[k-q],
-\end{eqnarray*}\end{split}\]</div>
+\end{array}\end{split}\]</div>
 <p>where the notation <span class="math notranslate nohighlight">\({\mathbf{[\![}}\cdot\,{\mathbf{]\!]}}\)</span> is that of the Iverson bracket. (From a mathematical point of view, let us observe that the convolution is always well-defined because of the finite-support property of <span class="math notranslate nohighlight">\(b^{n}.\)</span>)</p>
 <p>The answer to our primary question is yes. Indeed, for <span class="math notranslate nohighlight">\(n&gt;1\)</span> there are infinitely many such sequences, parameterized by <span class="math notranslate nohighlight">\(2\,\left\lfloor\frac{n}{2}\right\rfloor\)</span> free numbers. Among all of them, however, only one has the finite energy <span class="math notranslate nohighlight">\(\sum_{k\in{\mathbb{Z}}}\,\left(\left(b^{n}\right)^{-1}[k]\right)^{2}\in{\mathbb{R}}.\)</span> We show now this sequence for a few degrees.</p>
 <div class="admonition-jupyter-lab-notebook admonition">

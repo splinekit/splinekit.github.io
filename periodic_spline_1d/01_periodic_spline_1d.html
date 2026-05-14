@@ -854,12 +854,12 @@ continuous least-squares approximation of their sum by a
 <span class="math notranslate nohighlight">\(\delta x\in{\mathbb{R}}.\)</span></p>
 <p>With</p>
 <div class="math notranslate nohighlight">
-\[\begin{split}\begin{eqnarray*}
+\[\begin{split}\begin{array}{rcl}
 s_{1}(x)&amp;=&amp;\sum_{k\in{\mathbb{Z}}}\,c_{1}[{k\bmod K}]\,
 \beta^{n_{1}}(x-\delta x_{1}-k)\\
 s_{2}(x)&amp;=&amp;\sum_{k\in{\mathbb{Z}}}\,c_{2}[{k\bmod K}]\,
 \beta^{n_{2}}(x-\delta x_{2}-k),
-\end{eqnarray*}\end{split}\]</div>
+\end{array}\end{split}\]</div>
 <p>the created sum</p>
 <div class="math notranslate nohighlight">
 \[f(x)=\sum_{k\in{\mathbb{Z}}}\,c[{k\bmod K}]\,
@@ -924,12 +924,12 @@ independent degree <span class="math notranslate nohighlight">\((n_{1}, n_{2}),\
 created object has period <span class="math notranslate nohighlight">\(K,\)</span> too.</p>
 <p>With</p>
 <div class="math notranslate nohighlight">
-\[\begin{split}\begin{eqnarray*}
+\[\begin{split}\begin{array}{rcl}
 s_{1}(x)&amp;=&amp;\sum_{k\in{\mathbb{Z}}}\,c_{1}[{k\bmod K}]\,
 \beta^{n_{1}}(x-\delta x_{1}-k)\\
 s_{2}(x)&amp;=&amp;\sum_{k\in{\mathbb{Z}}}\,c_{2}[{k\bmod K}]\,
 \beta^{n_{2}}(x-\delta x_{2}-k),
-\end{eqnarray*}\end{split}\]</div>
+\end{array}\end{split}\]</div>
 <p>the created convolution result is</p>
 <div class="math notranslate nohighlight">
 \[f(x)=\int_{0}^{K}\,s_{1}(y)\,s_{2}(x-y)\,{\mathrm{d}}y.\]</div>
@@ -983,12 +983,12 @@ independent degree <span class="math notranslate nohighlight">\((n_{1}, n_{2}),\
 cross-correlation. The created object has period <span class="math notranslate nohighlight">\(K,\)</span> too.</p>
 <p>With</p>
 <div class="math notranslate nohighlight">
-\[\begin{split}\begin{eqnarray*}
+\[\begin{split}\begin{array}{rcl}
 s_{1}(x)&amp;=&amp;\sum_{k\in{\mathbb{Z}}}\,c_{1}[{k\bmod K}]\,
 \beta^{n_{1}}(x-\delta x_{1}-k)\\
 s_{2}(x)&amp;=&amp;\sum_{k\in{\mathbb{Z}}}\,c_{2}[{k\bmod K}]\,
 \beta^{n_{2}}(x-\delta x_{2}-k),
-\end{eqnarray*}\end{split}\]</div>
+\end{array}\end{split}\]</div>
 <p>the created zero-normalized cross-correlation result
 <span class="math notranslate nohighlight">\(f(x)\in[-1,1]\)</span> is</p>
 <div class="math notranslate nohighlight">
@@ -1421,12 +1421,12 @@ stem lines at the period boundaries.</p></li>
 <span class="math notranslate nohighlight">\(K,\)</span> degree <span class="math notranslate nohighlight">\(n\)</span>, and delay <span class="math notranslate nohighlight">\(\delta x,\)</span> as defined
 for <span class="math notranslate nohighlight">\(x\in{\mathbb{R}}\)</span> by</p>
 <div class="math notranslate nohighlight">
-\[\begin{split}\begin{eqnarray*}
+\[\begin{split}\begin{array}{rcl}
 f(x)&amp;=&amp;\sum_{k\in{\mathbb{Z}}}\,c[{k\bmod K}]\,
 \beta^{n}(x-\delta x-k)\\
 &amp;=&amp;{\mathbf{c}}^{{\mathsf{T}}}\,{\mathbf{W}}^{n}\,
 {\mathbf{v}}^{n}(\chi).
-\end{eqnarray*}\end{split}\]</div>
+\end{array}\end{split}\]</div>
 <p>There, <span class="math notranslate nohighlight">\(c\)</span> are the <span class="math notranslate nohighlight">\(K\)</span> spline coefficients,
 <span class="math notranslate nohighlight">\({\mathbf{c}}=\left(c[{\left(k-r\right)\bmod
 K}]\right)_{k=0}^{n}\in{\mathbb{R}}^{n+1}\)</span> is a vector of
@@ -1480,13 +1480,13 @@ and delay <span class="math notranslate nohighlight">\(\delta x,\)</span> spaced
 <span class="math notranslate nohighlight">\(\frac{1}{M}\)</span>. The first sample of the array corresponds to
 <span class="math notranslate nohighlight">\(f(x_{0}).\)</span> The returned array is</p>
 <div class="math notranslate nohighlight">
-\[\begin{split}\begin{eqnarray*}
+\[\begin{split}\begin{array}{rcl}
 \left(f(x_{0}+\frac{q}{M})\right)_{q=0}^{L\,M-1}&amp;=&amp;
 \left(\sum_{k\in{\mathbb{Z}}}\,c[{k\bmod K}]\,
 \beta^{n}(x_{0}+\frac{q}{M}-\delta x-k)\right)_{q=0}^{L\,M-1}\\
 &amp;=&amp;\left({\mathbf{c}}_{q}^{{\mathsf{T}}}\,{\mathbf{W}}^{n}\,
 {\mathbf{v}}^{n}(\chi_{x_{0}})\right)_{q=0}^{L\,M-1}.
-\end{eqnarray*}\end{split}\]</div>
+\end{array}\end{split}\]</div>
 <p>There, <span class="math notranslate nohighlight">\(L\)</span> is <code class="docutils literal notranslate"><span class="pre">support_length</span></code>, <span class="math notranslate nohighlight">\(M\)</span> is <code class="docutils literal notranslate"><span class="pre">oversampling</span></code>,
 <span class="math notranslate nohighlight">\(x_{0}\)</span> is <code class="docutils literal notranslate"><span class="pre">starting_at</span></code>, and <span class="math notranslate nohighlight">\(c\)</span> are the <span class="math notranslate nohighlight">\(K\)</span>
 spline coefficients.</p>
@@ -2471,12 +2471,12 @@ object whose <a class="reference internal" href="../periodic_nonuniform_piecewis
 <a class="reference internal" href="../glossary/glossary-polynomials.html#def-polynomial"><span class="std std-ref">polynomial</span></a> over each piece domain. For
 <span class="math notranslate nohighlight">\(x\in{\mathbb{R}}\)</span> we write that</p>
 <div class="math notranslate nohighlight">
-\[\begin{split}\begin{eqnarray*}
+\[\begin{split}\begin{array}{rcl}
 f(x)&amp;=&amp;\sum_{k\in{\mathbb{Z}}}\,c[{k\bmod K}]\,
 \beta^{n}(x-\delta x-k)\\
 &amp;=&amp;{\mathbf{c}}^{{\mathsf{T}}}\,{\mathbf{W}}^{n}\,
 {\mathbf{v}}^{n}(\chi).
-\end{eqnarray*}\end{split}\]</div>
+\end{array}\end{split}\]</div>
 <p>There, <span class="math notranslate nohighlight">\(c\)</span> are the <span class="math notranslate nohighlight">\(K\)</span> spline coefficients,
 <span class="math notranslate nohighlight">\({\mathbf{c}}=\left(c[{\left(k-r\right)\bmod
 K}]\right)_{k=0}^{n}\in{\mathbb{R}}^{n+1}\)</span> is a vector of

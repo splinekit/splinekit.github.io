@@ -89,10 +89,10 @@ While a B-spline has many favorable properties, it comes at a price: it is not i
 In the sequel, the B-spline basis provides the reference to which all other bases will be compared. We set
 
 ..  math::
-        \begin{eqnarray*}
+        \begin{array}{rcl}
         f:{\mathbb{R}}\rightarrow{\mathbb{R}},\;x\mapsto f(x)&=&\sum_{k\in{\mathbb{R}}}\,c[k]\,\varphi(x-k)\\
         &=&\sum_{k\in{\mathbb{R}}}\,c_{1}[k]\,\beta^{n}(x-k).
-        \end{eqnarray*}
+        \end{array}
 
 Here, we plot a B-spline over its support, indexed by its degree.
 
@@ -113,11 +113,11 @@ There exists a basis :math:`\eta^{n}` that happens to be interpolating. It is ca
 It then holds that
 
 ..  math::
-        \begin{eqnarray*}
+        \begin{array}{rcl}
         f:{\mathbb{R}}\rightarrow{\mathbb{R}},\;x\mapsto f(x)&=&\sum_{k\in{\mathbb{R}}}\,c[k]\,\varphi(x-k)\\
         &=&\sum_{k\in{\mathbb{R}}}\,c_{1}[k]\,\beta^{n}(x-k)\\
         &=&\sum_{k\in{\mathbb{R}}}\,c_{2}[k]\,\eta^{n}(x-k).
-        \end{eqnarray*}
+        \end{array}
 
 
 Here, we plot a cardinal B-spline, indexed by its degree.
@@ -148,12 +148,12 @@ Dual B-Spline
 Let the basis :math:`\mathring{\beta}^{n_{2},n_{1}}` of dual degree :math:`n_{2}\in{\mathbb{N}}` and primal degree :math:`n_{1}\in{\mathbb{N}}` be called a dual B-spline. It is yet another basis that is sometimes used to provide an alternate (equivalent) representation of the spline as
 
 ..  math::
-        \begin{eqnarray*}
+        \begin{array}{rcl}
         f:{\mathbb{R}}\rightarrow{\mathbb{R}},\;x\mapsto f(x)&=&\sum_{k\in{\mathbb{R}}}\,c[k]\,\varphi(x-k)\\
         &=&\sum_{k\in{\mathbb{R}}}\,c_{1}[k]\,\beta^{n}(x-k)\\
         &=&\sum_{k\in{\mathbb{R}}}\,c_{2}[k]\,\eta^{n}(x-k)\\
         &=&\sum_{k\in{\mathbb{R}}}\,c_{3}[k]\,\mathring{\beta}^{n,n_{1}}(x-k).
-        \end{eqnarray*}
+        \end{array}
 
 Here, the equality of the representations of :math:`f` is achieved only if we set :math:`n_{2}=n,` while the primal degree :math:`n_{1}\in{\mathbb{N}}` is free. The defining property of a dual B-spline is that it is the unique spline of degree :math:`n_{2}` which, once convolved with a B-spline of degree :math:`n_{1},` results in a cardinal, interpolating spline. Formally, this is written as
 
@@ -186,13 +186,13 @@ Orthonormal B-Spline
 Let the orthonormal B-spline :math:`\phi^{n}` of degree :math:`n` be a final basis of interest that is sometimes used to provide an alternate (equivalent) representation of the spline as
 
 ..  math::
-        \begin{eqnarray*}
+        \begin{array}{rcl}
         f:{\mathbb{R}}\rightarrow{\mathbb{R}},\;x\mapsto f(x)&=&\sum_{k\in{\mathbb{R}}}\,c[k]\,\varphi(x-k)\\
         &=&\sum_{k\in{\mathbb{R}}}\,c_{1}[k]\,\beta^{n}(x-k)\\
         &=&\sum_{k\in{\mathbb{R}}}\,c_{2}[k]\,\eta^{n}(x-k)\\
         &=&\sum_{k\in{\mathbb{R}}}\,c_{3}[k]\,\mathring{\beta}^{n,n_{1}}(x-k)\\
         &=&\sum_{k\in{\mathbb{R}}}\,c_{4}[k]\,\phi^{n}(x-k).
-        \end{eqnarray*}
+        \end{array}
 
 The defining property of the orthonormal B-spline is that it is the unique (up to its sign) spline of degree :math:`n` which, once convolved with itself, results in a cardinal, interpolating spline. Formally, this is written as
 

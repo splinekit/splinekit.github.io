@@ -48,10 +48,10 @@ This function is made of polynomial pieces because of the term :math:`x^{n}` in 
 In accord with the definition, the B-spline of degree zero is
 
 ..  math::
-        \begin{eqnarray*}
+        \begin{array}{rcl}
         \beta^{0}(x)&=&\varsigma^{0}(x+\frac{1}{2})-\varsigma^{0}(x-\frac{1}{2})\\
         &=&\left\{\begin{array}{ll}1,&\left|x\right|<\frac{1}{2}\\\frac{1}{2},&\left|x\right|=\frac{1}{2}\\0,&\frac{1}{2}<\left|x\right|.\end{array}\right.
-        \end{eqnarray*}
+        \end{array}
 
 Among many important properties, for all degrees :math:`n\in{\mathbb{N}}` and for all :math:`x\in{\mathbb{R}},` the B-splines thus defined
 

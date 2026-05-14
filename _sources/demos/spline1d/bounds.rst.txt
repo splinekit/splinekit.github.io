@@ -65,10 +65,10 @@ Assume finally that :math:`n>m>0.` In this case, letting :math:`{\mathbf{e}}_{m+
 satisfies our requirements. Indeed, for all :math:`x\in{\mathbb{X}}_{r},` some algebraic manipulations lead to
 
 ..  math::
-        \begin{eqnarray*}
+        \begin{array}{rcl}
         0&\leq&{\mathbf{u}}_{r}^{{\mathsf{T}}}\,{\mathbf{W}}^{m}\,{\mathbf{v}}^{m}({\mathrm{frac}}(x-\frac{m-1}{2}-\delta y))-{\mathbf{c}}_{r}^{{\mathsf{T}}}\,{\mathbf{W}}^{n}\,{\mathbf{v}}^{n}(\chi)\\
         &=&\chi^{m}\,\sum_{k=m+1}^{n}\,\left\{\begin{array}{ll}-a_{k+1}\,\chi^{k-m},&a_{k+1}<0\\a_{k+1}\,\left(1-\chi^{k-m}\right),&0\leq a_{k+1}.\end{array}\right.
-        \end{eqnarray*}
+        \end{array}
 
 Global Bound
 ^^^^^^^^^^^^
@@ -91,10 +91,10 @@ and observe that
 The nonnegativity of B-splines allows us to finally establish that
 
 ..  math::
-        \begin{eqnarray*}
+        \begin{array}{rcl}
         \forall x\in{\mathbb{X}}_{r}:g(x)-{\mathbf{u}}_{r}^{{\mathsf{T}}}\,{\mathbf{W}}^{m}\,{\mathbf{v}}^{m}(\chi)&=&\sum_{k=0}^{m}\,\left(\left(\max_{\rho=0}^{m}\,\left[{\mathbf{u}}_{{\left(\rho-k+r\right)\bmod K}}\right]_{\rho+1}\right)-\left[{\mathbf{u}}_{r}\right]_{k+1}\right)\,\beta^{m}(x-\delta y+r-k)\\
         &\geq&\sum_{k=0}^{m}\,\left(\left[{\mathbf{u}}_{r}\right]_{k+1}-\left[{\mathbf{u}}_{r}\right]_{k+1}\right)\,\beta^{m}(x-\delta y+r-k)=0,
-        \end{eqnarray*}
+        \end{array}
 
 from which we conclude that :math:`g` is an upper bound of :math:`f.`
 
