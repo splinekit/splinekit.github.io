@@ -1,7 +1,7 @@
 M-Scale Relation of B-Splines
 =============================
 
-Illustration of the multiresolution embedding of the B-spline bases :math:`\beta.`
+Illustration of the multiresolution embedding of the B-spline :math:`\beta.`
 
 ----
 

@@ -57,7 +57,7 @@ Assume now that :math:`m=n>0.` Then, the trivial choice :math:`{\mathbf{u}}_{r}=
 Bound of Smaller Degree
 ^^^^^^^^^^^^^^^^^^^^^^^
 
-Assume finally that :math:`n>m>0.` In this case, letting :math:`{\mathbf{e}}_{m+1}` be the :math:`\left(m+1\right)`-th canonical basis, we claim that
+Assume finally that :math:`n>m>0.` In this case, letting :math:`{\mathbf{e}}_{m+1}` be the :math:`\left(m+1\right)`-th canonical basis vector, we claim that
 
 ..  math::
         {\mathbf{h}}=\left(a_{k+1}\right)_{k=0}^{m}+{\mathbf{e}}_{m+1}\,\sum_{k=m+1}^{n}\,\max(0,a_{k+1})

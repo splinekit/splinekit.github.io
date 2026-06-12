@@ -16,12 +16,12 @@ The ``splinekit`` library focuses on uniform polynomial splines of nonnegative i
 
 *    *Uniform* For uniform splines, each interval is assumed to have a unit diameter.
 
-Splines of degree :math:`n` are :math:`\left(n-1\right)` times continuously differentiable and :math:`n` times differentiable. They are the smoothest piecewise-polynomial functions one can get. It turns out that uniform splines always admit a convenient representation through an expression that involves basis functions; in the most practical form, uniform splines are written as
+Splines of degree :math:`n` are :math:`\left(n-1\right)` times continuously differentiable and :math:`n` times differentiable. They are the smoothest piecewise-polynomial functions one can get. It turns out that uniform splines always admit a convenient representation through an expression that involves synthesis functions; in the most practical form, uniform splines are written as
 
 ..  math::
         f:{\mathbb{R}}\rightarrow{\mathbb{R}},x\mapsto f(x)=\sum_{k\in{\mathbb{Z}}}\,c[k]\,\beta^{n}(x-\delta x-k),
 
-where :math:`c` are the so-called spline coefficients and where the B-spline :math:`\beta^{n}` is the basis function of the degree :math:`n,` this degree being typeset as a superscript (not a power). The distinction between a B-spline (with a capital B) and a spline is that the first one is a nonparametric basis, the second one being parameterized by :math:`c` and the global delay :math:`\delta x.` To simplify the current discussion, we assume henceforth that this delay is :math:`\delta x=0.`
+where :math:`c` are the so-called spline coefficients and where the B-spline :math:`\beta^{n}` is the synthesis function of the degree :math:`n,` this degree being typeset as a superscript (not a power). The distinction between a B-spline (with a capital B) and a spline is that the first one is a nonparametric synthesis function, the second one being parameterized by :math:`c` and the global delay :math:`\delta x.` To simplify the current discussion, we assume henceforth that this delay is :math:`\delta x=0.`
 
 In this description, there is nothing to prevent one to call a spline any true (non-piecewise) polynomial. We are going now to establish relations between polynomials and spline coefficients.
 

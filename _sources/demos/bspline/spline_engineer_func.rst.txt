@@ -1,7 +1,7 @@
 Splines and Engineering Functions
 =================================
 
-Relation of the B-spline basis :math:`\beta` to :math:`\sin,` :math:`\cos,` :math:`\exp,` :math:`{\mathrm{erf}},` and the Gaussian function.
+Relation of the B-spline :math:`\beta` to :math:`\sin,` :math:`\cos,` :math:`\exp,` :math:`{\mathrm{erf}},` and the Gaussian function.
 
 
 ----

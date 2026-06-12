@@ -6,8 +6,7 @@
 Numeric Stability and Speed of B-Splines
 ========================================
 
-Four approaches to the computation of the B-spline basis :math:`\beta,` and
-discussion of their relative merits in terms of speed and numerical accuracy.
+Four approaches to the computation of the B-spline :math:`\beta,` and discussion of their relative merits in terms of speed and numerical accuracy.
 
 ----
 
@@ -21,7 +20,7 @@ Splines are piecewise polynomials that are built as the weighted sum of integer-
 ..  math::
         f:{\mathbb{R}}\rightarrow{\mathbb{R}},x\mapsto f(x)=\sum_{k\in{\mathbb{Z}}}\,c[k]\,\beta^{n}(x-k),
 
-where :math:`c` are the spline coefficients and :math:`\beta^{n}` the B-spline basis, with :math:`n` a superscript (not a power). To accurately evaluate the spline :math:`f` at the argument :math:`x,` it is crucial that the computation of the basis :math:`\beta^{n}` be stable numerically. This is easy to achieve for small degrees; when the degree rises, however, one has to face the fact that the involved polynomials have a tendency to be made of delicately balancing terms.
+where :math:`c` are the spline coefficients and :math:`\beta^{n}` the B-spline, with :math:`n` a superscript (not a power). To accurately evaluate the spline :math:`f` at the argument :math:`x,` it is crucial that the computation of :math:`\beta^{n}` be stable numerically. This is easy to achieve for small degrees; when the degree rises, however, one has to face the fact that the involved polynomials have a tendency to be made of delicately balancing terms.
 
 Here, we investigate how the numerical stability depends on the way B-splines are computed. The ``splinekit`` library proposes a remarquably stable strategy that results in the very fast and *constant-speed* evaluation of B-splines.
 

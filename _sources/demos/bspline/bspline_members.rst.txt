@@ -1,8 +1,7 @@
 B-Spline Members
 ================
 
-Illustration of the B-spline basis :math:`\beta` and its variational forms
-:math:`\dot{\beta}` and :math:`\int\beta,` one degree at a time.
+Illustration of the B-spline basis vector :math:`\beta` and its variational forms :math:`\dot{\beta}` and :math:`\int\beta,` one degree at a time.
 
 ----
 

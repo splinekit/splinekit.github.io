@@ -113,8 +113,7 @@
              
   <section id="numeric-stability-and-speed-of-b-splines">
 <h1>Numeric Stability and Speed of B-Splines<a class="headerlink" href="#numeric-stability-and-speed-of-b-splines" title="Link to this heading"></a></h1>
-<p>Four approaches to the computation of the B-spline basis <span class="math notranslate nohighlight">\(\beta,\)</span> and
-discussion of their relative merits in terms of speed and numerical accuracy.</p>
+<p>Four approaches to the computation of the B-spline <span class="math notranslate nohighlight">\(\beta,\)</span> and discussion of their relative merits in terms of speed and numerical accuracy.</p>
 <hr class="docutils" />
 <section id="splines">
 <h2>Splines<a class="headerlink" href="#splines" title="Link to this heading"></a></h2>
@@ -122,7 +121,7 @@ discussion of their relative merits in terms of speed and numerical accuracy.</p
 <p><span class="math notranslate nohighlight">\((1)\)</span></p>
 <div class="math notranslate nohighlight">
 \[f:{\mathbb{R}}\rightarrow{\mathbb{R}},x\mapsto f(x)=\sum_{k\in{\mathbb{Z}}}\,c[k]\,\beta^{n}(x-k),\]</div>
-<p>where <span class="math notranslate nohighlight">\(c\)</span> are the spline coefficients and <span class="math notranslate nohighlight">\(\beta^{n}\)</span> the B-spline basis, with <span class="math notranslate nohighlight">\(n\)</span> a superscript (not a power). To accurately evaluate the spline <span class="math notranslate nohighlight">\(f\)</span> at the argument <span class="math notranslate nohighlight">\(x,\)</span> it is crucial that the computation of the basis <span class="math notranslate nohighlight">\(\beta^{n}\)</span> be stable numerically. This is easy to achieve for small degrees; when the degree rises, however, one has to face the fact that the involved polynomials have a tendency to be made of delicately balancing terms.</p>
+<p>where <span class="math notranslate nohighlight">\(c\)</span> are the spline coefficients and <span class="math notranslate nohighlight">\(\beta^{n}\)</span> the B-spline, with <span class="math notranslate nohighlight">\(n\)</span> a superscript (not a power). To accurately evaluate the spline <span class="math notranslate nohighlight">\(f\)</span> at the argument <span class="math notranslate nohighlight">\(x,\)</span> it is crucial that the computation of <span class="math notranslate nohighlight">\(\beta^{n}\)</span> be stable numerically. This is easy to achieve for small degrees; when the degree rises, however, one has to face the fact that the involved polynomials have a tendency to be made of delicately balancing terms.</p>
 <p>Here, we investigate how the numerical stability depends on the way B-splines are computed. The <code class="docutils literal notranslate"><span class="pre">splinekit</span></code> library proposes a remarquably stable strategy that results in the very fast and <em>constant-speed</em> evaluation of B-splines.</p>
 </section>
 <hr class="docutils" />

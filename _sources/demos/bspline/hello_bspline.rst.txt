@@ -1,8 +1,7 @@
 Hello B-Spline Family!
 ======================
 
-Illustration of the B-spline basis :math:`\beta` and its variational forms
-:math:`\dot{\beta}` and :math:`\int\beta,` several degrees jointly.
+Illustration of the B-spline :math:`\beta` and its variational forms :math:`\dot{\beta}` and :math:`\int\beta,` several degrees jointly.
 
 ----
 

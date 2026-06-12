@@ -105,8 +105,8 @@
 <p>The <a class="reference internal" href="../glossary/glossary-splines.html#def-uniform-spline"><span class="std std-ref">uniform splines</span></a> are
 <a class="reference internal" href="../glossary/glossary-polynomials.html#def-piecewise-polynomial"><span class="std std-ref">piecewise-polynomial</span></a> functions of some
 <a class="reference internal" href="../glossary/glossary-numbers.html#def-negative"><span class="std std-ref">nonnegative</span></a> degree <span class="math notranslate nohighlight">\(n.\)</span> They can be written as
-the weighted sum of the integer shifts of some basis function. In linear
-algebra, several systems of coordinates can span the same space and
+the weighted sum of the integer shifts of some synthesis function. In
+linear algebra, several systems of coordinates can span the same space and
 the actual values of the coordinates of a fixed vector depend on the
 actual system of coordinates. Likewise, the expression of a fixed spline
 <span class="math notranslate nohighlight">\(f\)</span> depends on the actual basis. With common bases, the same spline
@@ -123,25 +123,27 @@ are mutually different, with
 <span class="math notranslate nohighlight">\(f\neq c\neq g\neq a\wedge c\neq a\neq f\neq g.\)</span></p>
 <ul>
 <li><p>For <code class="docutils literal notranslate"><span class="pre">splinekit.Bases.BASIC</span></code>, the coefficients are <span class="math notranslate nohighlight">\(c\)</span> and the
-basis is the <a class="reference internal" href="../glossary/glossary-splines.html#def-b-spline"><span class="std std-ref">polynomial B-spline</span></a>
+synthesis function is the <a class="reference internal" href="../glossary/glossary-splines.html#def-b-spline"><span class="std std-ref">polynomial B-spline</span></a>
 <span class="math notranslate nohighlight">\(\beta^{n},\)</span> so that</p>
 <div class="math notranslate nohighlight">
 \[f(x)=\sum_{k\in{\mathbb{Z}}}\,c[k]\,\beta^{n}(x-k).\]</div>
 </li>
 <li><p>For <code class="docutils literal notranslate"><span class="pre">splinekit.Bases.CARDINAL</span></code>, the coefficients are <span class="math notranslate nohighlight">\(f\)</span> and
-the basis is the <a class="reference internal" href="../glossary/glossary-splines.html#def-cardinal-b-spline"><span class="std std-ref">cardinal B-spline</span></a>
-<span class="math notranslate nohighlight">\(\eta^{n},\)</span> so that</p>
+the synthesis function is the
+<a class="reference internal" href="../glossary/glossary-splines.html#def-cardinal-b-spline"><span class="std std-ref">cardinal B-spline</span></a> <span class="math notranslate nohighlight">\(\eta^{n},\)</span> so
+that</p>
 <div class="math notranslate nohighlight">
 \[f(x)=\sum_{k\in{\mathbb{Z}}}\,f(k)\,\eta^{n}(x-k).\]</div>
 </li>
 <li><p>For <code class="docutils literal notranslate"><span class="pre">splinekit.Bases.DUAL</span></code>, the coefficients are <span class="math notranslate nohighlight">\(g\)</span> and the
-basis is the <a class="reference internal" href="../glossary/glossary-splines.html#def-dual-b-spline"><span class="std std-ref">polynomial dual B-spline</span></a>
+synthesis function is the
+<a class="reference internal" href="../glossary/glossary-splines.html#def-dual-b-spline"><span class="std std-ref">polynomial dual B-spline</span></a>
 <span class="math notranslate nohighlight">\(\mathring{\beta}^{n,n},\)</span> so that</p>
 <div class="math notranslate nohighlight">
 \[f(x)=\sum_{k\in{\mathbb{Z}}}\,g[k]\,\mathring{\beta}^{n,n}(x-k).\]</div>
 </li>
 <li><p>For <code class="docutils literal notranslate"><span class="pre">splinekit.Bases.ORTHONORMAL</span></code>, the coefficients are <span class="math notranslate nohighlight">\(a\)</span>
-and the basis is the
+and the synthesis function is the
 <a class="reference internal" href="../glossary/glossary-splines.html#def-orthonormal-b-spline"><span class="std std-ref">polynomial orthonormal B-spline</span></a>
 <span class="math notranslate nohighlight">\(\phi^{n},\)</span> so that</p>
 <div class="math notranslate nohighlight">

@@ -1,0 +1,242 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Change of Basis &mdash; splinekit  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../../_static/plot_directive.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+      <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=2f8eb179" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+      <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Periodic Splines [toc]" href="../spline1d/index.html" />
+    <link rel="prev" title="Padding" href="padding.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            splinekit
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Demos [toc]</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../bspline/index.html">B-Splines [toc]</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Padding [toc]</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="padding.html">Padding</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Change of Basis</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#parametric-function">Parametric Function</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#convergence-and-uniqueness">Convergence and Uniqueness</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#multiplicity-of-the-representations">Multiplicity of the Representations</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#available-bases">Available Bases</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#relation-between-the-coefficients">Relation Between the Coefficients</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#notebook">Notebook</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../spline1d/index.html">Periodic Splines [toc]</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../installation/index.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../glossary/index.html">Glossary [toc]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../periodic_spline_1d/index.html">Periodic Spline 1D [toc]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../bsplines/index.html">B-Splines [toc]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../spline_padding/index.html">Spline Padding [toc]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../bases/index.html">Bases [toc]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../periodic_nonuniform_piecewise/index.html">Periodic Nonuniform Piecewise [toc]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../interval/index.html">Interval [package]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../spline_utilities/index.html">Spline Utilities [toc]</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">splinekit</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Demos [toc]</a></li>
+          <li class="breadcrumb-item"><a href="index.html">Padding [toc]</a></li>
+      <li class="breadcrumb-item active">Change of Basis</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/Philippe-Thevenaz/splinekit/blob/main/docs/demos/padding/change_basis.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="change-of-basis">
+<h1>Change of Basis<a class="headerlink" href="#change-of-basis" title="Link to this heading"></a></h1>
+<p>Conversion from one basis to another.</p>
+<hr class="docutils" />
+<section id="parametric-function">
+<h2>Parametric Function<a class="headerlink" href="#parametric-function" title="Link to this heading"></a></h2>
+<p>Suppose we are given a sequence <span class="math notranslate nohighlight">\(\left(c[k]\right)_{k\in{\mathbb{Z}}}\)</span> of coefficients, along with some real function <span class="math notranslate nohighlight">\(\varphi:{\mathbb{R}}\rightarrow{\mathbb{R}},x\mapsto\varphi(x)\)</span> in the role of a synthesis function. Then, we may attempt to sum the weighted integer shifts of <span class="math notranslate nohighlight">\(\varphi\)</span> to build the function <span class="math notranslate nohighlight">\(f:{\mathbb{R}}\rightarrow{\mathbb{R}},x\mapsto f(x)=\sum_{k\in{\mathbb{Z}}}\,c[k]\,\varphi(x-k).\)</span> Our attempt is successful if the conditions of convergence and uniqueness of the parameters are met jointly.</p>
+<ul class="simple">
+<li><p><em>Convergence</em> The sum found in the expression of the parametric function <span class="math notranslate nohighlight">\(f\)</span> ought to converge for any sequence <span class="math notranslate nohighlight">\(c\)</span> of parameters.</p></li>
+<li><p><em>Uniqueness</em> The function <span class="math notranslate nohighlight">\(f_{1},\)</span> built out of a first sequence <span class="math notranslate nohighlight">\(c_{1}\)</span> of coefficients, and the function <span class="math notranslate nohighlight">\(f_{2},\)</span> built out of the second sequence <span class="math notranslate nohighlight">\(c_{2},\)</span> ought to be such that there exists at least one <span class="math notranslate nohighlight">\(x\in{\mathbb{R}}\)</span> with <span class="math notranslate nohighlight">\(f_{1}(x)\ne f_{2}(x)\)</span> whenever there exists at least one <span class="math notranslate nohighlight">\(k\in{\mathbb{Z}}\)</span> with <span class="math notranslate nohighlight">\(c_{1}[k]\ne c_{2}[k].\)</span></p></li>
+</ul>
+</section>
+<section id="convergence-and-uniqueness">
+<h2>Convergence and Uniqueness<a class="headerlink" href="#convergence-and-uniqueness" title="Link to this heading"></a></h2>
+<p>The convergence of the one-sided infinite sum <span class="math notranslate nohighlight">\(\sum_{k=1}^{\infty}\,s_{k}\)</span> of terms <span class="math notranslate nohighlight">\(s_{k}\)</span> is notoriously fiddly. Many notions have been called for to capture what is meant by the word “convergence.” For instance, a convergence can be qualified as conditional, unconditional, pointwise, almost uniform, almost everywhere, uniform, absolute, uniform-absolute (which, confusingly enough, is not the same as being at the same time uniform and absolute), among many other qualifiers. And then, there are quasi-convergent sums.</p>
+<p>In our case, the form of the function <span class="math notranslate nohighlight">\(f\)</span> features the double-sided infinite sum <span class="math notranslate nohighlight">\(\sum_{k=-\infty}^{\infty}\,s[k]\)</span> of the terms <span class="math notranslate nohighlight">\(s[k]=c[k]\,\varphi(x-k).\)</span> It has been found sensible to part such doubled-sided sums in pairs of one-sided sums to study separately their one-sided convergence; but even then, the parting can be made in several ways.</p>
+<ul class="simple">
+<li><p>The principal-value approach considers either the limit <span class="math notranslate nohighlight">\(s[0]+\lim_{K\rightarrow\infty}\sum_{k=1}^{K}\,\left(s[-k]+s[k]\right)\)</span> or the limit <span class="math notranslate nohighlight">\(\lim_{K\rightarrow\infty}\sum_{k=-K}^{K}\,s[k],\)</span> which may not converge unconditionally, meaning that convergence may or may not happen, depending on the ordering of the terms.</p></li>
+<li><p>The form <span class="math notranslate nohighlight">\(\lim_{\left(K_{1},K_{2}\right)\rightarrow\left(\infty,\infty\right)}\sum_{k=-K_{1}}^{K_{2}}\,s[k],\)</span> with independence between <span class="math notranslate nohighlight">\(K_{1}\)</span> and <span class="math notranslate nohighlight">\(K_{2},\)</span> has links with uniform convergence.</p></li>
+<li><p>The index-based parting considers the limits <span class="math notranslate nohighlight">\(\lim_{K_{1}\rightarrow\infty}\sum_{k_{1}=-K_{1}}^{-1}\,s[k_{1}]+s[0]+\lim_{K_{2}\rightarrow\infty}\sum_{k_{2}=1}^{K_{2}}\,s[k_{2}].\)</span> It has links with uniform convergence, too.</p></li>
+<li><p>The value-based parting <span class="math notranslate nohighlight">\(\left(-\sup\{\left(-\sum_{k\in{\mathbb{A}}}\,s[k]\right)\in{\mathbb{R}}:{\mathbb{A}}\subseteq\{k\in{\mathbb{Z}}:s[k]&lt;0\}\}\right.\)</span><span class="math notranslate nohighlight">\(\left.\mbox{}+\sup\{\left(\sum_{k\in{\mathbb{B}}}\,s[k]\right)\in{\mathbb{R}}:{\mathbb{B}}\subseteq\{k\in{\mathbb{Z}}:s[k]\geq0\}\}\right)\)</span> involves the notion of supremum over a set and has links with absolute convergence.</p></li>
+</ul>
+<p>The various ways to part a double-sided infinite sum into a pair of one-sided infinite sums, combined with the various notions in which such one-sided sums may—or may not—exhibit a convergence of their own, make for a complicated state of affairs. However, when <span class="math notranslate nohighlight">\(\varphi\)</span> is a polynomial B-spline <span class="math notranslate nohighlight">\(\beta^{n}\)</span> of nonnegative integer degree <span class="math notranslate nohighlight">\(n\in{\mathbb{Z}},\)</span> the situation is crystal-clear.</p>
+<ol class="arabic simple">
+<li><p>Because of the finite support of <span class="math notranslate nohighlight">\(\beta^{n},\)</span> the sum is finite and all worries about the convergence of double-sided infinite sums evaporate.</p></li>
+<li><p>Because <span class="math notranslate nohighlight">\(\beta^{n}\)</span> is nonnegative and upper-bounded, the quantity <span class="math notranslate nohighlight">\(f(x)\)</span> is well-defined for all <span class="math notranslate nohighlight">\(x\in{\mathbb{R}}.\)</span></p></li>
+<li><p>Because <span class="math notranslate nohighlight">\(\{\beta^{n}(\cdot-k)\}_{k\in{\mathbb{Z}}}\)</span> turns out to be a so-called Riesz basis, uniqueness is guaranteed when the coefficients are square-summable.</p></li>
+</ol>
+</section>
+<section id="multiplicity-of-the-representations">
+<h2>Multiplicity of the Representations<a class="headerlink" href="#multiplicity-of-the-representations" title="Link to this heading"></a></h2>
+<p>The representation of <span class="math notranslate nohighlight">\(f\)</span> is not unique. For instance, one can create a new sequence of coefficients by multiplying every given coefficient by some non-vanishing number; at the same time, one divides the synthesis function by the same number to create a new synthesis function. Together, the new coefficients and the new synthesis function will do the same job as the given ones. Another example in which we thwart uniqueness is to create yet another new sequence of coefficients by the addition of a constant integer offset to every index of the given sequence, and to compensate it by the creation of yet another synthesis function as an offset-shifted version of the original one.</p>
+<p>The two proposed examples are trivial. A less trivial approach arises for those synthesis functions <span class="math notranslate nohighlight">\(\varphi_{1}\)</span> that admit being themselves expressed as a sum of weighted and integer-shifted synthesis functions <span class="math notranslate nohighlight">\(\varphi_{2},\)</span> as in</p>
+<div class="math notranslate nohighlight">
+\[\varphi_{1}:{\mathbb{R}}\rightarrow{\mathbb{R}},x\mapsto \varphi_{1}(x)=\sum_{k'\in{\mathbb{Z}}}\,h[k']\,\varphi_{2}(x-k'),\]</div>
+<p>where the sequence <span class="math notranslate nohighlight">\(h\)</span> of weights relates the two synthesis functions. If, in addition, the technical conditions for the interchange of the order of summations allows it, then we can write that</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{array}{rcl}
+f(x)&amp;=&amp;\sum_{k\in{\mathbb{Z}}}\,c_{1}[k]\,\varphi_{1}(x-k)\\
+&amp;=&amp;\sum_{k\in{\mathbb{Z}}}\,c_{1}[k]\,\sum_{k'\in{\mathbb{Z}}}\,h[k']\,\varphi_{2}(x-k-k')\\
+&amp;=&amp;\sum_{k'\in{\mathbb{Z}}}\,\left(\sum_{k\in{\mathbb{Z}}}\,c_{1}[k]\,h[k'-k]\right)\,\varphi_{2}(x-k').
+\end{array}\end{split}\]</div>
+<p>Assuming that the discrete convolution <span class="math notranslate nohighlight">\(c_{2}[k']=\sum_{k\in{\mathbb{Z}}}\,c_{1}[k]\,h[k'-k]\)</span> is well-defined for all <span class="math notranslate nohighlight">\(k'\in{\mathbb{Z}},\)</span> we have thus established a new representation of <span class="math notranslate nohighlight">\(f\)</span> in the synthesis function <span class="math notranslate nohighlight">\(\varphi_{2},\)</span> with coefficients <span class="math notranslate nohighlight">\(c_{2}.\)</span> We shall refer to this mechanism as a <em>change of basis</em>.</p>
+</section>
+<section id="available-bases">
+<h2>Available Bases<a class="headerlink" href="#available-bases" title="Link to this heading"></a></h2>
+<p>The <cite>splinekit</cite> library proposes four bases in which a given spline <span class="math notranslate nohighlight">\(f:{\mathbb{R}}\rightarrow{\mathbb{R}},x\mapsto f(x)\)</span> can be expressed.</p>
+<section id="basic">
+<h3>Basic<a class="headerlink" href="#basic" title="Link to this heading"></a></h3>
+<p>The B-spline synthesis function <span class="math notranslate nohighlight">\(\beta^{n}\)</span> and its associated basis <span class="math notranslate nohighlight">\(\{\beta^{n}(\cdot-k)\}_{k\in{\mathbb{Z}}}\)</span> provide the most natural way to express the given spline, as</p>
+<div class="math notranslate nohighlight">
+\[f(x)=\sum_{k\in{\mathbb{Z}}}\,c[k]\,\beta^{n}(x-k).\]</div>
+<p>There, the spline coefficients <span class="math notranslate nohighlight">\(c\)</span> are those that are stored and maintained by the library.</p>
+</section>
+<section id="cardinal">
+<h3>Cardinal<a class="headerlink" href="#cardinal" title="Link to this heading"></a></h3>
+<p>The cardinal B-spline synthesis function <span class="math notranslate nohighlight">\(\eta^{n}\)</span> and its associated basis <span class="math notranslate nohighlight">\(\{\eta^{n}(\cdot-k)\}_{k\in{\mathbb{Z}}}\)</span> can be used to express the given spline as</p>
+<div class="math notranslate nohighlight">
+\[f(x)=\sum_{k\in{\mathbb{Z}}}\,f(k)\,\eta^{n}(x-k).\]</div>
+<p>There, the spline samples <span class="math notranslate nohighlight">\(\left(f(k)\right)_{k\in{\mathbb{Z}}}\)</span> parameterize the spline. It is a common occurence that one desires to interpolate a finite-dimensional vector <span class="math notranslate nohighlight">\({\mathbf{y}}=\left(y[k]\right)_{k=0}^{K-1}\in{\mathbb{R}}^{K}\)</span> of sampled data, in which case one imposes that <span class="math notranslate nohighlight">\(f(k)=y[k]\)</span> for <span class="math notranslate nohighlight">\(k\in[0\ldots K-1]\)</span> before to apply a change of basis from a cardinal representation to a basic representation. The corresponding change-of-basis algorithm deployed in this library is particularly efficient.</p>
+</section>
+<section id="dual">
+<h3>Dual<a class="headerlink" href="#dual" title="Link to this heading"></a></h3>
+<p>The dual B-spline synthesis function <span class="math notranslate nohighlight">\(\mathring{\beta}^{n,n}\)</span> and its associated basis <span class="math notranslate nohighlight">\(\{\mathring{\beta}^{n,n}(\cdot-k)\}_{k\in{\mathbb{Z}}}\)</span> can be used to express the given spline as</p>
+<div class="math notranslate nohighlight">
+\[f(x)=\sum_{k\in{\mathbb{Z}}}\,g[k]\,\mathring{\beta}^{n,n}(x-k)\]</div>
+<p>in terms of the coefficients <span class="math notranslate nohighlight">\(g.\)</span></p>
+</section>
+<section id="orthonormal">
+<h3>Orthonormal<a class="headerlink" href="#orthonormal" title="Link to this heading"></a></h3>
+<p>The orthonormal B-spline synthesis function <span class="math notranslate nohighlight">\(\phi^{n}\)</span> and its associated basis <span class="math notranslate nohighlight">\(\{\phi^{n}(\cdot-k)\}_{k\in{\mathbb{Z}}}\)</span> can be used to express the given spline as</p>
+<div class="math notranslate nohighlight">
+\[f(x)=\sum_{k\in{\mathbb{Z}}}\,a[k]\,\phi^{n}(x-k).\]</div>
+<p>in terms of the coefficients <span class="math notranslate nohighlight">\(a.\)</span></p>
+</section>
+</section>
+<section id="relation-between-the-coefficients">
+<h2>Relation Between the Coefficients<a class="headerlink" href="#relation-between-the-coefficients" title="Link to this heading"></a></h2>
+<p>The coefficients <span class="math notranslate nohighlight">\(\{c,f,g,a\}\)</span> are related as in the table below.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\scriptstyle
+\begin{array}{l|llll}\hline\hline
+\hfill\mathrm{From}&amp;\mathrm{Basic}&amp;\mathrm{Cardinal}&amp;\mathrm{Dual}&amp;\mathrm{Orthonormal}\\
+\mathrm{To}\\\hline
+\mathrm{Basic}&amp;c&amp;c=\left(b^{n}\right)^{-1}*f&amp;c=\left(b^{2\,n+1}\right)^{-1}*g&amp;c=\left(b^{2\,n+1}\right)^{-\frac{1}{2}}*a\\
+\mathrm{Cardinal}&amp;f=b^{n}*c&amp;f&amp;f=b^{n}*\left(b^{2\,n+1}\right)^{-1}*g&amp;f=b^{n}*\left(b^{2\,n+1}\right)^{-\frac{1}{2}}*a\\
+\mathrm{Dual}&amp;g=b^{2\,n+1}*c&amp;g=b^{2\,n+1}*\left(b^{n}\right)^{-1}*f&amp;g&amp;g=\left(b^{2\,n+1}\right)^{\frac{1}{2}}*a\\
+\mathrm{Orthonormal}&amp;a=\left(b^{2\,n+1}\right)^{\frac{1}{2}}*c&amp;a=\left(b^{2\,n+1}\right)^{\frac{1}{2}}*\left(b^{n}\right)^{-1}*f&amp;a=\left(b^{2\,n+1}\right)^{-\frac{1}{2}}*g&amp;a\\
+\hline\hline
+\end{array}\end{split}\]</div>
+<p>In the table, <span class="math notranslate nohighlight">\(b^{n}\)</span> corresponds to the sequence <span class="math notranslate nohighlight">\(\left(\beta^{n}(k)\right)_{k\in{\mathbb{Z}}}\)</span> of the integer samples of a B-spline of degree <span class="math notranslate nohighlight">\(n.\)</span> This sequence has a finite support, with <span class="math notranslate nohighlight">\(b^{n}[k]=0\)</span> for <span class="math notranslate nohighlight">\(k\not\in[-\left\lfloor\frac{n}{2}\right\rfloor\ldots\left\lfloor\frac{n}{2}\right\rfloor].\)</span> In return, the support of the sequence <span class="math notranslate nohighlight">\(\left(b^{n}\right)^{-1}\)</span> in infinite; the same goes for the supports of <span class="math notranslate nohighlight">\(\left(\left(b^{n}\right)^{-\frac{1}{2}}\right)_{k\in{\mathbb{R}}}\)</span> and <span class="math notranslate nohighlight">\(\left(\left(b^{n}\right)^{\frac{1}{2}}\right)_{k\in{\mathbb{R}}}.\)</span> In this library, those sequences of infinite support are handled algorithmically, without approximation.</p>
+</section>
+<section id="notebook">
+<h2>Notebook<a class="headerlink" href="#notebook" title="Link to this heading"></a></h2>
+<p>We give now a piece of code that illustrates visually how a periodic random spline of a specified degree and period can be expressed in each one of the four bases.</p>
+<div class="admonition-jupyter-lab-notebook admonition">
+<p class="admonition-title">Jupyter Lab notebook</p>
+<p><a class="reference external" href="https://splinekit.github.io/splinekit-jupyterlite/notebooks/index.html?path=padding_bases.ipynb">Change of basis</a></p>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="padding.html" class="btn btn-neutral float-left" title="Padding" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../spline1d/index.html" class="btn btn-neutral float-right" title="Periodic Splines [toc]" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright .</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

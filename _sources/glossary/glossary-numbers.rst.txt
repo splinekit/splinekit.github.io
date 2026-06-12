@@ -5,11 +5,11 @@ Glossary—Numbers
 
 ..  _def-j:
 
-**Imaginary Basis** The basis of the imaginary numbers is :math:`{\mathrm{j}},` with :math:`{\mathrm{j}}^{2}=-1.` This notation follows the engineering conventions.
+**Imaginary Basis** The basis vector of the imaginary numbers is :math:`{\mathrm{j}},` with :math:`{\mathrm{j}}^{2}=-1.` This notation follows the engineering conventions.
 
 ..  _def-sgn:
 
-**Signum Function** Let :math:`{\mathrm{j}}` be the :ref:`basis of the imaginary numbers<def-j>`. Then, the signum of a number is defined as the complex function :math:`{\mathrm{sgn}}:{\mathbb{C}}\rightarrow{\mathbb{C}}`. It is such that :math:`z\mapsto{\mathrm{sgn}}\,z=\left\{\begin{array}{ll}0,&z=0\\{\mathrm{e}}^{{\mathrm{j}}\,\arg z},&z\neq0.\end{array}\right.`
+**Signum Function** Let :math:`{\mathrm{j}}` be the :ref:`basis vector of the imaginary numbers<def-j>`. Then, the signum of a number is defined as the complex function :math:`{\mathrm{sgn}}:{\mathbb{C}}\rightarrow{\mathbb{C}}`. It is such that :math:`z\mapsto{\mathrm{sgn}}\,z=\left\{\begin{array}{ll}0,&z=0\\{\mathrm{e}}^{{\mathrm{j}}\,\arg z},&z\neq0.\end{array}\right.`
 
 ..  _def-negative:
 

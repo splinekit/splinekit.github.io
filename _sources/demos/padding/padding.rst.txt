@@ -18,20 +18,20 @@ We wish to build the real function
 ..  math::
         f:{\mathbb{R}}\rightarrow{\mathbb{R}},x\mapsto f(x)=\sum_{k\in{\mathbb{Z}}}\,c[k]\,\varphi(x-k).
 
-There, the sequence :math:`c` of coefficients is used to parameterize the function :math:`f` and gives us a good many degrees of freedom to shape it to our taste. Moreover, the basis :math:`\varphi` is assumed to have the desirable technical property of being a Riesz basis. Among other things, this ensures that the infinite sum found in the construction of :math:`f` is always well-behaved.
-
-The adaptability of :math:`c` makes it a tool of choice to represent sampled data as the continuously defined function :math:`f.` Given a sequence :math:`y=\left(y[q]\right)_{q\in{\mathbb{Z}}}` of regularly indexed samples :math:`y[q]` for :math:`q\in{\mathbb{Z}},` the purpose of the so-called interpolation procedure is to yield a sequence :math:`c` such that the interpolation condition :math:`f(q)=y[q]` is satisfied. Fortunately, the assumption of a Riesz basis guarantees the existence of :math:`c` for any :math:`y.`
+There, the sequence :math:`c` of coefficients is used to parameterize the function :math:`f` and gives us a good many degrees of freedom to shape it to our taste. The adaptability of :math:`c` makes it a tool of choice to represent sampled data as the continuously defined function :math:`f.` Given a sequence :math:`y=\left(y[k]\right)_{k\in{\mathbb{Z}}}` of regularly indexed samples :math:`y[k]` for :math:`k\in{\mathbb{Z}},` the purpose of the so-called interpolation procedure is to yield a sequence :math:`c` such that the interpolation condition :math:`f(k)=y[k]` is satisfied.
 
 In case :math:`\varphi` is a B-spline, we shall soon see that there exist infinitely many sequences of coefficients that build the same one sequence of samples. Among all these sequences of coefficients , however, there is one that is of particular interest because it can be obtained by a very efficient algorithm to get :math:`c` out of :math:`y.`
 
 Unfortunately, the theoretical derivations of the algorithm rely on :math:`y` being a *sequence*, which means that infinitely many samples are required. Now, one never has access to a sequence of samples in practice, only to a finite-dimensional *vector* :math:`{\mathbf{y}}=\left(y_{q}\right)_{q=1}^{K}\in{\mathbb{R}}^{K}` of samples. To take advantage of the theoretical derivations of the efficient algorithm, it is thus an unavoidable necessity that a method be engineered that converts the vector :math:`{\mathbf{y}}` into the sequence :math:`y.` We call padding the operation that consists in the engineering of the infinite-length subsequences :math:`\left(y[k]\right)_{k\in{\mathbb{Z}}_{<0}}` to the left and :math:`\left(y[k]\right)_{k\in{\mathbb{Z}}_{\geq K}}` to the right of the provided finite-length sequence (or finite-dimensional vector) :math:`\left(y[k]\right)_{k=0}^{K-1}=\left(y_{q}\right)_{q=1}^{K}={\mathbf{y}}.`
 
-The engineering of :math:`{\mathbf{y}}\Rightarrow y` is application-dependent and every method is valid. Which one is the best in the context of your application is only a matter of convenience.
+The engineering of :math:`{\mathbf{y}}\Rightarrow y` is application-dependent and every method is fair game. Here are a few cases.
 
-*   For instance, :math:`{\mathbf{y}}` could represent angular data, in which case one would have to cope with angular wrapping.
+*   The components of the vector :math:`{\mathbf{y}}` could represent angular data, in which case one would have to cope with angular wrapping.
 *   Or, :math:`{\mathbf{y}}` could represent intensity data, in which case one would have to discourage negative intensities in the continuously defined function :math:`f` being constructed through the steps :math:`{\mathbf{y}}\Rightarrow y\Rightarrow c\Rightarrow f.`
 *   Or, one could pretend that all unobserved samples do vanish and take the special value :math:`0.`
 *   Or, one could assume that the first observed sample :math:`y[0]` has indeed the same value as all unobserved samples that came before, while the last observed sample :math:`y[K-1]` has the same value as all unobserved samples that folllow.
+
+Many more padding recipes can be devised. Which one is the best in the context of your application is only a matter of convenience.
 
 Unicity
 -------
@@ -41,9 +41,9 @@ In the sequel, we let :math:`\varphi` be a polynomial B-spline of nonnegative in
 ..  math::
         \frac{1}{\sum_{k\in{\mathbb{Z}}}\,\beta^{n}(k)\,z_{n,m}^{-k}}\not\in{\mathbb{C}}.
 
-These numbers are called the poles of the spline and are such that :math:`\sum_{k\in{\mathbb{Z}}}\,\beta^{n}(k)\,z_{n,m}^{-k}=0.` Because B-splines are even-symmetric, the pole reciprocals :math:`z_{n,m}^{-1}\in{\mathbb{R}}_{<-1}` satisfy the same relation.
+These numbers are called *poles* and are such that :math:`\sum_{k\in{\mathbb{Z}}}\,\beta^{n}(k)\,z_{n,m}^{-k}=0.` Because B-splines are even-symmetric, the pole reciprocals :math:`z_{n,m}^{-1}\in{\mathbb{R}}_{<-1}` satisfy the same relation.
 
-Suppose now we have identified a sequence :math:`c` that verifies the interpolation condition :math:`y[q]=\sum_{k\in{\mathbb{Z}}}\,c[k]\,\beta^{n}(q-k).` Then, it turns out that the sequence :math:`c'[k]=c[k]+\sum_{m=1}^{\left\lfloor n/2\right\rfloor}\,\left(\lambda_{n,m}^{-}\,z_{n,m}^{-k}+\lambda_{n,m}^{+}\,z_{n,m}^{k}\right)` is also such that :math:`y[q]=\sum_{k\in{\mathbb{Z}}}\,c'[k]\,\beta^{n}(q-k),` for any choice of the arbitrary constants :math:`\lambda_{n,m}^{-},\lambda_{n,m}^{+}\in{\mathbb{R}}.` One concludes that additional requirements are needed to make the interpolation task well-defined.
+Suppose now we have identified a sequence :math:`c` that verifies the interpolation condition :math:`\forall k\in{\mathbb{Z}}:y[k]=\sum_{k'\in{\mathbb{Z}}}\,c[k']\,\beta^{n}(k-k').` Then, it turns out that the sequence :math:`\left(c'[k']\right)_{k'\in{\mathbb{Z}}}=\left(c[k']+\sum_{m=1}^{\left\lfloor n/2\right\rfloor}\,\left(\lambda_{n,m}^{-}\,z_{n,m}^{-k'}+\lambda_{n,m}^{+}\,z_{n,m}^{k'}\right)\right)_{k'\in{\mathbb{Z}}}` is also such that :math:`\forall k\in{\mathbb{Z}}:y[k]=\sum_{k'\in{\mathbb{Z}}}\,c'[k']\,\beta^{n}(k-k'),` for any choice of the arbitrary constants :math:`\lambda_{n,m}^{-},\lambda_{n,m}^{+}\in{\mathbb{R}}.` One concludes that the interpolation condition :math:`\forall k\in{\mathbb{Z}}:y[k]=f(k)` alone is not sufficient to make the interpolation task well-defined and that additional requirements are needed.
 
 The ``splinekit`` library comes equipped with paddings that guarantee the well-defined interpolation of finite-length data.
 
@@ -61,6 +61,8 @@ The unobserved samples are, well, unobserved. Consequently, every strategy that 
 *   Nega-Wide Mirror
 
 Except for the anti-mirror padding, all proposed forms honor some sort of periodicity over :math:`c,` albeit the length of a period may differ from the number :math:`K` of observed samples. The periodicity of :math:`c` then implies that :math:`y` and :math:`f` are likewise periodic; moreover, the trivial choice :math:`\lambda_{n,m}^{-}=0` and :math:`\lambda_{n,m}^{+}=0` is the only one that results in the alternative versions :math:`c'` of :math:`c` being periodic, too, which ensures the unicity of the method and makes the interpolation problem well-defined. In the case of the anti-mirror padding, a similar reasoning also leads to the unicity of the solution.
+
+**Side Note** *The periodicity of the coefficients implies the periodicity of the samples, but the periodicity of the samples does not necessarily imply that the the coefficients are periodic. Indeed, the constants* :math:`\lambda_{n,m}^{-},\lambda_{n,m}^{+}` *can still be chosen arbitrarily to parameterize a family of coefficients that satisfy the interpolation constraint, even for periodic samples. In general, only one member of this family will have the same periodicity as that of the samples.*
 
 We give now a piece of code that illustrates visually the effect of the various paddings on random splines of a specified degree.
 
@@ -81,13 +83,13 @@ An easy, general-purpose padding approach is to engineer the sequence :math:`c` 
 Algorithmic Considerations
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-In the context of a straightforward periodic padding, there are three major algorithmic approaches to the solution of the interpolation constraint :math:`f(q)=y[q]` for :math:`q\in[0\ldots K-1].`
+In the context of a straightforward periodic padding, there are three major algorithmic approaches to the solution of the interpolation constraint :math:`y[k]=f(k)` for :math:`k\in[0\ldots K-1].`
 
-1) The **linear-algebra approach** first establishes an explicit system of :math:`K` linear equations. The :math:`q`-th equation of the system would be :math:`y[q]=\sum_{k=0}^{K-1}\,\left(\sum_{p\in{\mathbb{Z}}}\,\varphi(q-p\,K-k)\right)\,c[k].` Tools of linear algebra would then be deployed to solve the system in terms of the unknown variables :math:`c[k].` The overall computational cost is :math:`{\mathcal{O}}(K^{3})` when general solvers are used, and the cost would be :math:`{\mathcal{O}}(K^{2})` for Toeplitz systems. For periodic paddings, the system is circulant and the overall computational cost reduces to :math:`{\mathcal{O}}(K\,\log K)` with Fourier-based techniques to solve linear-algebra inversion problems.
+1) The **linear-algebra approach** first establishes an explicit system of :math:`K` linear equations. The :math:`k`-th equation of the system would be :math:`y[k]=\sum_{k'=0}^{K-1}\,\left(\sum_{p\in{\mathbb{Z}}}\,\varphi(k-p\,K-k')\right)\,c[k'].` Tools of linear algebra would then be deployed to solve the system in terms of the unknown vector :math:`{\mathbf{c}}=\left(c[k]\right)_{k=0}^{K-1}` that represents one period of the periodic sequence :math:`c,` taken such that the first vector component :math:`c_{1}` is the sequence element at the origin :math:`c[0].` The overall computational cost is :math:`{\mathcal{O}}(K^{3})` when general solvers are used, and the cost would be :math:`{\mathcal{O}}(K^{2})` for Toeplitz systems. For periodic paddings, the system is circulant and the overall computational cost reduces to :math:`{\mathcal{O}}(K\,\log K)` with Fourier-based techniques to solve linear-algebra inversion problems.
 
-2) The **discrete-Fourier approach** is best described concisely in matrix notations. Let :math:`{\mathbf{F}}\in{\mathbb{C}}^{K\times K}` be the discrete-Fourier transform, with the :math:`\nu`-th row and :math:`q`-th column entry given by :math:`{\mathrm{e}}^{-{\mathrm{j}}\,\left(\nu-1\right)\,\frac{2\,\pi}{K}\,\left(q-1\right)}.` Let the vector :math:`{\mathbf{c}}` represent one period of the periodic sequence :math:`c,` taken such that the first vector component :math:`c_{1}` is the sequence element at the origin :math:`c[0].` Moreover, let :math:`{\mathbf{\phi}}=(\sum_{p\in{\mathbb{Z}}}\,\varphi(p\,K+q))_{q=0}^{K-1}` be the data-independent vector that contains the samples (at the integers) of the periodized version of the basis :math:`\varphi.` Then, one has that :math:`{\mathbf{c}}={\mathbf{F}}^{-1}\,\left(\left({\mathbf{F}}\,{\mathbf{y}}\right)\oslash\left({\mathbf{F}}\,{\mathbf{\phi}}\right)\right),` where :math:`\oslash` is an element-wise division. In practice, the Fourier transformation and its inverse are implemented via the fast-Fourier algorithm, in which case the overall computational cost is :math:`{\mathcal{O}}(K\,\log K).`
+2) The **discrete-Fourier approach** is best described concisely in matrix notations. Let :math:`{\mathbf{F}}\in{\mathbb{C}}^{K\times K}` be the discrete-Fourier transform, with the :math:`\nu`-th row and :math:`k`-th column entry given by :math:`{\mathrm{e}}^{-{\mathrm{j}}\,\left(\nu-1\right)\,\frac{2\,\pi}{K}\,\left(k-1\right)}.` Let :math:`{\mathbf{\phi}}=(\sum_{p\in{\mathbb{Z}}}\,\varphi(p\,K+k))_{k=0}^{K-1}` be the data-independent vector that contains the samples (at the integers) of the periodized version of the synthesis function :math:`\varphi.` Then, one has that :math:`{\mathbf{c}}={\mathbf{F}}^{-1}\,\left(\left({\mathbf{F}}\,{\mathbf{y}}\right)\oslash\left({\mathbf{F}}\,{\mathbf{\phi}}\right)\right),` where :math:`\oslash` is an element-wise division. In practice, the Fourier transformation and its inverse are implemented via the fast-Fourier algorithm, in which case the overall computational cost is :math:`{\mathcal{O}}(K\,\log K).`
 
-3) The **recursive-filtering approach** is the one followed in the ``splinekit`` library. It requires that the basis :math:`\varphi` has a finite support, is even-symmetric, and that the poles of the reciprocal of the :math:`z`-transform of its samples at the integers are real numbers. These properties are all satisfied by the polynomial B-splines of nonnegative integer degree :math:`n\in{\mathbb{N}}+2.`
+3) The **recursive-filtering approach** is the one followed in the ``splinekit`` library. It requires that :math:`\varphi` has a finite support, is even-symmetric, and that the poles of the reciprocal of the :math:`z`-transform of its samples at the integers are real numbers. These properties are all satisfied by the polynomial B-splines of nonnegative integer degree :math:`n\in{\mathbb{N}}+2.` The overall computational cost is now :math:`{\mathcal{O}}(K\,\left\lfloor n/2\right\rfloor).`
 
 Recursive Filtering
 """""""""""""""""""
@@ -97,7 +99,7 @@ Start the algorithm by letting :math:`{\mathbf{c}}\leftarrow{\mathbf{y}}.` Then,
 ..  math::
         \left\{\begin{array}{rcll}c[0]&\leftarrow&\frac{1}{1-z_{n,m}^{K}}\,\left(c[0]+\sum_{k=1}^{K-1}\,z_{n,m}^{k}\,c[K-k]\right)\\c[k]&\leftarrow&c[k]+z_{n,m}\,c[k-1],&k\in[1\ldots K-1]\\c[K-1]&\leftarrow&\frac{\left(1-z_{n,m}\right)^{2}}{1-z_{n,m}^{K}}\,\left(c[K-1]+\sum_{k=0}^{K-2}\,z_{n,m}^{k+1}\,c[k]\right)\\c[K-1-k]&\leftarrow&z_{n,m}\,c[K-k]+\left(1-z_{n,m}\right)^{2}\,c[K-1-k],&k\in[1\ldots K-1].\end{array}\right.
 
-The overall computational cost is now :math:`{\mathcal{O}}(K\,\left\lfloor n/2\right\rfloor).` In practice, some computations can be spared if the sums that appear in the recursive-update equations are truncated at that index :math:`k` where the term :math:`z_{n,m}^{k}` becomes negligible.
+In practice, some computations can be spared if the sums that appear in the recursive-update equations are truncated at that index :math:`k` where the term :math:`z_{n,m}^{k}` becomes negligible.
 
 Experimental Performance
 ^^^^^^^^^^^^^^^^^^^^^^^^

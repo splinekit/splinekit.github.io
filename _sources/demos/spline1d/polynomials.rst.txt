@@ -10,8 +10,8 @@ Roadmap
 
 Uniform polynomial splines are piecewise-polynomial functions. In what follows, we are going to provide a detailed derivation that returns the polynomial pieces. We start by defining B-splines and splines; we then propose a numerically stable way to evaluate splines. Then, we twist the evaluation procedure to get the expression of each polynomial piece.
 
-Construction of the B-Spline Basis
-----------------------------------
+Construction of the B-Spline
+----------------------------
 
 We first give the fundamental building blocks of uniform polynomial splines.
 
