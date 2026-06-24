@@ -20,4 +20,5 @@ In the following Jupyter Lab notebook, we show the contribution of each term of 
 
 ..  admonition:: Jupyter Lab notebook
 
-    `M-scale relation of B-splines <https://splinekit.github.io/splinekit-jupyterlite/notebooks/index.html?path=bspline_m_scale.ipynb>`_
+    `M-scale relation of B-splines <https://splinekit.github.io/splinekit-jupyterlite/lab/?path=bspline/m-scale/bspline_m_scale.ipynb&mode=single-document>`_
+

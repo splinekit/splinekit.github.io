@@ -98,7 +98,7 @@ Here, we plot a B-spline over its support, indexed by its degree.
 
 ..  admonition:: Jupyter Lab notebook
 
-    `Polynomial B-spline <https://splinekit.github.io/splinekit-jupyterlite/notebooks/index.html?path=bspline_member.ipynb>`_
+    `Polynomial B-spline <https://splinekit.github.io/splinekit-jupyterlite/lab/?path=bspline/bases/bspline_member.ipynb&mode=single-document>`_
 
 ----
 
@@ -124,7 +124,7 @@ Here, we plot a cardinal B-spline, indexed by its degree.
 
 ..  admonition:: Jupyter Lab notebook
 
-    `Cardinal B-spline <https://splinekit.github.io/splinekit-jupyterlite/notebooks/index.html?path=bspline_cardinal.ipynb>`_
+    `Cardinal B-spline <https://splinekit.github.io/splinekit-jupyterlite/lab/?path=bspline/bases/bspline_cardinal.ipynb&mode=single-document>`_
 
 Relation to the Cardinal Sine Function
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -138,7 +138,7 @@ We verify now visually over the range :math:`x\in[-15,15]` that
 
 ..  admonition:: Jupyter Lab notebook
 
-    `Convergence of the cardinal B-spline to the sinc function <https://splinekit.github.io/splinekit-jupyterlite/notebooks/index.html?path=bspline_sinc.ipynb>`_
+    `Convergence of the cardinal B-spline to the sinc function <https://splinekit.github.io/splinekit-jupyterlite/lab/?path=bspline/bases/bspline_sinc.ipynb&mode=single-document>`_
 
 ----
 
@@ -166,7 +166,7 @@ Here, we show a dual B-spline indexed by its dual degree :math:`n_{2}` and its p
 
 ..  admonition:: Jupyter Lab notebook
 
-    `Dual B-spline <https://splinekit.github.io/splinekit-jupyterlite/notebooks/index.html?path=bspline_dual.ipynb>`_
+    `Dual B-spline <https://splinekit.github.io/splinekit-jupyterlite/lab/?path=bspline/bases/bspline_dual.ipynb&mode=single-document>`_
 
 Defining Property of Dual B-Splines
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -176,7 +176,7 @@ We verify now visually over the range :math:`x\in[-15,15]` that
 
 ..  admonition:: Jupyter Lab notebook
 
-    `Dual B-spline property <https://splinekit.github.io/splinekit-jupyterlite/notebooks/index.html?path=bspline_dual_property.ipynb>`_
+    `Dual B-spline property <https://splinekit.github.io/splinekit-jupyterlite/lab/?path=bspline/bases/bspline_dual_property.ipynb&mode=single-document>`_
 
 ----
 
@@ -205,7 +205,7 @@ Here, we show an orthonormal B-spline indexed by its degree :math:`n.`
 
 ..  admonition:: Jupyter Lab notebook
 
-    `Orthonormal B-spline <https://splinekit.github.io/splinekit-jupyterlite/notebooks/index.html?path=bspline_ortho.ipynb>`_
+    `Orthonormal B-spline <https://splinekit.github.io/splinekit-jupyterlite/lab/?path=bspline/bases/bspline_ortho.ipynb&mode=single-document>`_
 
 Defining Property of Orthonormal B-Splines
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -215,5 +215,4 @@ We verify now visually over the range :math:`x\in[-15,15]` that
 
 ..  admonition:: Jupyter Lab notebook
 
-    `Orthonormal B-spline property <https://splinekit.github.io/splinekit-jupyterlite/notebooks/index.html?path=bspline_ortho_property.ipynb>`_
-
+    `Orthonormal B-spline property <https://splinekit.github.io/splinekit-jupyterlite/lab/?path=bspline/bases/bspline_ortho_property.ipynb&mode=single-document>`_

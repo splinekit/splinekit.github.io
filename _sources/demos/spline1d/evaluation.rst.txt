@@ -13,7 +13,7 @@ How to evaluate a periodic one-dimensional spline at just one argument or at a s
 Linear-Algebra Formulation
 --------------------------
 
-The obects that the class ``PeriodicSpline1D`` operates upon are mathematical functions and consist in descriptions of mappings :math:`f:{\mathbb{R}}\rightarrow{\mathbb{R}},x\mapsto f(x).` Oftentimes, the class allows one to obtain a new *mapping* from an existing one, for instance the gradient of a spline (not just a number but the whole function :math:`\dot{f}`) out of its original form :math:`f.` This is all good, but one is sometimes also interested in the more mundane goal of experimenting with a fixed mapping, typically to ask to what number :math:`f(x)\in{\mathbb{R}}` is the argument :math:`x\in{\mathbb{R}}` mapped to by :math:`f:{\mathbb{R}}\rightarrow{\mathbb{R}}.` The ``splinekit`` library  offers two possibilities to address this goal.
+The objects that the class ``PeriodicSpline1D`` operates upon are mathematical functions and consist in descriptions of mappings :math:`f:{\mathbb{R}}\rightarrow{\mathbb{R}},x\mapsto f(x).` Oftentimes, the class allows one to obtain a new *mapping* from an existing one, for instance the gradient of a spline (not just a number but the whole function :math:`\dot{f}`) out of its original form :math:`f.` This is all good, but one is sometimes also interested in the more mundane goal of experimenting with a fixed mapping, typically to ask to what number :math:`f(x)\in{\mathbb{R}}` is the argument :math:`x\in{\mathbb{R}}` mapped to by :math:`f:{\mathbb{R}}\rightarrow{\mathbb{R}}.` The ``splinekit`` library  offers two possibilities to address this goal.
 
 *   ``PeriodicSpline1D.at`` returns the value :math:`f(x)` of the spline :math:`f` evaluated at :math:`x.`
 *   ``PeriodicSpline1D.get_samples`` returns an array of values at arguments separated by a constant step.
@@ -21,7 +21,7 @@ The obects that the class ``PeriodicSpline1D`` operates upon are mathematical fu
 The two possibilities rely on the recipe followed by all one-dimensional uniform polynomial splines of nonnegative integer degree :math:`n\in{\mathbb{N}},` according to which an argument :math:`x` is mapped to the value
 
 ..  math::
-        f(x)=\sum_{k\in{\mathbb{Z}}}\,c[{k\bmod K}]\,\beta^{n}(x-\delta x -k),
+        f(x)=\sum_{k\in{\mathbb{Z}}}\,c[{k\bmod K}]\,\beta^{n}(x-\delta x-k),
 
 where :math:`K\in{\mathbb{N}}+1` is a positive integer period, :math:`c` is an arbitrary array of :math:`K` spline coefficients, :math:`\beta^{n}` is a B-spline whose degree :math:`n` is typeset in superscript (not a power), and :math:`\delta x\in{\mathbb{R}}` is an arbitrary delay. Put simply, a spline is a weighted sum of shifted B-splines.
 
@@ -44,7 +44,7 @@ To evaluate a one-dimensional periodic spline :math:`f` of positive degree :math
 
 ..  admonition:: Jupyter Lab notebook
 
-    `Single argument <https://splinekit.github.io/splinekit-jupyterlite/notebooks/index.html?path=spline_at_scalar.ipynb>`_
+    `Single argument <https://splinekit.github.io/splinekit-jupyterlite/lab/?path=periodic-spline/eval/spline_at_scalar.ipynb&mode=single-document>`_
 
 ----
 
@@ -55,7 +55,7 @@ We want now to evaluate :math:`f(x)` at the :math:`L\,M` arguments :math:`x\in\l
 
 ..  admonition:: Jupyter Lab notebook
 
-    `Multiple arguments <https://splinekit.github.io/splinekit-jupyterlite/notebooks/index.html?path=spline_at_array.ipynb>`_
+    `Multiple arguments <https://splinekit.github.io/splinekit-jupyterlite/lab/?path=periodic-spline/eval/spline_at_array.ipynb&mode=single-document>`_
 
 ----
 
@@ -76,7 +76,7 @@ To ascertain their benefit, we propose to time the determination of regularly sp
 
 ..  admonition:: Jupyter Lab notebook
 
-    `Scalar vs array <https://splinekit.github.io/splinekit-jupyterlite/notebooks/index.html?path=spline_evaluation_speed.ipynb>`_
+    `Scalar vs array <https://splinekit.github.io/splinekit-jupyterlite/lab/?path=periodic-spline/eval/spline_evaluation_speed.ipynb&mode=single-document>`_
 
 ..  hint::
     The notebook is available for download in compressed form from

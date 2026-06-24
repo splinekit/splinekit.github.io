@@ -124,5 +124,4 @@ We give now a piece of code that illustrates visually how a periodic random spli
 
 ..  admonition:: Jupyter Lab notebook
 
-    `Change of basis <https://splinekit.github.io/splinekit-jupyterlite/notebooks/index.html?path=padding_bases.ipynb>`_
-
+    `Change of basis <https://splinekit.github.io/splinekit-jupyterlite/lab/?path=padding/change-basis/padding_bases.ipynb&mode=single-document>`_

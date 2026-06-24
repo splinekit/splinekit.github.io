@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Random One-Dimensional Splines &mdash; splinekit  documentation</title>
+  <title>Simple Operations on Periodic Splines &mdash; splinekit  documentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=9edc463e" />
       <link rel="stylesheet" type="text/css" href="../../_static/plot_directive.css" />
@@ -26,8 +26,8 @@
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Random Two-Dimensional Spline Curves" href="random2d.html" />
-    <link rel="prev" title="Plots of Periodic One-Dimensional Splines" href="plot.html" /> 
+    <link rel="next" title="Spline Statistics" href="stats.html" />
+    <link rel="prev" title="Constructors of Periodic One-Dimensional Splines" href="constructors.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -56,13 +56,13 @@
 <li class="toctree-l2"><a class="reference internal" href="../padding/index.html">Padding [toc]</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="index.html">Periodic Splines [toc]</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="plot.html">Plots of Periodic One-Dimensional Splines</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">Random One-Dimensional Splines</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#spline-real-functions">Spline Real Functions</a></li>
-</ul>
-</li>
+<li class="toctree-l3"><a class="reference internal" href="random1d.html">Random One-Dimensional Splines</a></li>
 <li class="toctree-l3"><a class="reference internal" href="random2d.html">Random Two-Dimensional Spline Curves</a></li>
 <li class="toctree-l3"><a class="reference internal" href="constructors.html">Constructors of Periodic One-Dimensional Splines</a></li>
-<li class="toctree-l3"><a class="reference internal" href="simple_ops.html">Simple Operations on Periodic Splines</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Simple Operations on Periodic Splines</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#purpose">Purpose</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="stats.html">Spline Statistics</a></li>
 <li class="toctree-l3"><a class="reference internal" href="polynomials.html">Polynomial Pieces of Splines</a></li>
 <li class="toctree-l3"><a class="reference internal" href="evaluation.html">Evaluation of Splines</a></li>
@@ -98,9 +98,9 @@
       <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../index.html">Demos [toc]</a></li>
           <li class="breadcrumb-item"><a href="index.html">Periodic Splines [toc]</a></li>
-      <li class="breadcrumb-item active">Random One-Dimensional Splines</li>
+      <li class="breadcrumb-item active">Simple Operations on Periodic Splines</li>
       <li class="wy-breadcrumbs-aside">
-              <a href="https://github.com/Philippe-Thevenaz/splinekit/blob/main/docs/demos/spline1d/random1d.rst" class="fa fa-github"> Edit on GitHub</a>
+              <a href="https://github.com/Philippe-Thevenaz/splinekit/blob/main/docs/demos/spline1d/simple_ops.rst" class="fa fa-github"> Edit on GitHub</a>
       </li>
   </ul>
   <hr/>
@@ -108,24 +108,37 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="random-one-dimensional-splines">
-<h1>Random One-Dimensional Splines<a class="headerlink" href="#random-one-dimensional-splines" title="Link to this heading"></a></h1>
-<p>Display of a random one-dimensional spline that evolves dynamically.</p>
+  <section id="simple-operations-on-periodic-splines">
+<h1>Simple Operations on Periodic Splines<a class="headerlink" href="#simple-operations-on-periodic-splines" title="Link to this heading"></a></h1>
+<p>How to add a delay, add a constant, multiply by a constant, negate, and mirror a one-dimensional spline.</p>
 <hr class="docutils" />
-<section id="spline-real-functions">
-<h2>Spline Real Functions<a class="headerlink" href="#spline-real-functions" title="Link to this heading"></a></h2>
-<p>One-dimensional uniform polynomial splines are functions that map a real number to a real number. They follow a recipe whereby they are made of the sum of integer-shifted and weighted synthesis functions called B-splines. The weights are numbers that parameterize the spline and give its versatility. The synthesis functions endow the spline with its unique characteristics—its smoothness, typically. Formally, we write a spline function <span class="math notranslate nohighlight">\(f\)</span> as</p>
-<div class="math notranslate nohighlight">
-\[f:{\mathbb{R}}\rightarrow{\mathbb{R}},\;x\mapsto f(x)=\sum_{k\in{\mathbb{Z}}}\,c[k]\,\beta^{n}(x-k).\]</div>
-<p>There, <span class="math notranslate nohighlight">\(c\)</span> are the weights; moreover, <span class="math notranslate nohighlight">\(\beta^{n}:{\mathbb{R}}\rightarrow{\mathbb{R}}\)</span> is the polynomial B-spline, where the superscript (not the power) <span class="math notranslate nohighlight">\(n\in{\mathbb{N}}\)</span> gives the nonnegative integer degree of the synthesis function. By linearity (sigma-linearity is not needed here because B-splines have a finite support), the spline <span class="math notranslate nohighlight">\(f\)</span> inherits the properties of continuity and differentiability of the B-spline <span class="math notranslate nohighlight">\(\beta^{n}.\)</span></p>
-<p>Let us now set <span class="math notranslate nohighlight">\(n=3\)</span> and focus on the integer translates of a cubic B-spline. It turns out that the spline built out of them will be made of piecewise (cubic) polynomials that join in such a way that a general cubic spline can always be continuously differentiated twice (but not necessarily three times) and can always be (possibly discontinuously) differentiated thrice (but not necessarily four times); and this, for any arbitrary choice of coefficients.</p>
-<p>Put simply, cubic splines are rather smooth.</p>
-<p>In this formulation, the freedom of choice of the coefficients is what gives splines their plasticity and allows them to be used as valuable continuously defined models of data. In particular, the model comes in handy whenever one desires to evaluate the spline <span class="math notranslate nohighlight">\(f\)</span> at some arbitrary coordinate <span class="math notranslate nohighlight">\(x\in{\mathbb{R}},\)</span> with the purpose of accessing the value <span class="math notranslate nohighlight">\(f(x).\)</span> Even more, the true gradient <span class="math notranslate nohighlight">\(\dot{f}\)</span> and the true derivatives of higher order such as <span class="math notranslate nohighlight">\(\{\ddot{f}, \dddot{f},\ldots\}\)</span> can also be accessed exactly, without having to resort to finite-difference approximations. This goes a long way to remove one layer of concern regarding the design of any algorithm that would rely on such differential quantities.</p>
-<p>We give now a piece of code that animates a spline whose coefficients are drawn at random according to a normal Gaussian distribution, independently from one another.</p>
+<section id="purpose">
+<h2>Purpose<a class="headerlink" href="#purpose" title="Link to this heading"></a></h2>
+<p>Let <span class="math notranslate nohighlight">\(f:{\mathbb{R}}\rightarrow{\mathbb{R}},x\mapsto f(x)\)</span> represent some polynomial periodic spline. It is a parametric real function that is characterized not only by spline coefficients that allow one to fit data, but also by overall parameters that encode its integer period, its integer degree, and its delay. What we want to do is to build another spline <span class="math notranslate nohighlight">\(g\)</span> as a transformed version of <span class="math notranslate nohighlight">\(f.\)</span> Here, we shall consider only trivial transformations.</p>
+<section id="additional-delay">
+<h3>Additional Delay<a class="headerlink" href="#additional-delay" title="Link to this heading"></a></h3>
+<p>The delay of <span class="math notranslate nohighlight">\(f\)</span> can be manipulated so that <span class="math notranslate nohighlight">\(g\)</span> is a translated version of <span class="math notranslate nohighlight">\(f,\)</span> with <span class="math notranslate nohighlight">\(g:{\mathbb{R}}\rightarrow{\mathbb{R}},x\mapsto g(x)=f(x+\lambda).\)</span> There, <span class="math notranslate nohighlight">\(\lambda\in{\mathbb{R}}\)</span> is the additional delay. The instance function <code class="docutils literal notranslate"><span class="pre">delayed_by</span></code> can be used for that purpose.</p>
+</section>
+<section id="addition-of-a-constant">
+<h3>Addition of a Constant<a class="headerlink" href="#addition-of-a-constant" title="Link to this heading"></a></h3>
+<p>The spline coefficients of <span class="math notranslate nohighlight">\(f\)</span> can be manipulated so that <span class="math notranslate nohighlight">\(g\)</span> is a value-offset version of <span class="math notranslate nohighlight">\(f,\)</span> with <span class="math notranslate nohighlight">\(g:{\mathbb{R}}\rightarrow{\mathbb{R}},x\mapsto g(x)=\lambda+f(x).\)</span> There, <span class="math notranslate nohighlight">\(\lambda\in{\mathbb{R}}\)</span> is the constant value offset. The instance function <code class="docutils literal notranslate"><span class="pre">plus</span></code> can be used for that purpose.</p>
+</section>
+<section id="multiplication-by-a-constant">
+<h3>Multiplication by a Constant<a class="headerlink" href="#multiplication-by-a-constant" title="Link to this heading"></a></h3>
+<p>The spline coefficients of <span class="math notranslate nohighlight">\(f\)</span> can be manipulated so that <span class="math notranslate nohighlight">\(g\)</span> is a value-scaled version of <span class="math notranslate nohighlight">\(f,\)</span> with <span class="math notranslate nohighlight">\(g:{\mathbb{R}}\rightarrow{\mathbb{R}},x\mapsto g(x)=\lambda\,f(x).\)</span> There, <span class="math notranslate nohighlight">\(\lambda\in{\mathbb{R}}\)</span> is the constant value-scaling factor. The instance function <code class="docutils literal notranslate"><span class="pre">times</span></code> can be used for that purpose.</p>
+</section>
+<section id="negation">
+<h3>Negation<a class="headerlink" href="#negation" title="Link to this heading"></a></h3>
+<p>The need may arise to have <span class="math notranslate nohighlight">\(g\)</span> represent <span class="math notranslate nohighlight">\(f\)</span> multiplied by the specific constant <span class="math notranslate nohighlight">\(\lambda=\left(-1\right),\)</span> with <span class="math notranslate nohighlight">\(g:{\mathbb{R}}\rightarrow{\mathbb{R}},x\mapsto g(x)=\left(-f(x)\right).\)</span> The instance function <code class="docutils literal notranslate"><span class="pre">negated</span></code> can be used for that purpose.</p>
+</section>
+<section id="mirroring">
+<h3>Mirroring<a class="headerlink" href="#mirroring" title="Link to this heading"></a></h3>
+<p>The spline coefficients of <span class="math notranslate nohighlight">\(f,\)</span> along with its delay, can be manipulated so that <span class="math notranslate nohighlight">\(g\)</span> is a mirrored version of <span class="math notranslate nohighlight">\(f,\)</span> with <span class="math notranslate nohighlight">\(g:{\mathbb{R}}\rightarrow{\mathbb{R}},x\mapsto g(x)=f(-x).\)</span> The instance function <code class="docutils literal notranslate"><span class="pre">mirrored</span></code> can be used for that purpose.</p>
 <div class="admonition-jupyter-lab-notebook admonition">
 <p class="admonition-title">Jupyter Lab notebook</p>
-<p><a class="reference external" href="https://splinekit.github.io/splinekit-jupyterlite/lab/?path=periodic-spline/random-1d/spline_random_1d.ipynb&amp;mode=single-document">Random 1D spline</a></p>
+<p><a class="reference external" href="https://splinekit.github.io/splinekit-jupyterlite/lab/?path=periodic-spline/ops/spline_simple_ops.ipynb&amp;mode=single-document">Simple operations</a></p>
 </div>
+</section>
 </section>
 </section>
 
@@ -133,8 +146,8 @@
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="plot.html" class="btn btn-neutral float-left" title="Plots of Periodic One-Dimensional Splines" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="random2d.html" class="btn btn-neutral float-right" title="Random Two-Dimensional Spline Curves" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="constructors.html" class="btn btn-neutral float-left" title="Constructors of Periodic One-Dimensional Splines" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="stats.html" class="btn btn-neutral float-right" title="Spline Statistics" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

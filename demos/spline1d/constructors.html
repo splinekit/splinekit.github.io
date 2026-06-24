@@ -26,7 +26,7 @@
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Polynomial Pieces of Splines" href="polynomials.html" />
+    <link rel="next" title="Simple Operations on Periodic Splines" href="simple_ops.html" />
     <link rel="prev" title="Random Two-Dimensional Spline Curves" href="random2d.html" /> 
 </head>
 
@@ -55,12 +55,15 @@
 <li class="toctree-l2"><a class="reference internal" href="../bspline/index.html">B-Splines [toc]</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../padding/index.html">Padding [toc]</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="index.html">Periodic Splines [toc]</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="plot.html">Plots of Periodic One-Dimensional Splines</a></li>
 <li class="toctree-l3"><a class="reference internal" href="random1d.html">Random One-Dimensional Splines</a></li>
 <li class="toctree-l3"><a class="reference internal" href="random2d.html">Random Two-Dimensional Spline Curves</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">Constructors of Periodic One-Dimensional Splines</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#periodic-one-dimensional-spline-objects">Periodic One-Dimensional Spline Objects</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#periodic-one-dimensional-splines">Periodic One-Dimensional Splines</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="simple_ops.html">Simple Operations on Periodic Splines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="stats.html">Spline Statistics</a></li>
 <li class="toctree-l3"><a class="reference internal" href="polynomials.html">Polynomial Pieces of Splines</a></li>
 <li class="toctree-l3"><a class="reference internal" href="evaluation.html">Evaluation of Splines</a></li>
 <li class="toctree-l3"><a class="reference internal" href="bounds.html">Upper and Lower Bounds of Splines</a></li>
@@ -109,8 +112,8 @@
 <h1>Constructors of Periodic One-Dimensional Splines<a class="headerlink" href="#constructors-of-periodic-one-dimensional-splines" title="Link to this heading"></a></h1>
 <p>How to create a periodic one-dimensional spline that interpolates data samples.</p>
 <hr class="docutils" />
-<section id="periodic-one-dimensional-spline-objects">
-<h2>Periodic One-Dimensional Spline Objects<a class="headerlink" href="#periodic-one-dimensional-spline-objects" title="Link to this heading"></a></h2>
+<section id="periodic-one-dimensional-splines">
+<h2>Periodic One-Dimensional Splines<a class="headerlink" href="#periodic-one-dimensional-splines" title="Link to this heading"></a></h2>
 <p>The class <code class="docutils literal notranslate"><span class="pre">PeriodicSpline1D</span></code> of the <code class="docutils literal notranslate"><span class="pre">splinekit</span></code> library handles continuously defined real functions <span class="math notranslate nohighlight">\(f:{\mathbb{R}}\rightarrow{\mathbb{R}},x\mapsto f(x).\)</span> As maintained by this class in the library, these functions have a few remarkable properties.</p>
 <ul class="simple">
 <li><p>The function <span class="math notranslate nohighlight">\(f\)</span> is periodic, with positive integer period <span class="math notranslate nohighlight">\(K\in{\mathbb{N}}+1\)</span> such that <span class="math notranslate nohighlight">\(\forall x\in{\mathbb{R}}:f(x)=f(x+K).\)</span></p></li>
@@ -149,7 +152,7 @@
 <p>We now propose a few lines of code that create and display a spline that interpolates random samples.</p>
 <div class="admonition-jupyter-lab-notebook admonition">
 <p class="admonition-title">Jupyter Lab notebook</p>
-<p><a class="reference external" href="https://splinekit.github.io/splinekit-jupyterlite/notebooks/index.html?path=spline_interpolation.ipynb">Interpolation</a></p>
+<p><a class="reference external" href="https://splinekit.github.io/splinekit-jupyterlite/lab/?path=periodic-spline/construct/spline_interpolation.ipynb&amp;mode=single-document">Interpolation</a></p>
 </div>
 </section>
 <section id="from-noisy-samples">
@@ -157,7 +160,7 @@
 <p>We now propose a few lines of code that create and display a smooth spline that performs the approximate interpolation of random samples.</p>
 <div class="admonition-jupyter-lab-notebook admonition">
 <p class="admonition-title">Jupyter Lab notebook</p>
-<p><a class="reference external" href="https://splinekit.github.io/splinekit-jupyterlite/notebooks/index.html?path=spline_approximation.ipynb">Smoothed interpolation</a></p>
+<p><a class="reference external" href="https://splinekit.github.io/splinekit-jupyterlite/lab/?path=periodic-spline/construct/spline_approximation.ipynb&amp;mode=single-document">Smoothed interpolation</a></p>
 </div>
 </section>
 </section>
@@ -169,7 +172,7 @@
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="random2d.html" class="btn btn-neutral float-left" title="Random Two-Dimensional Spline Curves" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="polynomials.html" class="btn btn-neutral float-right" title="Polynomial Pieces of Splines" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="simple_ops.html" class="btn btn-neutral float-right" title="Simple Operations on Periodic Splines" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

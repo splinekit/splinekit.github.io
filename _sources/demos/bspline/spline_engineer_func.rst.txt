@@ -18,7 +18,7 @@ We give now a piece of code where we verify this property visually over the sing
 
 ..  admonition:: Jupyter Lab notebook
 
-    `Sine from splines <https://splinekit.github.io/splinekit-jupyterlite/notebooks/index.html?path=bspline_vs_sin.ipynb>`_
+    `Sine from splines <https://splinekit.github.io/splinekit-jupyterlite/lab/?path=bspline/mathfunc/bspline_vs_sin.ipynb&mode=single-document>`_
 
 ----
 
@@ -34,7 +34,7 @@ We give now a piece of code where we verify this property visually over the sing
 
 ..  admonition:: Jupyter Lab notebook
 
-    `Cosine from splines <https://splinekit.github.io/splinekit-jupyterlite/notebooks/index.html?path=bspline_vs_cos.ipynb>`_
+    `Cosine from splines <https://splinekit.github.io/splinekit-jupyterlite/lab/?path=bspline/mathfunc/bspline_vs_cos.ipynb&mode=single-document>`_
 
 ----
 
@@ -48,7 +48,7 @@ We give now a piece of code where we verify this property visually over the sing
 
 ..  admonition:: Jupyter Lab notebook
 
-    `Solutions of the trigonometric exercises <https://splinekit.github.io/splinekit-jupyterlite/notebooks/index.html?path=bspline_trigo_exo.ipynb>`_
+    `Solutions of the trigonometric exercises <https://splinekit.github.io/splinekit-jupyterlite/lab/?path=bspline/mathfunc/bspline_trigo_exo.ipynb&mode=single-document>`_
 
 ----
 
@@ -66,7 +66,7 @@ We give now a piece of code where we verify this property visually over the rang
 
 ..  admonition:: Jupyter Lab notebook
 
-    `Exponential from splines <https://splinekit.github.io/splinekit-jupyterlite/notebooks/index.html?path=bspline_vs_exp.ipynb>`_
+    `Exponential from splines <https://splinekit.github.io/splinekit-jupyterlite/lab/?path=bspline/mathfunc/bspline_vs_exp.ipynb&mode=single-document>`_
 
 ----
 
@@ -87,7 +87,7 @@ We give now a piece of code where we verify this property visually over the rang
 
 ..  admonition:: Jupyter Lab notebook
 
-    `erf from splines <https://splinekit.github.io/splinekit-jupyterlite/notebooks/index.html?path=bspline_vs_erf.ipynb>`_
+    `erf from splines <https://splinekit.github.io/splinekit-jupyterlite/lab/?path=bspline/mathfunc/bspline_vs_erf.ipynb&mode=single-document>`_
 
 ----
 
@@ -98,6 +98,4 @@ We give now a piece of code where we verify this property visually over the rang
 
 ..  admonition:: Jupyter Lab notebook
 
-    `Solution of the Gaussian exercises <https://splinekit.github.io/splinekit-jupyterlite/notebooks/index.html?path=bspline_gauss_exo.ipynb>`_
-
-
+    `Solution of the Gaussian exercises <https://splinekit.github.io/splinekit-jupyterlite/lab/?path=bspline/mathfunc/bspline_gauss_exo.ipynb&mode=single-document>`_

@@ -35,7 +35,7 @@ The answer to our primary question is yes. Indeed, for :math:`n>1` there are inf
 
 ..  admonition:: Jupyter Lab notebook
 
-    `B-spline  non-periodic inverse sequence <https://splinekit.github.io/splinekit-jupyterlite/notebooks/index.html?path=bspline_inv.ipynb>`_
+    `B-spline  non-periodic inverse sequence <https://splinekit.github.io/splinekit-jupyterlite/lab/?path=bspline/inverse/bspline_inv.ipynb&mode=single-document>`_
 
 ----
 
@@ -56,4 +56,4 @@ satisfies our periodic-convolution requirement. We show now this sequence for a 
 
 ..  admonition:: Jupyter Lab notebook
 
-    `B-spline  periodic inverse sequence <https://splinekit.github.io/splinekit-jupyterlite/notebooks/index.html?path=bspline_periodic_inv.ipynb>`_
+    `B-spline  periodic inverse sequence <https://splinekit.github.io/splinekit-jupyterlite/lab/?path=bspline/inverse/bspline_periodic_inv.ipynb&mode=single-document>`_

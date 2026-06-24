@@ -17,7 +17,7 @@ In the following Jupyter Lab notebook, we plot a visual representation of that f
 
 ..  admonition:: Jupyter Lab notebook
 
-    `Value of a B-spline at the origin <https://splinekit.github.io/splinekit-jupyterlite/notebooks/index.html?path=bspline_vs_pi_at0.ipynb>`_
+    `Value of a B-spline at the origin <https://splinekit.github.io/splinekit-jupyterlite/lab/?path=bspline/vs-pi/bspline_vs_pi_at0.ipynb&mode=single-document>`_
 
 ----
 
@@ -33,4 +33,4 @@ In the following Jupyter Lab notebook, we plot a visual representation of that f
 
 ..  admonition:: Jupyter Lab notebook
 
-    `Alternating sum of samples <https://splinekit.github.io/splinekit-jupyterlite/notebooks/index.html?path=bspline_vs_pi_as_sum.ipynb>`_
+    `Alternating sum of samples <https://splinekit.github.io/splinekit-jupyterlite/lab/?path=bspline/vs-pi/bspline_vs_pi_as_sum.ipynb&mode=single-document>`_

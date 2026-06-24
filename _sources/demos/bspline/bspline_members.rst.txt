@@ -12,7 +12,7 @@ A polynomial B-spline is a function that is characterized by its degree, has a f
 
 ..  admonition:: Jupyter Lab notebook
 
-    `Polynomial B-spline <https://splinekit.github.io/splinekit-jupyterlite/notebooks/index.html?path=bspline_member.ipynb>`_
+    `Polynomial B-spline <https://splinekit.github.io/splinekit-jupyterlite/lab/?path=bspline/members/bspline_member.ipynb&mode=single-document>`_
 
 ----
 
@@ -23,7 +23,7 @@ B-spline polynomial functions are as smooth as one can get them to be. As they a
 
 ..  admonition:: Jupyter Lab notebook
 
-    `Polynomial B-spline derivatives <https://splinekit.github.io/splinekit-jupyterlite/notebooks/index.html?path=bspline_member_diff.ipynb>`_
+    `Polynomial B-spline derivatives <https://splinekit.github.io/splinekit-jupyterlite/lab/?path=bspline/members/bspline_member_diff.ipynb&mode=single-document>`_
 
 ----
 
@@ -34,4 +34,4 @@ The integral of a B-spline of some degree, from minus infinity to some upper lim
 
 ..  admonition:: Jupyter Lab notebook
 
-    `Polynomial B-spline integral <https://splinekit.github.io/splinekit-jupyterlite/notebooks/index.html?path=bspline_member_integral.ipynb>`_
+    `Polynomial B-spline integral <https://splinekit.github.io/splinekit-jupyterlite/lab/?path=bspline/members/bspline_member_integral.ipynb&mode=single-document>`_

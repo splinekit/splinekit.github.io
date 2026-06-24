@@ -56,7 +56,7 @@
 <li class="toctree-l2 current"><a class="reference internal" href="index.html">Padding [toc]</a><ul class="current">
 <li class="toctree-l3 current"><a class="current reference internal" href="#">Padding</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#purpose">Purpose</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#unicity">Unicity</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#uniqueness">Uniqueness</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#available-paddings">Available Paddings</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#periodic-padding">Periodic Padding</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#narrow-mirror-padding">Narrow-Mirror Padding</a></li>
@@ -131,8 +131,8 @@
 </ul>
 <p>Many more padding recipes can be devised. Which one is the best in the context of your application is only a matter of convenience.</p>
 </section>
-<section id="unicity">
-<h2>Unicity<a class="headerlink" href="#unicity" title="Link to this heading"></a></h2>
+<section id="uniqueness">
+<h2>Uniqueness<a class="headerlink" href="#uniqueness" title="Link to this heading"></a></h2>
 <p>In the sequel, we let <span class="math notranslate nohighlight">\(\varphi\)</span> be a polynomial B-spline of nonnegative integer degree <span class="math notranslate nohighlight">\(n,\)</span> which is a real function <span class="math notranslate nohighlight">\(\beta^{n}:{\mathbb{R}}\rightarrow{\mathbb{R}},x\mapsto\beta^{n}(x).\)</span> For any degree <span class="math notranslate nohighlight">\(n\geq2\)</span> and for <span class="math notranslate nohighlight">\(m\in[1\ldots\left\lfloor n/2\right\rfloor],\)</span> it is known that there exist <span class="math notranslate nohighlight">\(\left\lfloor n/2\right\rfloor\)</span> mutually different, real, negative numbers <span class="math notranslate nohighlight">\(z_{n,m}\)</span> in the open interval <span class="math notranslate nohighlight">\((-1,0)\)</span> that satisfy the relation</p>
 <div class="math notranslate nohighlight">
 \[\frac{1}{\sum_{k\in{\mathbb{Z}}}\,\beta^{n}(k)\,z_{n,m}^{-k}}\not\in{\mathbb{C}}.\]</div>
@@ -142,7 +142,7 @@
 </section>
 <section id="available-paddings">
 <h2>Available Paddings<a class="headerlink" href="#available-paddings" title="Link to this heading"></a></h2>
-<p>The unobserved samples are, well, unobserved. Consequently, every strategy that assigns specific values to them is valid, but some are less practical than others. The <code class="docutils literal notranslate"><span class="pre">splinekit</span></code> library deals with paddings of low complexity; in particular, we focus on some for which the overall organization of <span class="math notranslate nohighlight">\(c,\)</span> <span class="math notranslate nohighlight">\(y,\)</span> and <span class="math notranslate nohighlight">\(f\)</span> can be made consistent and solves the unicity issue. The seven paddings being considered are</p>
+<p>The unobserved samples are, well, unobserved. Consequently, every strategy that assigns specific values to them is valid, but some are less practical than others. The <code class="docutils literal notranslate"><span class="pre">splinekit</span></code> library deals with paddings of low complexity; in particular, we focus on some for which the overall organization of <span class="math notranslate nohighlight">\(c,\)</span> <span class="math notranslate nohighlight">\(y,\)</span> and <span class="math notranslate nohighlight">\(f\)</span> can be made consistent and solves the uniqueness issue. The seven paddings being considered are</p>
 <ul class="simple">
 <li><p>Periodic</p></li>
 <li><p>Narrow Mirror</p></li>
@@ -152,12 +152,12 @@
 <li><p>Nega-Narrow Mirror</p></li>
 <li><p>Nega-Wide Mirror</p></li>
 </ul>
-<p>Except for the anti-mirror padding, all proposed forms honor some sort of periodicity over <span class="math notranslate nohighlight">\(c,\)</span> albeit the length of a period may differ from the number <span class="math notranslate nohighlight">\(K\)</span> of observed samples. The periodicity of <span class="math notranslate nohighlight">\(c\)</span> then implies that <span class="math notranslate nohighlight">\(y\)</span> and <span class="math notranslate nohighlight">\(f\)</span> are likewise periodic; moreover, the trivial choice <span class="math notranslate nohighlight">\(\lambda_{n,m}^{-}=0\)</span> and <span class="math notranslate nohighlight">\(\lambda_{n,m}^{+}=0\)</span> is the only one that results in the alternative versions <span class="math notranslate nohighlight">\(c'\)</span> of <span class="math notranslate nohighlight">\(c\)</span> being periodic, too, which ensures the unicity of the method and makes the interpolation problem well-defined. In the case of the anti-mirror padding, a similar reasoning also leads to the unicity of the solution.</p>
+<p>Except for the anti-mirror padding, all proposed forms honor some sort of periodicity over <span class="math notranslate nohighlight">\(c,\)</span> albeit the length of a period may differ from the number <span class="math notranslate nohighlight">\(K\)</span> of observed samples. The periodicity of <span class="math notranslate nohighlight">\(c\)</span> then implies that <span class="math notranslate nohighlight">\(y\)</span> and <span class="math notranslate nohighlight">\(f\)</span> are likewise periodic; moreover, the trivial choice <span class="math notranslate nohighlight">\(\lambda_{n,m}^{-}=0\)</span> and <span class="math notranslate nohighlight">\(\lambda_{n,m}^{+}=0\)</span> is the only one that results in the alternative versions <span class="math notranslate nohighlight">\(c'\)</span> of <span class="math notranslate nohighlight">\(c\)</span> being periodic, too, which ensures uniqueness and makes the interpolation problem well-defined. In the case of the anti-mirror padding, a similar reasoning also leads to the uniqueness of the solution.</p>
 <p><strong>Side Note</strong> <em>The periodicity of the coefficients implies the periodicity of the samples, but the periodicity of the samples does not necessarily imply that the the coefficients are periodic. Indeed, the constants</em> <span class="math notranslate nohighlight">\(\lambda_{n,m}^{-},\lambda_{n,m}^{+}\)</span> <em>can still be chosen arbitrarily to parameterize a family of coefficients that satisfy the interpolation constraint, even for periodic samples. In general, only one member of this family will have the same periodicity as that of the samples.</em></p>
 <p>We give now a piece of code that illustrates visually the effect of the various paddings on random splines of a specified degree.</p>
 <div class="admonition-jupyter-lab-notebook admonition">
 <p class="admonition-title">Jupyter Lab notebook</p>
-<p><a class="reference external" href="https://splinekit.github.io/splinekit-jupyterlite/notebooks/index.html?path=padding_data.ipynb">Padded splines</a></p>
+<p><a class="reference external" href="https://splinekit.github.io/splinekit-jupyterlite/lab/?path=padding/padding/padding_data.ipynb&amp;mode=single-document">Padded splines</a></p>
 </div>
 </section>
 <hr class="docutils" />
@@ -195,7 +195,7 @@
 </div>
 <div class="admonition-jupyter-lab-notebook admonition">
 <p class="admonition-title">Jupyter Lab notebook</p>
-<p><a class="reference external" href="https://splinekit.github.io/splinekit-jupyterlite/notebooks/index.html?path=padding_speed.ipynb">Recursive vs Fourier</a></p>
+<p><a class="reference external" href="https://splinekit.github.io/splinekit-jupyterlite/lab/?path=padding/padding/padding_speed.ipynb&amp;mode=single-document">Recursive vs Fourier</a></p>
 </div>
 <div class="admonition hint">
 <p class="admonition-title">Hint</p>

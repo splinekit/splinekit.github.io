@@ -1,0 +1,183 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Spline Statistics &mdash; splinekit  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../../_static/plot_directive.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+      <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=2f8eb179" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+      <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Polynomial Pieces of Splines" href="polynomials.html" />
+    <link rel="prev" title="Simple Operations on Periodic Splines" href="simple_ops.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            splinekit
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Demos [toc]</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../bspline/index.html">B-Splines [toc]</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../padding/index.html">Padding [toc]</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Periodic Splines [toc]</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="plot.html">Plots of Periodic One-Dimensional Splines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="random1d.html">Random One-Dimensional Splines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="random2d.html">Random Two-Dimensional Spline Curves</a></li>
+<li class="toctree-l3"><a class="reference internal" href="constructors.html">Constructors of Periodic One-Dimensional Splines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="simple_ops.html">Simple Operations on Periodic Splines</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Spline Statistics</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#average-vs-mean">Average <em>vs</em> Mean</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#variance">Variance</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bounds">Bounds</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#illustration">Illustration</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="polynomials.html">Polynomial Pieces of Splines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="evaluation.html">Evaluation of Splines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bounds.html">Upper and Lower Bounds of Splines</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../installation/index.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../glossary/index.html">Glossary [toc]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../periodic_spline_1d/index.html">Periodic Spline 1D [toc]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../bsplines/index.html">B-Splines [toc]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../spline_padding/index.html">Spline Padding [toc]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../bases/index.html">Bases [toc]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../periodic_nonuniform_piecewise/index.html">Periodic Nonuniform Piecewise [toc]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../interval/index.html">Interval [package]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../spline_utilities/index.html">Spline Utilities [toc]</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">splinekit</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Demos [toc]</a></li>
+          <li class="breadcrumb-item"><a href="index.html">Periodic Splines [toc]</a></li>
+      <li class="breadcrumb-item active">Spline Statistics</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/Philippe-Thevenaz/splinekit/blob/main/docs/demos/spline1d/stats.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="spline-statistics">
+<h1>Spline Statistics<a class="headerlink" href="#spline-statistics" title="Link to this heading"></a></h1>
+<p>How to obtain the mean, the variance, and the image of a periodic one-dimensional spline.</p>
+<hr class="docutils" />
+<section id="average-vs-mean">
+<h2>Average <em>vs</em> Mean<a class="headerlink" href="#average-vs-mean" title="Link to this heading"></a></h2>
+<p>We take the average value of the function <span class="math notranslate nohighlight">\(f:{\mathbb{R}}\rightarrow{\mathbb{R}},x\mapsto f(x)\)</span> over some set <span class="math notranslate nohighlight">\(\Omega\)</span> to be the quantity <span class="math notranslate nohighlight">\(\mu=\int_{\Omega}\,f(x)\,\frac{{\mathrm{d}}x}{\left|\Omega\right|},\)</span> where <span class="math notranslate nohighlight">\(\left|\Omega\right|\)</span> is some measure of the size of <span class="math notranslate nohighlight">\(\Omega.\)</span> To be sure, the precise definition of this measure would take us on a journey that would lead us far away from the familiar territory of calculus, so we shall assume for simplicity that <span class="math notranslate nohighlight">\(\Omega\)</span> is but just one bounded and non-degenerate interval, and that <span class="math notranslate nohighlight">\(f\)</span> is such that it can be integrated in the simplest of all ways, for instance as the limit of a Riemann sum.</p>
+<p>There are cases where <span class="math notranslate nohighlight">\(f\)</span> admits a favorable expression such that <span class="math notranslate nohighlight">\(\mu\)</span> can be found explicitly, but these cases are few and far apart. Most functions show hostility to the treatment, and <span class="math notranslate nohighlight">\(\mu\)</span> cannot be accessed through the tools of analysis. Even in such adverse cases, however, the Riemann sum still gives us an estimate of <span class="math notranslate nohighlight">\(\mu\)</span> that is easily computed as <span class="math notranslate nohighlight">\(\tilde{\mu}=\sum_{k'=0}^{N-1}\,f(k')\,\frac{1}{N},\)</span> with <span class="math notranslate nohighlight">\(N\)</span> a positive integer. This surrogate computation demands that the interval <span class="math notranslate nohighlight">\(\Omega=[0,N]\)</span> be partitioned into <span class="math notranslate nohighlight">\(N\)</span> subintervals of unit length. (A linear change of variable over <span class="math notranslate nohighlight">\(f\)</span> is all it takes to estimate the average over any arbitrary interval, with arbitrary rational length of the subintervals.)</p>
+<p>An <em>average</em> is the name given to <span class="math notranslate nohighlight">\(\mu\)</span> and a <em>mean</em> is the name given to <span class="math notranslate nohighlight">\(\tilde{\mu}.\)</span> For finite <span class="math notranslate nohighlight">\(N,\)</span> they differ for nearly every function one can think of; yet, remarkably, they do coincide in the cases where <span class="math notranslate nohighlight">\(f\)</span> is a periodic polynomial spline of period <span class="math notranslate nohighlight">\(K,\)</span> with</p>
+<div class="math notranslate nohighlight">
+\[\int_{0}^{K}\,f(x)\,\frac{{\mathrm{d}}x}{K}=\mu=\tilde{\mu}=\sum_{k'=0}^{K-1}\,f(k')\,\frac{1}{K}\]</div>
+<p>whenever <span class="math notranslate nohighlight">\(f(x)=\sum_{k\in{\mathbb{Z}}}\,c[{k\bmod K}]\,\beta^{n}(x-\delta x-k),\)</span> where <span class="math notranslate nohighlight">\(\left(c[k]\right)_{k=0}^{K-1}\in{\mathbb{R}}^{K}\)</span> is a <span class="math notranslate nohighlight">\(K\)</span>-dimensional vector of spline coefficients and <span class="math notranslate nohighlight">\(\beta^{n}\)</span> is a polynomial B-spline of nonnegative degree <span class="math notranslate nohighlight">\(n\in{\mathbb{N}}.\)</span> Moreover, the equality between average and mean holds for any delay <span class="math notranslate nohighlight">\(\delta x.\)</span></p>
+</section>
+<section id="variance">
+<h2>Variance<a class="headerlink" href="#variance" title="Link to this heading"></a></h2>
+<p>We take the variance of <span class="math notranslate nohighlight">\(f\)</span> over <span class="math notranslate nohighlight">\(\Omega\)</span> to be the quantity <span class="math notranslate nohighlight">\(\sigma^{2}=\int_{\Omega}\,\left(f(x)-\mu\right)^{2}\,\frac{{\mathrm{d}}x}{\left|\Omega\right|}.\)</span> Whenever <span class="math notranslate nohighlight">\(f\)</span> is a periodic spline, this variance can be computed exactly over one period. Even for splines, however, both the biased sample variance <span class="math notranslate nohighlight">\(\sum_{k'=0}^{K-1}\,\left(f(k')-\tilde{\mu}\right)^{2}\,\frac{1}{K}\)</span> and the unbiased sample variance <span class="math notranslate nohighlight">\(\sum_{k'=0}^{K-1}\,\left(f(k')-\tilde{\mu}\right)^{2}\,\frac{1}{K-1}\)</span> return only estimates of <span class="math notranslate nohighlight">\(\sigma^{2}.\)</span></p>
+</section>
+<section id="bounds">
+<h2>Bounds<a class="headerlink" href="#bounds" title="Link to this heading"></a></h2>
+<p>Consider the periodic spline <span class="math notranslate nohighlight">\(f:{\mathbb{R}}\rightarrow{\mathbb{R}},x\mapsto f(x)=\sum_{k\in{\mathbb{Z}}}\,c[{k\bmod K}]\,\beta^{n}(x-\delta x -k),\)</span> along with its vector of samples at the integers <span class="math notranslate nohighlight">\(\left(f(k')\right)_{k'=0}^{K-1}\in{\mathbb{R}}^{K}.\)</span> While it is easy enough to compute <span class="math notranslate nohighlight">\(\tilde{f}_{\min}=\min_{k'=0}^{K-1}\,f(k')\)</span> and <span class="math notranslate nohighlight">\(\tilde{f}_{\max}=\max_{k'=0}^{K-1}\,f(k'),\)</span> there is no guarantee that the spline does not undershoot <span class="math notranslate nohighlight">\(\tilde{f}_{\min}\)</span> or overshoot <span class="math notranslate nohighlight">\(\tilde{f}_{\max}\)</span> for spline degrees above <span class="math notranslate nohighlight">\(1.\)</span> Even for linear splines, a guarantee would exist only for integer delays <span class="math notranslate nohighlight">\(\delta x\in{\mathbb{Z}};\)</span> for non-integer delays, the guarantee disappears.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">splinekit</span></code> library offers an <code class="docutils literal notranslate"><span class="pre">image</span></code> function that returns as an interval the enclosure of the image of the spline over the domain <span class="math notranslate nohighlight">\({\mathbb{R}}.\)</span> The infimum and the supremum of this interval are <span class="math notranslate nohighlight">\(f_{\min}\)</span> and <span class="math notranslate nohighlight">\(f_{\max},\)</span> respectively. While the computations are performed numerically and rely on the determination of the roots of polynomials of degree <span class="math notranslate nohighlight">\(\left(n-1\right),\)</span> they nevertheless provide much more accurate and reliable estimates than <span class="math notranslate nohighlight">\(\tilde{f}_{\min}\)</span> and <span class="math notranslate nohighlight">\(\tilde{f}_{\max}\)</span> do.</p>
+</section>
+<hr class="docutils" />
+<section id="illustration">
+<h2>Illustration<a class="headerlink" href="#illustration" title="Link to this heading"></a></h2>
+<p>We provide now a notebook where one can explore visually the notions we touched above. It allows for the creation of random splines, in the sense that their samples are independent identically distributed realizations of a random variable that follows some specified probability density function. We consider three of them.</p>
+<ul class="simple">
+<li><p><em>Uniform</em> The samples of the spline are drawn over some interval of values, without preference for any one value. The interval is chosen to ensure that the mean of the samples would be <span class="math notranslate nohighlight">\(0\)</span> and that the sampled variance would be <span class="math notranslate nohighlight">\(1\)</span> if there would be infinitely many samples.</p></li>
+<li><p><em>Gaussian</em> The samples of the spline are made to follow a Gaussian normal distribution. They show a tendency to cluster around <span class="math notranslate nohighlight">\(0,\)</span> but large values can also be observed, albeit rarely.</p></li>
+<li><p><em>Cauchy</em> The samples of the spline take erratic values, so much so that it is known that neither their mean nor their variance converges to any definite value when the number of samples grows.</p></li>
+</ul>
+<div class="admonition-jupyter-lab-notebook admonition">
+<p class="admonition-title">Jupyter Lab notebook</p>
+<p><a class="reference external" href="https://splinekit.github.io/splinekit-jupyterlite/lab/?path=periodic-spline/stats/spline_stats.ipynb&amp;mode=single-document">Spline statistics</a></p>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="simple_ops.html" class="btn btn-neutral float-left" title="Simple Operations on Periodic Splines" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="polynomials.html" class="btn btn-neutral float-right" title="Polynomial Pieces of Splines" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright .</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

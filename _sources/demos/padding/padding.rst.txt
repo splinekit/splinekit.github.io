@@ -33,8 +33,8 @@ The engineering of :math:`{\mathbf{y}}\Rightarrow y` is application-dependent an
 
 Many more padding recipes can be devised. Which one is the best in the context of your application is only a matter of convenience.
 
-Unicity
--------
+Uniqueness
+----------
 
 In the sequel, we let :math:`\varphi` be a polynomial B-spline of nonnegative integer degree :math:`n,` which is a real function :math:`\beta^{n}:{\mathbb{R}}\rightarrow{\mathbb{R}},x\mapsto\beta^{n}(x).` For any degree :math:`n\geq2` and for :math:`m\in[1\ldots\left\lfloor n/2\right\rfloor],` it is known that there exist :math:`\left\lfloor n/2\right\rfloor` mutually different, real, negative numbers :math:`z_{n,m}` in the open interval :math:`(-1,0)` that satisfy the relation
 
@@ -50,7 +50,7 @@ The ``splinekit`` library comes equipped with paddings that guarantee the well-d
 Available Paddings
 ------------------
 
-The unobserved samples are, well, unobserved. Consequently, every strategy that assigns specific values to them is valid, but some are less practical than others. The ``splinekit`` library deals with paddings of low complexity; in particular, we focus on some for which the overall organization of :math:`c,` :math:`y,` and :math:`f` can be made consistent and solves the unicity issue. The seven paddings being considered are
+The unobserved samples are, well, unobserved. Consequently, every strategy that assigns specific values to them is valid, but some are less practical than others. The ``splinekit`` library deals with paddings of low complexity; in particular, we focus on some for which the overall organization of :math:`c,` :math:`y,` and :math:`f` can be made consistent and solves the uniqueness issue. The seven paddings being considered are
 
 *   Periodic
 *   Narrow Mirror
@@ -60,7 +60,7 @@ The unobserved samples are, well, unobserved. Consequently, every strategy that 
 *   Nega-Narrow Mirror
 *   Nega-Wide Mirror
 
-Except for the anti-mirror padding, all proposed forms honor some sort of periodicity over :math:`c,` albeit the length of a period may differ from the number :math:`K` of observed samples. The periodicity of :math:`c` then implies that :math:`y` and :math:`f` are likewise periodic; moreover, the trivial choice :math:`\lambda_{n,m}^{-}=0` and :math:`\lambda_{n,m}^{+}=0` is the only one that results in the alternative versions :math:`c'` of :math:`c` being periodic, too, which ensures the unicity of the method and makes the interpolation problem well-defined. In the case of the anti-mirror padding, a similar reasoning also leads to the unicity of the solution.
+Except for the anti-mirror padding, all proposed forms honor some sort of periodicity over :math:`c,` albeit the length of a period may differ from the number :math:`K` of observed samples. The periodicity of :math:`c` then implies that :math:`y` and :math:`f` are likewise periodic; moreover, the trivial choice :math:`\lambda_{n,m}^{-}=0` and :math:`\lambda_{n,m}^{+}=0` is the only one that results in the alternative versions :math:`c'` of :math:`c` being periodic, too, which ensures uniqueness and makes the interpolation problem well-defined. In the case of the anti-mirror padding, a similar reasoning also leads to the uniqueness of the solution.
 
 **Side Note** *The periodicity of the coefficients implies the periodicity of the samples, but the periodicity of the samples does not necessarily imply that the the coefficients are periodic. Indeed, the constants* :math:`\lambda_{n,m}^{-},\lambda_{n,m}^{+}` *can still be chosen arbitrarily to parameterize a family of coefficients that satisfy the interpolation constraint, even for periodic samples. In general, only one member of this family will have the same periodicity as that of the samples.*
 
@@ -68,7 +68,7 @@ We give now a piece of code that illustrates visually the effect of the various 
 
 ..  admonition:: Jupyter Lab notebook
 
-    `Padded splines <https://splinekit.github.io/splinekit-jupyterlite/notebooks/index.html?path=padding_data.ipynb>`_
+    `Padded splines <https://splinekit.github.io/splinekit-jupyterlite/lab/?path=padding/padding/padding_data.ipynb&mode=single-document>`_
 
 ----
 
@@ -116,7 +116,7 @@ The following experiment establishes some simple statistics over the gain in spe
 
 ..  admonition:: Jupyter Lab notebook
 
-    `Recursive vs Fourier <https://splinekit.github.io/splinekit-jupyterlite/notebooks/index.html?path=padding_speed.ipynb>`_
+    `Recursive vs Fourier <https://splinekit.github.io/splinekit-jupyterlite/lab/?path=padding/padding/padding_speed.ipynb&mode=single-document>`_
 
 ..  hint::
     The notebook is available for download in compressed form from

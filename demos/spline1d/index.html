@@ -24,7 +24,7 @@
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Random One-Dimensional Splines" href="random1d.html" />
+    <link rel="next" title="Plots of Periodic One-Dimensional Splines" href="plot.html" />
     <link rel="prev" title="Change of Basis" href="../padding/change_basis.html" /> 
 </head>
 
@@ -53,9 +53,12 @@
 <li class="toctree-l2"><a class="reference internal" href="../bspline/index.html">B-Splines [toc]</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../padding/index.html">Padding [toc]</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Periodic Splines [toc]</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="plot.html">Plots of Periodic One-Dimensional Splines</a></li>
 <li class="toctree-l3"><a class="reference internal" href="random1d.html">Random One-Dimensional Splines</a></li>
 <li class="toctree-l3"><a class="reference internal" href="random2d.html">Random Two-Dimensional Spline Curves</a></li>
 <li class="toctree-l3"><a class="reference internal" href="constructors.html">Constructors of Periodic One-Dimensional Splines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="simple_ops.html">Simple Operations on Periodic Splines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="stats.html">Spline Statistics</a></li>
 <li class="toctree-l3"><a class="reference internal" href="polynomials.html">Polynomial Pieces of Splines</a></li>
 <li class="toctree-l3"><a class="reference internal" href="evaluation.html">Evaluation of Splines</a></li>
 <li class="toctree-l3"><a class="reference internal" href="bounds.html">Upper and Lower Bounds of Splines</a></li>
@@ -119,6 +122,11 @@
 <div class="toctree-wrapper compound">
 <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="plot.html">Plots of Periodic One-Dimensional Splines</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="plot.html#periodic-one-dimensional-spline-objects">Periodic One-Dimensional Spline Objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plot.html#plots">Plots</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="random1d.html">Random One-Dimensional Splines</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="random1d.html#spline-real-functions">Spline Real Functions</a></li>
 </ul>
@@ -132,7 +140,7 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="constructors.html">Constructors of Periodic One-Dimensional Splines</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="constructors.html#periodic-one-dimensional-spline-objects">Periodic One-Dimensional Spline Objects</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="constructors.html#periodic-one-dimensional-splines">Periodic One-Dimensional Splines</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="constructors.html#defining-parameters">Defining Parameters</a></li>
 <li class="toctree-l3"><a class="reference internal" href="constructors.html#regularizations">Regularizations</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="constructors.html#from-noiseless-samples">From Noiseless Samples</a></li>
@@ -141,6 +149,24 @@
 </li>
 </ul>
 </li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="simple_ops.html">Simple Operations on Periodic Splines</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="simple_ops.html#purpose">Purpose</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="simple_ops.html#additional-delay">Additional Delay</a></li>
+<li class="toctree-l3"><a class="reference internal" href="simple_ops.html#addition-of-a-constant">Addition of a Constant</a></li>
+<li class="toctree-l3"><a class="reference internal" href="simple_ops.html#multiplication-by-a-constant">Multiplication by a Constant</a></li>
+<li class="toctree-l3"><a class="reference internal" href="simple_ops.html#negation">Negation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="simple_ops.html#mirroring">Mirroring</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="stats.html">Spline Statistics</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="stats.html#average-vs-mean">Average <em>vs</em> Mean</a></li>
+<li class="toctree-l2"><a class="reference internal" href="stats.html#variance">Variance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="stats.html#bounds">Bounds</a></li>
+<li class="toctree-l2"><a class="reference internal" href="stats.html#illustration">Illustration</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="polynomials.html">Polynomial Pieces of Splines</a><ul>
@@ -198,7 +224,7 @@
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="../padding/change_basis.html" class="btn btn-neutral float-left" title="Change of Basis" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="random1d.html" class="btn btn-neutral float-right" title="Random One-Dimensional Splines" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="plot.html" class="btn btn-neutral float-right" title="Plots of Periodic One-Dimensional Splines" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

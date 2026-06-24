@@ -27,7 +27,7 @@ An interesting question that arises is as follows: Is the curve smooth? Certainl
 
 ..  admonition:: Jupyter Lab notebook
 
-    `Random 2D spline <https://splinekit.github.io/splinekit-jupyterlite/notebooks/index.html?path=spline_random_2d.ipynb>`_
+    `Random 2D spline <https://splinekit.github.io/splinekit-jupyterlite/lab/?path=periodic-spline/random-2d/spline_random_2d.ipynb&mode=single-document>`_
 
 Kinks
 ^^^^^

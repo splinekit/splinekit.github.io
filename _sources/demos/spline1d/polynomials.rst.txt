@@ -135,4 +135,4 @@ We now propose a few lines of code that create and display a random spline and e
 
 ..  admonition:: Jupyter Lab notebook
 
-    `Polynomial pieces of a spline <https://splinekit.github.io/splinekit-jupyterlite/notebooks/index.html?path=spline_polynomials.ipynb>`_
+    `Polynomial pieces of a spline <https://splinekit.github.io/splinekit-jupyterlite/lab/?path=periodic-spline/poly/spline_polynomials.ipynb&mode=single-document>`_

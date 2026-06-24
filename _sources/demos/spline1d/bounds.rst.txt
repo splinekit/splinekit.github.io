@@ -111,4 +111,4 @@ In the following Jupyter Lab notebook, we show the upper-bounding and the lower-
 
 ..  admonition:: Jupyter Lab notebook
 
-    `Bounding splines <https://splinekit.github.io/splinekit-jupyterlite/notebooks/index.html?path=spline_bounds.ipynb>`_
+    `Bounding splines <https://splinekit.github.io/splinekit-jupyterlite/lab/?path=periodic-spline/bounds/spline_bounds.ipynb&mode=single-document>`_

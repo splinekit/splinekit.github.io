@@ -98,7 +98,7 @@ What we measure is by how far the methods depart from the ground truth, in a mea
 
 ..  admonition:: Jupyter Lab notebook
 
-    `Numeric stability and speed of B-splines <https://splinekit.github.io/splinekit-jupyterlite/notebooks/index.html?path=bspline_numeric_stability.ipynb>`_
+    `Numeric stability and speed of B-splines <https://splinekit.github.io/splinekit-jupyterlite/lab/?path=bspline/stability/bspline_numeric_stability.ipynb&mode=single-document>`_
 
 ..  hint::
     The notebook is available for download in compressed form from

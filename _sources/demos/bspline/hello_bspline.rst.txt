@@ -12,7 +12,7 @@ B-splines are functions that are even-symmetric and blob-shaped. In the Jupyter 
 
 ..  admonition:: Jupyter Lab notebook
 
-    `Hello B-spline <https://splinekit.github.io/splinekit-jupyterlite/notebooks/index.html?path=bspline_hello.ipynb>`_
+    `Hello B-spline <https://splinekit.github.io/splinekit-jupyterlite/lab/?path=bspline/hello/bspline_hello.ipynb&mode=single-document>`_
 
 ----
 
@@ -23,7 +23,7 @@ B-splines of degree :math:`n` are :math:`n`-times differentiable, and continuous
 
 ..  admonition:: Jupyter Lab notebook
 
-    `Hello B-spline gradient <https://splinekit.github.io/splinekit-jupyterlite/notebooks/index.html?path=bspline_hello_grad.ipynb>`_
+    `Hello B-spline gradient <https://splinekit.github.io/splinekit-jupyterlite/lab/?path=bspline/hello/bspline_hello_grad.ipynb&mode=single-document>`_
 
 ----
 
@@ -34,4 +34,4 @@ B-splines are functions that have a finite support. In their specific case, this
 
 ..  admonition:: Jupyter Lab notebook
 
-    `Hello B-spline integral <https://splinekit.github.io/splinekit-jupyterlite/notebooks/index.html?path=bspline_hello_integral.ipynb>`_
+    `Hello B-spline integral <https://splinekit.github.io/splinekit-jupyterlite/lab/?path=bspline/hello/bspline_hello_integral.ipynb&mode=single-document>`_

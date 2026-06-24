@@ -55,9 +55,12 @@
 <li class="toctree-l2"><a class="reference internal" href="../bspline/index.html">B-Splines [toc]</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../padding/index.html">Padding [toc]</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="index.html">Periodic Splines [toc]</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="plot.html">Plots of Periodic One-Dimensional Splines</a></li>
 <li class="toctree-l3"><a class="reference internal" href="random1d.html">Random One-Dimensional Splines</a></li>
 <li class="toctree-l3"><a class="reference internal" href="random2d.html">Random Two-Dimensional Spline Curves</a></li>
 <li class="toctree-l3"><a class="reference internal" href="constructors.html">Constructors of Periodic One-Dimensional Splines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="simple_ops.html">Simple Operations on Periodic Splines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="stats.html">Spline Statistics</a></li>
 <li class="toctree-l3"><a class="reference internal" href="polynomials.html">Polynomial Pieces of Splines</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">Evaluation of Splines</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#linear-algebra-formulation">Linear-Algebra Formulation</a></li>
@@ -114,14 +117,14 @@
 <hr class="docutils" />
 <section id="linear-algebra-formulation">
 <h2>Linear-Algebra Formulation<a class="headerlink" href="#linear-algebra-formulation" title="Link to this heading"></a></h2>
-<p>The obects that the class <code class="docutils literal notranslate"><span class="pre">PeriodicSpline1D</span></code> operates upon are mathematical functions and consist in descriptions of mappings <span class="math notranslate nohighlight">\(f:{\mathbb{R}}\rightarrow{\mathbb{R}},x\mapsto f(x).\)</span> Oftentimes, the class allows one to obtain a new <em>mapping</em> from an existing one, for instance the gradient of a spline (not just a number but the whole function <span class="math notranslate nohighlight">\(\dot{f}\)</span>) out of its original form <span class="math notranslate nohighlight">\(f.\)</span> This is all good, but one is sometimes also interested in the more mundane goal of experimenting with a fixed mapping, typically to ask to what number <span class="math notranslate nohighlight">\(f(x)\in{\mathbb{R}}\)</span> is the argument <span class="math notranslate nohighlight">\(x\in{\mathbb{R}}\)</span> mapped to by <span class="math notranslate nohighlight">\(f:{\mathbb{R}}\rightarrow{\mathbb{R}}.\)</span> The <code class="docutils literal notranslate"><span class="pre">splinekit</span></code> library  offers two possibilities to address this goal.</p>
+<p>The objects that the class <code class="docutils literal notranslate"><span class="pre">PeriodicSpline1D</span></code> operates upon are mathematical functions and consist in descriptions of mappings <span class="math notranslate nohighlight">\(f:{\mathbb{R}}\rightarrow{\mathbb{R}},x\mapsto f(x).\)</span> Oftentimes, the class allows one to obtain a new <em>mapping</em> from an existing one, for instance the gradient of a spline (not just a number but the whole function <span class="math notranslate nohighlight">\(\dot{f}\)</span>) out of its original form <span class="math notranslate nohighlight">\(f.\)</span> This is all good, but one is sometimes also interested in the more mundane goal of experimenting with a fixed mapping, typically to ask to what number <span class="math notranslate nohighlight">\(f(x)\in{\mathbb{R}}\)</span> is the argument <span class="math notranslate nohighlight">\(x\in{\mathbb{R}}\)</span> mapped to by <span class="math notranslate nohighlight">\(f:{\mathbb{R}}\rightarrow{\mathbb{R}}.\)</span> The <code class="docutils literal notranslate"><span class="pre">splinekit</span></code> library  offers two possibilities to address this goal.</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">PeriodicSpline1D.at</span></code> returns the value <span class="math notranslate nohighlight">\(f(x)\)</span> of the spline <span class="math notranslate nohighlight">\(f\)</span> evaluated at <span class="math notranslate nohighlight">\(x.\)</span></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">PeriodicSpline1D.get_samples</span></code> returns an array of values at arguments separated by a constant step.</p></li>
 </ul>
 <p>The two possibilities rely on the recipe followed by all one-dimensional uniform polynomial splines of nonnegative integer degree <span class="math notranslate nohighlight">\(n\in{\mathbb{N}},\)</span> according to which an argument <span class="math notranslate nohighlight">\(x\)</span> is mapped to the value</p>
 <div class="math notranslate nohighlight">
-\[f(x)=\sum_{k\in{\mathbb{Z}}}\,c[{k\bmod K}]\,\beta^{n}(x-\delta x -k),\]</div>
+\[f(x)=\sum_{k\in{\mathbb{Z}}}\,c[{k\bmod K}]\,\beta^{n}(x-\delta x-k),\]</div>
 <p>where <span class="math notranslate nohighlight">\(K\in{\mathbb{N}}+1\)</span> is a positive integer period, <span class="math notranslate nohighlight">\(c\)</span> is an arbitrary array of <span class="math notranslate nohighlight">\(K\)</span> spline coefficients, <span class="math notranslate nohighlight">\(\beta^{n}\)</span> is a B-spline whose degree <span class="math notranslate nohighlight">\(n\)</span> is typeset in superscript (not a power), and <span class="math notranslate nohighlight">\(\delta x\in{\mathbb{R}}\)</span> is an arbitrary delay. Put simply, a spline is a weighted sum of shifted B-splines.</p>
 <p>Since the support of a B-spline is finite, the sum is finite at any given argument <span class="math notranslate nohighlight">\(x.\)</span> Moreover, since B-splines of positive degrees are themselves made of unit-length pieces of polynomials, one can deploy the formalism of linear-algebra to make the expression of the spline recipe take the form</p>
 <div class="math notranslate nohighlight">
@@ -137,7 +140,7 @@
 <p>To evaluate a one-dimensional periodic spline <span class="math notranslate nohighlight">\(f\)</span> of positive degree <span class="math notranslate nohighlight">\(n\)</span> at some argument <span class="math notranslate nohighlight">\(x,\)</span> it is enough to compute <span class="math notranslate nohighlight">\({\mathbf{c}}^{{\mathsf{T}}}\,{\mathbf{W}}^{n}\,{\mathbf{v}}^{n}.\)</span> This is precisely what is done by the function call <code class="docutils literal notranslate"><span class="pre">f.at(x)</span></code> in the piece of code below, which otherwise generates and plots a random spline of some arbitrary degree and delay.</p>
 <div class="admonition-jupyter-lab-notebook admonition">
 <p class="admonition-title">Jupyter Lab notebook</p>
-<p><a class="reference external" href="https://splinekit.github.io/splinekit-jupyterlite/notebooks/index.html?path=spline_at_scalar.ipynb">Single argument</a></p>
+<p><a class="reference external" href="https://splinekit.github.io/splinekit-jupyterlite/lab/?path=periodic-spline/eval/spline_at_scalar.ipynb&amp;mode=single-document">Single argument</a></p>
 </div>
 </section>
 <hr class="docutils" />
@@ -146,7 +149,7 @@
 <p>We want now to evaluate <span class="math notranslate nohighlight">\(f(x)\)</span> at the <span class="math notranslate nohighlight">\(L\,M\)</span> arguments <span class="math notranslate nohighlight">\(x\in\left\{x_{0}+k/M\right\}_{k=0}^{L\,M-1},\)</span> where <span class="math notranslate nohighlight">\(M\in{\mathbb{N}}+1\)</span> is some positive integer oversampling factor, <span class="math notranslate nohighlight">\(L\in{\mathbb{N}}+1\)</span> is the length of the support over which we want to sample <span class="math notranslate nohighlight">\(f,\)</span> and <span class="math notranslate nohighlight">\(x_{0}\in{\mathbb{R}}\)</span> is the argument of the first sample. To do so, we take advantage of <code class="docutils literal notranslate"><span class="pre">PeriodicSpline1D.get_samples</span></code>. In the next piece of code, we illustrate how the combination of <span class="math notranslate nohighlight">\(L,\)</span> <span class="math notranslate nohighlight">\(M,\)</span> and <span class="math notranslate nohighlight">\(x_{0}\)</span> can be used to specify the arguments where the spline is evaluated.</p>
 <div class="admonition-jupyter-lab-notebook admonition">
 <p class="admonition-title">Jupyter Lab notebook</p>
-<p><a class="reference external" href="https://splinekit.github.io/splinekit-jupyterlite/notebooks/index.html?path=spline_at_array.ipynb">Multiple arguments</a></p>
+<p><a class="reference external" href="https://splinekit.github.io/splinekit-jupyterlite/lab/?path=periodic-spline/eval/spline_at_array.ipynb&amp;mode=single-document">Multiple arguments</a></p>
 </div>
 </section>
 <hr class="docutils" />
@@ -164,7 +167,7 @@
 </div>
 <div class="admonition-jupyter-lab-notebook admonition">
 <p class="admonition-title">Jupyter Lab notebook</p>
-<p><a class="reference external" href="https://splinekit.github.io/splinekit-jupyterlite/notebooks/index.html?path=spline_evaluation_speed.ipynb">Scalar vs array</a></p>
+<p><a class="reference external" href="https://splinekit.github.io/splinekit-jupyterlite/lab/?path=periodic-spline/eval/spline_evaluation_speed.ipynb&amp;mode=single-document">Scalar vs array</a></p>
 </div>
 <div class="admonition hint">
 <p class="admonition-title">Hint</p>

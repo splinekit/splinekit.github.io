@@ -24,7 +24,7 @@ Poles of successive degrees are imbricated. We illustrate here this property for
 
 ..  admonition:: Jupyter Lab notebook
 
-    `Imbrication of poles <https://splinekit.github.io/splinekit-jupyterlite/notebooks/index.html?path=bspline_poles.ipynb>`_
+    `Imbrication of poles <https://splinekit.github.io/splinekit-jupyterlite/lab/?path=bspline/poles/bspline_poles.ipynb&mode=single-document>`_
 
 ----
 
@@ -52,7 +52,7 @@ We show now examples of nontrivial odd-symmetric and even-symmetric splines that
 
 ..  admonition:: Jupyter Lab notebook
 
-    `Annihilating sequences <https://splinekit.github.io/splinekit-jupyterlite/notebooks/index.html?path=bspline_annihilate.ipynb>`_
+    `Annihilating sequences <https://splinekit.github.io/splinekit-jupyterlite/lab/?path=bspline/poles/bspline_annihilate.ipynb&mode=single-document>`_
 
 ----
 

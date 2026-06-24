@@ -55,6 +55,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../bspline/index.html">B-Splines [toc]</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../padding/index.html">Padding [toc]</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="index.html">Periodic Splines [toc]</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="plot.html">Plots of Periodic One-Dimensional Splines</a></li>
 <li class="toctree-l3"><a class="reference internal" href="random1d.html">Random One-Dimensional Splines</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">Random Two-Dimensional Spline Curves</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#d-curve-with-1d-spline-cartesian-components">2D Curve with 1D Spline Cartesian Components</a></li>
@@ -62,6 +63,8 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="constructors.html">Constructors of Periodic One-Dimensional Splines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="simple_ops.html">Simple Operations on Periodic Splines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="stats.html">Spline Statistics</a></li>
 <li class="toctree-l3"><a class="reference internal" href="polynomials.html">Polynomial Pieces of Splines</a></li>
 <li class="toctree-l3"><a class="reference internal" href="evaluation.html">Evaluation of Splines</a></li>
 <li class="toctree-l3"><a class="reference internal" href="bounds.html">Upper and Lower Bounds of Splines</a></li>
@@ -127,7 +130,7 @@
 <p>An interesting question that arises is as follows: Is the curve smooth? Certainly, being splines, its Cartesian components are! To answer in a practical way our question about the smoothness of the curve as a whole (as opposed to the smoothness of its Cartesian components in isolation), we provide below a piece of code that displays <span class="math notranslate nohighlight">\({\mathbf{f}}(t)\)</span> for <span class="math notranslate nohighlight">\(t\)</span> over an evolving running window. There, we let the two series <span class="math notranslate nohighlight">\(c_{1}\)</span> and <span class="math notranslate nohighlight">\(c_{2}\)</span> of spline coefficients be independent samples of a random variable that follows a Gaussian normal distribution.</p>
 <div class="admonition-jupyter-lab-notebook admonition">
 <p class="admonition-title">Jupyter Lab notebook</p>
-<p><a class="reference external" href="https://splinekit.github.io/splinekit-jupyterlite/notebooks/index.html?path=spline_random_2d.ipynb">Random 2D spline</a></p>
+<p><a class="reference external" href="https://splinekit.github.io/splinekit-jupyterlite/lab/?path=periodic-spline/random-2d/spline_random_2d.ipynb&amp;mode=single-document">Random 2D spline</a></p>
 </div>
 <section id="kinks">
 <h3>Kinks<a class="headerlink" href="#kinks" title="Link to this heading"></a></h3>

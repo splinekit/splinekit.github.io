@@ -5,8 +5,8 @@ How to create a periodic one-dimensional spline that interpolates data samples.
 
 ----
 
-Periodic One-Dimensional Spline Objects
----------------------------------------
+Periodic One-Dimensional Splines
+--------------------------------
 
 The class ``PeriodicSpline1D`` of the ``splinekit`` library handles continuously defined real functions :math:`f:{\mathbb{R}}\rightarrow{\mathbb{R}},x\mapsto f(x).` As maintained by this class in the library, these functions have a few remarkable properties.
 
@@ -56,7 +56,7 @@ We now propose a few lines of code that create and display a spline that interpo
 
 ..  admonition:: Jupyter Lab notebook
 
-    `Interpolation <https://splinekit.github.io/splinekit-jupyterlite/notebooks/index.html?path=spline_interpolation.ipynb>`_
+    `Interpolation <https://splinekit.github.io/splinekit-jupyterlite/lab/?path=periodic-spline/construct/spline_interpolation.ipynb&mode=single-document>`_
 
 From Noisy Samples
 """"""""""""""""""""""
@@ -65,4 +65,4 @@ We now propose a few lines of code that create and display a smooth spline that 
 
 ..  admonition:: Jupyter Lab notebook
 
-    `Smoothed interpolation <https://splinekit.github.io/splinekit-jupyterlite/notebooks/index.html?path=spline_approximation.ipynb>`_
+    `Smoothed interpolation <https://splinekit.github.io/splinekit-jupyterlite/lab/?path=periodic-spline/construct/spline_approximation.ipynb&mode=single-document>`_

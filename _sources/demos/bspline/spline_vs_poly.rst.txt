@@ -70,7 +70,7 @@ It turns out that the monomial-reproducing :math:`c_{m}^{n}[k]` can itself be ex
 
 ..  admonition:: Jupyter Lab notebook
 
-    `Partition of monomials <https://splinekit.github.io/splinekit-jupyterlite/notebooks/index.html?path=bspline_partition_mono.ipynb>`_
+    `Partition of monomials <https://splinekit.github.io/splinekit-jupyterlite/lab/?path=bspline/poly/bspline_partition_mono.ipynb&mode=single-document>`_
 
 Spline Coefficients Made of Discrete Monomials
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -89,7 +89,7 @@ for :math:`m\in[1\ldots n],` where :math:`\pi_{m}^{n}(x)` is some polynomial in 
 
 ..  admonition:: Jupyter Lab notebook
 
-    `Spline from monomials <https://splinekit.github.io/splinekit-jupyterlite/notebooks/index.html?path=bspline_spline_poly.ipynb>`_
+    `Spline from monomials <https://splinekit.github.io/splinekit-jupyterlite/lab/?path=bspline/poly/bspline_spline_poly.ipynb&mode=single-document>`_
 
 ----
 
@@ -105,4 +105,4 @@ We give now a piece of code that returns the polynomial :math:`\varpi_{m}^{n}.`
 
 ..  admonition:: Jupyter Lab notebook
 
-    `Monomial convolved with a B-spline <https://splinekit.github.io/splinekit-jupyterlite/notebooks/index.html?path=bspline_convolve_mono.ipynb>`_
+    `Monomial convolved with a B-spline <https://splinekit.github.io/splinekit-jupyterlite/lab/?path=bspline/poly/bspline_convolve_mono.ipynb&mode=single-document>`_
