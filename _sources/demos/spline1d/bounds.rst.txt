@@ -11,7 +11,7 @@ Upper Bound
 Let a periodic uniform polynomial spline of positive degree :math:`n\in{\mathbb{N}}+1` be the mapping :math:`f:{\mathbb{R}}\rightarrow{\mathbb{R}},x\mapsto f(x)` computed as
 
 ..  math::
-        f(x)=\sum_{k\in{\mathbb{Z}}}\,c[{k\bmod K}]\,\beta^{n}(x-\delta x-k).
+    f(x)=\sum_{k\in{\mathbb{Z}}}\,c[{k\bmod K}]\,\beta^{n}(x-\delta x-k).
 
 There, :math:`K\in{\mathbb{N}}+1` is its positive integer period and :math:`\delta x\in{\mathbb{R}}` is a global delay. The coefficients :math:`c` are called the spline coefficients and are free ingredients that allow one to shape the spline. The function :math:`\beta^{n},` with :math:`n` a superscript (not a power), is a B-spline of degree :math:`n.` It has the closed support :math:`{\mathrm{supp}}\{\beta^{n}\}=[-\frac{n+1}{2},\frac{n+1}{2}]` and is nonnegative, with :math:`\forall x\in{\mathbb{R}}:\beta^{n}(x)\geq0.` It is also made of :math:`n+1` polynomial pieces of unit length.
 
@@ -23,7 +23,7 @@ Upper Bound over a Unit Interval
 Consider the periodized interval :math:`{\mathbb{X}}_{r}=\bigcup_{p\in{\mathbb{Z}}}\,[\frac{n-1}{2}+\delta x-r-p\,K,\frac{n-1}{2}+\delta x-r-p\,K+1),` indexed by :math:`r\in[0\ldots K-1].` Over this periodized unit-length interval, it turns out that the spline :math:`f` computed as above can also be computed from linear-algebra operations as
 
 ..  math::
-        \forall x\in{\mathbb{X}}_{r}:f(x)={\mathbf{c}}_{r}^{{\mathsf{T}}}\,{\mathbf{W}}^{n}\,{\mathbf{v}}^{n}(\chi),
+    \forall x\in{\mathbb{X}}_{r}:f(x)={\mathbf{c}}_{r}^{{\mathsf{T}}}\,{\mathbf{W}}^{n}\,{\mathbf{v}}^{n}(\chi),
 
 where
 
@@ -40,12 +40,12 @@ Bound of Higher Degree
 Assume for the moment that the degree :math:`m` of the bounding spline :math:`g` is such that :math:`m>n>0.` We want to discover :math:`{\mathbf{u}}_{r}\in{\mathbb{R}}^{m+1}` such that
 
 ..  math::
-        \forall x\in{\mathbb{X}}_{r}:g(x)={\mathbf{u}}_{r}^{{\mathsf{T}}}\,{\mathbf{W}}^{m}\,{\mathbf{v}}^{m}({\mathrm{frac}}(x-\frac{m-1}{2}-\delta y))\geq{\mathbf{c}}_{r}^{{\mathsf{T}}}\,{\mathbf{W}}^{n}\,{\mathbf{v}}^{n}(\chi)=f(x).
+    \forall x\in{\mathbb{X}}_{r}:g(x)={\mathbf{u}}_{r}^{{\mathsf{T}}}\,{\mathbf{W}}^{m}\,{\mathbf{v}}^{m}({\mathrm{frac}}(x-\frac{m-1}{2}-\delta y))\geq{\mathbf{c}}_{r}^{{\mathsf{T}}}\,{\mathbf{W}}^{n}\,{\mathbf{v}}^{n}(\chi)=f(x).
 
 We claim that
 
 ..  math::
-        {\mathbf{h}}=\left({\mathbf{[\![}}k\leq n\,{\mathbf{]\!]}}\,a_{k+1}\right)_{k=0}^{m}
+    {\mathbf{h}}=\left({\mathbf{[\![}}k\leq n\,{\mathbf{]\!]}}\,a_{k+1}\right)_{k=0}^{m}
 
 satisfies our requirements, where :math:`{\mathbf{[\![}}\cdot\,{\mathbf{]\!]}}` denotes the Iverson symbol. Indeed, some algebraic manipulations reveal that the difference :math:`\left(g(x)-f(x)\right)` vanishes over :math:`x\in{\mathbb{X}}_{r}.`
 
@@ -60,15 +60,15 @@ Bound of Smaller Degree
 Assume finally that :math:`n>m>0.` In this case, letting :math:`{\mathbf{e}}_{m+1}` be the :math:`\left(m+1\right)`-th canonical basis vector, we claim that
 
 ..  math::
-        {\mathbf{h}}=\left(a_{k+1}\right)_{k=0}^{m}+{\mathbf{e}}_{m+1}\,\sum_{k=m+1}^{n}\,\max(0,a_{k+1})
+    {\mathbf{h}}=\left(a_{k+1}\right)_{k=0}^{m}+{\mathbf{e}}_{m+1}\,\sum_{k=m+1}^{n}\,\max(0,a_{k+1})
 
 satisfies our requirements. Indeed, for all :math:`x\in{\mathbb{X}}_{r},` some algebraic manipulations lead to
 
 ..  math::
-        \begin{array}{rcl}
-        0&\leq&{\mathbf{u}}_{r}^{{\mathsf{T}}}\,{\mathbf{W}}^{m}\,{\mathbf{v}}^{m}({\mathrm{frac}}(x-\frac{m-1}{2}-\delta y))-{\mathbf{c}}_{r}^{{\mathsf{T}}}\,{\mathbf{W}}^{n}\,{\mathbf{v}}^{n}(\chi)\\
-        &=&\chi^{m}\,\sum_{k=m+1}^{n}\,\left\{\begin{array}{ll}-a_{k+1}\,\chi^{k-m},&a_{k+1}<0\\a_{k+1}\,\left(1-\chi^{k-m}\right),&0\leq a_{k+1}.\end{array}\right.
-        \end{array}
+    \begin{array}{rcl}
+    0&\leq&{\mathbf{u}}_{r}^{{\mathsf{T}}}\,{\mathbf{W}}^{m}\,{\mathbf{v}}^{m}({\mathrm{frac}}(x-\frac{m-1}{2}-\delta y))-{\mathbf{c}}_{r}^{{\mathsf{T}}}\,{\mathbf{W}}^{n}\,{\mathbf{v}}^{n}(\chi)\\
+    &=&\chi^{m}\,\sum_{k=m+1}^{n}\,\left\{\begin{array}{ll}-a_{k+1}\,\chi^{k-m},&a_{k+1}<0\\a_{k+1}\,\left(1-\chi^{k-m}\right),&0\leq a_{k+1}.\end{array}\right.
+    \end{array}
 
 Global Bound
 ^^^^^^^^^^^^
@@ -76,25 +76,25 @@ Global Bound
 We have found above a series of :math:`K` vectors :math:`{\mathbf{u}}_{r}` with :math:`r\in[0\ldots K-1].` From this series, we set
 
 ..  math::
-        \forall k\in[0\ldots K-1]:u[k]=\max_{\rho=0}^{m}\,\left[{\mathbf{u}}_{{\left(\rho-k\right)\bmod K}}\right]_{\rho+1}.
+    \forall k\in[0\ldots K-1]:u[k]=\max_{\rho=0}^{m}\,\left[{\mathbf{u}}_{{\left(\rho-k\right)\bmod K}}\right]_{\rho+1}.
 
 Then, we define
 
 ..  math::
-        \forall x\in{\mathbb{X}}_{r}:g(x)=\sum_{k=-r}^{m-r}\,u[{k\bmod K}]\,\beta^{m}(x-\delta y-k)
+    \forall x\in{\mathbb{X}}_{r}:g(x)=\sum_{k=-r}^{m-r}\,u[{k\bmod K}]\,\beta^{m}(x-\delta y-k)
 
 and observe that
 
 ..  math::
-        \forall x\in{\mathbb{X}}_{r}:{\mathbf{u}}_{r}^{{\mathsf{T}}}\,{\mathbf{W}}^{m}\,{\mathbf{v}}^{m}(\chi)=\sum_{k=-r}^{m-r}\,\left[{\mathbf{u}}_{r}\right]_{k+r+1}\,\beta^{m}(x-\delta y-k).
+    \forall x\in{\mathbb{X}}_{r}:{\mathbf{u}}_{r}^{{\mathsf{T}}}\,{\mathbf{W}}^{m}\,{\mathbf{v}}^{m}(\chi)=\sum_{k=-r}^{m-r}\,\left[{\mathbf{u}}_{r}\right]_{k+r+1}\,\beta^{m}(x-\delta y-k).
 
 The nonnegativity of B-splines allows us to finally establish that
 
 ..  math::
-        \begin{array}{rcl}
-        \forall x\in{\mathbb{X}}_{r}:g(x)-{\mathbf{u}}_{r}^{{\mathsf{T}}}\,{\mathbf{W}}^{m}\,{\mathbf{v}}^{m}(\chi)&=&\sum_{k=0}^{m}\,\left(\left(\max_{\rho=0}^{m}\,\left[{\mathbf{u}}_{{\left(\rho-k+r\right)\bmod K}}\right]_{\rho+1}\right)-\left[{\mathbf{u}}_{r}\right]_{k+1}\right)\,\beta^{m}(x-\delta y+r-k)\\
-        &\geq&\sum_{k=0}^{m}\,\left(\left[{\mathbf{u}}_{r}\right]_{k+1}-\left[{\mathbf{u}}_{r}\right]_{k+1}\right)\,\beta^{m}(x-\delta y+r-k)=0,
-        \end{array}
+    \begin{array}{rcl}
+    \forall x\in{\mathbb{X}}_{r}:g(x)-{\mathbf{u}}_{r}^{{\mathsf{T}}}\,{\mathbf{W}}^{m}\,{\mathbf{v}}^{m}(\chi)&=&\sum_{k=0}^{m}\,\left(\left(\max_{\rho=0}^{m}\,\left[{\mathbf{u}}_{{\left(\rho-k+r\right)\bmod K}}\right]_{\rho+1}\right)-\left[{\mathbf{u}}_{r}\right]_{k+1}\right)\,\beta^{m}(x-\delta y+r-k)\\
+    &\geq&\sum_{k=0}^{m}\,\left(\left[{\mathbf{u}}_{r}\right]_{k+1}-\left[{\mathbf{u}}_{r}\right]_{k+1}\right)\,\beta^{m}(x-\delta y+r-k)=0,
+    \end{array}
 
 from which we conclude that :math:`g` is an upper bound of :math:`f.`
 

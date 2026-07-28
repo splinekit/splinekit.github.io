@@ -16,7 +16,7 @@ A generic one-dimensional real function is notated :math:`f:{\mathbb{R}}\rightar
 Let us decide that we want to represent a curve of the plane by a two-component Cartesian coordinate, each component being itself a spline. If we let :math:`t` be the curvilinear coordinate, then the curve is
 
 ..  math::
-        {\mathbf{f}}:{\mathbb{R}}\rightarrow{\mathbb{R}}^{2},\;t\mapsto{\mathbf{f}}(t)=\left(\begin{array}{cc}\sum_{k\in{\mathbb{Z}}}\,c_{1}[k]\,\beta^{n}(t-k)\\\sum_{k\in{\mathbb{Z}}}\,c_{2}[k]\,\beta^{n}(t-k)\end{array}\right).
+    {\mathbf{f}}:{\mathbb{R}}\rightarrow{\mathbb{R}}^{2},\;t\mapsto{\mathbf{f}}(t)=\left(\begin{array}{cc}\sum_{k\in{\mathbb{Z}}}\,c_{1}[k]\,\beta^{n}(t-k)\\\sum_{k\in{\mathbb{Z}}}\,c_{2}[k]\,\beta^{n}(t-k)\end{array}\right).
 
 There, the free spline coefficients :math:`c_{1}` parameterize the first component of the 2D coordinate while :math:`c_{2}` parameterize the second one; moreover, the function :math:`\beta^{n}` is the polynomial B-spline of degree :math:`n.`
 

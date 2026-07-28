@@ -8,7 +8,7 @@ Illustration of the multiresolution embedding of the B-spline :math:`\beta.`
 A polynomial B-spline is a real function notated :math:`\beta^{n}:{\mathbb{R}}\rightarrow{\mathbb{R}},x\mapsto\beta^{n}(x),` where its nonnegative integer degree :math:`n\in{\mathbb{N}}` is typeset as a superscript (not a power). This function has many remarkable properties; here, we focus on multiresolution ones. In particular, it can be established that B-splines satisfy the M-scale equality
 
 ..  math::
-        \beta^{n}({\color{blue}x})=\frac{1}{M^{n}}\,\sum_{k=0}^{\left(M-1\right)\,\left(n+1\right)}\,h^{n}_{M}[k]\,\beta^{n}({\color{blue}M\,x}+\frac{\left(M-1\right)\,\left(n+1\right)}{2}-k),
+    \beta^{n}({\color{blue}x})=\frac{1}{M^{n}}\,\sum_{k=0}^{\left(M-1\right)\,\left(n+1\right)}\,h^{n}_{M}[k]\,\beta^{n}({\color{blue}M\,x}+\frac{\left(M-1\right)\,\left(n+1\right)}{2}-k),
 
 where :math:`M\in{\mathbb{N}}+1` is a positive integer that gives the scale parameter.
 

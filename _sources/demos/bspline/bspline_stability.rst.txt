@@ -18,7 +18,7 @@ Splines are piecewise polynomials that are built as the weighted sum of integer-
 :math:`(1)`
 
 ..  math::
-        f:{\mathbb{R}}\rightarrow{\mathbb{R}},x\mapsto f(x)=\sum_{k\in{\mathbb{Z}}}\,c[k]\,\beta^{n}(x-k),
+    f:{\mathbb{R}}\rightarrow{\mathbb{R}},x\mapsto f(x)=\sum_{k\in{\mathbb{Z}}}\,c[k]\,\beta^{n}(x-k),
 
 where :math:`c` are the spline coefficients and :math:`\beta^{n}` the B-spline, with :math:`n` a superscript (not a power). To accurately evaluate the spline :math:`f` at the argument :math:`x,` it is crucial that the computation of :math:`\beta^{n}` be stable numerically. This is easy to achieve for small degrees; when the degree rises, however, one has to face the fact that the involved polynomials have a tendency to be made of delicately balancing terms.
 
@@ -39,7 +39,7 @@ The classic, productive representation of the :math:`m`-th derivative of a B-spl
 :math:`(2)`
 
 ..  math::
-        \frac{{\mathrm{d}}^{m}\beta^{n}(x)}{{\mathrm{d}}x^{m}}=\sum_{k=0}^{n+1}\,{\color{blue}\left(-1\right)^{k}}\,{n+1\choose k}\,\varsigma^{n-m}(x+\frac{n+1}{2}-k).
+    \frac{{\mathrm{d}}^{m}\beta^{n}(x)}{{\mathrm{d}}x^{m}}=\sum_{k=0}^{n+1}\,{\color{blue}\left(-1\right)^{k}}\,{n+1\choose k}\,\varsigma^{n-m}(x+\frac{n+1}{2}-k).
 
 (To compute a non-differentiated B-spline, simply set :math:`m=0.`) Unfortunately, the term :math:`{\color{blue}\left(-1\right)^{k}}` results in additive contributions that tend to cancel each other. This spells numerical trouble, even if the polynomial simple element :math:`\varsigma^{n}:{\mathbb{R}}\rightarrow{\mathbb{R}},x\mapsto\varsigma^{n}(x)=\frac{1}{2\,n!}\,{\mathrm{sgn}}(x)\,x^{n}` has the flavor of a well-behaved canonic monomial. Another issue lies with the growth of the binomial coefficients with respect to the degree, which ultimately leads to a delicate balance between large numbers.
 
@@ -51,7 +51,7 @@ Other computational recipes have been devised. For instance, the De Boor's recur
 :math:`(3)`
 
 ..  math::
-        \beta^{n}(x)=\frac{1}{n}\,\left(\left(x+\frac{n+1}{2}\right)\,\beta^{n-1}(x+\frac{1}{2})-\left(x-\frac{n+1}{2}\right)\,\beta^{n-1}(x-\frac{1}{2})\right).
+    \beta^{n}(x)=\frac{1}{n}\,\left(\left(x+\frac{n+1}{2}\right)\,\beta^{n-1}(x+\frac{1}{2})-\left(x-\frac{n+1}{2}\right)\,\beta^{n-1}(x-\frac{1}{2})\right).
 
 splinekit
 ^^^^^^^^^
@@ -61,7 +61,7 @@ In the ``splinekit`` library, B-splines of degree :math:`n=0` are computed as in
 :math:`(4)`
 
 ..  math::
-        \beta^{n}(x)={\mathbf{[\![}}\left|x\right|<\frac{n+1}{2}\,{\mathbf{]\!]}}\,\left(w^{n}[r][\cdot]\right)^{{\mathsf{T}}}\,{\mathbf{v}}^{n}(\chi),
+    \beta^{n}(x)={\mathbf{[\![}}\left|x\right|<\frac{n+1}{2}\,{\mathbf{]\!]}}\,\left(w^{n}[r][\cdot]\right)^{{\mathsf{T}}}\,{\mathbf{v}}^{n}(\chi),
 
 where the notation :math:`{\mathbf{[\![}}\cdot\,{\mathbf{]\!]}}` is that of the Iverson bracket. Moreover, :math:`r=\left\lceil\xi\right\rceil\in{\mathbb{Z}}` for :math:`\xi=\left(\frac{n-1}{2}-x\right),` and :math:`\chi=\left(r-\xi\right)\in[0,1).` Finally, :math:`\left(w^{n}[r][\cdot]\right)^{{\mathsf{T}}}` is the :math:`(r+1)`-th row of the B-spline evaluation matrix :math:`{\mathbf{W}}^{n}\in{\mathbb{Q}}^{\left(n+1\right)\times\left(n+1\right)}` and :math:`{\mathbf{v}}^{n}(\chi)\in{\mathbb{R}}^{n+1}` is the Vandermonde vector of argument :math:`\chi` and degree :math:`n.` In this formulation of a B-spline, the fact that the Vandermonde vector has the domain :math:`[0,1)` greatly favors numerical stability since the image of each of its components is :math:`[0,1].`
 
@@ -70,7 +70,7 @@ The matrix :math:`{\mathbf{W}}^{n}` depends on the degree only and can be precom
 :math:`(5)`
 
 ..  math::
-        w_{r+1,c+1}^{n}=w^{n}[r][c]=\frac{1}{c!}\,\left(\left.\frac{{\mathrm{d}}^{c}\beta^{n}(x)}{{\mathrm{d}}x^{c}}\right|_{x=\frac{n-1}{2}-r}+\frac{1}{2}\,{\mathbf{[\![}}c=n\,{\mathbf{]\!]}}\,\left(-1\right)^{n-r}\,{n+1\choose r+1}\right).
+    w_{r+1,c+1}^{n}=w^{n}[r][c]=\frac{1}{c!}\,\left(\left.\frac{{\mathrm{d}}^{c}\beta^{n}(x)}{{\mathrm{d}}x^{c}}\right|_{x=\frac{n-1}{2}-r}+\frac{1}{2}\,{\mathbf{[\![}}c=n\,{\mathbf{]\!]}}\,\left(-1\right)^{n-r}\,{n+1\choose r+1}\right).
 
 The B-spline derivatives that appear in :math:`(5)` are computed as rational numbers, through :math:`(2).` This leads to a rational value for :math:`w^{n}[r][c],` which is then cached as its ``float`` approximation. With this strategy, the balancing act that was governed in :math:`(2)` by the term :math:`{\color{blue}\left(-1\right)^{k}}` is now applied to rational values and can be achieved exactly in the rational domain.
 

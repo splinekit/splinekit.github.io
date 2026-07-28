@@ -1,0 +1,248 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Spline Calculus &mdash; splinekit  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../../_static/plot_directive.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+      <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=2f8eb179" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+      <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Signs, Zeros, and Zero-Crossings" href="signum.html" />
+    <link rel="prev" title="Convolutions and Correlations" href="conv_corr.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            splinekit
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Demos [toc]</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../bspline/index.html">B-Splines [toc]</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../padding/index.html">Padding [toc]</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Periodic Splines [toc]</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="plot.html">Plots of Periodic One-Dimensional Splines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="random1d.html">Random One-Dimensional Splines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="random2d.html">Random Two-Dimensional Spline Curves</a></li>
+<li class="toctree-l3"><a class="reference internal" href="constructors.html">Constructors of Periodic One-Dimensional Splines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="simple_ops.html">Simple Operations on Periodic Splines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="stats.html">Spline Statistics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="polynomials.html">Polynomial Pieces of Splines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="evaluation.html">Evaluation of Splines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bounds.html">Upper and Lower Bounds of Splines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="fourier.html">Fourier Transform of Periodic Splines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conv_corr.html">Convolutions and Correlations</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Spline Calculus</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#area-under-the-curve">Area Under the Curve</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#anti-gradient">Anti-Gradient</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gradient">Gradient</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#derivative-of-positive-integer-order">Derivative of Positive Integer Order</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#derivatives-and-fourier-coefficients">Derivatives and Fourier Coefficients</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="signum.html">Signs, Zeros, and Zero-Crossings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="extrema.html">Extrema</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../installation/index.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../glossary/index.html">Glossary [toc]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../periodic_spline_1d/index.html">Periodic Spline 1D [toc]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../bsplines/index.html">B-Splines [toc]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../spline_padding/index.html">Spline Padding [toc]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../bases/index.html">Bases [toc]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../periodic_nonuniform_piecewise/index.html">Periodic Nonuniform Piecewise [toc]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../interval/index.html">Interval [package]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../spline_utilities/index.html">Spline Utilities [toc]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../bibliography.html">Bibliography</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">splinekit</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Demos [toc]</a></li>
+          <li class="breadcrumb-item"><a href="index.html">Periodic Splines [toc]</a></li>
+      <li class="breadcrumb-item active">Spline Calculus</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/Philippe-Thevenaz/splinekit/blob/main/docs/demos/spline1d/calculus.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="spline-calculus">
+<h1>Spline Calculus<a class="headerlink" href="#spline-calculus" title="Link to this heading"></a></h1>
+<p>How to apply integration and differentiation to one-dimensional polynomial splines.</p>
+<hr class="docutils" />
+<section id="area-under-the-curve">
+<h2>Area Under the Curve<a class="headerlink" href="#area-under-the-curve" title="Link to this heading"></a></h2>
+<p>Let a piecewise polynomial one-dimensional periodic spline of nonnegative integer degree <span class="math notranslate nohighlight">\(n\)</span> and positive integer period <span class="math notranslate nohighlight">\(K\)</span> be <span class="math notranslate nohighlight">\(f:{\mathbb{R}}\rightarrow{\mathbb{R}},x\mapsto f(x)=\sum_{k\in{\mathbb{Z}}}\,c[{k\bmod K}]\,\beta^{n}(x-\delta x-k),\)</span> where <span class="math notranslate nohighlight">\({\mathbf{c}}=\left(c[k]\right)_{k=0}^{K-1}\in{\mathbb{R}}^{K}\)</span> is its vector of spline coefficients and where <span class="math notranslate nohighlight">\(\delta x\)</span> is its delay. The synthesis function of the spline <span class="math notranslate nohighlight">\(f\)</span> is the B-spline <span class="math notranslate nohighlight">\(\beta^{n}.\)</span> We want to compute the quantity</p>
+<div class="math notranslate nohighlight">
+\[\int_{a}^{b}\,f(t)\,{\mathrm{d}}t,\]</div>
+<p>with integration bounds <span class="math notranslate nohighlight">\(a\in{\mathbb{R}}\)</span> and <span class="math notranslate nohighlight">\(b\in{\mathbb{R}}.\)</span></p>
+<p>We provide now a few lines of code that create a random spline of specified period, degree, and delay. The integration bounds can be set freely and the returned integral is computed exactly, without approximation.</p>
+<div class="admonition-jupyter-lab-notebook admonition">
+<p class="admonition-title">Jupyter Lab notebook</p>
+<p><a class="reference external" href="https://splinekit.github.io/splinekit-jupyterlite/lab/?path=periodic-spline/calculus/spline_integrate.ipynb&amp;mode=single-document">Area under a spline curve</a></p>
+</div>
+</section>
+<hr class="docutils" />
+<section id="anti-gradient">
+<h2>Anti-Gradient<a class="headerlink" href="#anti-gradient" title="Link to this heading"></a></h2>
+<p>Consider the spline <span class="math notranslate nohighlight">\(f\)</span> above. While it is periodic, its generic integral <span class="math notranslate nohighlight">\(\int_{0}^{x}\,f(t)\,{\mathrm{d}}t\)</span> is not necessarily periodic in terms of <span class="math notranslate nohighlight">\(x.\)</span> Indeed, the integral <span class="math notranslate nohighlight">\(\int_{0}^{K+x}\,f(t)\,{\mathrm{d}}t\)</span> can be segmented in two parts as <span class="math notranslate nohighlight">\(\int_{0}^{K}\,f(t)\,{\mathrm{d}}t+\int_{K}^{K+x}\,f(t)\,{\mathrm{d}}t.\)</span> It is then equal to <span class="math notranslate nohighlight">\(K\,E\{f\}+\int_{0}^{x}\,f(t)\,{\mathrm{d}}t,\)</span> which matches <span class="math notranslate nohighlight">\(\int_{0}^{x}\,f(t)\,{\mathrm{d}}t\)</span> only when the mean of <span class="math notranslate nohighlight">\(f\)</span> vanishes.</p>
+<p>The anti-gradient of <span class="math notranslate nohighlight">\(f\)</span> is defined as the function</p>
+<div class="math notranslate nohighlight">
+\[S_{f}:{\mathbb{R}}\rightarrow{\mathbb{R}},x\mapsto S_{f}(x)=\int_{0}^{x}\,\left(f(t)-E\{f\}\right)\,{\mathrm{d}}t.\]</div>
+<p>It turns out to be a periodic spline of degree <span class="math notranslate nohighlight">\(n+1.\)</span> As such, it can be handled by the <code class="docutils literal notranslate"><span class="pre">splinekit</span></code> library. Its most relevant property is that the gradient of the anti-gradient of a spline is the spline itself, up to an additive constant, so that <span class="math notranslate nohighlight">\(\dot{S}_{f}=\left(f-E\{f\}\right).\)</span></p>
+<p>We provide now a few lines of code that first create a random spline of specified period, degree, and delay, and then show its anti-gradient, along with the gradient of this anti-gradient.</p>
+<div class="admonition-jupyter-lab-notebook admonition">
+<p class="admonition-title">Jupyter Lab notebook</p>
+<p><a class="reference external" href="https://splinekit.github.io/splinekit-jupyterlite/lab/?path=periodic-spline/calculus/spline_antigrad.ipynb&amp;mode=single-document">Anti-gradient of a spline</a></p>
+</div>
+</section>
+<hr class="docutils" />
+<section id="gradient">
+<h2>Gradient<a class="headerlink" href="#gradient" title="Link to this heading"></a></h2>
+<p>Consider the <span class="math notranslate nohighlight">\(K\)</span>-periodic spline</p>
+<div class="math notranslate nohighlight">
+\[f:{\mathbb{R}}\rightarrow{\mathbb{R}},x\mapsto f(x)=\sum_{k\in{\mathbb{Z}}}\,c[{k\bmod K}]\,\beta^{n}(x-\delta x-k),\]</div>
+<p>with <span class="math notranslate nohighlight">\(n\in{\mathbb{N}}+1\)</span> a positive degree. The spline gradient is its first derivative</p>
+<div class="math notranslate nohighlight">
+\[\dot{f}:{\mathbb{R}}\rightarrow{\mathbb{R}},x\mapsto \dot{f}(x)=\sum_{k\in{\mathbb{Z}}}\,c[{k\bmod K}]\,\dot{\beta}^{n}(x-\delta x-k).\]</div>
+<p>Because B-splines of positive degree satisfy the relation <span class="math notranslate nohighlight">\(\dot{\beta}^{n}(x)=\left(\beta^{n-1}(x+\frac{1}{2})-\beta^{n-1}(x-\frac{1}{2})\right)\)</span> for all <span class="math notranslate nohighlight">\(x\in{\mathbb{R}},\)</span> the gradient of a spline is again a spline, albeit one whose degree is smaller and whose delay is offset by <span class="math notranslate nohighlight">\(\frac{1}{2}.\)</span> As such, the gradient can be handled by the <code class="docutils literal notranslate"><span class="pre">splinekit</span></code> library.</p>
+<p>The <em>centered finite difference</em> of a function <span class="math notranslate nohighlight">\(f\)</span> is parameterized by a step <span class="math notranslate nohighlight">\(h\in{\mathbb{R}}\setminus\{0\}\)</span> and is defined as the quantity <span class="math notranslate nohighlight">\(\frac{1}{2\,h}\,\left(f(x+h)-f(x-h)\right).\)</span> At those arguments <span class="math notranslate nohighlight">\(x\in{\mathbb{R}}\)</span> where the function is differentiable, one has that <span class="math notranslate nohighlight">\(\dot{f}(x)=\lim_{h\rightarrow0}\frac{1}{2\,h}\,\left(f(x+h)-f(x-h)\right).\)</span></p>
+<p>We provide now a few lines of code that first create a random spline of specified period, degree, and delay, and then show its true gradient, along with the approximation of the gradient provided by centered finite differences of rational step <span class="math notranslate nohighlight">\(h=\frac{1}{m},\)</span> with <span class="math notranslate nohighlight">\(m\in{\mathbb{N}}+1\)</span> a positive integer.</p>
+<div class="admonition-jupyter-lab-notebook admonition">
+<p class="admonition-title">Jupyter Lab notebook</p>
+<p><a class="reference external" href="https://splinekit.github.io/splinekit-jupyterlite/lab/?path=periodic-spline/calculus/spline_gradient.ipynb&amp;mode=single-document">Gradient of a spline</a></p>
+</div>
+</section>
+<hr class="docutils" />
+<section id="derivative-of-positive-integer-order">
+<h2>Derivative of Positive Integer Order<a class="headerlink" href="#derivative-of-positive-integer-order" title="Link to this heading"></a></h2>
+<p>Given the spline <span class="math notranslate nohighlight">\(f\)</span> as above, we want now to compute its derivative of order <span class="math notranslate nohighlight">\(m,\)</span> with <span class="math notranslate nohighlight">\(m\in{\mathbb{N}}+1.\)</span> This derivative will be a true function whenever the degree of the spline is large enough, with <span class="math notranslate nohighlight">\(n\in{\mathbb{N}}+m;\)</span> more precisely, it is going to be a spline of degree <span class="math notranslate nohighlight">\(\left(n-m\right).\)</span></p>
+<p>We propose two approaches to compute the derivative. The first one is useful to evaluate <span class="math notranslate nohighlight">\(\frac{{\mathrm{d}}^{m}f(x)}{{\mathrm{d}}x^{m}}\)</span> at a single given argument <span class="math notranslate nohighlight">\(x,\)</span> at a low computational cost, but the computational efficiency is lost if this approach is to be repeated for several arguments; the second approach is useful to establish the spline derivative <span class="math notranslate nohighlight">\({\mathrm{D}}^{m}\{f\}:{\mathbb{R}}\rightarrow{\mathbb{R}}\)</span> as an instance of the <code class="docutils literal notranslate"><span class="pre">PeriodicSpline1D</span></code> class. This second approach is the one that is implemented in the <code class="docutils literal notranslate"><span class="pre">splinekit</span></code> library.</p>
+<section id="derivative-at-a-single-argument">
+<h3>Derivative at a Single Argument<a class="headerlink" href="#derivative-at-a-single-argument" title="Link to this heading"></a></h3>
+<p>In the first method, we choose to proceed with the linear-algebra equivalent representation of the spline as</p>
+<div class="math notranslate nohighlight">
+\[f:{\mathbb{R}}\rightarrow{\mathbb{R}},x\mapsto f(x)=\sum_{k\in{\mathbb{Z}}}\,c[{k\bmod K}]\,\beta^{n}(x-\delta x-k)={\mathbf{c}}_{r}^{{\mathsf{T}}}\,{\mathbf{W}}^{n}\,{\mathbf{v}}^{n}(\chi(x)).\]</div>
+<p>There, the partial vector of coefficients <span class="math notranslate nohighlight">\({\mathbf{c}}_{r}\in{\mathbb{R}}^{n+1}\)</span> is defined as <span class="math notranslate nohighlight">\({\mathbf{c}}_{r}=\left(c[{\left(k-r\right)\bmod K}]\right)_{k=0}^{n},\)</span> where <span class="math notranslate nohighlight">\(r=\left\lceil\xi(x)\right\rceil\in{\mathbb{Z}}\)</span> with <span class="math notranslate nohighlight">\(\xi(x)=\left(\frac{n-1}{2}-x-\delta x\right)\in{\mathbb{R}}.\)</span> The spline evaluation matrix <span class="math notranslate nohighlight">\({\mathbf{W}}^{n}\in{\mathbb{R}}^{\left(n+1\right)\times\left(n+1\right)}\)</span> depends on <span class="math notranslate nohighlight">\(n\)</span> only. Finally, the Vandermonde vector <span class="math notranslate nohighlight">\({\mathbf{v}}^{n}(\chi(x))\in{\mathbb{R}}^{n+1}\)</span> is computed as <span class="math notranslate nohighlight">\({\mathbf{v}}^{n}(\chi(x))=\left(1,\left(\chi^{k}(x)\right)_{k=1}^{n}\right),\)</span> with <span class="math notranslate nohighlight">\(\chi(x)=\left(r-\xi(x)\right)\in[0,1).\)</span></p>
+<p>With these definitions, the derivative of order <span class="math notranslate nohighlight">\(m\)</span> is</p>
+<div class="math notranslate nohighlight">
+\[{\mathrm{D}}^{m}\{f\}(x)=\frac{{\mathrm{d}}^{m}f(x)}{{\mathrm{d}}x^{m}}={\mathbf{c}}_{r}^{{\mathsf{T}}}\,{\mathbf{W}}^{n}\,{\mathbf{\Lambda}}_{m}^{n}\,\left(\left(0\right)_{k=0}^{m-1},{\mathbf{v}}^{n-m}(\chi(x))\right),\]</div>
+<p>where <span class="math notranslate nohighlight">\({\mathbf{\Lambda}}_{m}^{n}={\mathbf{diag}}(\left(\frac{k!}{\left(k-m\right)!}\right)_{k=0}^{n}).\)</span> This allows one to precompute <span class="math notranslate nohighlight">\({\mathbf{W}}^{n}\,{\mathbf{\Lambda}}_{m}^{n}\)</span> since it depends neither on the delay of the spline nor on the spline coefficients. Furthermore, the fact that there are leading zeros in the vector <span class="math notranslate nohighlight">\(\left(\left(0\right)_{k=0}^{m-1},{\mathbf{v}}^{n-m}(\chi(x))\right)\in{\mathbb{R}}^{n+1}\)</span> gives the opportunity of additional computational savings.</p>
+</section>
+<section id="derivative-as-a-function">
+<h3>Derivative as a Function<a class="headerlink" href="#derivative-as-a-function" title="Link to this heading"></a></h3>
+<p>The gradient of a polynomial B-spline of positive integer degree <span class="math notranslate nohighlight">\(n\in{\mathbb{N}}+1\)</span> turns out to be the function <span class="math notranslate nohighlight">\(\dot{\beta}^{n}:{\mathbb{R}}\rightarrow{\mathbb{R}},x\mapsto\left(\beta^{n-1}(x+\frac{1}{2})-\beta^{n-1}(x-\frac{1}{2})\right).\)</span> This recursive relation between a B-spline of degree <span class="math notranslate nohighlight">\(n\)</span> and shifted B-splines of degree <span class="math notranslate nohighlight">\(\left(n-1\right)\)</span> can be taken advantage of to express derivatives of higher order, for instance <span class="math notranslate nohighlight">\(\ddot{\beta}^{n}\)</span> or <span class="math notranslate nohighlight">\(\dddot{\beta}^{n}.\)</span> After some algebraic manipulations, it leads one to express the derivative of order <span class="math notranslate nohighlight">\(m\)</span> of a <span class="math notranslate nohighlight">\(K\)</span>-periodic spline as</p>
+<div class="math notranslate nohighlight">
+\[{\mathrm{D}}^{m}\{f\}(x)=\frac{{\mathrm{d}}^{m}f(x)}{{\mathrm{d}}x^{m}}=\sum_{k\in{\mathbb{Z}}}\,\Delta_{K}^{m}\{{\mathbf{c}}\}[{k\bmod K}]\,\beta^{n-m}(x-\left(\delta x-\frac{m}{2}\right)-k),\]</div>
+<p>where the periodic finite-difference operator <span class="math notranslate nohighlight">\(\Delta_{K}^{m},\)</span> applied to the vector <span class="math notranslate nohighlight">\({\mathbf{c}}=\left(c[k]\right)_{k=0}^{K-1}\)</span> of the spline coefficients, is defined by</p>
+<div class="math notranslate nohighlight">
+\[\forall k\in{\mathbb{Z}}:\Delta_{K}^{m}\{{\mathbf{c}}\}[k]=\sum_{q=0}^{m}\,\left(-1\right)^{q}\,{m\choose q}\,c[{\left(k-q\right)\bmod K}].\]</div>
+<p>By identification of terms, it can be seen that the derivative of a periodic spline is indeed a periodic spline of period <span class="math notranslate nohighlight">\(K,\)</span> of degree <span class="math notranslate nohighlight">\(\left(n-m)\right),\)</span> of delay <span class="math notranslate nohighlight">\(\left(\delta x-\frac{m}{2}\right),\)</span> and of spline coefficients <span class="math notranslate nohighlight">\(\left(\Delta_{K}^{m}\{{\mathbf{c}}\}[k]\right)_{k=0}^{K-1}.\)</span></p>
+</section>
+<section id="jupyter-notebook">
+<h3>Jupyter Notebook<a class="headerlink" href="#jupyter-notebook" title="Link to this heading"></a></h3>
+<p>We provide now a few lines of code that create a random spline of specified period, degree, and delay, and show its derivative of arbitrary order.</p>
+<div class="admonition-jupyter-lab-notebook admonition">
+<p class="admonition-title">Jupyter Lab notebook</p>
+<p><a class="reference external" href="https://splinekit.github.io/splinekit-jupyterlite/lab/?path=periodic-spline/calculus/spline_derivative.ipynb&amp;mode=single-document">Derivatives of a spline</a></p>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="derivatives-and-fourier-coefficients">
+<h2>Derivatives and Fourier Coefficients<a class="headerlink" href="#derivatives-and-fourier-coefficients" title="Link to this heading"></a></h2>
+<p>Suppose we have at our disposal the spline <span class="math notranslate nohighlight">\(g={\mathrm{D}}^{m}\{f\}\)</span> that results from the <span class="math notranslate nohighlight">\(m\)</span>-th order differentiation of the spline <span class="math notranslate nohighlight">\(f.\)</span> On one hand, we know that the function <code class="docutils literal notranslate"><span class="pre">splinekit.PeriodicSpline1D.fourier_coeff</span></code> provides us with a direct access to the Fourier coefficients <span class="math notranslate nohighlight">\(F\{g\}.\)</span> On the other hand, the theory asserts that they are related to <span class="math notranslate nohighlight">\(F\{f\}\)</span> as</p>
+<div class="math notranslate nohighlight">
+\[\forall\nu\in{\mathbb{Z}}:F\{g\}[\nu]=\left({\mathrm{j}}\,\nu\,\frac{2\,\pi}{K}\right)^{m}\,F\{f\}[\nu].\]</div>
+<p>We provide now a few lines of code that create a random spline of specified period, degree, and delay, and illustrate the practical validity of the mathematical relation between the Fourier coefficients, for arbitrary orders of differentiation.</p>
+<div class="admonition-jupyter-lab-notebook admonition">
+<p class="admonition-title">Jupyter Lab notebook</p>
+<p><a class="reference external" href="https://splinekit.github.io/splinekit-jupyterlite/lab/?path=periodic-spline/calculus/spline_fourier_diff.ipynb&amp;mode=single-document">Fourier coefficients of spline derivatives</a></p>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="conv_corr.html" class="btn btn-neutral float-left" title="Convolutions and Correlations" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="signum.html" class="btn btn-neutral float-right" title="Signs, Zeros, and Zero-Crossings" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright .</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

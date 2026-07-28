@@ -40,7 +40,7 @@ The representation of :math:`f` is not unique. For instance, one can create a ne
 The two proposed examples are trivial. A less trivial approach arises for those synthesis functions :math:`\varphi_{1}` that admit being themselves expressed as a sum of weighted and integer-shifted synthesis functions :math:`\varphi_{2},` as in
 
 ..  math::
-        \varphi_{1}:{\mathbb{R}}\rightarrow{\mathbb{R}},x\mapsto \varphi_{1}(x)=\sum_{k'\in{\mathbb{Z}}}\,h[k']\,\varphi_{2}(x-k'),
+    \varphi_{1}:{\mathbb{R}}\rightarrow{\mathbb{R}},x\mapsto \varphi_{1}(x)=\sum_{k'\in{\mathbb{Z}}}\,h[k']\,\varphi_{2}(x-k'),
 
 where the sequence :math:`h` of weights relates the two synthesis functions. If, in addition, the technical conditions for the interchange of the order of summations allows it, then we can write that
 

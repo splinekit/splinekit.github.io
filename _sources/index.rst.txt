@@ -43,4 +43,5 @@ SplineKit
     periodic_nonuniform_piecewise/index
     interval/index
     spline_utilities/index
+    bibliography
 

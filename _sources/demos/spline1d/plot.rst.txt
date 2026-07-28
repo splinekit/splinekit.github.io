@@ -11,7 +11,7 @@ Periodic One-Dimensional Spline Objects
 The objects maintained by the class ``PeriodicSpline1D`` of the ``splinekit`` library are parametric mathematical *functions* that map a number to another number. The input number being mapped is called the *argument* of the mapping and lives in a functional space called its *domain*. Here, it is the set of real numbers, approximated by ``float`` values. The output number lives in a functional space called the *image* (a.k.a. the range) of the mapping. Here, the image is again the set of real numbers, again approximated by ``float`` values. Collecting everything together, one notates the function :math:`f,` the domain :math:`{\mathbb{R}},` the image :math:`{\mathbb{R}},` and the argument :math:`x` as
 
 ..  math::
-        f:{\mathbb{R}}\rightarrow{\mathbb{R}},x\mapsto f(x).
+    f:{\mathbb{R}}\rightarrow{\mathbb{R}},x\mapsto f(x).
 
 Plots
 -----

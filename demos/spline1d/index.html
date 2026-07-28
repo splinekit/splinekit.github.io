@@ -62,6 +62,11 @@
 <li class="toctree-l3"><a class="reference internal" href="polynomials.html">Polynomial Pieces of Splines</a></li>
 <li class="toctree-l3"><a class="reference internal" href="evaluation.html">Evaluation of Splines</a></li>
 <li class="toctree-l3"><a class="reference internal" href="bounds.html">Upper and Lower Bounds of Splines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="fourier.html">Fourier Transform of Periodic Splines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conv_corr.html">Convolutions and Correlations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="calculus.html">Spline Calculus</a></li>
+<li class="toctree-l3"><a class="reference internal" href="signum.html">Signs, Zeros, and Zero-Crossings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="extrema.html">Extrema</a></li>
 </ul>
 </li>
 </ul>
@@ -75,6 +80,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../periodic_nonuniform_piecewise/index.html">Periodic Nonuniform Piecewise [toc]</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../interval/index.html">Interval [package]</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../spline_utilities/index.html">Spline Utilities [toc]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../bibliography.html">Bibliography</a></li>
 </ul>
 
         </div>
@@ -145,6 +151,7 @@
 <li class="toctree-l3"><a class="reference internal" href="constructors.html#regularizations">Regularizations</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="constructors.html#from-noiseless-samples">From Noiseless Samples</a></li>
 <li class="toctree-l4"><a class="reference internal" href="constructors.html#from-noisy-samples">From Noisy Samples</a></li>
+<li class="toctree-l4"><a class="reference internal" href="constructors.html#from-spline-coefficients">From Spline Coefficients</a></li>
 </ul>
 </li>
 </ul>
@@ -213,6 +220,81 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="bounds.html#generalizations">Generalizations</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="fourier.html">Fourier Transform of Periodic Splines</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="fourier.html#preamble">Preamble</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="fourier.html#functions">Functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="fourier.html#transforms">Transforms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="fourier.html#four-brands-of-fourier-transforms">Four Brands of Fourier Transforms</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="fourier.html#continuous-time">Continuous-Time</a></li>
+<li class="toctree-l4"><a class="reference internal" href="fourier.html#discrete">Discrete</a></li>
+<li class="toctree-l4"><a class="reference internal" href="fourier.html#series">Series</a></li>
+<li class="toctree-l4"><a class="reference internal" href="fourier.html#discrete-time">Discrete-Time</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="fourier.html#inverses">Inverses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="fourier.html#convergence">Convergence</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="fourier.html#truncated-fourier-series">Truncated Fourier Series</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fourier.html#fourier-smoothness">Fourier Smoothness</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="conv_corr.html">Convolutions and Correlations</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="conv_corr.html#terminology">Terminology</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="conv_corr.html#notations">Notations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conv_corr.html#definitions">Definitions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conv_corr.html#convolutions">Convolutions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="conv_corr.html#ordinary-convolution">Ordinary Convolution</a></li>
+<li class="toctree-l4"><a class="reference internal" href="conv_corr.html#periodic-convolution">Periodic Convolution</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="conv_corr.html#correlations">Correlations</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="conv_corr.html#crosscorrelation">Crosscorrelation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="conv_corr.html#autocorrelation">Autocorrelation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="conv_corr.html#periodic-normalized-crosscorrelation">Periodic Normalized Crosscorrelation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="conv_corr.html#pearson-correlation-coefficient">Pearson Correlation Coefficient</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="conv_corr.html#convolution-and-filtering-of-splines">Convolution and Filtering of Splines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="conv_corr.html#crosscorrelation-of-splines">Crosscorrelation of Splines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="conv_corr.html#autocorrelation-of-a-spline">Autocorrelation of a Spline</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="calculus.html">Spline Calculus</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="calculus.html#area-under-the-curve">Area Under the Curve</a></li>
+<li class="toctree-l2"><a class="reference internal" href="calculus.html#anti-gradient">Anti-Gradient</a></li>
+<li class="toctree-l2"><a class="reference internal" href="calculus.html#gradient">Gradient</a></li>
+<li class="toctree-l2"><a class="reference internal" href="calculus.html#derivative-of-positive-integer-order">Derivative of Positive Integer Order</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="calculus.html#derivative-at-a-single-argument">Derivative at a Single Argument</a></li>
+<li class="toctree-l3"><a class="reference internal" href="calculus.html#derivative-as-a-function">Derivative as a Function</a></li>
+<li class="toctree-l3"><a class="reference internal" href="calculus.html#jupyter-notebook">Jupyter Notebook</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="calculus.html#derivatives-and-fourier-coefficients">Derivatives and Fourier Coefficients</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="signum.html">Signs, Zeros, and Zero-Crossings</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="signum.html#terminology">Terminology</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="signum.html#signum-function">Signum Function</a></li>
+<li class="toctree-l3"><a class="reference internal" href="signum.html#zeros">Zeros</a></li>
+<li class="toctree-l3"><a class="reference internal" href="signum.html#zero-crossings">Zero-Crossings</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="signum.html#spline-of-null-degree">Spline of Null Degree</a></li>
+<li class="toctree-l4"><a class="reference internal" href="signum.html#spline-of-positive-degree">Spline of Positive Degree</a></li>
+<li class="toctree-l4"><a class="reference internal" href="signum.html#descending-or-ascending-zero-crossings">Descending or Ascending Zero-Crossings</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="signum.html#spline-signed-pieces">Spline Signed Pieces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="signum.html#spline-zeros-and-zero-crossings">Spline Zeros and Zero-Crossings</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="extrema.html">Extrema</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="extrema.html#minima-and-maxima">Minima and Maxima</a></li>
 </ul>
 </li>
 </ul>

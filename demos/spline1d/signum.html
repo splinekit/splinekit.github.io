@@ -1,0 +1,212 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Signs, Zeros, and Zero-Crossings &mdash; splinekit  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../../_static/plot_directive.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+      <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=2f8eb179" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+      <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Extrema" href="extrema.html" />
+    <link rel="prev" title="Spline Calculus" href="calculus.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            splinekit
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Demos [toc]</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../bspline/index.html">B-Splines [toc]</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../padding/index.html">Padding [toc]</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Periodic Splines [toc]</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="plot.html">Plots of Periodic One-Dimensional Splines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="random1d.html">Random One-Dimensional Splines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="random2d.html">Random Two-Dimensional Spline Curves</a></li>
+<li class="toctree-l3"><a class="reference internal" href="constructors.html">Constructors of Periodic One-Dimensional Splines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="simple_ops.html">Simple Operations on Periodic Splines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="stats.html">Spline Statistics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="polynomials.html">Polynomial Pieces of Splines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="evaluation.html">Evaluation of Splines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bounds.html">Upper and Lower Bounds of Splines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="fourier.html">Fourier Transform of Periodic Splines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conv_corr.html">Convolutions and Correlations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="calculus.html">Spline Calculus</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Signs, Zeros, and Zero-Crossings</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#terminology">Terminology</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#spline-signed-pieces">Spline Signed Pieces</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#spline-zeros-and-zero-crossings">Spline Zeros and Zero-Crossings</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="extrema.html">Extrema</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../installation/index.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../glossary/index.html">Glossary [toc]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../periodic_spline_1d/index.html">Periodic Spline 1D [toc]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../bsplines/index.html">B-Splines [toc]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../spline_padding/index.html">Spline Padding [toc]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../bases/index.html">Bases [toc]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../periodic_nonuniform_piecewise/index.html">Periodic Nonuniform Piecewise [toc]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../interval/index.html">Interval [package]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../spline_utilities/index.html">Spline Utilities [toc]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../bibliography.html">Bibliography</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">splinekit</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Demos [toc]</a></li>
+          <li class="breadcrumb-item"><a href="index.html">Periodic Splines [toc]</a></li>
+      <li class="breadcrumb-item active">Signs, Zeros, and Zero-Crossings</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/Philippe-Thevenaz/splinekit/blob/main/docs/demos/spline1d/signum.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="signs-zeros-and-zero-crossings">
+<h1>Signs, Zeros, and Zero-Crossings<a class="headerlink" href="#signs-zeros-and-zero-crossings" title="Link to this heading"></a></h1>
+<p>How to access the signed pieces of a piecewise-polynomial periodic one-dimensional spline and how to take advantage of them.</p>
+<hr class="docutils" />
+<section id="terminology">
+<h2>Terminology<a class="headerlink" href="#terminology" title="Link to this heading"></a></h2>
+<section id="signum-function">
+<h3>Signum Function<a class="headerlink" href="#signum-function" title="Link to this heading"></a></h3>
+<p>The signum function is the complex-to-complex mapping</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}{\mathrm{sgn}}:{\mathbb{C}}\rightarrow{\mathbb{C}},z\mapsto{\mathrm{sgn}}(z)=\left\{\begin{array}{ll}0,&amp;z=0\\{\mathrm{e}}^{{\mathrm{j}}\,\arg z},&amp;z\neq0.\end{array}\right.\end{split}\]</div>
+<p>It maps the origin of the complex plane to itself, and it maps every other point to its closest point on the unit circle. Those points <span class="math notranslate nohighlight">\(z\in{\mathbb{C}}\)</span> such that <span class="math notranslate nohighlight">\({\mathrm{sgn}}(z)=1\)</span> are said to be positive, and those points <span class="math notranslate nohighlight">\(z\in{\mathbb{C}}\)</span> such that <span class="math notranslate nohighlight">\({\mathrm{sgn}}(z)=\left(-1\right)\)</span> are said to be negative; the set of the real numbers can then be partitioned as <span class="math notranslate nohighlight">\({\mathbb{R}}=\{z\in{\mathbb{C}}:{\mathrm{sgn}}(z)=-1\}\cup\{0\}\cup\{z\in{\mathbb{C}}:{\mathrm{sgn}}(z)=1\}.\)</span></p>
+</section>
+<section id="zeros">
+<h3>Zeros<a class="headerlink" href="#zeros" title="Link to this heading"></a></h3>
+<p>Consider the piecewise polynomial spline <span class="math notranslate nohighlight">\(f:{\mathbb{R}}\rightarrow{\mathbb{R}}\)</span> of nonnegative integer degree <span class="math notranslate nohighlight">\(n.\)</span> If an interval <span class="math notranslate nohighlight">\({\mathbb{X}}\)</span> can be found such that it is of maximal diameter and such that <span class="math notranslate nohighlight">\(\forall x\in{\mathbb{X}}:f(x)=0,\)</span> then this interval is said to be a <em>zero</em> of the spline.</p>
+</section>
+<section id="zero-crossings">
+<h3>Zero-Crossings<a class="headerlink" href="#zero-crossings" title="Link to this heading"></a></h3>
+<section id="spline-of-null-degree">
+<h4>Spline of Null Degree<a class="headerlink" href="#spline-of-null-degree" title="Link to this heading"></a></h4>
+<p>Consider a spline of degree <span class="math notranslate nohighlight">\(n=0.\)</span> If a proper interval <span class="math notranslate nohighlight">\({\mathbb{X}}\)</span> can be found such that <span class="math notranslate nohighlight">\(\forall x\in{\mathbb{X}}:f(x)=0\)</span> and such that <span class="math notranslate nohighlight">\(f(\inf{\mathbb{X}})\,f(\sup{\mathbb{X}})&lt;0,\)</span> then the interval is said to be a <em>zero-crossing</em> of the spline.</p>
+<p>If two proper intervals <span class="math notranslate nohighlight">\({\mathbb{A}}\)</span> and <span class="math notranslate nohighlight">\({\mathbb{B}}\)</span> can be found such that they are mutually disjoint, such that <span class="math notranslate nohighlight">\(\sup{\mathbb{A}}=\inf{\mathbb{B}},\)</span> and such that <span class="math notranslate nohighlight">\(\forall a\in{\mathbb{A}},\forall b\in{\mathbb{B}}:f(a)\,f(b)&lt;0,\)</span> then, the degenerate interval <span class="math notranslate nohighlight">\({\mathbb{X}}=\{x\in{\mathbb{R}}:\sup{\mathbb{A}}=x=\inf{\mathbb{B}}\}\)</span> is said to be a <em>zero-crossing</em> of the spline.</p>
+</section>
+<section id="spline-of-positive-degree">
+<h4>Spline of Positive Degree<a class="headerlink" href="#spline-of-positive-degree" title="Link to this heading"></a></h4>
+<p>Consider a spline of degree <span class="math notranslate nohighlight">\(n&gt;0.\)</span> If three intervals <span class="math notranslate nohighlight">\({\mathbb{A}},\)</span> <span class="math notranslate nohighlight">\({\mathbb{X}},\)</span> and <span class="math notranslate nohighlight">\({\mathbb{B}}\)</span> can be found such that they are mutually disjoint, such that <span class="math notranslate nohighlight">\(\left(\sup{\mathbb{A}}=\inf{\mathbb{X}}\right)\wedge\left(\sup{\mathbb{X}}=\inf{\mathbb{B}}\right),\)</span> such that <span class="math notranslate nohighlight">\(\forall x\in{\mathbb{X}}:{\mathrm{sgn}}(f(x))=0,\)</span> and such that <span class="math notranslate nohighlight">\(\forall a\in{\mathbb{A}},\forall b\in{\mathbb{B}}:f(a)\,f(b)&lt;0,\)</span> then, <span class="math notranslate nohighlight">\({\mathbb{X}}\)</span> is said to be a <em>zero-crossing</em> of the spline.</p>
+</section>
+<section id="descending-or-ascending-zero-crossings">
+<h4>Descending or Ascending Zero-Crossings<a class="headerlink" href="#descending-or-ascending-zero-crossings" title="Link to this heading"></a></h4>
+<p>A <em>descending</em> zero-crossing is such that <span class="math notranslate nohighlight">\(\lim_{x\uparrow\inf{\mathbb{X}}}{\mathrm{sgn}}(f(x))&gt;\lim_{x\downarrow\sup{\mathbb{X}}}{\mathrm{sgn}}(f(x)).\)</span></p>
+<p>An <em>ascending</em> zero-crossing is a zero-crossing that is not descending.</p>
+</section>
+</section>
+</section>
+<hr class="docutils" />
+<section id="spline-signed-pieces">
+<h2>Spline Signed Pieces<a class="headerlink" href="#spline-signed-pieces" title="Link to this heading"></a></h2>
+<p>Given a periodic spline of period <span class="math notranslate nohighlight">\(K,\)</span> we want to establish a set of intervals that partitions the main period <span class="math notranslate nohighlight">\([0,K)\)</span> in such a way that each element of the set is an interval of largest diameter over which the spline takes a constant-valued sign. For ease of use, the set is returned as a list.</p>
+<p>We now propose a few lines of code that create and display a random spline and extract its constant-sign pieces.</p>
+<div class="admonition-jupyter-lab-notebook admonition">
+<p class="admonition-title">Jupyter Lab notebook</p>
+<p><a class="reference external" href="https://splinekit.github.io/splinekit-jupyterlite/lab/?path=periodic-spline/sgn/spline_sgn.ipynb&amp;mode=single-document">Constant-sign pieces of a spline</a></p>
+</div>
+</section>
+<hr class="docutils" />
+<section id="spline-zeros-and-zero-crossings">
+<h2>Spline Zeros and Zero-Crossings<a class="headerlink" href="#spline-zeros-and-zero-crossings" title="Link to this heading"></a></h2>
+<p>Given a periodic spline, we want to establish a set of intervals of largest diameter that give either its zeros or its zero-crossings. We enforce that the diameter of the enclosure of all returned intervals is not larger than the period of this spline. For ease of use, the set is returned as a list.</p>
+<p>We now propose a few lines of code that create and display a curated spline over which we illustrate and discuss several configurations, represented by a mixture of degenerate and proper intervals. In our control of the configurations, we retain the same spline coefficients but we let the degree of the spline vary.</p>
+<div class="admonition-jupyter-lab-notebook admonition">
+<p class="admonition-title">Jupyter Lab notebook</p>
+<p><a class="reference external" href="https://splinekit.github.io/splinekit-jupyterlite/lab/?path=periodic-spline/sgn/spline_curated_zeros.ipynb&amp;mode=single-document">Zeros of a curated spline</a></p>
+</div>
+<p>In the next notebook, we examine random splines of specified period, degree, and delay. Here, it is the values of the spline samples that we maintain across configurations.</p>
+<div class="admonition-jupyter-lab-notebook admonition">
+<p class="admonition-title">Jupyter Lab notebook</p>
+<p><a class="reference external" href="https://splinekit.github.io/splinekit-jupyterlite/lab/?path=periodic-spline/sgn/spline_zeros.ipynb&amp;mode=single-document">Zeros of a random spline</a></p>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="calculus.html" class="btn btn-neutral float-left" title="Spline Calculus" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="extrema.html" class="btn btn-neutral float-right" title="Extrema" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright .</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

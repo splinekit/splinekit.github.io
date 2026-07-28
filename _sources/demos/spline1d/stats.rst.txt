@@ -15,7 +15,7 @@ There are cases where :math:`f` admits a favorable expression such that :math:`\
 An *average* is the name given to :math:`\mu` and a *mean* is the name given to :math:`\tilde{\mu}.` For finite :math:`N,` they differ for nearly every function one can think of; yet, remarkably, they do coincide in the cases where :math:`f` is a periodic polynomial spline of period :math:`K,` with
 
 ..  math::
-        \int_{0}^{K}\,f(x)\,\frac{{\mathrm{d}}x}{K}=\mu=\tilde{\mu}=\sum_{k'=0}^{K-1}\,f(k')\,\frac{1}{K}
+    \int_{0}^{K}\,f(x)\,\frac{{\mathrm{d}}x}{K}=\mu=\tilde{\mu}=\sum_{k'=0}^{K-1}\,f(k')\,\frac{1}{K}
 
 whenever :math:`f(x)=\sum_{k\in{\mathbb{Z}}}\,c[{k\bmod K}]\,\beta^{n}(x-\delta x-k),` where :math:`\left(c[k]\right)_{k=0}^{K-1}\in{\mathbb{R}}^{K}` is a :math:`K`-dimensional vector of spline coefficients and :math:`\beta^{n}` is a polynomial B-spline of nonnegative degree :math:`n\in{\mathbb{N}}.` Moreover, the equality between average and mean holds for any delay :math:`\delta x.`
 

@@ -84,6 +84,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../periodic_nonuniform_piecewise/index.html">Periodic Nonuniform Piecewise [toc]</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../interval/index.html">Interval [package]</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../spline_utilities/index.html">Spline Utilities [toc]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../bibliography.html">Bibliography</a></li>
 </ul>
 
         </div>
@@ -142,7 +143,7 @@
 <p>One often deploys splines with the purpose of interpolating data samples. In practice, given a <span class="math notranslate nohighlight">\(Q\)</span>-dimensional vector <span class="math notranslate nohighlight">\({\mathbf{y}}\in{\mathbb{R}}^{Q}\)</span> of samples, it is desired to find a specific sequence of coefficients <span class="math notranslate nohighlight">\(c\)</span> that results in a spline <span class="math notranslate nohighlight">\(f\)</span> satisfying the interpolation constraint <span class="math notranslate nohighlight">\(\left(f(q)\right)_{q=0}^{Q-1}={\mathbf{y}}.\)</span> Unfortunately, the coefficients are not unique. Indeed, suppose that one has found a sequence <span class="math notranslate nohighlight">\(c\)</span> that satisfies the interpolation constraint. Then, other sequences <span class="math notranslate nohighlight">\(c'\)</span> can be established as</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{array}{rcl}
-\forall q\in{\mathbb{Z}}:f(q)&amp;=&amp;\sum_{k\in{\mathbb{Z}}}\,c[k]\,\beta^{n}(q-k)\\
+    \forall q\in{\mathbb{Z}}:f(q)&amp;=&amp;\sum_{k\in{\mathbb{Z}}}\,c[k]\,\beta^{n}(q-k)\\
 &amp;=&amp;\sum_{k\in{\mathbb{Z}}}\,\underbrace{\left(c[k]+\sum_{m=1}^{\left\lfloor n/2\right\rfloor}\,\left(\lambda_{m}^{-}\,z_{n,m}^{-k}+\lambda_{m}^{+}\,z_{n,m}^{k}\right)\right)}_{c'[k]}\,\beta^{n}(q-k),
 \end{array}\end{split}\]</div>
 <p>where <span class="math notranslate nohighlight">\(\lambda_{m}^{-}\)</span> and <span class="math notranslate nohighlight">\(\lambda_{m}^{+}\)</span> are unconstrained real numbers which, altogether, provide <span class="math notranslate nohighlight">\(2\,\left\lfloor n/2\right\rfloor\)</span> degrees of liberty.</p>

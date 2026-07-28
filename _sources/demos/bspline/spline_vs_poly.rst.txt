@@ -19,7 +19,7 @@ The ``splinekit`` library focuses on uniform polynomial splines of nonnegative i
 Splines of degree :math:`n` are :math:`\left(n-1\right)` times continuously differentiable and :math:`n` times differentiable. They are the smoothest piecewise-polynomial functions one can get. It turns out that uniform splines always admit a convenient representation through an expression that involves synthesis functions; in the most practical form, uniform splines are written as
 
 ..  math::
-        f:{\mathbb{R}}\rightarrow{\mathbb{R}},x\mapsto f(x)=\sum_{k\in{\mathbb{Z}}}\,c[k]\,\beta^{n}(x-\delta x-k),
+    f:{\mathbb{R}}\rightarrow{\mathbb{R}},x\mapsto f(x)=\sum_{k\in{\mathbb{Z}}}\,c[k]\,\beta^{n}(x-\delta x-k),
 
 where :math:`c` are the so-called spline coefficients and where the B-spline :math:`\beta^{n}` is the synthesis function of the degree :math:`n,` this degree being typeset as a superscript (not a power). The distinction between a B-spline (with a capital B) and a spline is that the first one is a nonparametric synthesis function, the second one being parameterized by :math:`c` and the global delay :math:`\delta x.` To simplify the current discussion, we assume henceforth that this delay is :math:`\delta x=0.`
 
@@ -41,12 +41,12 @@ Polynomials of Degree :math:`0` and Partition of Unity
 A polynomial of degree :math:`0` is a real function :math:`\pi_{0}:{\mathbb{R}}\rightarrow{\mathbb{R}}\setminus\{0\},x\mapsto\pi_{0}(x)=a_{0}` that maps every real number to the nonzero constant :math:`a_{0}.` If we want to build a spline that does the same, we need to find spline coefficients :math:`c_{0}` such that, for any argument :math:`x\in{\mathbb{R}},` it holds that
 
 ..  math::
-        a_{0}=\sum_{k\in{\mathbb{Z}}}\,c_{0}[k]\,\beta^{n}(x-k).
+    a_{0}=\sum_{k\in{\mathbb{Z}}}\,c_{0}[k]\,\beta^{n}(x-k).
 
 Fortunately, B-splines of any degree :math:`n` satisfy the partition-of-unity condition according to which
 
 ..  math::
-        1=\sum_{k\in{\mathbb{Z}}}\,\beta^{n}(x-k).
+    1=\sum_{k\in{\mathbb{Z}}}\,\beta^{n}(x-k).
 
 It is then enough to identify :math:`c_{0}[k]=a_{0}` for all :math:`k\in{\mathbb{Z}}` to ascertain that a polynomial of degree :math:`0` can indeed be represented by a spline.
 
@@ -56,17 +56,17 @@ Partition of Monomials
 The generic polynomial :math:`\pi_{n}:{\mathbb{R}}\rightarrow{\mathbb{R}},x\mapsto\pi_{n}(x)=a_{0}+\sum_{m=1}^{n}\,a_{m}\,x^{m}` is a weighted linear sum of a constant term :math:`1` and of canonic monomials :math:`x^{m},` with respective weights :math:`a_{0}` and :math:`a_{m}.` If we want to discover the spline coefficients :math:`c` needed to represent :math:`\pi_{n}` as a spline, all we need to know is which are the spline coefficients :math:`c_{m}^{n}` that will represent the monomial of degree :math:`m` as the spline :math:`\sum_{k\in{\mathbb{Z}}}\,c_{m}^{n}[k]\,\beta^{n}(x-k)` for :math:`x\in{\mathbb{R}},` assuming that :math:`0<m\leq n.` Then, the finite-support property of B-splines will alleviate concerns about the convergence of the sums involved and will allow us to write that
 
 ..  math::
-        \begin{array}{rcl}
-        \pi_{n}(x)&=&a_{0}\,\left(\sum_{k\in{\mathbb{Z}}}\,\beta^{n}(x-k)\right)+\sum_{m=1}^{n}\,a_{m}\,\left(\sum_{k\in{\mathbb{Z}}}\,c_{m}^{n}[k]\,\beta^{n}(x-k)\right)\\
-        &=&\sum_{k\in{\mathbb{Z}}}\,\left(a_{0}+\sum_{m=1}^{n}\,a_{m}\,c_{m}^{n}[k]\right)\,\beta^{n}(x-k).
-        \end{array}
+    \begin{array}{rcl}
+    \pi_{n}(x)&=&a_{0}\,\left(\sum_{k\in{\mathbb{Z}}}\,\beta^{n}(x-k)\right)+\sum_{m=1}^{n}\,a_{m}\,\left(\sum_{k\in{\mathbb{Z}}}\,c_{m}^{n}[k]\,\beta^{n}(x-k)\right)\\
+    &=&\sum_{k\in{\mathbb{Z}}}\,\left(a_{0}+\sum_{m=1}^{n}\,a_{m}\,c_{m}^{n}[k]\right)\,\beta^{n}(x-k).
+    \end{array}
 
 The identification :math:`c[k]=a_{0}+\sum_{m=1}^{n}\,a_{m}\,c_{m}^{n}[k]` for :math:`k\in{\mathbb{Z}}` will finally result in the desired representation :math:`\pi_{n}(x)=\sum_{k\in{\mathbb{Z}}}\,c[k]\,\beta^{n}(x-k)` for :math:`x\in{\mathbb{R}}.`
 
 It turns out that the monomial-reproducing :math:`c_{m}^{n}[k]` can itself be expressed as a polynomial in :math:`k.` We give now a piece of code that returns the list of polynomials in :math:`k` that one must use to weigh B-splines of degree :math:`n` to build the monomial :math:`x^{m}` of nonnegative degree :math:`m\leq n`, as in
 
 ..  math::
-        x^{m}=\sum_{k\in{\mathbb{Z}}}\,c_{m}^{n}[k]\,\beta^{n}(x-k).
+    x^{m}=\sum_{k\in{\mathbb{Z}}}\,c_{m}^{n}[k]\,\beta^{n}(x-k).
 
 ..  admonition:: Jupyter Lab notebook
 
@@ -78,12 +78,12 @@ Spline Coefficients Made of Discrete Monomials
 As has been revealed just above, those spline coefficients that let a spline build a monomial have an expression that can be nontrivial. We now ask the converse question: What is the function reconstructed by a spline built with (trivial) monomial coefficients? The answer is a nontrivial polynomial of a degree equal to that of the monomial coefficients. Formally, we have that
 
 ..  math::
-        \sum_{k\in{\mathbb{N}}\setminus\{0\}}\,\left(-k\right)^{0}\,\beta^{n}(x+k)+\beta^{n}(x)+\sum_{k\in{\mathbb{N}}\setminus\{0\}}\,k^{0}\,\beta^{n}(x-k)=1
+    \sum_{k\in{\mathbb{N}}\setminus\{0\}}\,\left(-k\right)^{0}\,\beta^{n}(x+k)+\beta^{n}(x)+\sum_{k\in{\mathbb{N}}\setminus\{0\}}\,k^{0}\,\beta^{n}(x-k)=1
 
 for a weighting monomial of degree :math:`0,` and
 
 ..  math::
-        \sum_{k\in{\mathbb{Z}}}\,k^{m}\,\beta^{n}(x-k)=\pi_{m}^{n}(x)
+    \sum_{k\in{\mathbb{Z}}}\,k^{m}\,\beta^{n}(x-k)=\pi_{m}^{n}(x)
 
 for :math:`m\in[1\ldots n],` where :math:`\pi_{m}^{n}(x)` is some polynomial in the free variable :math:`x.` We give now a piece of code that returns the polynomial :math:`\pi_{m}^{n}` for the spline degree :math:`n` and the nonnegative monomial degrees :math:`m\leq n.`
 
@@ -99,7 +99,7 @@ Monomial Convolved with a B-Spline
 The convolution bewteen, on one hand, a monomial :math:`\left(\cdot\right)^{m}` of nonnegative integer degree :math:`m` and, on the other hand, a B-spline :math:`\beta^{n}` of nonnegative integer degree :math:`n,` turns out to be the polynomial :math:`\varpi_{n}^{m}` of degree :math:`m` defined by
 
 ..  math::
-        \int_{\mathbb{R}}\,y^{m}\,\beta^{n}(x-y)\,{\mathrm{d}}y=\varpi_{m}^{n}(x).
+    \int_{\mathbb{R}}\,y^{m}\,\beta^{n}(x-y)\,{\mathrm{d}}y=\varpi_{m}^{n}(x).
 
 We give now a piece of code that returns the polynomial :math:`\varpi_{m}^{n}.`
 

@@ -16,7 +16,7 @@ Purpose
 We wish to build the real function
 
 ..  math::
-        f:{\mathbb{R}}\rightarrow{\mathbb{R}},x\mapsto f(x)=\sum_{k\in{\mathbb{Z}}}\,c[k]\,\varphi(x-k).
+    f:{\mathbb{R}}\rightarrow{\mathbb{R}},x\mapsto f(x)=\sum_{k\in{\mathbb{Z}}}\,c[k]\,\varphi(x-k).
 
 There, the sequence :math:`c` of coefficients is used to parameterize the function :math:`f` and gives us a good many degrees of freedom to shape it to our taste. The adaptability of :math:`c` makes it a tool of choice to represent sampled data as the continuously defined function :math:`f.` Given a sequence :math:`y=\left(y[k]\right)_{k\in{\mathbb{Z}}}` of regularly indexed samples :math:`y[k]` for :math:`k\in{\mathbb{Z}},` the purpose of the so-called interpolation procedure is to yield a sequence :math:`c` such that the interpolation condition :math:`f(k)=y[k]` is satisfied.
 
@@ -39,7 +39,7 @@ Uniqueness
 In the sequel, we let :math:`\varphi` be a polynomial B-spline of nonnegative integer degree :math:`n,` which is a real function :math:`\beta^{n}:{\mathbb{R}}\rightarrow{\mathbb{R}},x\mapsto\beta^{n}(x).` For any degree :math:`n\geq2` and for :math:`m\in[1\ldots\left\lfloor n/2\right\rfloor],` it is known that there exist :math:`\left\lfloor n/2\right\rfloor` mutually different, real, negative numbers :math:`z_{n,m}` in the open interval :math:`(-1,0)` that satisfy the relation
 
 ..  math::
-        \frac{1}{\sum_{k\in{\mathbb{Z}}}\,\beta^{n}(k)\,z_{n,m}^{-k}}\not\in{\mathbb{C}}.
+    \frac{1}{\sum_{k\in{\mathbb{Z}}}\,\beta^{n}(k)\,z_{n,m}^{-k}}\not\in{\mathbb{C}}.
 
 These numbers are called *poles* and are such that :math:`\sum_{k\in{\mathbb{Z}}}\,\beta^{n}(k)\,z_{n,m}^{-k}=0.` Because B-splines are even-symmetric, the pole reciprocals :math:`z_{n,m}^{-1}\in{\mathbb{R}}_{<-1}` satisfy the same relation.
 
@@ -78,7 +78,7 @@ Periodic Padding
 An easy, general-purpose padding approach is to engineer the sequence :math:`c` of coefficients to be :math:`K`-periodic. This implies that the sequence :math:`y` of samples has to be the straighforward :math:`K`-periodized version of the vector :math:`{\mathbf{y}}\in{\mathbb{R}}^{K}.` Ultimately, this also implies that the function :math:`f` is itself :math:`K`-periodic. In summary, under a periodic padding, the relations being satisfied for any :math:`k\in{\mathbb{Z}}` and any :math:`x\in{\mathbb{R}}` are
 
 ..  math::
-        c[k]=c[k+K]\;\Rightarrow\;\left\{\begin{array}{rcl}y[k]&=&y[k+K]\\f(x)&=&f(x+K).\end{array}\right.
+    c[k]=c[k+K]\;\Rightarrow\;\left\{\begin{array}{rcl}y[k]&=&y[k+K]\\f(x)&=&f(x+K).\end{array}\right.
 
 Algorithmic Considerations
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -97,7 +97,7 @@ Recursive Filtering
 Start the algorithm by letting :math:`{\mathbf{c}}\leftarrow{\mathbf{y}}.` Then, iteratively for every one of the poles :math:`z_{n,m}\in(-1,0)` indexed by :math:`m\in[1\ldots\left\lfloor n/2\right\rfloor]` and associated to the degree :math:`n,` apply the in-place recursive updates
 
 ..  math::
-        \left\{\begin{array}{rcll}c[0]&\leftarrow&\frac{1}{1-z_{n,m}^{K}}\,\left(c[0]+\sum_{k=1}^{K-1}\,z_{n,m}^{k}\,c[K-k]\right)\\c[k]&\leftarrow&c[k]+z_{n,m}\,c[k-1],&k\in[1\ldots K-1]\\c[K-1]&\leftarrow&\frac{\left(1-z_{n,m}\right)^{2}}{1-z_{n,m}^{K}}\,\left(c[K-1]+\sum_{k=0}^{K-2}\,z_{n,m}^{k+1}\,c[k]\right)\\c[K-1-k]&\leftarrow&z_{n,m}\,c[K-k]+\left(1-z_{n,m}\right)^{2}\,c[K-1-k],&k\in[1\ldots K-1].\end{array}\right.
+    \left\{\begin{array}{rcll}c[0]&\leftarrow&\frac{1}{1-z_{n,m}^{K}}\,\left(c[0]+\sum_{k=1}^{K-1}\,z_{n,m}^{k}\,c[K-k]\right)\\c[k]&\leftarrow&c[k]+z_{n,m}\,c[k-1],&k\in[1\ldots K-1]\\c[K-1]&\leftarrow&\frac{\left(1-z_{n,m}\right)^{2}}{1-z_{n,m}^{K}}\,\left(c[K-1]+\sum_{k=0}^{K-2}\,z_{n,m}^{k+1}\,c[k]\right)\\c[K-1-k]&\leftarrow&z_{n,m}\,c[K-k]+\left(1-z_{n,m}\right)^{2}\,c[K-1-k],&k\in[1\ldots K-1].\end{array}\right.
 
 In practice, some computations can be spared if the sums that appear in the recursive-update equations are truncated at that index :math:`k` where the term :math:`z_{n,m}^{k}` becomes negligible.
 
@@ -190,18 +190,18 @@ Narrow-Mirror Padding
 Under a narrow-mirror padding, one assumes :math:`\forall k\in{\mathbb{Z}}` that the spline coefficients satisfy
 
 ..  math::
-        \left\{\begin{array}{rcl}c[k]&=&c[-k]\\c[k+K-1]&=&c[K-1-k].\end{array}\right.
+    \left\{\begin{array}{rcl}c[k]&=&c[-k]\\c[k+K-1]&=&c[K-1-k].\end{array}\right.
 
 Then, it holds for any :math:`k\in{\mathbb{Z}}` and any :math:`x\in{\mathbb{R}}` that
 
 ..  math::
-        c[k+2\,K-2]=c[k]
+    c[k+2\,K-2]=c[k]
 
 ..  math::
-        \left\{\begin{array}{rcl}y[k]&=&y[-k]\\y[k+K-1]&=&y[K-1-k]\\y[k+2\,K-2]&=&y[k]\end{array}\right.
+    \left\{\begin{array}{rcl}y[k]&=&y[-k]\\y[k+K-1]&=&y[K-1-k]\\y[k+2\,K-2]&=&y[k]\end{array}\right.
 
 ..  math::
-        \left\{\begin{array}{rcl}f(x)&=&f(-x)\\f(x+K-1)&=&f(K-1-x)\\f(x+2\,K-2)&=&f(x)\end{array}\right.
+    \left\{\begin{array}{rcl}f(x)&=&f(-x)\\f(x+K-1)&=&f(K-1-x)\\f(x+2\,K-2)&=&f(x)\end{array}\right.
 
 Recursive Filtering
 ^^^^^^^^^^^^^^^^^^^
@@ -209,7 +209,7 @@ Recursive Filtering
 Start the algorithm by letting :math:`{\mathbf{c}}\leftarrow{\mathbf{y}}.` Then, iteratively for every one of the poles :math:`z_{n,m}\in(-1,0)` indexed by :math:`m\in[1\ldots\left\lfloor n/2\right\rfloor]` and associated to the degree :math:`n,` apply the in-place recursive updates
 
 ..  math::
-        \left\{\begin{array}{rcll}c[0]&\leftarrow&\frac{1}{1-z_{n,m}^{2\,K-2}}\,\sum_{k=0}^{K-2}\,z_{n,m}^{k}\,\left(c[k]+z_{n,m}^{K-1}\,c[K-1-k]\right)\\c[k]&\leftarrow&c[k]+z_{n,m}\,c[k-1],&k\in[1\ldots K-1]\\c[K-1]&\leftarrow&\frac{\left(1-z_{n,m}\right)^{2}}{1-z_{n,m}^{2}}\,\left(z_{n,m}\,c[K-2]+c[K-1]\right)\\c[K-1-k]&\leftarrow&z_{n,m}\,c[K-k]+\left(1-z_{n,m}\right)^{2}\,c[K-1-k],&k\in[1\ldots K-1]\end{array}\right.
+    \left\{\begin{array}{rcll}c[0]&\leftarrow&\frac{1}{1-z_{n,m}^{2\,K-2}}\,\sum_{k=0}^{K-2}\,z_{n,m}^{k}\,\left(c[k]+z_{n,m}^{K-1}\,c[K-1-k]\right)\\c[k]&\leftarrow&c[k]+z_{n,m}\,c[k-1],&k\in[1\ldots K-1]\\c[K-1]&\leftarrow&\frac{\left(1-z_{n,m}\right)^{2}}{1-z_{n,m}^{2}}\,\left(z_{n,m}\,c[K-2]+c[K-1]\right)\\c[K-1-k]&\leftarrow&z_{n,m}\,c[K-k]+\left(1-z_{n,m}\right)^{2}\,c[K-1-k],&k\in[1\ldots K-1]\end{array}\right.
 
 ----
 
@@ -219,18 +219,18 @@ Wide-Mirror Padding
 Under a wide-mirror padding, one assumes :math:`\forall k\in{\mathbb{Z}}` that the spline coefficients satisfy
 
 ..  math::
-        \left\{\begin{array}{rcl}c[k]&=&c[-1-k]\\c[k+K]&=&c[K-1-k].\end{array}\right.
+    \left\{\begin{array}{rcl}c[k]&=&c[-1-k]\\c[k+K]&=&c[K-1-k].\end{array}\right.
 
 Then, it holds for any :math:`k\in{\mathbb{Z}}` and any :math:`x\in{\mathbb{R}}` that
 
 ..  math::
-        c[k+2\,K]=c[k]
+    c[k+2\,K]=c[k]
 
 ..  math::
-        \left\{\begin{array}{rcl}y[k]&=&y[-1-k]\\y[k+K]&=&y[K-1-k]\\y[k+2\,K]&=&y[k]\end{array}\right.
+    \left\{\begin{array}{rcl}y[k]&=&y[-1-k]\\y[k+K]&=&y[K-1-k]\\y[k+2\,K]&=&y[k]\end{array}\right.
 
 ..  math::
-        \left\{\begin{array}{rcl}f(x)&=&f(-1-x)\\f(x+K)&=&f(K-1-x)\\f(x+2\,K)&=&f(x)\end{array}\right.
+    \left\{\begin{array}{rcl}f(x)&=&f(-1-x)\\f(x+K)&=&f(K-1-x)\\f(x+2\,K)&=&f(x)\end{array}\right.
 
 Recursive Filtering
 ^^^^^^^^^^^^^^^^^^^
@@ -238,7 +238,7 @@ Recursive Filtering
 Start the algorithm by letting :math:`{\mathbf{c}}\leftarrow{\mathbf{y}}.` Then, iteratively for every one of the poles :math:`z_{n,m}\in(-1,0)` indexed by :math:`m\in[1\ldots\left\lfloor n/2\right\rfloor]` and associated to the degree :math:`n,` apply the in-place recursive updates
 
 ..  math::
-        \left\{\begin{array}{rcll}c[0]&\leftarrow&c[0]+\frac{z_{n,m}}{1-z_{n,m}^{2\,K}}\,\sum_{k=0}^{K-1}\,z_{n,m}^{k}\,\left(c[k]+z_{n,m}^{K}\,c[K-1-k]\right)\\c[k]&\leftarrow&c[k]+z_{n,m}\,c[k-1],&k\in[1\ldots K-1]\\c[K-1]&\leftarrow&\left(1-z_{n,m}\right)\,c[K-1]\\c[K-1-k]&\leftarrow&z_{n,m}\,c[K-k]+\left(1-z_{n,m}\right)^{2}\,c[K-1-k],&k\in[1\ldots K-1]\end{array}\right.
+    \left\{\begin{array}{rcll}c[0]&\leftarrow&c[0]+\frac{z_{n,m}}{1-z_{n,m}^{2\,K}}\,\sum_{k=0}^{K-1}\,z_{n,m}^{k}\,\left(c[k]+z_{n,m}^{K}\,c[K-1-k]\right)\\c[k]&\leftarrow&c[k]+z_{n,m}\,c[k-1],&k\in[1\ldots K-1]\\c[K-1]&\leftarrow&\left(1-z_{n,m}\right)\,c[K-1]\\c[K-1-k]&\leftarrow&z_{n,m}\,c[K-k]+\left(1-z_{n,m}\right)^{2}\,c[K-1-k],&k\in[1\ldots K-1]\end{array}\right.
 
 ----
 
@@ -248,18 +248,18 @@ Anti-Mirror Padding
 Under an anti-mirror padding, one assumes :math:`\forall k\in{\mathbb{Z}}` that the spline coefficients satisfy
 
 ..  math::
-        \left\{\begin{array}{rcl}c[k]-c[0]&=&c[0]-c[-k]\\c[k+K-1]-c[K-1]&=&c[K-1]-c[K-1-k]\end{array}\right.
+    \left\{\begin{array}{rcl}c[k]-c[0]&=&c[0]-c[-k]\\c[k+K-1]-c[K-1]&=&c[K-1]-c[K-1-k]\end{array}\right.
 
 Then, it holds for any :math:`k\in{\mathbb{Z}}` and any :math:`x\in{\mathbb{R}}` that
 
 ..  math::
-        c[k+2\,K-2]=c[k]+2\,\left(c[K-1]-c[0]\right)
+    c[k+2\,K-2]=c[k]+2\,\left(c[K-1]-c[0]\right)
 
 ..  math::
-        \left\{\begin{array}{rcl}y[k]-y[0]&=&y[0]-y[-k]\\y[k+K-1]-y[K-1]&=&y[K-1]-y[K-1-k]\\y[k+2\,K-2]&=&y[k]+2\,\left(y[K-1]-y[0]\right)\end{array}\right.
+    \left\{\begin{array}{rcl}y[k]-y[0]&=&y[0]-y[-k]\\y[k+K-1]-y[K-1]&=&y[K-1]-y[K-1-k]\\y[k+2\,K-2]&=&y[k]+2\,\left(y[K-1]-y[0]\right)\end{array}\right.
 
 ..  math::
-        \left\{\begin{array}{rcl}f(x)-f(0)&=&f(0)-f(-x)\\f(x+K-1)-f(K-1)&=&f(K-1)-f(K-1-x)\\f(x+2\,K-2)&=&f(x)+2\,\left(f(K-1)-f(0)\right)\end{array}\right.
+    \left\{\begin{array}{rcl}f(x)-f(0)&=&f(0)-f(-x)\\f(x+K-1)-f(K-1)&=&f(K-1)-f(K-1-x)\\f(x+2\,K-2)&=&f(x)+2\,\left(f(K-1)-f(0)\right)\end{array}\right.
 
 Recursive Filtering
 ^^^^^^^^^^^^^^^^^^^
@@ -267,7 +267,7 @@ Recursive Filtering
 Start the algorithm by letting :math:`{\mathbf{c}}\leftarrow{\mathbf{y}}.` Then, iteratively for every one of the poles :math:`z_{n,m}\in(-1,0)` indexed by :math:`m\in[1\ldots\left\lfloor n/2\right\rfloor]` and associated to the degree :math:`n,` apply the in-place recursive updates
 
 ..  math::
-        \left\{\begin{array}{rcll}c[0]&\leftarrow&\frac{1}{1-z_{n,m}^{2\,K-2}}\,\left(\frac{1+z_{n,m}}{1-z_{n,m}}\,\left(c[0]-z_{n,m}^{K-1}\,c[K-1]\right)\right.\\&&\left.\mbox{}-\sum_{k=1}^{K-2}\,z_{n,m}^{k}\,\left(c[k]-z_{n,m}^{K-1}\,c[K-1-k]\right)\right)\\c[k]&\leftarrow&c[k]+z_{n,m}\,c[k-1],&k\in[1\ldots K-1]\\c[K-1]&\leftarrow&c[K-1]-z_{n,m}\,c[K-2]\\c[K-1-k]&\leftarrow&z_{n,m}\,c[K-k]+\left(1-z_{n,m}\right)^{2}\,c[K-1-k],&k\in[1\ldots K-1]\end{array}\right.
+    \left\{\begin{array}{rcll}c[0]&\leftarrow&\frac{1}{1-z_{n,m}^{2\,K-2}}\,\left(\frac{1+z_{n,m}}{1-z_{n,m}}\,\left(c[0]-z_{n,m}^{K-1}\,c[K-1]\right)\right.\\&&\left.\mbox{}-\sum_{k=1}^{K-2}\,z_{n,m}^{k}\,\left(c[k]-z_{n,m}^{K-1}\,c[K-1-k]\right)\right)\\c[k]&\leftarrow&c[k]+z_{n,m}\,c[k-1],&k\in[1\ldots K-1]\\c[K-1]&\leftarrow&c[K-1]-z_{n,m}\,c[K-2]\\c[K-1-k]&\leftarrow&z_{n,m}\,c[K-k]+\left(1-z_{n,m}\right)^{2}\,c[K-1-k],&k\in[1\ldots K-1]\end{array}\right.
 
 ----
 
@@ -277,18 +277,18 @@ Nega-Periodic Padding
 Under a nega-periodic padding, one assumes :math:`\forall k\in{\mathbb{Z}}` that the spline coefficients satisfy
 
 ..  math::
-        c[k+K]=-c[k]
+    c[k+K]=-c[k]
 
 Then, it holds for any :math:`k\in{\mathbb{Z}}` and any :math:`x\in{\mathbb{R}}` that
 
 ..  math::
-        c[k+2\,K]=c[k]
+    c[k+2\,K]=c[k]
 
 ..  math::
-        \left\{\begin{array}{rcl}y[k+K]&=&-y[k]\\y[k+2\,K]&=&y[k]\end{array}\right.
+    \left\{\begin{array}{rcl}y[k+K]&=&-y[k]\\y[k+2\,K]&=&y[k]\end{array}\right.
 
 ..  math::
-        \left\{\begin{array}{rcl}f(x+K)&=&-f(x)\\f(x+2\,K)&=&f(x)\end{array}\right.
+    \left\{\begin{array}{rcl}f(x+K)&=&-f(x)\\f(x+2\,K)&=&f(x)\end{array}\right.
 
 Recursive Filtering
 ^^^^^^^^^^^^^^^^^^^
@@ -296,7 +296,7 @@ Recursive Filtering
 Start the algorithm by letting :math:`{\mathbf{c}}\leftarrow{\mathbf{y}}.` Then, iteratively for every one of the poles :math:`z_{n,m}\in(-1,0)` indexed by :math:`m\in[1\ldots\left\lfloor n/2\right\rfloor]` and associated to the degree :math:`n,` apply the in-place recursive updates
 
 ..  math::
-        \left\{\begin{array}{rcll}c[0]&\leftarrow&c[0]-\frac{z_{n,m}}{1+z_{n,m}^{K}}\,\sum_{k=0}^{K-1}\,z_{n,m}^{K-1-k}\,c[k]\\c[k]&\leftarrow&c[k]+z_{n,m}\,c[k-1],&k\in[1\ldots K-1]\\c[K-1]&\leftarrow&\frac{1-z_{n,m}}{1+z_{n,m}}\,\left(\left(1+z_{n,m}^{2\,K}\right)\,c[K-1]\right.\\&&\left.\mbox{}-\frac{1}{1+z_{n,m}^{K}}\,\sum_{k=0}^{K-1}\,\left(z_{n,m}^{3\,K-1-k}+z_{n,m}^{k+1}\right)\,c[k]\right)\\c[K-1-k]&\leftarrow&z_{n,m}\,c[K-k]+\left(1-z_{n,m}\right)^{2}\,c[K-1-k],&k\in[1\ldots K-1]\end{array}\right.
+    \left\{\begin{array}{rcll}c[0]&\leftarrow&c[0]-\frac{z_{n,m}}{1+z_{n,m}^{K}}\,\sum_{k=0}^{K-1}\,z_{n,m}^{K-1-k}\,c[k]\\c[k]&\leftarrow&c[k]+z_{n,m}\,c[k-1],&k\in[1\ldots K-1]\\c[K-1]&\leftarrow&\frac{1-z_{n,m}}{1+z_{n,m}}\,\left(\left(1+z_{n,m}^{2\,K}\right)\,c[K-1]\right.\\&&\left.\mbox{}-\frac{1}{1+z_{n,m}^{K}}\,\sum_{k=0}^{K-1}\,\left(z_{n,m}^{3\,K-1-k}+z_{n,m}^{k+1}\right)\,c[k]\right)\\c[K-1-k]&\leftarrow&z_{n,m}\,c[K-k]+\left(1-z_{n,m}\right)^{2}\,c[K-1-k],&k\in[1\ldots K-1]\end{array}\right.
 
 ----
 
@@ -306,18 +306,18 @@ Nega-Narrow-Mirror Padding
 Under a nega-narrow-mirror padding, one assumes :math:`\forall k\in{\mathbb{Z}}` that the spline coefficients satisfy
 
 ..  math::
-        \left\{\begin{array}{rcl}c[k-1]&=&-c[-1-k]\\c[k+K+1]&=&-c[K-1-k].\end{array}\right.
+    \left\{\begin{array}{rcl}c[k-1]&=&-c[-1-k]\\c[k+K+1]&=&-c[K-1-k].\end{array}\right.
 
 Then, it holds for any :math:`k\in{\mathbb{Z}}` and any :math:`x\in{\mathbb{R}}` that
 
 ..  math::
-        \left\{\begin{array}{rcl}c[k+2\,K+2]&=&c[k]\\c[\left(K+1\right)\,k-1]&=&0\end{array}\right.
+    \left\{\begin{array}{rcl}c[k+2\,K+2]&=&c[k]\\c[\left(K+1\right)\,k-1]&=&0\end{array}\right.
 
 ..  math::
-        \left\{\begin{array}{rcl}y[k-1]&=&-y[-1-k]\\y[k+K+1]&=&-y[K-1-k]\\y[k+2\,K+2]&=&y[k]\\y[\left(K+1\right)\,k-1]&=&0\end{array}\right.
+    \left\{\begin{array}{rcl}y[k-1]&=&-y[-1-k]\\y[k+K+1]&=&-y[K-1-k]\\y[k+2\,K+2]&=&y[k]\\y[\left(K+1\right)\,k-1]&=&0\end{array}\right.
 
 ..  math::
-        \left\{\begin{array}{rcl}f(x-1)&=&-f(-1-x)\\f(x+K+1)&=&-f(K-1-x)\\f(x+2\,K+2)&=&f(x)\\f(\left(K+1\right)\,x-1)&=&0\end{array}\right.
+    \left\{\begin{array}{rcl}f(x-1)&=&-f(-1-x)\\f(x+K+1)&=&-f(K-1-x)\\f(x+2\,K+2)&=&f(x)\\f(\left(K+1\right)\,x-1)&=&0\end{array}\right.
 
 Recursive Filtering
 ^^^^^^^^^^^^^^^^^^^
@@ -325,7 +325,7 @@ Recursive Filtering
 Start the algorithm by letting :math:`{\mathbf{c}}\leftarrow{\mathbf{y}}.` Then, iteratively for every one of the poles :math:`z_{n,m}\in(-1,0)` indexed by :math:`m\in[1\ldots\left\lfloor n/2\right\rfloor]` and associated to the degree :math:`n,` apply the in-place recursive updates
 
 ..  math::
-        \left\{\begin{array}{rcll}c[0]&\leftarrow&c[0]-\frac{z_{n,m}^{2}}{1-z_{n,m}^{2\,K+2}}\,\sum_{k=0}^{K-1}\,z_{n,m}^{k}\,\left(c[k]-z_{n,m}^{K+1}\,c[K-1-k]\right)\\c[k]&\leftarrow&c[k]+z_{n,m}\,c[k-1],&k\in[1\ldots K-1]\\c[K-1]&\leftarrow&\left(1-z_{n,m}\right)^{2}\,c[K-1]\\c[K-1-k]&\leftarrow&z_{n,m}\,c[K-k]+\left(1-z_{n,m}\right)^{2}\,c[K-1-k],&k\in[1\ldots K-1]\end{array}\right.
+    \left\{\begin{array}{rcll}c[0]&\leftarrow&c[0]-\frac{z_{n,m}^{2}}{1-z_{n,m}^{2\,K+2}}\,\sum_{k=0}^{K-1}\,z_{n,m}^{k}\,\left(c[k]-z_{n,m}^{K+1}\,c[K-1-k]\right)\\c[k]&\leftarrow&c[k]+z_{n,m}\,c[k-1],&k\in[1\ldots K-1]\\c[K-1]&\leftarrow&\left(1-z_{n,m}\right)^{2}\,c[K-1]\\c[K-1-k]&\leftarrow&z_{n,m}\,c[K-k]+\left(1-z_{n,m}\right)^{2}\,c[K-1-k],&k\in[1\ldots K-1]\end{array}\right.
 
 ----
 
@@ -335,18 +335,18 @@ Nega-Wide-Mirror Padding
 Under a nega-wide-mirror padding, one assumes :math:`\forall k\in{\mathbb{Z}}` that the spline coefficients satisfy
 
 ..  math::
-        \left\{\begin{array}{rcl}c[k]&=&-c[-1-k]\\c[k+K]&=&-c[K-1-k].\end{array}\right.
+    \left\{\begin{array}{rcl}c[k]&=&-c[-1-k]\\c[k+K]&=&-c[K-1-k].\end{array}\right.
 
 Then, it holds for any :math:`k\in{\mathbb{Z}}` and any :math:`x\in{\mathbb{R}}` that
 
 ..  math::
-        c[k+2\,K]=c[k]
+    c[k+2\,K]=c[k]
 
 ..  math::
-        \left\{\begin{array}{rcl}y[k]&=&-y[-1-k]\\y[k+K]&=&-y[K-1-k]\\y[k+2\,K]&=&y[k]\end{array}\right.
+    \left\{\begin{array}{rcl}y[k]&=&-y[-1-k]\\y[k+K]&=&-y[K-1-k]\\y[k+2\,K]&=&y[k]\end{array}\right.
 
 ..  math::
-        \left\{\begin{array}{rcl}f(x)&=&-f(-1-x)\\f(x+K)&=&-f(K-1-x)\\f(x+2\,K)&=&f(x)\end{array}\right.
+    \left\{\begin{array}{rcl}f(x)&=&-f(-1-x)\\f(x+K)&=&-f(K-1-x)\\f(x+2\,K)&=&f(x)\end{array}\right.
 
 Recursive Filtering
 ^^^^^^^^^^^^^^^^^^^
@@ -354,4 +354,4 @@ Recursive Filtering
 Start the algorithm by letting :math:`{\mathbf{c}}\leftarrow{\mathbf{y}}.` Then, iteratively for every one of the poles :math:`z_{n,m}\in(-1,0)` indexed by :math:`m\in[1\ldots\left\lfloor n/2\right\rfloor]` and associated to the degree :math:`n,` apply the in-place recursive updates
 
 ..  math::
-        \left\{\begin{array}{rcll}c[0]&\leftarrow&c[0]-\frac{z_{n,m}}{1-z_{n,m}^{2\,K}}\,\sum_{k=0}^{K-1}\,z_{n,m}^{k}\,\left(c[k]-z_{n,m}^{K}\,c[K-1-k]\right)\\c[k]&\leftarrow&c[k]+z_{n,m}\,c[k-1],&k\in[1\ldots K-1]\\c[K-1]&\leftarrow&\frac{\left(1-z_{n,m}\right)^{2}}{1+z_{n,m}}\,c[K-1]\\c[K-1-k]&\leftarrow&z_{n,m}\,c[K-k]+\left(1-z_{n,m}\right)^{2}\,c[K-1-k],&k\in[1\ldots K-1]\end{array}\right.
+    \left\{\begin{array}{rcll}c[0]&\leftarrow&c[0]-\frac{z_{n,m}}{1-z_{n,m}^{2\,K}}\,\sum_{k=0}^{K-1}\,z_{n,m}^{k}\,\left(c[k]-z_{n,m}^{K}\,c[K-1-k]\right)\\c[k]&\leftarrow&c[k]+z_{n,m}\,c[k-1],&k\in[1\ldots K-1]\\c[K-1]&\leftarrow&\frac{\left(1-z_{n,m}\right)^{2}}{1+z_{n,m}}\,c[K-1]\\c[K-1-k]&\leftarrow&z_{n,m}\,c[K-k]+\left(1-z_{n,m}\right)^{2}\,c[K-1-k],&k\in[1\ldots K-1]\end{array}\right.

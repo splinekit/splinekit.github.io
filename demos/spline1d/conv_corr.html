@@ -1,0 +1,276 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Convolutions and Correlations &mdash; splinekit  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../../_static/plot_directive.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+      <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=2f8eb179" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+      <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Spline Calculus" href="calculus.html" />
+    <link rel="prev" title="Fourier Transform of Periodic Splines" href="fourier.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            splinekit
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Demos [toc]</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../bspline/index.html">B-Splines [toc]</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../padding/index.html">Padding [toc]</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Periodic Splines [toc]</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="plot.html">Plots of Periodic One-Dimensional Splines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="random1d.html">Random One-Dimensional Splines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="random2d.html">Random Two-Dimensional Spline Curves</a></li>
+<li class="toctree-l3"><a class="reference internal" href="constructors.html">Constructors of Periodic One-Dimensional Splines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="simple_ops.html">Simple Operations on Periodic Splines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="stats.html">Spline Statistics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="polynomials.html">Polynomial Pieces of Splines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="evaluation.html">Evaluation of Splines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bounds.html">Upper and Lower Bounds of Splines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="fourier.html">Fourier Transform of Periodic Splines</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Convolutions and Correlations</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#terminology">Terminology</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#convolution-and-filtering-of-splines">Convolution and Filtering of Splines</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#crosscorrelation-of-splines">Crosscorrelation of Splines</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#autocorrelation-of-a-spline">Autocorrelation of a Spline</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="calculus.html">Spline Calculus</a></li>
+<li class="toctree-l3"><a class="reference internal" href="signum.html">Signs, Zeros, and Zero-Crossings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="extrema.html">Extrema</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../installation/index.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../glossary/index.html">Glossary [toc]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../periodic_spline_1d/index.html">Periodic Spline 1D [toc]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../bsplines/index.html">B-Splines [toc]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../spline_padding/index.html">Spline Padding [toc]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../bases/index.html">Bases [toc]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../periodic_nonuniform_piecewise/index.html">Periodic Nonuniform Piecewise [toc]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../interval/index.html">Interval [package]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../spline_utilities/index.html">Spline Utilities [toc]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../bibliography.html">Bibliography</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">splinekit</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Demos [toc]</a></li>
+          <li class="breadcrumb-item"><a href="index.html">Periodic Splines [toc]</a></li>
+      <li class="breadcrumb-item active">Convolutions and Correlations</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/Philippe-Thevenaz/splinekit/blob/main/docs/demos/spline1d/conv_corr.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="convolutions-and-correlations">
+<h1>Convolutions and Correlations<a class="headerlink" href="#convolutions-and-correlations" title="Link to this heading"></a></h1>
+<p>How to convolve and correlate two piecewise-polynomial periodic one-dimensional splines.</p>
+<hr class="docutils" />
+<section id="terminology">
+<h2>Terminology<a class="headerlink" href="#terminology" title="Link to this heading"></a></h2>
+<section id="notations">
+<h3>Notations<a class="headerlink" href="#notations" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>The operator <span class="math notranslate nohighlight">\(*\)</span> indicates a convolution.</p></li>
+<li><p>The operator <span class="math notranslate nohighlight">\(\star\)</span> indicates a crosscorrelation.</p></li>
+<li><p>The superscript <span class="math notranslate nohighlight">\(\mbox{}^{*}\)</span> indicates a complex conjugate.</p></li>
+<li><p>The superscript <span class="math notranslate nohighlight">\(\mbox{}^{\vee}\)</span> indicates a mirror, with <span class="math notranslate nohighlight">\(\forall x\in{\mathbb{R}}:f^{\vee}(x):=f(-x).\)</span></p></li>
+</ul>
+</section>
+<section id="definitions">
+<h3>Definitions<a class="headerlink" href="#definitions" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>The mean value of a <span class="math notranslate nohighlight">\(K\)</span>-periodic function <span class="math notranslate nohighlight">\(f\)</span> is defined as <span class="math notranslate nohighlight">\({\mathrm{E}}\{f\}=\frac{1}{K}\,\int_{0}^{K}\,f(x)\,{\mathrm{d}}x.\)</span></p></li>
+<li><p>The variance of a <span class="math notranslate nohighlight">\(K\)</span>-periodic function <span class="math notranslate nohighlight">\(f\)</span> is defined as <span class="math notranslate nohighlight">\({\mathrm{Var}}\{f\}=\frac{1}{K}\,\int_{0}^{K}\,\left(f(x)-{\mathrm{E}}\{f\}\right)^{2}\,{\mathrm{d}}x.\)</span></p></li>
+</ul>
+</section>
+<section id="convolutions">
+<h3>Convolutions<a class="headerlink" href="#convolutions" title="Link to this heading"></a></h3>
+<section id="ordinary-convolution">
+<h4>Ordinary Convolution<a class="headerlink" href="#ordinary-convolution" title="Link to this heading"></a></h4>
+<p>Let a one-dimensional function be <span class="math notranslate nohighlight">\(h:{\mathbb{R}}\rightarrow{\mathbb{C}}\)</span> and let another one-dimensional function be <span class="math notranslate nohighlight">\(f:{\mathbb{R}}\rightarrow{\mathbb{C}}.\)</span> Their <em>convolution</em> is defined as the function</p>
+<div class="math notranslate nohighlight">
+\[g:{\mathbb{R}}\rightarrow{\mathbb{C}},x\mapsto g(x)=\left(h*f\right)(x):=\int_{-\infty}^{\infty}\,h(y)\,f(x-y)\,{\mathrm{d}}y.\]</div>
+<p>Caution must be taken that the integration process does converge. For instance, it turns out that it does not converge when both <span class="math notranslate nohighlight">\(h\)</span> and <span class="math notranslate nohighlight">\(f\)</span> are periodic; thus, convolution must be defined differently in this particular case.</p>
+</section>
+<section id="periodic-convolution">
+<h4>Periodic Convolution<a class="headerlink" href="#periodic-convolution" title="Link to this heading"></a></h4>
+<p>Let a one-dimensional <span class="math notranslate nohighlight">\(K\)</span>-periodic function be <span class="math notranslate nohighlight">\(h:{\mathbb{R}}\rightarrow{\mathbb{C}}\)</span> and let another one-dimensional <span class="math notranslate nohighlight">\(K\)</span>-periodic function be <span class="math notranslate nohighlight">\(f:{\mathbb{R}}\rightarrow{\mathbb{C}},\)</span> with <span class="math notranslate nohighlight">\(K\in{\mathbb{N}}+1,\)</span> <span class="math notranslate nohighlight">\(h(x)=h(x+K),\)</span> and <span class="math notranslate nohighlight">\(f(x)=f(x+K)\)</span> for all <span class="math notranslate nohighlight">\(x\in{\mathbb{R}}.\)</span> Their <em>periodic convolution</em> is defined as the function</p>
+<div class="math notranslate nohighlight">
+\[g:{\mathbb{R}}\rightarrow{\mathbb{C}},x\mapsto g(x)=\left(h*f\right)(x):=\int_{0}^{K}\,h(y)\,f(x-y)\,{\mathrm{d}}y.\]</div>
+<p>Caution must be taken that the integration process does converge; for simplicity, we shall henceforth restrict ourselves to periodic functions <span class="math notranslate nohighlight">\(h\)</span> and <span class="math notranslate nohighlight">\(f\)</span> that are nonsingular. Note that the notation for a convolution does not differ from that for a periodic convolution; both make use of the same operator <span class="math notranslate nohighlight">\(*.\)</span> More often than not, however, the context allows one to easily distinguish between them.</p>
+<ul class="simple">
+<li><p>The convolution operator is commutative, with <span class="math notranslate nohighlight">\(h*f=f*h.\)</span></p></li>
+<li><p>The convolution operator is associative, with <span class="math notranslate nohighlight">\(h_{1}*\left(h_{2}*f\right)=\left(h_{1}*h_{2}\right)*f.\)</span></p></li>
+<li><p>These properties apply to true functions. Proceed with caution upon their application to generalized functions; for instance, integration (the convolution with a unit step) and differentiation (the convolution with the derivative of a Dirac delta function) do not commute.</p></li>
+</ul>
+</section>
+</section>
+<section id="correlations">
+<h3>Correlations<a class="headerlink" href="#correlations" title="Link to this heading"></a></h3>
+<section id="crosscorrelation">
+<h4>Crosscorrelation<a class="headerlink" href="#crosscorrelation" title="Link to this heading"></a></h4>
+<p>The <em>crosscorrelation</em> of <span class="math notranslate nohighlight">\(f:{\mathbb{R}}\rightarrow{\mathbb{C}}\)</span> and <span class="math notranslate nohighlight">\(g:{\mathbb{R}}\rightarrow{\mathbb{C}}\)</span> is defined as the function</p>
+<div class="math notranslate nohighlight">
+\[R_{fg}:{\mathbb{R}}\rightarrow{\mathbb{C}},x\mapsto R_{fg}(x)=\left(f\star g\right)(x):=\int_{-\infty}^{\infty}\,f^{*}(y)\,g(x+y)\,{\mathrm{d}}y.\]</div>
+<p>When the two functions are periodic of the same integer period <span class="math notranslate nohighlight">\(K,\)</span> the same caveats apply as for their convolution. Their <em>periodic crosscorrelation</em> is the function</p>
+<div class="math notranslate nohighlight">
+\[R_{fg}:{\mathbb{R}}\rightarrow{\mathbb{C}},x\mapsto R_{fg}(x)=\left(f\star g\right)(x):=\int_{0}^{K}\,f^{*}(y)\,g(x+y)\,{\mathrm{d}}y.\]</div>
+<p>Note that one must pay attention to distinguish the convolution operator <span class="math notranslate nohighlight">\(*\)</span> from the crosscorrelation operator <span class="math notranslate nohighlight">\(\star.\)</span></p>
+<ul class="simple">
+<li><p>The crosscorrelation operator satisfies a conjugate-reflective symmetry, with <span class="math notranslate nohighlight">\(f\star g=\left(g\star f\right)^{*\vee}.\)</span></p></li>
+<li><p>One has that <span class="math notranslate nohighlight">\(f*g=f^{*\vee}\star g.\)</span> Equivalently, one has that <span class="math notranslate nohighlight">\(f\star g=f^{*\vee}*g.\)</span></p></li>
+</ul>
+</section>
+<section id="autocorrelation">
+<h4>Autocorrelation<a class="headerlink" href="#autocorrelation" title="Link to this heading"></a></h4>
+<p>The crosscorrelation <span class="math notranslate nohighlight">\(R_{ff}=f\star f\)</span> is called the autocorrelation of <span class="math notranslate nohighlight">\(f.\)</span> By the Wiener-Khinchin theorem, the <span class="math notranslate nohighlight">\(\nu\)</span>-th coefficient of the Fourier series of the autocorrelation of a <span class="math notranslate nohighlight">\(K\)</span>-periodic real function <span class="math notranslate nohighlight">\(f:{\mathbb{R}}\rightarrow{\mathbb{R}}\)</span> is related to the Fourier series of the function as <span class="math notranslate nohighlight">\(F\{R_{ff}\}[\nu]=K\,\left|F\{f\}[\nu]\right|^{2}.\)</span></p>
+</section>
+<section id="periodic-normalized-crosscorrelation">
+<h4>Periodic Normalized Crosscorrelation<a class="headerlink" href="#periodic-normalized-crosscorrelation" title="Link to this heading"></a></h4>
+<p>Crosscorrelation measures how well <span class="math notranslate nohighlight">\(f\)</span> matches <span class="math notranslate nohighlight">\(g\)</span> in terms of their relative shift. Unfortunately, the measure is not easy to interpret because it depends on the units in which the functions are expressed. By contrast, the <em>normalized crosscorrelation</em> proposes a closely related measure that returns values in the interval <span class="math notranslate nohighlight">\([-1,1]\)</span> when the functions <span class="math notranslate nohighlight">\(f:{\mathbb{R}}\rightarrow{\mathbb{R}}\)</span> and <span class="math notranslate nohighlight">\(g:{\mathbb{R}}\rightarrow{\mathbb{R}}\)</span> are real. For periodic functions, the <em>periodic normalized crosscorrelation</em> is defined as the function</p>
+<div class="math notranslate nohighlight">
+\[\rho_{fg}:{\mathbb{R}}\rightarrow{\mathbb{R}},x\mapsto \rho_{fg}(x)=\frac{1}{K}\,\int_{0}^{K}\,\frac{f(y)-E\{f\}}{\sqrt{{\mathrm{Var}}\{f\}}}\,\frac{g(x+y)}{\sqrt{{\mathrm{Var}}\{g\}}}\,{\mathrm{d}}y.\]</div>
+<p>This definition returns exactly the same mapping as would two competing definitions, a first one in which no mean value would be subtracted from <span class="math notranslate nohighlight">\(f(y)\)</span> but instead the mean value <span class="math notranslate nohighlight">\(E\{g\}\)</span> would be subtracted from <span class="math notranslate nohighlight">\(g(x+y),\)</span> and a second one in which appropriate mean values would be subtracted at the same time from <span class="math notranslate nohighlight">\(f(y)\)</span> and from <span class="math notranslate nohighlight">\(g(x+y).\)</span></p>
+<p>When compared to crosscorrelation, one downside of the normalized crosscorrelation is that it is not well-defined when <span class="math notranslate nohighlight">\({\mathrm{Var}}\{f\}\,{\mathrm{Var}}\{g\}=0.\)</span></p>
+</section>
+<section id="pearson-correlation-coefficient">
+<h4>Pearson Correlation Coefficient<a class="headerlink" href="#pearson-correlation-coefficient" title="Link to this heading"></a></h4>
+<p>The Pearson correlation coefficient is the normalized crosscorrelation evaluated at the origin, as <span class="math notranslate nohighlight">\(\rho_{fg}(0).\)</span></p>
+</section>
+</section>
+</section>
+<hr class="docutils" />
+<section id="convolution-and-filtering-of-splines">
+<h2>Convolution and Filtering of Splines<a class="headerlink" href="#convolution-and-filtering-of-splines" title="Link to this heading"></a></h2>
+<p>The periodic convolution between a periodic <span class="math notranslate nohighlight">\(h\)</span> and a periodic <span class="math notranslate nohighlight">\(f\)</span> is best understood as the (non-periodic) convolution between the windowed version <span class="math notranslate nohighlight">\(h_{[0,K)}\)</span> of <span class="math notranslate nohighlight">\(h\)</span> and the periodic <span class="math notranslate nohighlight">\(f.\)</span> Indeed, if we let <span class="math notranslate nohighlight">\({\mathbf{[\![}}\cdot\,{\mathbf{]\!]}}\)</span> denote the Iverson bracket, then it holds that</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{array}{rcl}
+\left(h*f\right)(x)&amp;=&amp;\int_{0}^{K}\,h(y)\,f(x-y)\,{\mathrm{d}}y\\
+&amp;=&amp;\int_{-\infty}^{\infty}\,\underbrace{{\mathbf{[\![}}0\leq y&lt;K\,{\mathbf{]\!]}}\,h(y)}_{h_{[0,K)}(y)}\,f(x-y)\,{\mathrm{d}}y.
+\end{array}\end{split}\]</div>
+<p>In other words, the periodic convolution <span class="math notranslate nohighlight">\(h*f\)</span> is identical to the non-periodic, classic filtering of the (still periodic) signal <span class="math notranslate nohighlight">\(f\)</span> by a filter of finite, non-periodic causal impulse response <span class="math notranslate nohighlight">\(h_{[0,K)}.\)</span></p>
+<p>Let <span class="math notranslate nohighlight">\(h\)</span> be a periodic polynomial spline of period <span class="math notranslate nohighlight">\(K,\)</span> degree <span class="math notranslate nohighlight">\(n_{1},\)</span> and delay <span class="math notranslate nohighlight">\(\delta x_{1}.\)</span> In addition, let <span class="math notranslate nohighlight">\(f\)</span> be a periodic polynomial spline of period <span class="math notranslate nohighlight">\(K,\)</span> degree <span class="math notranslate nohighlight">\(n_{2},\)</span> and delay <span class="math notranslate nohighlight">\(\delta x_{2}.\)</span> Then, <span class="math notranslate nohighlight">\(h*f\)</span> turns out to be a spline of period <span class="math notranslate nohighlight">\(K,\)</span> degree <span class="math notranslate nohighlight">\(n_{1}+n_{2}+1,\)</span> and delay <span class="math notranslate nohighlight">\(\delta x_{1}+\delta x_{2}.\)</span></p>
+<p>We now propose a few lines of code that create and display two random splines and convolves them.</p>
+<ul class="simple">
+<li><p>The first spline plays the role of the filter with continuously defined impulse response <span class="math notranslate nohighlight">\(h.\)</span> Its coefficients are built as the absolute value of independent realizations of a random variable that follows a Cauchy distribution; moreover, the spline is normalized in such a way that it has a unit integral over one period. This promotes lowpass filters; if chance has it, one of the Cauchy coefficients will dwarf the other ones and the impulse response will be unimodal, with a pronounced bulge.</p></li>
+<li><p>The second spline plays the role of the signal <span class="math notranslate nohighlight">\(f\)</span> being filtered. Its coefficients are built as independent realizations of a random variable that follows a Gaussian distribution.</p></li>
+</ul>
+<div class="admonition-jupyter-lab-notebook admonition">
+<p class="admonition-title">Jupyter Lab notebook</p>
+<p><a class="reference external" href="https://splinekit.github.io/splinekit-jupyterlite/lab/?path=periodic-spline/conv_corr/spline_convolve.ipynb&amp;mode=single-document">Convolution of periodic splines</a></p>
+</div>
+</section>
+<hr class="docutils" />
+<section id="crosscorrelation-of-splines">
+<h2>Crosscorrelation of Splines<a class="headerlink" href="#crosscorrelation-of-splines" title="Link to this heading"></a></h2>
+<p>We also propose a few lines of code that create and display two random splines and compute their crosscorrelation, with or without normalization. The Pearson correlation coefficient is also printed. The spline coefficients of the functions been cross-correlated are built as independent realizations of a random variable that follows a Cauchy distribution.</p>
+<div class="admonition-jupyter-lab-notebook admonition">
+<p class="admonition-title">Jupyter Lab notebook</p>
+<p><a class="reference external" href="https://splinekit.github.io/splinekit-jupyterlite/lab/?path=periodic-spline/conv_corr/spline_correlate.ipynb&amp;mode=single-document">Crosscorrelation of periodic splines</a></p>
+</div>
+</section>
+<hr class="docutils" />
+<section id="autocorrelation-of-a-spline">
+<h2>Autocorrelation of a Spline<a class="headerlink" href="#autocorrelation-of-a-spline" title="Link to this heading"></a></h2>
+<p>We finally propose a few lines of code that create and display a random spline <span class="math notranslate nohighlight">\(f\)</span> and compute its autocorrelation, with or without normalization. The spline coefficients are built as independent realizations of a random variable that follows a uniform distribution.</p>
+<p>It is noteworthy to make a few observations.</p>
+<ul class="simple">
+<li><p>The autocorrelation (whether normalized or not) is independent of the delay of the spline.</p></li>
+<li><p>The autocorrelation (whether normalized or not) has a central symmetry, with <span class="math notranslate nohighlight">\(\rho_{ff}=\rho_{ff}^{\vee}\)</span> and <span class="math notranslate nohighlight">\(R_{ff}=R_{ff}^{\vee}.\)</span> Combined with <span class="math notranslate nohighlight">\(K\)</span>-periodicity, the central symmetry implies that the continuously defined autocorrelation is also necessarily symmetric around <span class="math notranslate nohighlight">\(\frac{K}{2}.\)</span></p></li>
+<li><p>In general, the normalized autocorrelation takes a unit value at the origin (<em>i.e.</em>, <span class="math notranslate nohighlight">\(\rho_{ff}(0)=1\)</span> unless <span class="math notranslate nohighlight">\({\mathrm{Var}}\{f\}=0\)</span>).</p></li>
+</ul>
+<div class="admonition-jupyter-lab-notebook admonition">
+<p class="admonition-title">Jupyter Lab notebook</p>
+<p><a class="reference external" href="https://splinekit.github.io/splinekit-jupyterlite/lab/?path=periodic-spline/conv_corr/spline_autocorr.ipynb&amp;mode=single-document">Autocorrelation of a periodic spline</a></p>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="fourier.html" class="btn btn-neutral float-left" title="Fourier Transform of Periodic Splines" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="calculus.html" class="btn btn-neutral float-right" title="Spline Calculus" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright .</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

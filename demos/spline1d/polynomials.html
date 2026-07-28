@@ -69,6 +69,11 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="evaluation.html">Evaluation of Splines</a></li>
 <li class="toctree-l3"><a class="reference internal" href="bounds.html">Upper and Lower Bounds of Splines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="fourier.html">Fourier Transform of Periodic Splines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conv_corr.html">Convolutions and Correlations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="calculus.html">Spline Calculus</a></li>
+<li class="toctree-l3"><a class="reference internal" href="signum.html">Signs, Zeros, and Zero-Crossings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="extrema.html">Extrema</a></li>
 </ul>
 </li>
 </ul>
@@ -82,6 +87,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../periodic_nonuniform_piecewise/index.html">Periodic Nonuniform Piecewise [toc]</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../interval/index.html">Interval [package]</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../spline_utilities/index.html">Spline Utilities [toc]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../bibliography.html">Bibliography</a></li>
 </ul>
 
         </div>
@@ -144,9 +150,9 @@
 <p>In accord with the definition, the B-spline of degree zero is</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{array}{rcl}
-\beta^{0}(x)&amp;=&amp;\varsigma^{0}(x+\frac{1}{2})-\varsigma^{0}(x-\frac{1}{2})\\
-&amp;=&amp;\left\{\begin{array}{ll}1,&amp;\left|x\right|&lt;\frac{1}{2}\\\frac{1}{2},&amp;\left|x\right|=\frac{1}{2}\\0,&amp;\frac{1}{2}&lt;\left|x\right|.\end{array}\right.
-\end{array}\end{split}\]</div>
+    \beta^{0}(x)&amp;=&amp;\varsigma^{0}(x+\frac{1}{2})-\varsigma^{0}(x-\frac{1}{2})\\
+    &amp;=&amp;\left\{\begin{array}{ll}1,&amp;\left|x\right|&lt;\frac{1}{2}\\\frac{1}{2},&amp;\left|x\right|=\frac{1}{2}\\0,&amp;\frac{1}{2}&lt;\left|x\right|.\end{array}\right.
+    \end{array}\end{split}\]</div>
 <p>Among many important properties, for all degrees <span class="math notranslate nohighlight">\(n\in{\mathbb{N}}\)</span> and for all <span class="math notranslate nohighlight">\(x\in{\mathbb{R}},\)</span> the B-splines thus defined</p>
 <ul class="simple">
 <li><p>have a closed support, with <span class="math notranslate nohighlight">\({\mathrm{supp}}\{\beta^{n}\}=[-\left(n+1\right)/2,\left(n+1\right)/2];\)</span></p></li>

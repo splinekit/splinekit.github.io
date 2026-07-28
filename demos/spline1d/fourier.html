@@ -1,0 +1,242 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fourier Transform of Periodic Splines &mdash; splinekit  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../../_static/plot_directive.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+      <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=2f8eb179" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+      <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Convolutions and Correlations" href="conv_corr.html" />
+    <link rel="prev" title="Upper and Lower Bounds of Splines" href="bounds.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            splinekit
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Demos [toc]</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../bspline/index.html">B-Splines [toc]</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../padding/index.html">Padding [toc]</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Periodic Splines [toc]</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="plot.html">Plots of Periodic One-Dimensional Splines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="random1d.html">Random One-Dimensional Splines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="random2d.html">Random Two-Dimensional Spline Curves</a></li>
+<li class="toctree-l3"><a class="reference internal" href="constructors.html">Constructors of Periodic One-Dimensional Splines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="simple_ops.html">Simple Operations on Periodic Splines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="stats.html">Spline Statistics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="polynomials.html">Polynomial Pieces of Splines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="evaluation.html">Evaluation of Splines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bounds.html">Upper and Lower Bounds of Splines</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Fourier Transform of Periodic Splines</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#preamble">Preamble</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#truncated-fourier-series">Truncated Fourier Series</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#fourier-smoothness">Fourier Smoothness</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="conv_corr.html">Convolutions and Correlations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="calculus.html">Spline Calculus</a></li>
+<li class="toctree-l3"><a class="reference internal" href="signum.html">Signs, Zeros, and Zero-Crossings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="extrema.html">Extrema</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../installation/index.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../glossary/index.html">Glossary [toc]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../periodic_spline_1d/index.html">Periodic Spline 1D [toc]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../bsplines/index.html">B-Splines [toc]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../spline_padding/index.html">Spline Padding [toc]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../bases/index.html">Bases [toc]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../periodic_nonuniform_piecewise/index.html">Periodic Nonuniform Piecewise [toc]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../interval/index.html">Interval [package]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../spline_utilities/index.html">Spline Utilities [toc]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../bibliography.html">Bibliography</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">splinekit</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Demos [toc]</a></li>
+          <li class="breadcrumb-item"><a href="index.html">Periodic Splines [toc]</a></li>
+      <li class="breadcrumb-item active">Fourier Transform of Periodic Splines</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/Philippe-Thevenaz/splinekit/blob/main/docs/demos/spline1d/fourier.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="fourier-transform-of-periodic-splines">
+<h1>Fourier Transform of Periodic Splines<a class="headerlink" href="#fourier-transform-of-periodic-splines" title="Link to this heading"></a></h1>
+<p>How to access the Fourier coefficients of a one-dimensional spline.</p>
+<hr class="docutils" />
+<section id="preamble">
+<h2>Preamble<a class="headerlink" href="#preamble" title="Link to this heading"></a></h2>
+<section id="functions">
+<h3>Functions<a class="headerlink" href="#functions" title="Link to this heading"></a></h3>
+<p>Let <span class="math notranslate nohighlight">\(f:{\mathbb{X}}\rightarrow{\mathbb{Y}},x\mapsto f(x)\)</span> be some mapping from the <em>domain</em> <span class="math notranslate nohighlight">\({\mathbb{X}}\)</span> to the <em>codomain</em> <span class="math notranslate nohighlight">\({\mathbb{Y}}.\)</span> The domain is the set of all admissible elements being mapped, and the codomain is a superset of all the elements being mapped to. Typical relevant examples are the real functions <span class="math notranslate nohighlight">\(f:{\mathbb{R}}\rightarrow{\mathbb{R}}\)</span> and the vector-to-vector mappings <span class="math notranslate nohighlight">\({\mathbf{f}}:{\mathbb{R}}^{K}\rightarrow{\mathbb{R}}^{K}\)</span>.</p>
+<p>It is sometimes convenient to describe the mapping by a computational recipe. For instance, a quadratic monomial would be <span class="math notranslate nohighlight">\(f:{\mathbb{R}}\rightarrow{\mathbb{R}},x\mapsto f(x)=x^{2}.\)</span> Observe that the codomain is announced here to be the whole of <span class="math notranslate nohighlight">\({\mathbb{R}},\)</span> while indeed only nonnegative values are mapped to. The actual set of elements being mapped to is called the <em>image</em> of the mapping; it is a subset of the codomain. For a quadratic monomial, this image would be <span class="math notranslate nohighlight">\({\mathbb{R}}_{\geq0}.\)</span></p>
+</section>
+<section id="transforms">
+<h3>Transforms<a class="headerlink" href="#transforms" title="Link to this heading"></a></h3>
+<p>With real functions, the domain and the codomain consist of real numbers. But nothing prevents us to let the elements of the domain and the codomain be themselves mappings. This would lead to</p>
+<div class="math notranslate nohighlight">
+\[{\mathcal{T}}:\left({\mathbb{X}}_{1}\rightarrow{\mathbb{Y}}_{1}\right)\rightarrow\left({\mathbb{X}}_{2}\rightarrow{\mathbb{Y}}_{2}\right),\]</div>
+<p>with domain <span class="math notranslate nohighlight">\({\mathbb{X}}=\left({\mathbb{X}}_{1}\rightarrow{\mathbb{Y}}_{1}\right)\)</span> and codomain <span class="math notranslate nohighlight">\({\mathbb{Y}}=\left({\mathbb{X}}_{2}\rightarrow{\mathbb{Y}}_{2}\right).\)</span> In such cases, <span class="math notranslate nohighlight">\({\mathcal{T}}\)</span> is called a <em>transform</em>. The cases of interest to us are those transforms that map complex functions <span class="math notranslate nohighlight">\(\left({\mathbb{R}}\rightarrow{\mathbb{C}}\right)\)</span> to complex functions <span class="math notranslate nohighlight">\(\left({\mathbb{R}}\rightarrow{\mathbb{C}}\right)\)</span>.</p>
+</section>
+<section id="four-brands-of-fourier-transforms">
+<h3>Four Brands of Fourier Transforms<a class="headerlink" href="#four-brands-of-fourier-transforms" title="Link to this heading"></a></h3>
+<section id="continuous-time">
+<h4>Continuous-Time<a class="headerlink" href="#continuous-time" title="Link to this heading"></a></h4>
+<p>A transform that got a lot of traction is the <em>continuous-time Fourier transform</em> described by</p>
+<div class="math notranslate nohighlight">
+\[{\mathcal{F}}:\left({\mathbb{R}}\rightarrow{\mathbb{C}}\right)\rightarrow\left({\mathbb{R}}\rightarrow{\mathbb{C}}\right),f\mapsto{\mathcal{F}}\{f\}=\int_{{\mathbb{R}}}\,f(x)\,{\mathrm{e}}^{-{\mathrm{j}}\,\left(\cdot\right)\,x}\,{\mathrm{d}}x.\]</div>
+<p>It proves to be an invaluable tool to make theoretical forays into the analysis of signals and systems, into statistics, and into many other disciplines.</p>
+</section>
+<section id="discrete">
+<h4>Discrete<a class="headerlink" href="#discrete" title="Link to this heading"></a></h4>
+<p>By nature, however, <span class="math notranslate nohighlight">\({\mathcal{F}}\)</span> is handling objects defined in the continuum, whereas experimental data are always discrete and finitely supported. Consequently, another tool has been designed to retain the flavor of the continuous-time Fourier transform, but in the finite-dimensional discrete world; it is called the <em>discrete Fourier transform</em>, even if this discrete version is not a transform but is in fact just a classic vector-to-vector function. Letting <span class="math notranslate nohighlight">\({\mathbf{x}}\in{\mathbb{R}}^{K}\)</span> be the vector of <span class="math notranslate nohighlight">\(K\)</span> data samples, this vector-to-vector function is expressed as</p>
+<div class="math notranslate nohighlight">
+\[{\mathbf{F}}:{\mathbb{C}}^{K}\rightarrow{\mathbb{C}}^{K},{\mathbf{x}}\mapsto{\mathbf{F}}({\mathbf{x}})=\left(\sum_{k=0}^{K-1}\,x[k]\,{\mathrm{e}}^{-{\mathrm{j}}\,\nu\,\frac{2\,\pi}{K}\,k}\right)_{\nu=0}^{K-1}\]</div>
+<p>which, for suitable <span class="math notranslate nohighlight">\({\mathbf{W}}\in{\mathbb{C}}^{K\times K},\)</span> is nothing but the matrix multiplication <span class="math notranslate nohighlight">\({\mathbf{F}}({\mathbf{x}})={\mathbf{W}}\,{\mathbf{x}}\)</span> in disguise. A great part of the success of the discrete Fourier transform is due to the fact that <span class="math notranslate nohighlight">\({\mathbf{W}}\)</span> happens to be structured in such a way that the matrix-vector multiplication can be computed in <span class="math notranslate nohighlight">\({\mathcal{O}}(K\,\log K)\)</span> operations instead of the <span class="math notranslate nohighlight">\({\mathcal{O}}(K^{2})\)</span> operations that an unstructured matrix would otherwise require.</p>
+</section>
+<section id="series">
+<h4>Series<a class="headerlink" href="#series" title="Link to this heading"></a></h4>
+<p>It is also possible to mix the discrete and the continuous world. A third brand of Fourier transform is called a <em>Fourier series</em>. It maps a complex periodic function of positive integer period <span class="math notranslate nohighlight">\(K\in{\mathbb{N}}+1\)</span> to a sequence of complex coefficients, according to</p>
+<div class="math notranslate nohighlight">
+\[F:\left({\mathbb{R}}\rightarrow{\mathbb{C}}\right)\rightarrow\left({\mathbb{Z}}\rightarrow{\mathbb{C}}\right),f\mapsto F\{f\}=\left(\frac{1}{K}\,\int_{0}^{K}\,f(x)\,{\mathrm{e}}^{-{\mathrm{j}}\,\nu\,\frac{2\,\pi}{K}\,x}\,{\mathrm{d}}x\right)_{\nu\in{\mathbb{Z}}}.\]</div>
+</section>
+<section id="discrete-time">
+<h4>Discrete-Time<a class="headerlink" href="#discrete-time" title="Link to this heading"></a></h4>
+<p>Finally, a fourth brand of Fourier transform is the so-called <em>discrete-time Fourier transform</em>—not to be confused with the discrete Fourier transform. Letting <span class="math notranslate nohighlight">\(T\in{\mathbb{R}}_{&gt;0}\)</span> be some sampling step, the transform is defined as</p>
+<div class="math notranslate nohighlight">
+\[{\mathcal{F}}_{1/T}:\left({\mathbb{R}}\rightarrow{\mathbb{C}}\right)\rightarrow\left({\mathbb{R}}\rightarrow{\mathbb{C}}\right),f\mapsto{\mathcal{F}}_{1/T}\{f\}=T\,\sum_{k\in{\mathbb{Z}}}\,f(k\,T)\,{\mathrm{e}}^{-{\mathrm{j}}\,\left(\cdot\right)\,T\,k}.\]</div>
+</section>
+</section>
+<section id="inverses">
+<h3>Inverses<a class="headerlink" href="#inverses" title="Link to this heading"></a></h3>
+<p>The first three versions of the Fourier transform (continuous-time, discrete, and series) are invertible, with respective inverses</p>
+<div class="math notranslate nohighlight">
+\[{\mathcal{F}}^{-1}:\left({\mathbb{R}}\rightarrow{\mathbb{C}}\right)\rightarrow\left({\mathbb{R}}\rightarrow{\mathbb{C}}\right),\hat{f}\mapsto{\mathcal{F}}^{-1}\{\hat{f}\}=\frac{1}{2\,\pi}\,\int_{{\mathbb{R}}}\,\hat{f}(\omega)\,{\mathrm{e}}^{{\mathrm{j}}\,\omega\,\left(\cdot\right)}\,{\mathrm{d}}\omega\]</div>
+<div class="math notranslate nohighlight">
+\[{\mathbf{F}}^{-1}:{\mathbb{C}}^{K}\rightarrow{\mathbb{C}}^{K},\hat{{\mathbf{x}}}\mapsto{\mathbf{F}}^{-1}(\hat{{\mathbf{x}}})=\frac{1}{K}\,\left(\sum_{\nu=0}^{K-1}\,\hat{x}[\nu]\,{\mathrm{e}}^{{\mathrm{j}}\,\nu\,\frac{2\,\pi}{K}\,k}\right)_{k=0}^{K-1}\]</div>
+<div class="math notranslate nohighlight">
+\[F^{-1}:\left({\mathbb{Z}}\rightarrow{\mathbb{C}}\right)\rightarrow\left({\mathbb{R}}\rightarrow{\mathbb{C}}\right),\left(c[\nu]\right)_{\nu\in{\mathbb{Z}}}\mapsto\left(x\mapsto\sum_{\nu\in{\mathbb{Z}}}\,c[\nu]\,{\mathrm{e}}^{{\mathrm{j}}\,\nu\,\frac{2\,\pi}{K}\,x}\right).\]</div>
+<p>Meanwhile, the inspection of the definition of the discrete-time Fourier transform reveals that only samples of the continuously defined function <span class="math notranslate nohighlight">\(f\)</span> being transformed are taken into account. Consequently, in the absence of restrictions on <span class="math notranslate nohighlight">\(f,\)</span> no inverse can be found that would recreate the whole of <span class="math notranslate nohighlight">\(f:{\mathbb{R}}\rightarrow{\mathbb{C}}.\)</span> However, its samples can still be recovered from <span class="math notranslate nohighlight">\({\mathcal{F}}_{1/T}\{f\}\)</span> as</p>
+<div class="math notranslate nohighlight">
+\[\left(f(k\,T)\right)_{k\in{\mathbb{Z}}}=\left(\frac{1}{2\,\pi}\,\int_{-\pi/T}^{\pi/T}\,{\mathcal{F}}_{1/T}\{f\}(\omega)\,{\mathrm{e}}^{{\mathrm{j}}\,\omega\,T\,k}\,{\mathrm{d}}\omega\right)_{k\in{\mathbb{Z}}}.\]</div>
+</section>
+<section id="convergence">
+<h3>Convergence<a class="headerlink" href="#convergence" title="Link to this heading"></a></h3>
+<p>The expressions of the direct or inverse transforms sometimes involve either infinite integrals or infinite sums, which call for mathematical care about the proper treatment of convergence. Even in the absence of convergence in the classic sense, there are advanced mathematical theories that typically allow one to handle cases where <span class="math notranslate nohighlight">\(\int_{{\mathbb{R}}}\,\left|{\mathcal{F}}^{-1}\{{\mathcal{F}}\{f\}\}(x)-f(x)\right|^{2}\,{\mathrm{d}}x=0\)</span> even though it may happen that <span class="math notranslate nohighlight">\({\mathcal{F}}^{-1}\{{\mathcal{F}}\{f\}\}(x)\ne f(x)\)</span> for some <span class="math notranslate nohighlight">\(x\in{\mathbb{R}}.\)</span></p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="truncated-fourier-series">
+<h2>Truncated Fourier Series<a class="headerlink" href="#truncated-fourier-series" title="Link to this heading"></a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">splinekit.PeriodicSpline1D</span></code> class maintains periodic functions. Thus, the most appropriate Fourier tool is the Fourier series, and the library gives access to coefficients of any index <span class="math notranslate nohighlight">\(\nu\in{\mathbb{Z}}.\)</span> These coefficients are ordered by level of detail, with coefficients of low absolute index providing coarse contributions and coefficients of high absolute index carrying the details of the function.</p>
+<p>Instead of considering the infinite sequence of Fourier coefficients <span class="math notranslate nohighlight">\(c\)</span> to get the full signal recovery <span class="math notranslate nohighlight">\(x\mapsto\sum_{\nu\in{\mathbb{Z}}}\,c[\nu]\,{\mathrm{e}}^{{\mathrm{j}}\,\nu\,\frac{2\,\pi}{K}\,x},\)</span> we can approximate a periodic function as the partial reconstruction <span class="math notranslate nohighlight">\(x\mapsto\sum_{\nu=-N}^{N}\,c[\nu]\,{\mathrm{e}}^{{\mathrm{j}}\,\nu\,\frac{2\,\pi}{K}\,x}\)</span> obtained over a finite sum of <span class="math notranslate nohighlight">\(2\,N+1\)</span> terms, with <span class="math notranslate nohighlight">\(N\in{\mathbb{N}}.\)</span> This reconstruction will capture the overall shape of a periodic function when <span class="math notranslate nohighlight">\(N\)</span> is small, and additional details will emerge when <span class="math notranslate nohighlight">\(N\)</span> increases. Moreover, when the fonction being transformed is real, it turns out that its Fourier-series coefficients, although complex, are organized in such a way that the proposed partial reconstruction, with symmetric upper and lower limits, is also real.</p>
+<p>We give now a piece of code that illustrates how a truncated Fourier-series reconstruction approximates a random periodic spline of specified period, degree, and delay.</p>
+<div class="admonition-jupyter-lab-notebook admonition">
+<p class="admonition-title">Jupyter Lab notebook</p>
+<p><a class="reference external" href="https://splinekit.github.io/splinekit-jupyterlite/lab/?path=periodic-spline/fourier/spline_fourier.ipynb&amp;mode=single-document">Truncated Fourier series</a></p>
+</div>
+</section>
+<hr class="docutils" />
+<section id="fourier-smoothness">
+<h2>Fourier Smoothness<a class="headerlink" href="#fourier-smoothness" title="Link to this heading"></a></h2>
+<p>It is easy to verify that the partial reconstruction obtained with <span class="math notranslate nohighlight">\(N=0\)</span> is nothing but a constant-valued function that takes as value the average of the continuously defined periodic function. Then, for larger <span class="math notranslate nohighlight">\(N,\)</span> the partial reconstruction <span class="math notranslate nohighlight">\(\tilde{f}_{N-1}\)</span> with <span class="math notranslate nohighlight">\(\left(N-1\right)\)</span> terms can be refined one term at a time to obtain <span class="math notranslate nohighlight">\(\tilde{f}_{N}.\)</span> Because <span class="math notranslate nohighlight">\(c[N]=\left(c[-N]\right)^{*}\)</span> for the real <span class="math notranslate nohighlight">\(f\)</span> that we consider here, such a refinement can be expressed as</p>
+<div class="math notranslate nohighlight">
+\[\tilde{f}_{N}(x)-\tilde{f}_{N-1}(x)=2\,\Re(c[N])\,\cos(N\,\frac{2\,\pi}{K}\,x)-2\,\Im(c[N])\,\sin(N\,\frac{2\,\pi}{K}\,x).\]</div>
+<p>This refinement term is a continuously defined periodic function in <span class="math notranslate nohighlight">\(x,\)</span> with rational period <span class="math notranslate nohighlight">\(K/N\)</span> that dwindles as <span class="math notranslate nohighlight">\(N\)</span> increases. Thus, the more Fourier terms are taken into account in the partial reconstruction, the more agitated the reconstruction becomes. The phase and the amplitude of the refining terms is governed jointly by the real and imaginary parts of the corresponding Fourier-series coefficient.</p>
+<p>It follows that a function that is very agitated will have a Fourier-series representation with coefficients (at high absolute indices) that will tend to be large. A smoother function will have tamer coefficients at the same high absolute indices. For instance, a spline of degree <span class="math notranslate nohighlight">\(0\)</span> is discontinuous and much rougher than a spline of higher degree.</p>
+<p>We give now a piece of code that illustrates this behavior. We synthesize a set of random splines of a specified degree, period, and delay. The randomness is achieved by letting the spline coefficients be independent and identically distributed realizations of a random variable that follows a normal Gaussian probability density function. Then, we compute a few terms of the Fourier series of these random splines and establish per-Fourier-coefficient empirical statistics. We verify visually that, at high absolute Fourier-series indices, rough splines (low degree) need larger contributions than smooth splines (high degree).</p>
+<div class="admonition-jupyter-lab-notebook admonition">
+<p class="admonition-title">Jupyter Lab notebook</p>
+<p><a class="reference external" href="https://splinekit.github.io/splinekit-jupyterlite/lab/?path=periodic-spline/fourier/spline_smoothness.ipynb&amp;mode=single-document">Fourier smoothness of periodic splines</a></p>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="bounds.html" class="btn btn-neutral float-left" title="Upper and Lower Bounds of Splines" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="conv_corr.html" class="btn btn-neutral float-right" title="Convolutions and Correlations" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright .</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

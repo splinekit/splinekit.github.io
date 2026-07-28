@@ -11,7 +11,7 @@ Spline Real Functions
 One-dimensional uniform polynomial splines are functions that map a real number to a real number. They follow a recipe whereby they are made of the sum of integer-shifted and weighted synthesis functions called B-splines. The weights are numbers that parameterize the spline and give its versatility. The synthesis functions endow the spline with its unique characteristics—its smoothness, typically. Formally, we write a spline function :math:`f` as
 
 ..  math::
-        f:{\mathbb{R}}\rightarrow{\mathbb{R}},\;x\mapsto f(x)=\sum_{k\in{\mathbb{Z}}}\,c[k]\,\beta^{n}(x-k).
+    f:{\mathbb{R}}\rightarrow{\mathbb{R}},\;x\mapsto f(x)=\sum_{k\in{\mathbb{Z}}}\,c[k]\,\beta^{n}(x-k).
 
 There, :math:`c` are the weights; moreover, :math:`\beta^{n}:{\mathbb{R}}\rightarrow{\mathbb{R}}` is the polynomial B-spline, where the superscript (not the power) :math:`n\in{\mathbb{N}}` gives the nonnegative integer degree of the synthesis function. By linearity (sigma-linearity is not needed here because B-splines have a finite support), the spline :math:`f` inherits the properties of continuity and differentiability of the B-spline :math:`\beta^{n}.`
 
