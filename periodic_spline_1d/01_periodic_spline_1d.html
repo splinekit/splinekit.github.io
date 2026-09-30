@@ -73,15 +73,21 @@
 <li class="toctree-l4"><a class="reference internal" href="#splinekit.periodic_spline_1d.PeriodicSpline1D.from_samples"><code class="docutils literal notranslate"><span class="pre">PeriodicSpline1D.from_samples()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#splinekit.periodic_spline_1d.PeriodicSpline1D.from_smoothed_samples"><code class="docutils literal notranslate"><span class="pre">PeriodicSpline1D.from_smoothed_samples()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#splinekit.periodic_spline_1d.PeriodicSpline1D.from_spline_coeff"><code class="docutils literal notranslate"><span class="pre">PeriodicSpline1D.from_spline_coeff()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#splinekit.periodic_spline_1d.PeriodicSpline1D.from_fourier_series"><code class="docutils literal notranslate"><span class="pre">PeriodicSpline1D.from_fourier_series()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#splinekit.periodic_spline_1d.PeriodicSpline1D.add"><code class="docutils literal notranslate"><span class="pre">PeriodicSpline1D.add()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#splinekit.periodic_spline_1d.PeriodicSpline1D.__add__"><code class="docutils literal notranslate"><span class="pre">PeriodicSpline1D.__add__()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#splinekit.periodic_spline_1d.PeriodicSpline1D.add_projected"><code class="docutils literal notranslate"><span class="pre">PeriodicSpline1D.add_projected()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#splinekit.periodic_spline_1d.PeriodicSpline1D.subtract"><code class="docutils literal notranslate"><span class="pre">PeriodicSpline1D.subtract()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#splinekit.periodic_spline_1d.PeriodicSpline1D.__sub__"><code class="docutils literal notranslate"><span class="pre">PeriodicSpline1D.__sub__()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#splinekit.periodic_spline_1d.PeriodicSpline1D.convolve"><code class="docutils literal notranslate"><span class="pre">PeriodicSpline1D.convolve()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#splinekit.periodic_spline_1d.PeriodicSpline1D.__mul__"><code class="docutils literal notranslate"><span class="pre">PeriodicSpline1D.__mul__()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#splinekit.periodic_spline_1d.PeriodicSpline1D.normed_cross_correlate"><code class="docutils literal notranslate"><span class="pre">PeriodicSpline1D.normed_cross_correlate()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#splinekit.periodic_spline_1d.PeriodicSpline1D.eval_piecewise_polynomials_at"><code class="docutils literal notranslate"><span class="pre">PeriodicSpline1D.eval_piecewise_polynomials_at()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#splinekit.periodic_spline_1d.PeriodicSpline1D.eval_piecewise_sgn_at"><code class="docutils literal notranslate"><span class="pre">PeriodicSpline1D.eval_piecewise_sgn_at()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#splinekit.periodic_spline_1d.PeriodicSpline1D.copy"><code class="docutils literal notranslate"><span class="pre">PeriodicSpline1D.copy()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#splinekit.periodic_spline_1d.PeriodicSpline1D.plot"><code class="docutils literal notranslate"><span class="pre">PeriodicSpline1D.plot()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#splinekit.periodic_spline_1d.PeriodicSpline1D.at"><code class="docutils literal notranslate"><span class="pre">PeriodicSpline1D.at()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#splinekit.periodic_spline_1d.PeriodicSpline1D.__call__"><code class="docutils literal notranslate"><span class="pre">PeriodicSpline1D.__call__()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#splinekit.periodic_spline_1d.PeriodicSpline1D.get_samples"><code class="docutils literal notranslate"><span class="pre">PeriodicSpline1D.get_samples()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#splinekit.periodic_spline_1d.PeriodicSpline1D.mean"><code class="docutils literal notranslate"><span class="pre">PeriodicSpline1D.mean()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#splinekit.periodic_spline_1d.PeriodicSpline1D.variance"><code class="docutils literal notranslate"><span class="pre">PeriodicSpline1D.variance()</span></code></a></li>
@@ -96,14 +102,19 @@
 <li class="toctree-l4"><a class="reference internal" href="#splinekit.periodic_spline_1d.PeriodicSpline1D.plus"><code class="docutils literal notranslate"><span class="pre">PeriodicSpline1D.plus()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#splinekit.periodic_spline_1d.PeriodicSpline1D.times"><code class="docutils literal notranslate"><span class="pre">PeriodicSpline1D.times()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#splinekit.periodic_spline_1d.PeriodicSpline1D.negated"><code class="docutils literal notranslate"><span class="pre">PeriodicSpline1D.negated()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#splinekit.periodic_spline_1d.PeriodicSpline1D.__neg__"><code class="docutils literal notranslate"><span class="pre">PeriodicSpline1D.__neg__()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#splinekit.periodic_spline_1d.PeriodicSpline1D.mirrored"><code class="docutils literal notranslate"><span class="pre">PeriodicSpline1D.mirrored()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#splinekit.periodic_spline_1d.PeriodicSpline1D.__invert__"><code class="docutils literal notranslate"><span class="pre">PeriodicSpline1D.__invert__()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#splinekit.periodic_spline_1d.PeriodicSpline1D.fractionalized_delay"><code class="docutils literal notranslate"><span class="pre">PeriodicSpline1D.fractionalized_delay()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#splinekit.periodic_spline_1d.PeriodicSpline1D.delayed_by"><code class="docutils literal notranslate"><span class="pre">PeriodicSpline1D.delayed_by()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#splinekit.periodic_spline_1d.PeriodicSpline1D.__lshift__"><code class="docutils literal notranslate"><span class="pre">PeriodicSpline1D.__lshift__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#splinekit.periodic_spline_1d.PeriodicSpline1D.__rshift__"><code class="docutils literal notranslate"><span class="pre">PeriodicSpline1D.__rshift__()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#splinekit.periodic_spline_1d.PeriodicSpline1D.differentiated"><code class="docutils literal notranslate"><span class="pre">PeriodicSpline1D.differentiated()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#splinekit.periodic_spline_1d.PeriodicSpline1D.gradient"><code class="docutils literal notranslate"><span class="pre">PeriodicSpline1D.gradient()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#splinekit.periodic_spline_1d.PeriodicSpline1D.anti_grad"><code class="docutils literal notranslate"><span class="pre">PeriodicSpline1D.anti_grad()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#splinekit.periodic_spline_1d.PeriodicSpline1D.integrate"><code class="docutils literal notranslate"><span class="pre">PeriodicSpline1D.integrate()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#splinekit.periodic_spline_1d.PeriodicSpline1D.fourier_coeff"><code class="docutils literal notranslate"><span class="pre">PeriodicSpline1D.fourier_coeff()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#splinekit.periodic_spline_1d.PeriodicSpline1D.fourier_series"><code class="docutils literal notranslate"><span class="pre">PeriodicSpline1D.fourier_series()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#splinekit.periodic_spline_1d.PeriodicSpline1D.piecewise_polynomials"><code class="docutils literal notranslate"><span class="pre">PeriodicSpline1D.piecewise_polynomials()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#splinekit.periodic_spline_1d.PeriodicSpline1D.piecewise_sgn"><code class="docutils literal notranslate"><span class="pre">PeriodicSpline1D.piecewise_sgn()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#splinekit.periodic_spline_1d.PeriodicSpline1D.projected"><code class="docutils literal notranslate"><span class="pre">PeriodicSpline1D.projected()</span></code></a></li>
@@ -185,6 +196,7 @@
 <li><p><a class="reference internal" href="#periodic-spline-1d-from-samples"><span class="std std-ref">from_samples</span></a></p></li>
 <li><p><a class="reference internal" href="#periodic-spline-1d-from-smoothed-samples"><span class="std std-ref">from_smoothed_samples</span></a></p></li>
 <li><p><a class="reference internal" href="#periodic-spline-1d-from-spline-coeff"><span class="std std-ref">from_spline_coeff</span></a></p></li>
+<li><p><a class="reference internal" href="#periodic-spline-1d-from-fourier-series"><span class="std std-ref">from_fourier_series</span></a></p></li>
 </ul>
 </li>
 </ul>
@@ -196,8 +208,16 @@
 <ul>
 <li><p><a class="reference internal" href="#periodic-spline-1d-add"><span class="std std-ref">add</span></a></p></li>
 <li><p><a class="reference internal" href="#periodic-spline-1d-add-projected"><span class="std std-ref">add_projected</span></a></p></li>
+<li><p><a class="reference internal" href="#periodic-spline-1d-subtract"><span class="std std-ref">subtract</span></a></p></li>
 <li><p><a class="reference internal" href="#periodic-spline-1d-convolve"><span class="std std-ref">convolve</span></a></p></li>
 <li><p><a class="reference internal" href="#periodic-spline-1d-normed-cross-correlate"><span class="std std-ref">normed_cross_correlate</span></a></p></li>
+</ul>
+</li>
+<li><p>Dyadic Operators Applied to <span class="math notranslate nohighlight">\((f_{1},f_{2})\)</span></p>
+<ul>
+<li><p><a class="reference internal" href="#periodic-spline-1d-op-add"><span class="std std-ref">__add__</span></a> <code class="docutils literal notranslate"><span class="pre">+</span></code> Addition : <span class="math notranslate nohighlight">\(\fbox{$f_{1}+f_{2}$}\)</span></p></li>
+<li><p><a class="reference internal" href="#periodic-spline-1d-op-sub"><span class="std std-ref">__sub__</span></a> <code class="docutils literal notranslate"><span class="pre">-</span></code> Subtraction: <span class="math notranslate nohighlight">\(\fbox{$f_{1}-f_{2}$}\)</span></p></li>
+<li><p><a class="reference internal" href="#periodic-spline-1d-op-mul"><span class="std std-ref">__mul__</span></a> <code class="docutils literal notranslate"><span class="pre">*</span></code> Convolution: <span class="math notranslate nohighlight">\(\fbox{$f_{1}*f_{2}$}\)</span></p></li>
 </ul>
 </li>
 <li><p>Evaluate Nonstandard Spline Representations</p>
@@ -221,6 +241,11 @@
 <ul>
 <li><p><a class="reference internal" href="#periodic-spline-1d-at"><span class="std std-ref">at</span></a></p></li>
 <li><p><a class="reference internal" href="#periodic-spline-1d-get-samples"><span class="std std-ref">get_samples</span></a></p></li>
+</ul>
+</li>
+<li><p>Callable Applied to <span class="math notranslate nohighlight">\((x)\)</span></p>
+<ul>
+<li><p><a class="reference internal" href="#periodic-spline-1d-op-call"><span class="std std-ref">__call__</span></a> <code class="docutils literal notranslate"><span class="pre">(x)</span></code> Evaluation: <span class="math notranslate nohighlight">\(\fbox{$f(x)$}\)</span></p></li>
 </ul>
 </li>
 <li><p>Empirical Statistics</p>
@@ -262,6 +287,7 @@
 <li><p>Nonstandard Representations</p>
 <ul>
 <li><p><a class="reference internal" href="#periodic-spline-1d-fourier-coeff"><span class="std std-ref">fourier_coeff</span></a></p></li>
+<li><p><a class="reference internal" href="#periodic-spline-1d-fourier-series"><span class="std std-ref">fourier_series</span></a></p></li>
 <li><p><a class="reference internal" href="#periodic-spline-1d-piecewise-polynomials"><span class="std std-ref">piecewise_polynomials</span></a></p></li>
 <li><p><a class="reference internal" href="#periodic-spline-1d-piecewise-sgn"><span class="std std-ref">piecewise_sgn</span></a></p></li>
 </ul>
@@ -273,6 +299,18 @@
 <li><p><a class="reference internal" href="#periodic-spline-1d-upscaled-projected"><span class="std std-ref">upscaled_projected</span></a></p></li>
 <li><p><a class="reference internal" href="#periodic-spline-1d-downscaled-projected"><span class="std std-ref">downscaled_projected</span></a></p></li>
 <li><p><a class="reference internal" href="#periodic-spline-1d-rescaled-projected"><span class="std std-ref">rescaled_projected</span></a></p></li>
+</ul>
+</li>
+<li><p>Monadic Operators Applied to <span class="math notranslate nohighlight">\(f\)</span></p>
+<ul>
+<li><p><a class="reference internal" href="#periodic-spline-1d-op-invert"><span class="std std-ref">__invert__</span></a> <code class="docutils literal notranslate"><span class="pre">~</span></code> Mirroring around the origin: <span class="math notranslate nohighlight">\(\fbox{$f^{\vee}$}\)</span></p></li>
+<li><p><a class="reference internal" href="#periodic-spline-1d-op-neg"><span class="std std-ref">__neg__</span></a> <code class="docutils literal notranslate"><span class="pre">-</span></code> Multiplication by <span class="math notranslate nohighlight">\(\left(-1\right)\)</span>: <span class="math notranslate nohighlight">\(\fbox{$-f$}\)</span></p></li>
+</ul>
+</li>
+<li><p>Dyadic Operators Applied to <span class="math notranslate nohighlight">\((f,\delta x)\)</span></p>
+<ul>
+<li><p><a class="reference internal" href="#periodic-spline-1d-op-lshift"><span class="std std-ref">__lshift__</span></a> <code class="docutils literal notranslate"><span class="pre">&lt;&lt;</span></code> Advance: <span class="math notranslate nohighlight">\(\fbox{$f(\cdot+\delta x)$}\)</span></p></li>
+<li><p><a class="reference internal" href="#periodic-spline-1d-op-rshift"><span class="std std-ref">__rshift__</span></a> <code class="docutils literal notranslate"><span class="pre">&gt;&gt;</span></code> Delay: <span class="math notranslate nohighlight">\(\fbox{$f(\cdot-\delta x)$}\)</span></p></li>
 </ul>
 </li>
 </ul>
@@ -789,6 +827,94 @@ spline.</p></li>
 </dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="splinekit.periodic_spline_1d.PeriodicSpline1D.from_fourier_series">
+<span class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">from_fourier_series</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fourier_series</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span><span class="p"><span class="pre">[</span></span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">dtype</span><span class="p"><span class="pre">[</span></span><span class="pre">complex64</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">period</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">degree</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">delay</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.0</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#splinekit.periodic_spline_1d.PeriodicSpline1D" title="splinekit.periodic_spline_1d.PeriodicSpline1D"><span class="pre">PeriodicSpline1D</span></a></span></span><a class="headerlink" href="#splinekit.periodic_spline_1d.PeriodicSpline1D.from_fourier_series" title="Link to this definition"></a></dt>
+<dd><p id="periodic-spline-1d-from-fourier-series">A constructor from a partial Fourier series.</p>
+<p>Let <span class="math notranslate nohighlight">\(K\in{\mathbb{N}}+1\)</span> be a positive integer <code class="docutils literal notranslate"><span class="pre">period</span></code> and let
+the <code class="docutils literal notranslate"><span class="pre">fourier_series</span></code> <span class="math notranslate nohighlight">\(\hat{{\mathbf{f}}}\in
+{\mathbb{C}}^{\left\lfloor\frac{K}{2}\right\rfloor+1}\)</span> be a vector such
+that <span class="math notranslate nohighlight">\(\hat{f}[0]\in{\mathbb{R}}.\)</span> Then, with the appropriate
+nonnegative integer <code class="docutils literal notranslate"><span class="pre">degree</span></code> <span class="math notranslate nohighlight">\(n\in{\mathbb{N}}\)</span> and <code class="docutils literal notranslate"><span class="pre">delay</span></code>
+<span class="math notranslate nohighlight">\(\delta x\in{\mathbb{R}},\)</span> one can build a periodic
+uniform piecewise polynomial spline</p>
+<div class="math notranslate nohighlight">
+\[f:{\mathbb{R}}\rightarrow{\mathbb{R}},x\mapsto f(x)=
+\sum_{k\in{\mathbb{Z}}}\,c[{k\bmod K}]\,\beta^{n}(x-\delta x-k)\]</div>
+<p>such that <span class="math notranslate nohighlight">\(\left(F[\nu]\right)_{\nu=0}^{\left\lfloor\frac{K}{2}\right\rfloor}=
+\hat{{\mathbf{f}}},\)</span> where</p>
+<div class="math notranslate nohighlight">
+\[F[\nu]=\frac{1}{K}\,\int_{0}^{K}\,f(x)\,
+{\mathrm{e}}^{-{\mathrm{j}\,\nu\,\frac{2\,\pi}{K}\,x}}\,
+{\mathrm{d}}x\]</div>
+<p>is the <span class="math notranslate nohighlight">\(\nu\)</span>-th coefficient of the Fourier series
+of the spline. When the period is even, it is assumed (without test)
+that <span class="math notranslate nohighlight">\(F[\frac{K}{2}]\,{\mathrm{e}}^{{\mathrm{j}}\,\pi\,\delta x}
+\in{\mathbb{R}}.\)</span></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>fourier_series</strong> (<em>np.ndarray</em><em>[</em><em>tuple</em><em>[</em><em>int</em><em>]</em><em>, </em><em>np.dtype</em><em>[</em><em>np.complex64</em><em>]</em><em>]</em>) – A one-dimensional <code class="docutils literal notranslate"><span class="pre">numpy</span></code> array of complex Fourier coefficients.</p></li>
+<li><p><strong>period</strong> (<em>int</em>) – The <a class="reference internal" href="../glossary/glossary-numbers.html#def-positive"><span class="std std-ref">positive</span></a> period of the spline.</p></li>
+<li><p><strong>degree</strong> (<em>int</em>) – The <a class="reference internal" href="../glossary/glossary-numbers.html#def-negative"><span class="std std-ref">nonnegative</span></a> degree of the polynomial
+spline.</p></li>
+<li><p><strong>delay</strong> (<em>float</em>) – The delay of this spline.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The spline.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#splinekit.periodic_spline_1d.PeriodicSpline1D" title="splinekit.periodic_spline_1d.PeriodicSpline1D">PeriodicSpline1D</a></p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<dl>
+<dt>Load the libraries.</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">splinekit</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sk</span>
+</pre></div>
+</div>
+</dd>
+<dt>Create a spline and verify that it can be recovered from its Fourier series.</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">c</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="o">-</span><span class="mi">7</span><span class="p">],</span> <span class="n">dtype</span> <span class="o">=</span> <span class="nb">float</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">s</span> <span class="o">=</span> <span class="n">sk</span><span class="o">.</span><span class="n">PeriodicSpline1D</span><span class="o">.</span><span class="n">from_spline_coeff</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">degree</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span> <span class="n">delay</span> <span class="o">=</span> <span class="mf">0.71</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">f</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">fourier_series</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sk</span><span class="o">.</span><span class="n">PeriodicSpline1D</span><span class="o">.</span><span class="n">from_fourier_series</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">period</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span> <span class="n">degree</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span> <span class="n">delay</span> <span class="o">=</span> <span class="mf">0.71</span><span class="p">)</span>
+<span class="go">PeriodicSpline1D([ 1.  9. -7.], degree = 3, delay = 0.71)</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>While a periodic spline is uniquely defined by its infinite-support
+Fourier series, a finite-length subsequence thereof (such as the
+finite-dimensional vector provided as the first argument of this
+constructor) does not carry enough information to recover the spline
+degree and delay. Those must be provided as ancillary parameters. The
+period itself must also be provided to disambiguate its parity.</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<dl class="simple">
+<dt><a class="reference internal" href="#splinekit.periodic_spline_1d.PeriodicSpline1D.fourier_series" title="splinekit.periodic_spline_1d.PeriodicSpline1D.fourier_series"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fourier_series</span></code></a></dt><dd><p>A finite-length subsequence of the infinite-length Fourier series of this spline.</p>
+</dd>
+</dl>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ValueError</strong> – Raised when <code class="docutils literal notranslate"><span class="pre">fourier_series</span></code> fails to be a <code class="docutils literal notranslate"><span class="pre">numpy</span></code>
+    one-dimensional <code class="docutils literal notranslate"><span class="pre">complex</span></code> array that contains at least one
+    element.</p></li>
+<li><p><strong>ValueError</strong> – Raised when <code class="docutils literal notranslate"><span class="pre">period</span></code> is not <a class="reference internal" href="../glossary/glossary-numbers.html#def-positive"><span class="std std-ref">positive</span></a>.</p></li>
+<li><p><strong>ValueError</strong> – Raised when <code class="docutils literal notranslate"><span class="pre">period</span> <span class="pre">//</span> <span class="pre">2</span> <span class="pre">+</span> <span class="pre">1</span></code> differs from
+    <code class="docutils literal notranslate"><span class="pre">len(fourier_series)</span></code>.</p></li>
+<li><p><strong>ValueError</strong> – Raised when <code class="docutils literal notranslate"><span class="pre">fourier_series[0].imag</span></code> is non-zero.</p></li>
+<li><p><strong>ValueError</strong> – Raised when <code class="docutils literal notranslate"><span class="pre">degree</span></code> is <a class="reference internal" href="../glossary/glossary-numbers.html#def-negative"><span class="std std-ref">negative</span></a>.</p></li>
+</ul>
+</dd>
+</dl>
+<hr class="docutils" />
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="splinekit.periodic_spline_1d.PeriodicSpline1D.add">
 <span class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">add</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">augend</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#splinekit.periodic_spline_1d.PeriodicSpline1D" title="splinekit.periodic_spline_1d.PeriodicSpline1D"><span class="pre">PeriodicSpline1D</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">addend</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#splinekit.periodic_spline_1d.PeriodicSpline1D" title="splinekit.periodic_spline_1d.PeriodicSpline1D"><span class="pre">PeriodicSpline1D</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#splinekit.periodic_spline_1d.PeriodicSpline1D" title="splinekit.periodic_spline_1d.PeriodicSpline1D"><span class="pre">PeriodicSpline1D</span></a></span></span><a class="headerlink" href="#splinekit.periodic_spline_1d.PeriodicSpline1D.add" title="Link to this definition"></a></dt>
 <dd><p id="periodic-spline-1d-add">Create a spline from the sum of two splines.</p>
@@ -837,6 +963,37 @@ The created object has period <span class="math notranslate nohighlight">\(K,\)<
 </ul>
 </dd>
 </dl>
+<hr class="docutils" />
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="splinekit.periodic_spline_1d.PeriodicSpline1D.__add__">
+<span class="sig-name descname"><span class="pre">__add__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Self</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#splinekit.periodic_spline_1d.PeriodicSpline1D" title="splinekit.periodic_spline_1d.PeriodicSpline1D"><span class="pre">PeriodicSpline1D</span></a></span></span><a class="headerlink" href="#splinekit.periodic_spline_1d.PeriodicSpline1D.__add__" title="Link to this definition"></a></dt>
+<dd><p id="periodic-spline-1d-op-add">Operator version of the <code class="docutils literal notranslate"><span class="pre">add</span></code> function.</p>
+<p class="rubric">Examples</p>
+<dl>
+<dt>Load the libraries.</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">splinekit</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sk</span>
+</pre></div>
+</div>
+</dd>
+<dt>Create two undelayed cubic splines and sum them.</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">c1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="o">-</span><span class="mi">7</span><span class="p">],</span> <span class="n">dtype</span> <span class="o">=</span> <span class="nb">float</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">s1</span> <span class="o">=</span> <span class="n">sk</span><span class="o">.</span><span class="n">PeriodicSpline1D</span><span class="o">.</span><span class="n">from_spline_coeff</span><span class="p">(</span><span class="n">c1</span><span class="p">,</span> <span class="n">degree</span> <span class="o">=</span> <span class="mi">3</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">c2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">6</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">],</span> <span class="n">dtype</span> <span class="o">=</span> <span class="nb">float</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">s2</span> <span class="o">=</span> <span class="n">sk</span><span class="o">.</span><span class="n">PeriodicSpline1D</span><span class="o">.</span><span class="n">from_spline_coeff</span><span class="p">(</span><span class="n">c2</span><span class="p">,</span> <span class="n">degree</span> <span class="o">=</span> <span class="mi">3</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">s1</span> <span class="o">+</span> <span class="n">s2</span>
+<span class="go">PeriodicSpline1D([ 7.  6. -9.], degree = 3, delay = 0.0)</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<dl class="simple">
+<dt><a class="reference internal" href="#splinekit.periodic_spline_1d.PeriodicSpline1D.add" title="splinekit.periodic_spline_1d.PeriodicSpline1D.add"><code class="xref py py-obj docutils literal notranslate"><span class="pre">add</span></code></a></dt><dd><p>Addition of two splines.</p>
+</dd>
+</dl>
+</div>
 <hr class="docutils" />
 </dd></dl>
 
@@ -915,6 +1072,89 @@ approximates the sum of <code class="docutils literal notranslate"><span class="
 </dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="splinekit.periodic_spline_1d.PeriodicSpline1D.subtract">
+<span class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">subtract</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">minuend</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#splinekit.periodic_spline_1d.PeriodicSpline1D" title="splinekit.periodic_spline_1d.PeriodicSpline1D"><span class="pre">PeriodicSpline1D</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">subtrahend</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#splinekit.periodic_spline_1d.PeriodicSpline1D" title="splinekit.periodic_spline_1d.PeriodicSpline1D"><span class="pre">PeriodicSpline1D</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#splinekit.periodic_spline_1d.PeriodicSpline1D" title="splinekit.periodic_spline_1d.PeriodicSpline1D"><span class="pre">PeriodicSpline1D</span></a></span></span><a class="headerlink" href="#splinekit.periodic_spline_1d.PeriodicSpline1D.subtract" title="Link to this definition"></a></dt>
+<dd><p id="periodic-spline-1d-subtract">Create a spline from the difference of two splines.</p>
+<p>Given two <code class="docutils literal notranslate"><span class="pre">PeriodicSpline1D</span></code> objects of identical period <span class="math notranslate nohighlight">\(K,\)</span>
+degree <span class="math notranslate nohighlight">\(n,\)</span> and delay <span class="math notranslate nohighlight">\(\delta x,\)</span> this constructor
+returns a new <code class="docutils literal notranslate"><span class="pre">PeriodicSpline1D</span></code> spline that represents their
+difference. The created object has period <span class="math notranslate nohighlight">\(K,\)</span> degree <span class="math notranslate nohighlight">\(n,\)</span>
+and delay <span class="math notranslate nohighlight">\(\delta x,\)</span> too.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>minuend</strong> (<a class="reference internal" href="#splinekit.periodic_spline_1d.PeriodicSpline1D" title="splinekit.periodic_spline_1d.PeriodicSpline1D"><em>PeriodicSpline1D</em></a>) – A <code class="docutils literal notranslate"><span class="pre">PeriodicSpline1D</span></code> spline.</p></li>
+<li><p><strong>subtrahend</strong> (<a class="reference internal" href="#splinekit.periodic_spline_1d.PeriodicSpline1D" title="splinekit.periodic_spline_1d.PeriodicSpline1D"><em>PeriodicSpline1D</em></a>) – A <code class="docutils literal notranslate"><span class="pre">PeriodicSpline1D</span></code> spline.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The spline equal to the difference between <code class="docutils literal notranslate"><span class="pre">minuend</span></code> and <code class="docutils literal notranslate"><span class="pre">subtrahend</span></code>.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#splinekit.periodic_spline_1d.PeriodicSpline1D" title="splinekit.periodic_spline_1d.PeriodicSpline1D">PeriodicSpline1D</a></p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<dl>
+<dt>Load the libraries.</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">splinekit</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sk</span>
+</pre></div>
+</div>
+</dd>
+<dt>Create two undelayed cubic splines and sum them.</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">c1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="o">-</span><span class="mi">7</span><span class="p">],</span> <span class="n">dtype</span> <span class="o">=</span> <span class="nb">float</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">s1</span> <span class="o">=</span> <span class="n">sk</span><span class="o">.</span><span class="n">PeriodicSpline1D</span><span class="o">.</span><span class="n">from_spline_coeff</span><span class="p">(</span><span class="n">c1</span><span class="p">,</span> <span class="n">degree</span> <span class="o">=</span> <span class="mi">3</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">c2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">6</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">],</span> <span class="n">dtype</span> <span class="o">=</span> <span class="nb">float</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">s2</span> <span class="o">=</span> <span class="n">sk</span><span class="o">.</span><span class="n">PeriodicSpline1D</span><span class="o">.</span><span class="n">from_spline_coeff</span><span class="p">(</span><span class="n">c2</span><span class="p">,</span> <span class="n">degree</span> <span class="o">=</span> <span class="mi">3</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sk</span><span class="o">.</span><span class="n">PeriodicSpline1D</span><span class="o">.</span><span class="n">subtract</span><span class="p">(</span><span class="n">s1</span><span class="p">,</span> <span class="n">s2</span><span class="p">)</span>
+<span class="go">PeriodicSpline1D([ -5. 12. -5.], degree = 3, delay = 0.0)</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ValueError</strong> – Raised when <code class="docutils literal notranslate"><span class="pre">minuend.period</span> <span class="pre">!=</span> <span class="pre">subtrahend.period</span></code>.</p></li>
+<li><p><strong>ValueError</strong> – Raised when <code class="docutils literal notranslate"><span class="pre">minuend.degree</span> <span class="pre">!=</span> <span class="pre">subtrahend.degree</span></code>.</p></li>
+<li><p><strong>ValueError</strong> – Raised when <code class="docutils literal notranslate"><span class="pre">minuend.delay</span> <span class="pre">!=</span> <span class="pre">subtrahend.delay</span></code>.</p></li>
+</ul>
+</dd>
+</dl>
+<hr class="docutils" />
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="splinekit.periodic_spline_1d.PeriodicSpline1D.__sub__">
+<span class="sig-name descname"><span class="pre">__sub__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Self</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#splinekit.periodic_spline_1d.PeriodicSpline1D" title="splinekit.periodic_spline_1d.PeriodicSpline1D"><span class="pre">PeriodicSpline1D</span></a></span></span><a class="headerlink" href="#splinekit.periodic_spline_1d.PeriodicSpline1D.__sub__" title="Link to this definition"></a></dt>
+<dd><p id="periodic-spline-1d-op-sub">Operator version of the <code class="docutils literal notranslate"><span class="pre">subtract</span></code> function.</p>
+<p class="rubric">Examples</p>
+<dl>
+<dt>Load the libraries.</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">splinekit</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sk</span>
+</pre></div>
+</div>
+</dd>
+<dt>Create two undelayed cubic splines and sum them.</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">c1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="o">-</span><span class="mi">7</span><span class="p">],</span> <span class="n">dtype</span> <span class="o">=</span> <span class="nb">float</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">s1</span> <span class="o">=</span> <span class="n">sk</span><span class="o">.</span><span class="n">PeriodicSpline1D</span><span class="o">.</span><span class="n">from_spline_coeff</span><span class="p">(</span><span class="n">c1</span><span class="p">,</span> <span class="n">degree</span> <span class="o">=</span> <span class="mi">3</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">c2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">6</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">],</span> <span class="n">dtype</span> <span class="o">=</span> <span class="nb">float</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">s2</span> <span class="o">=</span> <span class="n">sk</span><span class="o">.</span><span class="n">PeriodicSpline1D</span><span class="o">.</span><span class="n">from_spline_coeff</span><span class="p">(</span><span class="n">c2</span><span class="p">,</span> <span class="n">degree</span> <span class="o">=</span> <span class="mi">3</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">s1</span> <span class="o">-</span> <span class="n">s2</span>
+<span class="go">PeriodicSpline1D([ -5. 12. -5.], degree = 3, delay = 0.0)</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<dl class="simple">
+<dt><a class="reference internal" href="#splinekit.periodic_spline_1d.PeriodicSpline1D.subtract" title="splinekit.periodic_spline_1d.PeriodicSpline1D.subtract"><code class="xref py py-obj docutils literal notranslate"><span class="pre">subtract</span></code></a></dt><dd><p>Subtraction of two splines.</p>
+</dd>
+</dl>
+</div>
+<hr class="docutils" />
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="splinekit.periodic_spline_1d.PeriodicSpline1D.convolve">
 <span class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">convolve</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s1</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#splinekit.periodic_spline_1d.PeriodicSpline1D" title="splinekit.periodic_spline_1d.PeriodicSpline1D"><span class="pre">PeriodicSpline1D</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">s2</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#splinekit.periodic_spline_1d.PeriodicSpline1D" title="splinekit.periodic_spline_1d.PeriodicSpline1D"><span class="pre">PeriodicSpline1D</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#splinekit.periodic_spline_1d.PeriodicSpline1D" title="splinekit.periodic_spline_1d.PeriodicSpline1D"><span class="pre">PeriodicSpline1D</span></a></span></span><a class="headerlink" href="#splinekit.periodic_spline_1d.PeriodicSpline1D.convolve" title="Link to this definition"></a></dt>
 <dd><p id="periodic-spline-1d-convolve">Create a spline from the convolution of two splines.</p>
@@ -970,6 +1210,37 @@ s_{2}(x)&amp;=&amp;\sum_{k\in{\mathbb{Z}}}\,c_{2}[{k\bmod K}]\,
 <dd class="field-odd"><p><strong>ValueError</strong> – Raised when <code class="docutils literal notranslate"><span class="pre">s1.period</span> <span class="pre">!=</span> <span class="pre">s2.period</span></code>.</p>
 </dd>
 </dl>
+<hr class="docutils" />
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="splinekit.periodic_spline_1d.PeriodicSpline1D.__mul__">
+<span class="sig-name descname"><span class="pre">__mul__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Self</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#splinekit.periodic_spline_1d.PeriodicSpline1D" title="splinekit.periodic_spline_1d.PeriodicSpline1D"><span class="pre">PeriodicSpline1D</span></a></span></span><a class="headerlink" href="#splinekit.periodic_spline_1d.PeriodicSpline1D.__mul__" title="Link to this definition"></a></dt>
+<dd><p id="periodic-spline-1d-op-mul">Operator version of the <code class="docutils literal notranslate"><span class="pre">convolve</span></code> function.</p>
+<p class="rubric">Examples</p>
+<dl>
+<dt>Load the libraries.</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">splinekit</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sk</span>
+</pre></div>
+</div>
+</dd>
+<dt>Create two splines and convolve them.</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">c1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="o">-</span><span class="mi">7</span><span class="p">],</span> <span class="n">dtype</span> <span class="o">=</span> <span class="nb">float</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">s1</span> <span class="o">=</span> <span class="n">sk</span><span class="o">.</span><span class="n">PeriodicSpline1D</span><span class="o">.</span><span class="n">from_spline_coeff</span><span class="p">(</span><span class="n">c1</span><span class="p">,</span> <span class="n">degree</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span> <span class="n">delay</span> <span class="o">=</span> <span class="mf">8.4</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">c2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">6</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">],</span> <span class="n">dtype</span> <span class="o">=</span> <span class="nb">float</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">s2</span> <span class="o">=</span> <span class="n">sk</span><span class="o">.</span><span class="n">PeriodicSpline1D</span><span class="o">.</span><span class="n">from_spline_coeff</span><span class="p">(</span><span class="n">c2</span><span class="p">,</span> <span class="n">degree</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">delay</span> <span class="o">=</span> <span class="mf">0.1</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">s1</span> <span class="o">*</span> <span class="n">s2</span>
+<span class="go">PeriodicSpline1D([  9.  65. -71.], degree = 5, delay = 8.5)</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<dl class="simple">
+<dt><a class="reference internal" href="#splinekit.periodic_spline_1d.PeriodicSpline1D.convolve" title="splinekit.periodic_spline_1d.PeriodicSpline1D.convolve"><code class="xref py py-obj docutils literal notranslate"><span class="pre">convolve</span></code></a></dt><dd><p>Convolution of two splines.</p>
+</dd>
+</dl>
+</div>
 <hr class="docutils" />
 </dd></dl>
 
@@ -1467,6 +1738,35 @@ each of its components is <span class="math notranslate nohighlight">\([0,1].\)<
 </div>
 </dd>
 </dl>
+<hr class="docutils" />
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="splinekit.periodic_spline_1d.PeriodicSpline1D.__call__">
+<span class="sig-name descname"><span class="pre">__call__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#splinekit.periodic_spline_1d.PeriodicSpline1D.__call__" title="Link to this definition"></a></dt>
+<dd><p id="periodic-spline-1d-op-call">Operator version of the <code class="docutils literal notranslate"><span class="pre">at</span></code> function.</p>
+<p class="rubric">Examples</p>
+<dl>
+<dt>Load the libraries.</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">splinekit</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sk</span>
+</pre></div>
+</div>
+</dd>
+<dt>Create a spline and evaluate it at the abscissa <code class="docutils literal notranslate"><span class="pre">-18.5</span></code>.</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">c</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="o">-</span><span class="mi">7</span><span class="p">],</span> <span class="n">dtype</span> <span class="o">=</span> <span class="nb">float</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">s</span> <span class="o">=</span> <span class="n">sk</span><span class="o">.</span><span class="n">PeriodicSpline1D</span><span class="o">.</span><span class="n">from_spline_coeff</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">degree</span> <span class="o">=</span> <span class="mi">3</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">s</span><span class="p">(</span><span class="o">-</span><span class="mf">18.5</span><span class="p">)</span>
+<span class="go">-2.5</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<dl class="simple">
+<dt><a class="reference internal" href="#splinekit.periodic_spline_1d.PeriodicSpline1D.at" title="splinekit.periodic_spline_1d.PeriodicSpline1D.at"><code class="xref py py-obj docutils literal notranslate"><span class="pre">at</span></code></a></dt><dd><p>Evaluation of this spline at an abscissa.</p>
+</dd>
+</dl>
+</div>
 <hr class="docutils" />
 </dd></dl>
 
@@ -2130,6 +2430,35 @@ the spline
 </dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="splinekit.periodic_spline_1d.PeriodicSpline1D.__neg__">
+<span class="sig-name descname"><span class="pre">__neg__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#splinekit.periodic_spline_1d.PeriodicSpline1D" title="splinekit.periodic_spline_1d.PeriodicSpline1D"><span class="pre">PeriodicSpline1D</span></a></span></span><a class="headerlink" href="#splinekit.periodic_spline_1d.PeriodicSpline1D.__neg__" title="Link to this definition"></a></dt>
+<dd><p id="periodic-spline-1d-op-neg">Operator version of the <code class="docutils literal notranslate"><span class="pre">negated</span></code> function.</p>
+<p class="rubric">Examples</p>
+<dl>
+<dt>Load the libraries.</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">splinekit</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sk</span>
+</pre></div>
+</div>
+</dd>
+<dt>Create a spline and flip its signum.</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">c</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="o">-</span><span class="mi">7</span><span class="p">],</span> <span class="n">dtype</span> <span class="o">=</span> <span class="nb">float</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">s</span> <span class="o">=</span> <span class="n">sk</span><span class="o">.</span><span class="n">PeriodicSpline1D</span><span class="o">.</span><span class="n">from_spline_coeff</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">degree</span> <span class="o">=</span> <span class="mi">3</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="o">-</span><span class="n">s</span>
+<span class="go">PeriodicSpline1D([-1. -9.  7.], degree = 3, delay = 0.0)</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<dl class="simple">
+<dt><a class="reference internal" href="#splinekit.periodic_spline_1d.PeriodicSpline1D.negated" title="splinekit.periodic_spline_1d.PeriodicSpline1D.negated"><code class="xref py py-obj docutils literal notranslate"><span class="pre">negated</span></code></a></dt><dd><p>Multiply this spline by the constant <code class="docutils literal notranslate"><span class="pre">-1.0</span></code>.</p>
+</dd>
+</dl>
+</div>
+<hr class="docutils" />
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="splinekit.periodic_spline_1d.PeriodicSpline1D.mirrored">
 <span class="sig-name descname"><span class="pre">mirrored</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#splinekit.periodic_spline_1d.PeriodicSpline1D" title="splinekit.periodic_spline_1d.PeriodicSpline1D"><span class="pre">PeriodicSpline1D</span></a></span></span><a class="headerlink" href="#splinekit.periodic_spline_1d.PeriodicSpline1D.mirrored" title="Link to this definition"></a></dt>
 <dd><p id="periodic-spline-1d-mirrored">Reverse this spline around the origin.</p>
@@ -2163,6 +2492,35 @@ the spline
 </div>
 </dd>
 </dl>
+<hr class="docutils" />
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="splinekit.periodic_spline_1d.PeriodicSpline1D.__invert__">
+<span class="sig-name descname"><span class="pre">__invert__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#splinekit.periodic_spline_1d.PeriodicSpline1D" title="splinekit.periodic_spline_1d.PeriodicSpline1D"><span class="pre">PeriodicSpline1D</span></a></span></span><a class="headerlink" href="#splinekit.periodic_spline_1d.PeriodicSpline1D.__invert__" title="Link to this definition"></a></dt>
+<dd><p id="periodic-spline-1d-op-invert">Operator version of the <code class="docutils literal notranslate"><span class="pre">mirrored</span></code> function.</p>
+<p class="rubric">Examples</p>
+<dl>
+<dt>Load the libraries.</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">splinekit</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sk</span>
+</pre></div>
+</div>
+</dd>
+<dt>Create a spline and mirror it.</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">c</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="o">-</span><span class="mi">7</span><span class="p">],</span> <span class="n">dtype</span> <span class="o">=</span> <span class="nb">float</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">s</span> <span class="o">=</span> <span class="n">sk</span><span class="o">.</span><span class="n">PeriodicSpline1D</span><span class="o">.</span><span class="n">from_spline_coeff</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">degree</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span> <span class="n">delay</span> <span class="o">=</span> <span class="mf">0.71</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="o">~</span><span class="n">s</span>
+<span class="go">PeriodicSpline1D([ 1. -7.  9.], degree = 3, delay = -0.71)</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<dl class="simple">
+<dt><a class="reference internal" href="#splinekit.periodic_spline_1d.PeriodicSpline1D.mirrored" title="splinekit.periodic_spline_1d.PeriodicSpline1D.mirrored"><code class="xref py py-obj docutils literal notranslate"><span class="pre">mirrored</span></code></a></dt><dd><p>Mirror this spline around the origin.</p>
+</dd>
+</dl>
+</div>
 <hr class="docutils" />
 </dd></dl>
 
@@ -2243,6 +2601,64 @@ where the delay <span class="math notranslate nohighlight">\(\Delta x\)</span> i
 </div>
 </dd>
 </dl>
+<hr class="docutils" />
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="splinekit.periodic_spline_1d.PeriodicSpline1D.__lshift__">
+<span class="sig-name descname"><span class="pre">__lshift__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#splinekit.periodic_spline_1d.PeriodicSpline1D" title="splinekit.periodic_spline_1d.PeriodicSpline1D"><span class="pre">PeriodicSpline1D</span></a></span></span><a class="headerlink" href="#splinekit.periodic_spline_1d.PeriodicSpline1D.__lshift__" title="Link to this definition"></a></dt>
+<dd><p id="periodic-spline-1d-op-lshift">Operator version of the <code class="docutils literal notranslate"><span class="pre">delayed_by</span></code> function.</p>
+<p class="rubric">Examples</p>
+<dl>
+<dt>Load the libraries.</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">splinekit</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sk</span>
+</pre></div>
+</div>
+</dd>
+<dt>Create a spline with an arbitrary delay, and delay it further.</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">c</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="o">-</span><span class="mi">7</span><span class="p">],</span> <span class="n">dtype</span> <span class="o">=</span> <span class="nb">float</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">s</span> <span class="o">=</span> <span class="n">sk</span><span class="o">.</span><span class="n">PeriodicSpline1D</span><span class="o">.</span><span class="n">from_spline_coeff</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">degree</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span> <span class="n">delay</span> <span class="o">=</span> <span class="mf">0.71</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">s</span> <span class="o">&lt;&lt;</span> <span class="mf">5.2</span>
+<span class="go">PeriodicSpline1D([ 1.  9. -7.], degree = 3, delay = -4.49)</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<dl class="simple">
+<dt><a class="reference internal" href="#splinekit.periodic_spline_1d.PeriodicSpline1D.delayed_by" title="splinekit.periodic_spline_1d.PeriodicSpline1D.delayed_by"><code class="xref py py-obj docutils literal notranslate"><span class="pre">delayed_by</span></code></a></dt><dd><p>Addition of an advance to a spline.</p>
+</dd>
+</dl>
+</div>
+<hr class="docutils" />
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="splinekit.periodic_spline_1d.PeriodicSpline1D.__rshift__">
+<span class="sig-name descname"><span class="pre">__rshift__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#splinekit.periodic_spline_1d.PeriodicSpline1D" title="splinekit.periodic_spline_1d.PeriodicSpline1D"><span class="pre">PeriodicSpline1D</span></a></span></span><a class="headerlink" href="#splinekit.periodic_spline_1d.PeriodicSpline1D.__rshift__" title="Link to this definition"></a></dt>
+<dd><p id="periodic-spline-1d-op-rshift">Operator version of the <code class="docutils literal notranslate"><span class="pre">delayed_by</span></code> function.</p>
+<p class="rubric">Examples</p>
+<dl>
+<dt>Load the libraries.</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">splinekit</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sk</span>
+</pre></div>
+</div>
+</dd>
+<dt>Create a spline with an arbitrary delay, and delay it further.</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">c</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="o">-</span><span class="mi">7</span><span class="p">],</span> <span class="n">dtype</span> <span class="o">=</span> <span class="nb">float</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">s</span> <span class="o">=</span> <span class="n">sk</span><span class="o">.</span><span class="n">PeriodicSpline1D</span><span class="o">.</span><span class="n">from_spline_coeff</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">degree</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span> <span class="n">delay</span> <span class="o">=</span> <span class="mf">0.71</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">s</span> <span class="o">&gt;&gt;</span> <span class="mf">5.2</span>
+<span class="go">PeriodicSpline1D([ 1.  9. -7.], degree = 3, delay = 5.91)</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<dl class="simple">
+<dt><a class="reference internal" href="#splinekit.periodic_spline_1d.PeriodicSpline1D.delayed_by" title="splinekit.periodic_spline_1d.PeriodicSpline1D.delayed_by"><code class="xref py py-obj docutils literal notranslate"><span class="pre">delayed_by</span></code></a></dt><dd><p>Addition of a delay to a spline.</p>
+</dd>
+</dl>
+</div>
 <hr class="docutils" />
 </dd></dl>
 
@@ -2431,6 +2847,27 @@ coefficients <span class="math notranslate nohighlight">\(F\)</span> is such tha
 <div class="math notranslate nohighlight">
 \[f(x)=\sum_{\nu\in{\mathbb{Z}}}\,F[\nu]\,{\mathrm{e}}^
 {{\mathrm{j}\,\nu\,\frac{2\,\pi}{K}\,x}}.\]</div>
+<p>Because <span class="math notranslate nohighlight">\(f\)</span> is a spline, a Fourier coefficient of arbitrary
+index <span class="math notranslate nohighlight">\(\nu\in{\mathbb{Z}}\)</span> is related to Fourier coefficients of
+index in <span class="math notranslate nohighlight">\(\{0\}\cup[1\ldots\left\lfloor\frac{K}{2}\right\rfloor]\)</span>
+according to</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}F[\nu]=\left\{\begin{array}{ll}
+F[0],&amp;\nu=0=\nu_{0}\\
+0,&amp;\nu\neq0=\nu_{0}\\
+F[\nu_{0}]\,
+{\mathrm{e}}^{-{\mathrm{j}}\,k\,2\,\pi\,\delta x}\,
+\left(\left(-1\right)^{k}\,\frac{\nu_{0}}{\nu}\right)^{n+1},&amp;
+\nu_{0}\in[1\ldots\left\lfloor\frac{K}{2}\right\rfloor]\\
+F^{*}[K-\nu_{0}]\,
+{\mathrm{e}}^{-{\mathrm{j}}\,\left(k+1\right)\,2\,\pi\,\delta x}\,
+\left(\left(-1\right)^{k}\,\frac{K-\nu_{0}}{\nu}\right)^{n+1},&amp;
+\nu_{0}\in[\left\lfloor\frac{K}{2}\right\rfloor+1\ldots K-1],
+\end{array}\right.\end{split}\]</div>
+<p>where the complex conjugate of <span class="math notranslate nohighlight">\(F\)</span> is notated
+<span class="math notranslate nohighlight">\(F^{*}:=\left(\Re(F)-{\mathrm{j}}\,\Im(F)\right),\)</span> and where
+<span class="math notranslate nohighlight">\(\nu_{0}={\nu\bmod K}\)</span> and
+<span class="math notranslate nohighlight">\(k=\left\lfloor\frac{\nu}{K}\right\rfloor.\)</span></p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>nu</strong> (<em>int</em>) – The frequency index.</p>
@@ -2453,6 +2890,45 @@ coefficients <span class="math notranslate nohighlight">\(F\)</span> is such tha
 <span class="gp">&gt;&gt;&gt; </span><span class="n">s</span> <span class="o">=</span> <span class="n">sk</span><span class="o">.</span><span class="n">PeriodicSpline1D</span><span class="o">.</span><span class="n">from_spline_coeff</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">degree</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span> <span class="n">delay</span> <span class="o">=</span> <span class="mf">0.71</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">s</span><span class="o">.</span><span class="n">fourier_coeff</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">)</span>
 <span class="go">(0.003157821372112742-0.0014059526579449596j)</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+<hr class="docutils" />
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="splinekit.periodic_spline_1d.PeriodicSpline1D.fourier_series">
+<span class="sig-name descname"><span class="pre">fourier_series</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ndarray</span><span class="p"><span class="pre">[</span></span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">dtype</span><span class="p"><span class="pre">[</span></span><span class="pre">complex64</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#splinekit.periodic_spline_1d.PeriodicSpline1D.fourier_series" title="Link to this definition"></a></dt>
+<dd><p id="periodic-spline-1d-fourier-series">The Fourier series over a support sufficient to recover this spline.</p>
+<p>Letting this spline of period <span class="math notranslate nohighlight">\(K\)</span> be
+<span class="math notranslate nohighlight">\(f:{\mathbb{R}}\rightarrow{\mathbb{R}},x\mapsto f(x),\)</span> extract
+a finite-support vector <span class="math notranslate nohighlight">\(\hat{{\mathbf{f}}}\in{\mathbb{C}}^
+{\left\lfloor\frac{K}{2}\right\rfloor+1}\)</span> from the infinitely supported
+Fourier series of <span class="math notranslate nohighlight">\(f,\)</span> with</p>
+<div class="math notranslate nohighlight">
+\[\hat{{\mathbf{f}}}=\left(F[\nu]\right)_{\nu=0}^
+{\left\lfloor\frac{K}{2}\right\rfloor},\]</div>
+<p>where <span class="math notranslate nohighlight">\(F[\nu]\)</span> is the Fourier coefficient of index <span class="math notranslate nohighlight">\(\nu.\)</span></p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The defining Fourier series of this spline.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>np.ndarray[tuple[int], np.dtype[np.complex64]]</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<dl>
+<dt>Load the libraries.</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">splinekit</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sk</span>
+</pre></div>
+</div>
+</dd>
+<dt>Create a spline and compute its Fourier series.</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">c</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="o">-</span><span class="mi">7</span><span class="p">],</span> <span class="n">dtype</span> <span class="o">=</span> <span class="nb">float</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">s</span> <span class="o">=</span> <span class="n">sk</span><span class="o">.</span><span class="n">PeriodicSpline1D</span><span class="o">.</span><span class="n">from_spline_coeff</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">degree</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span> <span class="n">delay</span> <span class="o">=</span> <span class="mf">0.71</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">s</span><span class="o">.</span><span class="n">fourier_series</span><span class="p">()</span>
+<span class="go">array([ 1.        +0.j        , -2.15283926-0.18077896j])</span>
 </pre></div>
 </div>
 </dd>
@@ -2535,14 +3011,14 @@ a valid Python identifier.</p>
 <dt>Create a spline and get its polynomials.</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">c</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="o">-</span><span class="mi">7</span><span class="p">],</span> <span class="n">dtype</span> <span class="o">=</span> <span class="nb">float</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">s</span> <span class="o">=</span> <span class="n">sk</span><span class="o">.</span><span class="n">PeriodicSpline1D</span><span class="o">.</span><span class="n">from_spline_coeff</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">degree</span> <span class="o">=</span> <span class="mi">3</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">s</span><span class="o">.</span><span class="n">piecewise_polynomials</span><span class="p">()</span>
-<span class="go">periodic_nonuniform_piecewise([PeriodicNonuniformPiecewise.Piece(domain=ClosedOpen((0.0, 1.0)), item=Polynomial([ 1.,  8.,  0., -4.], domain=[0., 1.], window=[0., 1.], symbol=&#39;x&#39;)), PeriodicNonuniformPiecewise.Piece(domain=ClosedOpen((1.0, 2.0)), item=Polynomial([  5.,  -4., -12.,   8.], domain=[1., 2.], window=[0., 1.], symbol=&#39;x&#39;)), PeriodicNonuniformPiecewise.Piece(domain=ClosedOpen((2.0, 3.0)), item=Polynomial([-3., -4., 12., -4.], domain=[2., 3.], window=[0., 1.], symbol=&#39;x&#39;))], period = 3)</span>
+<span class="go">periodic_nonuniform_piecewise([PeriodicNonuniformPiecewise.Piece(domain=ClosedOpen((0.0, 1.0)), item=Polynomial([ 1.,  8.,  0., -4.], domain=[0., 1.], window=[0., 1.], symbol='x')), PeriodicNonuniformPiecewise.Piece(domain=ClosedOpen((1.0, 2.0)), item=Polynomial([  5.,  -4., -12.,   8.], domain=[1., 2.], window=[0., 1.], symbol='x')), PeriodicNonuniformPiecewise.Piece(domain=ClosedOpen((2.0, 3.0)), item=Polynomial([-3., -4., 12., -4.], domain=[2., 3.], window=[0., 1.], symbol='x'))], period = 3)</span>
 </pre></div>
 </div>
 </dd>
 <dt>All pieces are listed, even pieces of vanishing diameter.</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">c</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span> <span class="n">dtype</span> <span class="o">=</span> <span class="nb">float</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">s</span> <span class="o">=</span> <span class="n">sk</span><span class="o">.</span><span class="n">PeriodicSpline1D</span><span class="o">.</span><span class="n">from_spline_coeff</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">degree</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">delay</span> <span class="o">=</span> <span class="mf">0.03</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">s</span><span class="o">.</span><span class="n">piecewise_polynomials</span><span class="p">()</span>
-<span class="go">periodic_nonuniform_piecewise([PeriodicNonuniformPiecewise.Piece(domain=ClosedOpen((0.0, 0.53)), item=Polynomial([-2.], domain=[0.  , 0.53], window=[0.  , 0.53], symbol=&#39;x&#39;)), PeriodicNonuniformPiecewise.Piece(domain=Singleton(0.53), item=Polynomial([1.5], domain=[0.03, 1.03], window=[-0.5,  0.5], symbol=&#39;x&#39;)), PeriodicNonuniformPiecewise.Piece(domain=Open((0.53, 1.53)), item=Polynomial([5.], domain=[0.53, 1.53], window=[0., 1.], symbol=&#39;x&#39;)), PeriodicNonuniformPiecewise.Piece(domain=Singleton(1.53), item=Polynomial([1.5], domain=[1.03, 2.03], window=[-0.5,  0.5], symbol=&#39;x&#39;)), PeriodicNonuniformPiecewise.Piece(domain=Open((1.53, 2)), item=Polynomial([-2.], domain=[1.53, 2.  ], window=[0.  , 0.47], symbol=&#39;x&#39;))], period = 2)</span>
+<span class="go">periodic_nonuniform_piecewise([PeriodicNonuniformPiecewise.Piece(domain=ClosedOpen((0.0, 0.53)), item=Polynomial([-2.], domain=[0.  , 0.53], window=[0.  , 0.53], symbol='x')), PeriodicNonuniformPiecewise.Piece(domain=Singleton(0.53), item=Polynomial([1.5], domain=[0.03, 1.03], window=[-0.5,  0.5], symbol='x')), PeriodicNonuniformPiecewise.Piece(domain=Open((0.53, 1.53)), item=Polynomial([5.], domain=[0.53, 1.53], window=[0., 1.], symbol='x')), PeriodicNonuniformPiecewise.Piece(domain=Singleton(1.53), item=Polynomial([1.5], domain=[1.03, 2.03], window=[-0.5,  0.5], symbol='x')), PeriodicNonuniformPiecewise.Piece(domain=Open((1.53, 2)), item=Polynomial([-2.], domain=[1.53, 2.  ], window=[0.  , 0.47], symbol='x'))], period = 2)</span>
 </pre></div>
 </div>
 </dd>

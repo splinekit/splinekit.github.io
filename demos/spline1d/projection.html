@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Random One-Dimensional Splines &mdash; splinekit  documentation</title>
+  <title>Projection &mdash; splinekit  documentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=9edc463e" />
       <link rel="stylesheet" type="text/css" href="../../_static/plot_directive.css" />
@@ -26,8 +26,8 @@
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Random Two-Dimensional Spline Curves" href="random2d.html" />
-    <link rel="prev" title="Plots of Periodic One-Dimensional Splines" href="plot.html" /> 
+    <link rel="next" title="Addition" href="addition.html" />
+    <link rel="prev" title="Extrema" href="extrema.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -56,10 +56,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../padding/index.html">Padding [toc]</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="index.html">Periodic Splines [toc]</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="plot.html">Plots of Periodic One-Dimensional Splines</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">Random One-Dimensional Splines</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#spline-real-functions">Spline Real Functions</a></li>
-</ul>
-</li>
+<li class="toctree-l3"><a class="reference internal" href="random1d.html">Random One-Dimensional Splines</a></li>
 <li class="toctree-l3"><a class="reference internal" href="random2d.html">Random Two-Dimensional Spline Curves</a></li>
 <li class="toctree-l3"><a class="reference internal" href="constructors.html">Constructors of Periodic One-Dimensional Splines</a></li>
 <li class="toctree-l3"><a class="reference internal" href="simple_ops.html">Simple Operations on Periodic Splines</a></li>
@@ -72,7 +69,11 @@
 <li class="toctree-l3"><a class="reference internal" href="calculus.html">Spline Calculus</a></li>
 <li class="toctree-l3"><a class="reference internal" href="signum.html">Signs, Zeros, and Zero-Crossings</a></li>
 <li class="toctree-l3"><a class="reference internal" href="extrema.html">Extrema</a></li>
-<li class="toctree-l3"><a class="reference internal" href="projection.html">Projection</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Projection</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#formulation">Formulation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#solution">Solution</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="addition.html">Addition</a></li>
 <li class="toctree-l3"><a class="reference internal" href="multires.html">Multiresolution</a></li>
 </ul>
@@ -107,9 +108,9 @@
       <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../index.html">Demos [toc]</a></li>
           <li class="breadcrumb-item"><a href="index.html">Periodic Splines [toc]</a></li>
-      <li class="breadcrumb-item active">Random One-Dimensional Splines</li>
+      <li class="breadcrumb-item active">Projection</li>
       <li class="wy-breadcrumbs-aside">
-              <a href="https://github.com/Philippe-Thevenaz/splinekit/blob/main/docs/demos/spline1d/random1d.rst" class="fa fa-github"> Edit on GitHub</a>
+              <a href="https://github.com/Philippe-Thevenaz/splinekit/blob/main/docs/demos/spline1d/projection.rst" class="fa fa-github"> Edit on GitHub</a>
       </li>
   </ul>
   <hr/>
@@ -117,23 +118,31 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="random-one-dimensional-splines">
-<h1>Random One-Dimensional Splines<a class="headerlink" href="#random-one-dimensional-splines" title="Link to this heading"></a></h1>
-<p>Display of a random one-dimensional spline that evolves dynamically.</p>
+  <section id="projection">
+<h1>Projection<a class="headerlink" href="#projection" title="Link to this heading"></a></h1>
+<p>How to let a new spline with a new degree and delay best approximate a given spline of a given degree and delay.</p>
 <hr class="docutils" />
-<section id="spline-real-functions">
-<h2>Spline Real Functions<a class="headerlink" href="#spline-real-functions" title="Link to this heading"></a></h2>
-<p>One-dimensional uniform polynomial splines are functions that map a real number to a real number. They follow a recipe whereby they are made of the sum of integer-shifted and weighted synthesis functions called B-splines. The weights are numbers that parameterize the spline and give its versatility. The synthesis functions endow the spline with its unique characteristics—its smoothness, typically. Formally, we write a spline function <span class="math notranslate nohighlight">\(f\)</span> as</p>
+<section id="formulation">
+<h2>Formulation<a class="headerlink" href="#formulation" title="Link to this heading"></a></h2>
+<p>Let a given piecewise polynomial periodic spline be specified by its positive integer period <span class="math notranslate nohighlight">\(K\in{\mathbb{N}}+1,\)</span> its nonnegative integer degree <span class="math notranslate nohighlight">\(n_{0}\in{\mathbb{N}},\)</span> and its delay <span class="math notranslate nohighlight">\(\delta x_{0}\in{\mathbb{R}}.\)</span> It is the function</p>
 <div class="math notranslate nohighlight">
-\[f:{\mathbb{R}}\rightarrow{\mathbb{R}},\;x\mapsto f(x)=\sum_{k\in{\mathbb{Z}}}\,c[k]\,\beta^{n}(x-k).\]</div>
-<p>There, <span class="math notranslate nohighlight">\(c\)</span> are the weights; moreover, <span class="math notranslate nohighlight">\(\beta^{n}:{\mathbb{R}}\rightarrow{\mathbb{R}}\)</span> is the polynomial B-spline, where the superscript (not the power) <span class="math notranslate nohighlight">\(n\in{\mathbb{N}}\)</span> gives the nonnegative integer degree of the synthesis function. By linearity (sigma-linearity is not needed here because B-splines have a finite support), the spline <span class="math notranslate nohighlight">\(f\)</span> inherits the properties of continuity and differentiability of the B-spline <span class="math notranslate nohighlight">\(\beta^{n}.\)</span></p>
-<p>Let us now set <span class="math notranslate nohighlight">\(n=3\)</span> and focus on the integer translates of a cubic B-spline. It turns out that the spline built out of them will be made of piecewise (cubic) polynomials that join in such a way that a general cubic spline can always be continuously differentiated twice (but not necessarily three times) and can always be (possibly discontinuously) differentiated thrice (but not necessarily four times); and this, for any arbitrary choice of coefficients.</p>
-<p>Put simply, cubic splines are rather smooth.</p>
-<p>In this formulation, the freedom of choice of the coefficients is what gives splines their plasticity and allows them to be used as valuable continuously defined models of data. In particular, the model comes in handy whenever one desires to evaluate the spline <span class="math notranslate nohighlight">\(f\)</span> at some arbitrary coordinate <span class="math notranslate nohighlight">\(x\in{\mathbb{R}},\)</span> with the purpose of accessing the value <span class="math notranslate nohighlight">\(f(x).\)</span> Even more, the true gradient <span class="math notranslate nohighlight">\(\dot{f}\)</span> and the true derivatives of higher order such as <span class="math notranslate nohighlight">\(\{\ddot{f}, \dddot{f},\ldots\}\)</span> can also be accessed exactly, without having to resort to finite-difference approximations. This goes a long way to remove one layer of concern regarding the design of any algorithm that would rely on such differential quantities.</p>
-<p>We give now a piece of code that animates a spline whose coefficients are drawn at random according to a normal Gaussian distribution, independently from one another.</p>
+\[f_{0}:{\mathbb{R}}\rightarrow{\mathbb{R}},x\mapsto f_{0}(x)=\sum_{k\in{\mathbb{Z}}}\,c_{0}[{k\bmod K}]\,\beta^{n_{0}}(x-\delta x_{0}-k),\]</div>
+<p>where <span class="math notranslate nohighlight">\(\left(c_{0}[k]\right)_{k=0}^{K-1}\)</span> is the vector of its spline coefficients and <span class="math notranslate nohighlight">\(\beta^{n_{0}}:{\mathbb{R}}\rightarrow{\mathbb{R}}\)</span> is a B-spline of degree <span class="math notranslate nohighlight">\(n_{0}.\)</span> We want to find the vector <span class="math notranslate nohighlight">\(\left(c[k]\right)_{k=0}^{K-1}\)</span> of spline coefficients that minimizes the continuous least-squares criterion</p>
+<div class="math notranslate nohighlight">
+\[J=\frac{1}{2}\,\int_{0}^{K}\,\left(f(x)-f_{0}(x)\right)^{2}\,{\mathrm{d}}x,\]</div>
+<p>where <span class="math notranslate nohighlight">\(f\)</span> is the spline <span class="math notranslate nohighlight">\(f:{\mathbb{R}}\rightarrow{\mathbb{R}},x\mapsto f(x)=\sum_{k\in{\mathbb{Z}}}\,c[{k\bmod K}]\,\beta^{n}(x-\delta x-k)\)</span> with same period <span class="math notranslate nohighlight">\(K\)</span> but with possibly different degree <span class="math notranslate nohighlight">\(n\in{\mathbb{N}}\)</span> and delay <span class="math notranslate nohighlight">\(\delta x\in{\mathbb{R}}.\)</span></p>
+<p>By analogy with the linear-algebra terminology, the spline <span class="math notranslate nohighlight">\(f\)</span> is said to be the <em>projection</em> of the spline <span class="math notranslate nohighlight">\(f_{0}\)</span> onto the space of splines of degree <span class="math notranslate nohighlight">\(n\)</span> and delay <span class="math notranslate nohighlight">\(\delta x.\)</span></p>
+</section>
+<section id="solution">
+<h2>Solution<a class="headerlink" href="#solution" title="Link to this heading"></a></h2>
+<p>The coefficients that minimize the criterion <span class="math notranslate nohighlight">\(J\)</span> are</p>
+<div class="math notranslate nohighlight">
+\[c[k]=\sum_{p\in{\mathbb{Z}}}\,\left(\sum_{q\in{\mathbb{Z}}}\,\left(b^{2\,n+1}\right)^{-1}[q]\,c_{0}[{\left(p-q\right)\bmod K}]\right)\,\beta^{n+n_{0}+1}(\left(k-\left(\delta x_{0}-\delta x\right)\right)-p),\]</div>
+<p>for all <span class="math notranslate nohighlight">\(k\in[0\ldots K-1].\)</span> Letting <span class="math notranslate nohighlight">\({\mathbf{[\![}}\cdot\,{\mathbf{]\!]}}\)</span> be the notation for the Iverson bracket, the sequence <span class="math notranslate nohighlight">\(\left(\left(b^{2\,n+1}\right)^{-1}[q]\right)_{q\in{\mathbb{Z}}}\)</span> is such that <span class="math notranslate nohighlight">\(\sum_{q\in{\mathbb{Z}}}\,\left(b^{2\,n+1}\right)^{-1}[q]\,\beta^{2\,n+1}(k-q)={\mathbf{[\![}}0=k\,{\mathbf{]\!]}}.\)</span></p>
+<p>We now propose a few lines of code that first create a random spline of specified period, degree, and delay, and then determine which spline of arbitrary new degree and delay best approximates it.</p>
 <div class="admonition-jupyter-lab-notebook admonition">
 <p class="admonition-title">Jupyter Lab notebook</p>
-<p><a class="reference external" href="https://splinekit.github.io/splinekit-jupyterlite/lab/?path=periodic-spline/random-1d/spline_random_1d.ipynb&amp;mode=single-document">Random 1D spline</a></p>
+<p><a class="reference external" href="https://splinekit.github.io/splinekit-jupyterlite/lab/?path=periodic-spline/projection/spline_projection.ipynb&amp;mode=single-document">Projection of a spline</a></p>
 </div>
 </section>
 </section>
@@ -142,8 +151,8 @@
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="plot.html" class="btn btn-neutral float-left" title="Plots of Periodic One-Dimensional Splines" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="random2d.html" class="btn btn-neutral float-right" title="Random Two-Dimensional Spline Curves" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="extrema.html" class="btn btn-neutral float-left" title="Extrema" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="addition.html" class="btn btn-neutral float-right" title="Addition" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

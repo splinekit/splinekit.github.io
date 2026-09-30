@@ -1320,7 +1320,7 @@ as in <span class="math notranslate nohighlight">\(\left(x\in U\right).\)</span>
 </pre></div>
 </div>
 </dd>
-<dt><code class="docutils literal notranslate"><span class="pre">float(&quot;inf&quot;)</span></code> is not in <code class="docutils literal notranslate"><span class="pre">RR()</span></code>.</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">float</span><span class="p">(</span><span class="s2">&quot;inf&quot;</span><span class="p">)</span> <span class="ow">in</span> <span class="n">ivl</span><span class="o">.</span><span class="n">RR</span><span class="p">()</span>
+<dt><code class="docutils literal notranslate"><span class="pre">float(&quot;inf&quot;)</span></code> is not in <code class="docutils literal notranslate"><span class="pre">RR()</span></code>.</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">float</span><span class="p">(</span><span class="s2">"inf"</span><span class="p">)</span> <span class="ow">in</span> <span class="n">ivl</span><span class="o">.</span><span class="n">RR</span><span class="p">()</span>
 <span class="go">False</span>
 </pre></div>
 </div>
@@ -1362,7 +1362,7 @@ as in <span class="math notranslate nohighlight">\(\left(x\in U\right).\)</span>
 </pre></div>
 </div>
 </dd>
-<dt>Infinite numbers do not belong to <code class="docutils literal notranslate"><span class="pre">RR()</span></code>.</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ivl</span><span class="o">.</span><span class="n">Interval</span><span class="o">.</span><span class="n">ismember</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="s2">&quot;-inf&quot;</span><span class="p">),</span> <span class="p">{</span><span class="n">ivl</span><span class="o">.</span><span class="n">RR</span><span class="p">()})</span>
+<dt>Infinite numbers do not belong to <code class="docutils literal notranslate"><span class="pre">RR()</span></code>.</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ivl</span><span class="o">.</span><span class="n">Interval</span><span class="o">.</span><span class="n">ismember</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="s2">"-inf"</span><span class="p">),</span> <span class="p">{</span><span class="n">ivl</span><span class="o">.</span><span class="n">RR</span><span class="p">()})</span>
 <span class="go">False</span>
 </pre></div>
 </div>

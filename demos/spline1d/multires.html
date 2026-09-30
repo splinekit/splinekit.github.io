@@ -1,0 +1,340 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Multiresolution &mdash; splinekit  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../../_static/plot_directive.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+      <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=2f8eb179" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+      <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Installation" href="../../installation/index.html" />
+    <link rel="prev" title="Addition" href="addition.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            splinekit
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Demos [toc]</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../bspline/index.html">B-Splines [toc]</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../padding/index.html">Padding [toc]</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Periodic Splines [toc]</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="plot.html">Plots of Periodic One-Dimensional Splines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="random1d.html">Random One-Dimensional Splines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="random2d.html">Random Two-Dimensional Spline Curves</a></li>
+<li class="toctree-l3"><a class="reference internal" href="constructors.html">Constructors of Periodic One-Dimensional Splines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="simple_ops.html">Simple Operations on Periodic Splines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="stats.html">Spline Statistics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="polynomials.html">Polynomial Pieces of Splines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="evaluation.html">Evaluation of Splines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bounds.html">Upper and Lower Bounds of Splines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="fourier.html">Fourier Transform of Periodic Splines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conv_corr.html">Convolutions and Correlations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="calculus.html">Spline Calculus</a></li>
+<li class="toctree-l3"><a class="reference internal" href="signum.html">Signs, Zeros, and Zero-Crossings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="extrema.html">Extrema</a></li>
+<li class="toctree-l3"><a class="reference internal" href="projection.html">Projection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="addition.html">Addition</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Multiresolution</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#roadmap">Roadmap</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#upscaling">Upscaling</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#downscaling">Downscaling</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rescaling">Rescaling</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../installation/index.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../glossary/index.html">Glossary [toc]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../periodic_spline_1d/index.html">Periodic Spline 1D [toc]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../bsplines/index.html">B-Splines [toc]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../spline_padding/index.html">Spline Padding [toc]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../bases/index.html">Bases [toc]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../periodic_nonuniform_piecewise/index.html">Periodic Nonuniform Piecewise [toc]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../interval/index.html">Interval [package]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../spline_utilities/index.html">Spline Utilities [toc]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../bibliography.html">Bibliography</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">splinekit</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Demos [toc]</a></li>
+          <li class="breadcrumb-item"><a href="index.html">Periodic Splines [toc]</a></li>
+      <li class="breadcrumb-item active">Multiresolution</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/Philippe-Thevenaz/splinekit/blob/main/docs/demos/spline1d/multires.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="multiresolution">
+<h1>Multiresolution<a class="headerlink" href="#multiresolution" title="Link to this heading"></a></h1>
+<p>How to manipulate the period of splines.</p>
+<section id="roadmap">
+<h2>Roadmap<a class="headerlink" href="#roadmap" title="Link to this heading"></a></h2>
+<p>We propose the solution to three common tasks.</p>
+<ul class="simple">
+<li><p>The upscaling of a spline by some integer magnification factor</p>
+<ul>
+<li><p>An exact upscaling, seen as a geometric operation</p></li>
+<li><p>A projected upscaling, where a spline of arbitrary degree and delay is produced</p></li>
+</ul>
+</li>
+<li><p>The downscaling of a spline by some integer minification factor, with provisions for the case when the minification factor fails to divide entirely the spline period</p></li>
+<li><p>The rescaling of a spline from a nominal period to an arbitrary period</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="upscaling">
+<h2>Upscaling<a class="headerlink" href="#upscaling" title="Link to this heading"></a></h2>
+<p>We consider two approaches to upscale a spline by an arbitrary positive integer magnification <span class="math notranslate nohighlight">\(M\in{\mathbb{N}}+1.\)</span> The first one builds an upscaled spline that is an exact replica of the spline at the nominal scale, except for being larger. The second one offers freedom in the choice of the degree and delay of the upscaled spline.</p>
+<section id="exact">
+<h3>Exact<a class="headerlink" href="#exact" title="Link to this heading"></a></h3>
+<p>A polynomial B-spline <span class="math notranslate nohighlight">\(\beta^{n_{0}}\)</span> of any nonnegative integer degree <span class="math notranslate nohighlight">\(n_{0}\in{\mathbb{N}}\)</span> satisfies the M-scale equality, according to which its version at nominal scale can be expressed as a finite weighted sum of B-splines that are appropriately shifted and shrunk by the factor <span class="math notranslate nohighlight">\(M.\)</span> (Equivalently, a B-spline enlarged by <span class="math notranslate nohighlight">\(M\)</span> can be expressed through B-splines at their nominal scale.) The collection of weights depend on <span class="math notranslate nohighlight">\(n_{0}\)</span> and <span class="math notranslate nohighlight">\(M\)</span> and is called the M-scale filter <span class="math notranslate nohighlight">\(h_{M}^{n_{0}}.\)</span></p>
+<p>Because a spline is itself a weighted sum of shifted B-splines, it benefits from the M-scale equality. Indeed, let a spline of positive integer period <span class="math notranslate nohighlight">\(K_{0}\in{\mathbb{N}}+1\)</span> and delay <span class="math notranslate nohighlight">\(\delta x_{0}\in{\mathbb{R}}\)</span> be defined at nominal scale as</p>
+<div class="math notranslate nohighlight">
+\[f_{0}:{\mathbb{R}}\rightarrow{\mathbb{R}},x\mapsto f_{0}(x)=\sum_{k\in{\mathbb{Z}}}\,c_{0}[{k\bmod K_{0}}]\,\beta^{n_{0}}(x-\delta x_{0}-k),\]</div>
+<p>where <span class="math notranslate nohighlight">\(\left(c_{0}[k]\right)_{k=0}^{K_{0}-1}\in{\mathbb{R}}^{K_{0}}\)</span> is the vector of its spline coefficients. Then, we set the origin as the center of enlargment and let its <span class="math notranslate nohighlight">\(M\)</span>-enlarged version be</p>
+<div class="math notranslate nohighlight">
+\[f_{{\color{blue}{\uparrow M}}}:{\mathbb{R}}\rightarrow{\mathbb{R}},x\mapsto f_{{\color{blue}{\uparrow M}}}(x)=f_{0}(\frac{x}{{\color{blue}{M}}})=\sum_{k\in{\mathbb{Z}}}\,c_{0}[{k\bmod K_{0}}]\,\beta^{n_{0}}(\frac{x}{{\color{blue}{M}}}-\delta x_{0}-k).\]</div>
+<p>There, the B-splines that take part in the sum are not at their nominal scale. However, for all <span class="math notranslate nohighlight">\(x\in{\mathbb{R}},\)</span> the M-scale equality implies that</p>
+<div class="math notranslate nohighlight">
+\[f_{\uparrow M}(x)=\sum_{k\in{\mathbb{Z}}}\,c_{\uparrow M}[{k\bmod K}]\,\beta^{n_{0}}(x-\delta x_{\uparrow M}-k)\]</div>
+<p>also holds true, where it is more immediately apparent that <span class="math notranslate nohighlight">\(f_{\uparrow M}\)</span> is not only <span class="math notranslate nohighlight">\(K\)</span>-periodic with <span class="math notranslate nohighlight">\(K=M\,K_{0},\)</span> but also a weighted sum of integer-shifted B-splines at nominal scale, with the vector of weights being <span class="math notranslate nohighlight">\({\mathbf{c}}_{\uparrow M}=\left(c_{\uparrow M}[k]\right)_{k=0}^{K-1}\)</span> and the delay being <span class="math notranslate nohighlight">\(\delta x_{\uparrow M}.\)</span> More precisely, the equality between <span class="math notranslate nohighlight">\(f_{\uparrow M}\)</span> and the enlarged <span class="math notranslate nohighlight">\(f_{0}\)</span> is achieved for</p>
+<div class="math notranslate nohighlight">
+\[{\mathbf{c}}_{\uparrow M}=\left(\frac{1}{M^{n_{0}}}\,\sum_{q=\left\lceil\frac{k-\left(M-1\right)\,\left(n+1\right)}{M}\right\rceil}^{\left\lfloor\frac{k}{M}\right\rfloor}\,c_{0}[{q\bmod K_{0}}]\,h_{M}^{n_{0}}[k-M\,q]\right)_{k=0}^{K-1}\]</div>
+<p>and</p>
+<div class="math notranslate nohighlight">
+\[\delta x_{\uparrow M}=M\,\delta x_{0}-\frac{\left(M-1\right)\,\left(n_{0}+1\right)}{2}.\]</div>
+<p>We now propose a few lines of code that first create a random spline of specified period, degree, and delay, and then enlarge it by a factor <span class="math notranslate nohighlight">\(M.\)</span> We display a stack where the top figure contains the spline at its nominal size and the bottom figure contains the enlarged spline. A pair of synchronized sliders allows one to explore the values taken by the two functions and to conclude that, up to change of scale, the two versions are identical.</p>
+<div class="admonition-jupyter-lab-notebook admonition">
+<p class="admonition-title">Jupyter Lab notebook</p>
+<p><a class="reference external" href="https://splinekit.github.io/splinekit-jupyterlite/lab/?path=periodic-spline/multiresolution/spline_up.ipynb&amp;mode=single-document">Upscaling of a spline</a></p>
+</div>
+</section>
+<hr class="docutils" />
+<section id="projected">
+<h3>Projected<a class="headerlink" href="#projected" title="Link to this heading"></a></h3>
+<p>We want now to determine which spline <span class="math notranslate nohighlight">\(\tilde{f}_{\uparrow M}\)</span> of arbitrary degree <span class="math notranslate nohighlight">\(n\in{\mathbb{N}}\)</span> and arbitrary delay <span class="math notranslate nohighlight">\(\delta x\in{\mathbb{R}}\)</span> best approximates the exact magnified spline <span class="math notranslate nohighlight">\(f_{\uparrow M}\)</span> with, as before, a positive integer magnification <span class="math notranslate nohighlight">\(M\in{\mathbb{N}}+1\)</span> and</p>
+<div class="math notranslate nohighlight">
+\[f_{\uparrow M}:{\mathbb{R}}\rightarrow{\mathbb{R}},x\mapsto f_{\uparrow M}(x)=f_{0}(\frac{x}{M})=\sum_{k\in{\mathbb{Z}}}\,c_{0}[{k\bmod K_{0}}]\,\beta^{n_{0}}(\frac{x}{M}-\delta x_{0}-k),\]</div>
+<p>where the spline of positive integer period <span class="math notranslate nohighlight">\(K_{0}\in{\mathbb{N}}+1\)</span> at nominal scale is</p>
+<div class="math notranslate nohighlight">
+\[f_{0}:{\mathbb{R}}\rightarrow{\mathbb{R}},x\mapsto f_{0}(x)=\sum_{k\in{\mathbb{Z}}}\,c_{0}[{k\bmod K_{0}}]\,\beta^{n_{0}}(x-\delta x_{0}-k).\]</div>
+<p>More precisely, for <span class="math notranslate nohighlight">\(K=M\,K_{0},\)</span> we want to establish the value of the spline coefficients <span class="math notranslate nohighlight">\(\tilde{c}_{\uparrow M}\)</span> that parameterize the <span class="math notranslate nohighlight">\(K\)</span>-periodic spline</p>
+<div class="math notranslate nohighlight">
+\[\tilde{f}_{\uparrow M}:{\mathbb{R}}\rightarrow{\mathbb{R}},x\mapsto \tilde{f}_{\uparrow M}(x)=\sum_{k\in{\mathbb{Z}}}\,\tilde{c}_{\uparrow M}[{k\bmod K}]\,\beta^{n}(x-\delta x-k)\]</div>
+<p>and are such that the least-squares criterion</p>
+<div class="math notranslate nohighlight">
+\[J=\frac{1}{2}\,\int_{0}^{K}\,\left(\tilde{f}_{\uparrow M}(x)-f_{\uparrow M}(x)\right)^{2}\,{\mathrm{d}}x\]</div>
+<p>is minimized. While the desired spline <span class="math notranslate nohighlight">\(\tilde{f}_{\uparrow M}\)</span> could be directly obtained as <code class="docutils literal notranslate"><span class="pre">f0.upscaled(m).projected(degree</span> <span class="pre">=</span> <span class="pre">n,</span> <span class="pre">delay</span> <span class="pre">=</span> <span class="pre">dx)</span></code>, we propose here a combined approach. Letting <span class="math notranslate nohighlight">\({\mathbf{[\![}}\cdot\,{\mathbf{]\!]}}\)</span> be the notation for the Iverson bracket, we observe that, <span class="math notranslate nohighlight">\(\forall q\in[0\ldots K],\)</span></p>
+<div class="math notranslate nohighlight">
+\[\frac{\partial J}{\partial \tilde{c}_{\uparrow M}[q]}=\int_{0}^{K}\,\sum_{k\in{\mathbb{Z}}}\,{\mathbf{[\![}}q={k\bmod K}\,{\mathbf{]\!]}}\,\beta^{n}(x-\delta x-k)\,\left(\tilde{f}_{\uparrow M}(x)-f_{\uparrow M}(x)\right)\,{\mathrm{d}}x.\]</div>
+<p>When the coefficients are optimal, <span class="math notranslate nohighlight">\(\frac{\partial J}{\partial \tilde{c}_{\uparrow M}[q]}\)</span> vanishes. Now, the multiplication of this zero value by the quantity <span class="math notranslate nohighlight">\(\tilde{c}_{\uparrow M}[q]\)</span> is still zero, and so is the sum over all indices <span class="math notranslate nohighlight">\(q.\)</span> This leads to</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{array}{rcl}
+0&amp;=&amp;\sum_{q=0}^{K-1}\,\tilde{c}_{\uparrow M}[q]\,\frac{\partial J}{\partial \tilde{c}_{\uparrow M}[q]}\\
+&amp;=&amp;\int_{0}^{K}\,\tilde{f}_{\uparrow M}(x)\,\left(\tilde{f}_{\uparrow M}(x)-f_{\uparrow M}(x)\right)\,{\mathrm{d}}x\\
+&amp;=&amp;\left(\tilde{f}_{\uparrow M}^{\vee}*\tilde{f}_{\uparrow M}\right)(0)-\left(\tilde{f}_{\uparrow M}^{\vee}*f_{\uparrow M}\right)(0),
+\end{array}\end{split}\]</div>
+<p>where the last equality involves periodic convolutions and mirrored versions <span class="math notranslate nohighlight">\(\tilde{f}_{\uparrow M}^{\vee}\)</span> of <span class="math notranslate nohighlight">\(\tilde{f}_{\uparrow M}.\)</span> The solution of this equation in terms of the vector <span class="math notranslate nohighlight">\(\tilde{{\mathbf{c}}}_{\uparrow M}=\left(\tilde{c}_{\uparrow M}[q]\right)_{q=0}^{K-1}\)</span> is obtained in the three successive steps</p>
+<div class="math notranslate nohighlight">
+\[\left(\tilde{{\mathbf{c}}}_{\uparrow M}\right)'=\left(\frac{1}{M^{n}}\,\sum_{q=\left\lceil\frac{k-\left(M-1\right)\,\left(n+1\right)}{M}\right\rceil}^{\left\lfloor\frac{k}{M}\right\rfloor}\,c_{0}[{q\bmod K_{0}}]\,h_{M}^{n}[k-M\,q]\right)_{k=0}^{K-1}\]</div>
+<div class="math notranslate nohighlight">
+\[\left(\tilde{{\mathbf{c}}}_{\uparrow M}\right)''=\left(\left(\left(b^{2\,n+1}\right)^{-1}*\left(\tilde{c}_{\uparrow M}\right)'\right)[k]\right)_{k=0}^{K-1}\]</div>
+<div class="math notranslate nohighlight">
+\[\tilde{{\mathbf{c}}}_{\uparrow M}=\left(\sum_{q=\left\lceil-\tilde{x}_{0}-\frac{n_{0}+n+2}{2}\right\rceil}^{\left\lfloor-\tilde{x}_{0}+\frac{n_{0}+n+2}{2}\right\rfloor}\,\beta^{n_{0}+n+1}(q+\tilde{x}_{0})\,\left(\tilde{c}_{\uparrow M}\right)''[{\left(k-q\right)\bmod K}]\right)_{k=0}^{K-1},\]</div>
+<p>where <span class="math notranslate nohighlight">\(\tilde{x}_{0}=\left(\delta x-M\,\delta x_{0}+\frac{\left(M-1\right)\,\left(n_{0}+1\right)}{2}\right)\)</span> and where <span class="math notranslate nohighlight">\(\left(b^{2n+1}\right)^{-1}\)</span> represents a B-spline inverse sequence.</p>
+<p>We now propose a few lines of code that first create a random spline <span class="math notranslate nohighlight">\(f_{0}\)</span> of specified period <span class="math notranslate nohighlight">\(K_{0},\)</span> degree <span class="math notranslate nohighlight">\(n_{0},\)</span> and delay <span class="math notranslate nohighlight">\(\delta x_{0},\)</span> and then display its <span class="math notranslate nohighlight">\(M\)</span>-magnified version <span class="math notranslate nohighlight">\(f_{\uparrow M}.\)</span> The spline <span class="math notranslate nohighlight">\(\tilde{f}_{\uparrow M}\)</span> of arbitrary degree <span class="math notranslate nohighlight">\(n\)</span> and arbitrary delay <span class="math notranslate nohighlight">\(\delta x\)</span> that best represents <span class="math notranslate nohighlight">\(f_{\uparrow M}\)</span> is then determined and displayed. We validate optimality by verifying that a quantity that vanishes in theory does so numerically, too, first through the explicit numerical estimate of an integral, then with the help of convolutions.</p>
+<div class="admonition-jupyter-lab-notebook admonition">
+<p class="admonition-title">Jupyter Lab notebook</p>
+<p><a class="reference external" href="https://splinekit.github.io/splinekit-jupyterlite/lab/?path=periodic-spline/multiresolution/spline_up_proj.ipynb&amp;mode=single-document">Upscaling and projection of a spline</a></p>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="downscaling">
+<h2>Downscaling<a class="headerlink" href="#downscaling" title="Link to this heading"></a></h2>
+<p>Let <span class="math notranslate nohighlight">\(m\in{\mathbb{N}}+1\)</span> be a positive integer minification factor. The goal now is to create an <span class="math notranslate nohighlight">\(m\)</span>-coarser version <span class="math notranslate nohighlight">\(f_{K_{0}\downarrow m}\)</span> of the <span class="math notranslate nohighlight">\(K_{0}\)</span>-periodic spline <span class="math notranslate nohighlight">\(f_{0}\)</span> at nominal scale defined, as before, as</p>
+<div class="math notranslate nohighlight">
+\[f_{0}:{\mathbb{R}}\rightarrow{\mathbb{R}},x\mapsto f_{0}(x)=\sum_{k\in{\mathbb{Z}}}\,c_{0}[{k\bmod K_{0}}]\,\beta^{n_{0}}(x-\delta x_{0}-k).\]</div>
+<p>The coarser version <span class="math notranslate nohighlight">\(f_{K_{0}\downarrow m}\)</span> is assumed to be a periodic spline of arbitrary nonnegative integer degree <span class="math notranslate nohighlight">\(n\in{\mathbb{N}},\)</span> arbitrary delay <span class="math notranslate nohighlight">\(\delta x\in{\mathbb{R}},\)</span> and positive integer period <span class="math notranslate nohighlight">\(K=\frac{K_{0}}{\gcd(K_{0},m)}\in{\mathbb{N}}+1.\)</span> This period is shorter than that of <span class="math notranslate nohighlight">\(f_{0}\)</span> when <span class="math notranslate nohighlight">\(m\)</span> and <span class="math notranslate nohighlight">\(K_{0}\)</span> have multiplicative factors in common; otherwise, when <span class="math notranslate nohighlight">\(K_{0}\)</span> and <span class="math notranslate nohighlight">\(M\)</span> are co-primes, <span class="math notranslate nohighlight">\(f_{K_{0}\downarrow m}\)</span> is still coarser than the spline <span class="math notranslate nohighlight">\(f_{0}\)</span> in terms of data details but nevertheless retains its periodicity.</p>
+<p>Here is a table that gives <span class="math notranslate nohighlight">\(K\)</span> in terms of <span class="math notranslate nohighlight">\(K_{0}\)</span> and <span class="math notranslate nohighlight">\(m\)</span> for a few examples. The blue entries highlight those cases where the period at nominal scale can be entirely divided by the minification factor. In all other cases, just sufficiently many periods of the <span class="math notranslate nohighlight">\(K_{0}\)</span>-periodic <span class="math notranslate nohighlight">\(f_{0}\)</span> are concatenated to make an extended spline whose overall period is entirely divisible both by <span class="math notranslate nohighlight">\(K_{0}\)</span> and by <span class="math notranslate nohighlight">\(m.\)</span></p>
+<blockquote>
+<div><p><span class="raw-html"><TABLE border="1" frame="hsides" rules="groups" align="center">
+<CAPTION><i>K</i></CAPTION>
+<COLGROUP span="2">
+<TR align="right"><TH><TH><i>m</i>&#160;<TH>&#160;1<TH>&#160;2<TH>&#160;3<TH>&#160;4<TH>&#160;5<TH>&#160;6
+<TBODY>
+<TR align="right"><TD><i>K</i><sub>0</sub><TD>1&#160;<TD>&#160;<FONT color="#0343df"><B>1</B><TD>&#160;1<TD>&#160;1<TD>&#160;1<TD>&#160;1<TD>&#160;1
+<TR align="right"><TD><TD>2&#160;<TD>&#160;<FONT color="#0343df"><B>2</B><TD>&#160;<FONT color="#0343df"><B>1</B><TD>&#160;2<TD>&#160;1<TD>&#160;2<TD>&#160;1
+<TR align="right"><TD><TD>3&#160;<TD>&#160;<FONT color="#0343df"><B>3</B><TD>&#160;3<TD>&#160;<FONT color="#0343df"><B>1</B><TD>&#160;3<TD>&#160;3<TD>&#160;1
+<TR align="right"><TD><TD>4&#160;<TD>&#160;<FONT color="#0343df"><B>4</B><TD>&#160;<FONT color="#0343df"><B>2</B><TD>&#160;4<TD>&#160;<FONT color="#0343df"><B>1</B><TD>&#160;4<TD>&#160;2
+<TR align="right"><TD><TD>5&#160;<TD>&#160;<FONT color="#0343df"><B>5</B><TD>&#160;5<TD>&#160;5<TD>&#160;5<TD>&#160;<FONT color="#0343df"><B>1</B><TD>&#160;5
+<TR align="right"><TD><TD>6&#160;<TD>&#160;<FONT color="#0343df"><B>6</B><TD>&#160;<FONT color="#0343df"><B>3</B><TD>&#160;<FONT color="#0343df"><B>2</B><TD>&#160;3<TD>&#160;6<TD>&#160;<FONT color="#0343df"><B>1</B>
+<TR align="right"><TD><TD>7&#160;<TD>&#160;<FONT color="#0343df"><B>7</B><TD>&#160;7<TD>&#160;7<TD>&#160;7<TD>&#160;7<TD>&#160;7
+<TR align="right"><TD><TD>8&#160;<TD>&#160;<FONT color="#0343df"><B>8</B><TD>&#160;<FONT color="#0343df"><B>4</B><TD>&#160;8<TD>&#160;<FONT color="#0343df"><B>2</B><TD>&#160;8<TD>&#160;4
+<TR align="right"><TD><TD>9&#160;<TD>&#160;<FONT color="#0343df"><B>9</B><TD>&#160;9<TD>&#160;<FONT color="#0343df"><B>3</B><TD>&#160;9<TD>&#160;9<TD>&#160;3
+<TR align="right"><TD><TD>10&#160;<TD>&#160;<FONT color="#0343df"><B>10</B><TD>&#160;<FONT color="#0343df"><B>5</B><TD>&#160;10<TD>&#160;5<TD>&#160;<FONT color="#0343df"><B>2</B><TD>&#160;5
+<TR align="right"><TD><TD>11&#160;<TD>&#160;<FONT color="#0343df"><B>11</B><TD>&#160;11<TD>&#160;11<TD>&#160;11<TD>&#160;11<TD>&#160;11
+<TR align="right"><TD><TD>12&#160;<TD>&#160;<FONT color="#0343df"><B>12</B><TD>&#160;<FONT color="#0343df"><B>6</B><TD>&#160;<FONT color="#0343df"><B>4</B><TD>&#160;<FONT color="#0343df"><B>3</B><TD>&#160;12<TD>&#160;<FONT color="#0343df"><B>2</B>
+<TR align="right"><TD><TD>13&#160;<TD>&#160;<FONT color="#0343df"><B>13</B><TD>&#160;13<TD>&#160;13<TD>&#160;13<TD>&#160;13<TD>&#160;13
+<TR align="right"><TD><TD>14&#160;<TD>&#160;<FONT color="#0343df"><B>14</B><TD>&#160;<FONT color="#0343df"><B>7</B><TD>&#160;14<TD>&#160;7<TD>&#160;14<TD>&#160;7
+<TR align="right"><TD><TD>15&#160;<TD>&#160;<FONT color="#0343df"><B>15</B><TD>&#160;15<TD>&#160;<FONT color="#0343df"><B>5</B><TD>&#160;15<TD>&#160;<FONT color="#0343df"><B>3</B><TD>&#160;5
+</TABLE></span></p>
+</div></blockquote>
+<p>From now on, we assume for simplicity the generic case where <span class="math notranslate nohighlight">\(K_{0}=m\,K\)</span> and let the desired minified spline be</p>
+<div class="math notranslate nohighlight">
+\[f_{K_{0}\downarrow m}:{\mathbb{R}}\rightarrow{\mathbb{R}},x\mapsto f_{K_{0}\downarrow m}(x)=\sum_{k\in{\mathbb{Z}}}\,c_{K_{0}\downarrow m}[{k\bmod K}]\,\beta^{n}(x-\delta x-k).\]</div>
+<p>Our goal is to determine the spline coefficients <span class="math notranslate nohighlight">\(c_{K_{0}\downarrow m}\)</span> such that the least-squares criterion</p>
+<div class="math notranslate nohighlight">
+\[J=\frac{1}{2}\,\int_{0}^{K_{0}}\,\left(f_{K_{0}\downarrow m}(\frac{x}{m})-f_{0}(x)\right)^{2}\,{\mathrm{d}}x\]</div>
+<p>is minimized. For reasons that are similar to those developed in the projected-upscaling case, it turns out that</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{array}{rcl}
+0&amp;=&amp;\sum_{q=0}^{K-1}\,c_{K_{0}\downarrow m}[q]\,\frac{\partial J}{\partial c_{K_{0}\downarrow m}[q]}\\
+&amp;=&amp;\int_{0}^{K_{0}}\,f_{\left(K_{0}\downarrow m\right)\uparrow m}(x)\,\left(f_{\left(K_{0}\downarrow m\right)\uparrow m}(x)-f_{0}(x)\right)\,{\mathrm{d}}x\\
+&amp;=&amp;\left(f_{\left(K_{0}\downarrow m\right)\uparrow m}^{\vee}*f_{\left(K_{0}\downarrow m\right)\uparrow m}\right)(0)-\left(f_{\left(K_{0}\downarrow m\right)\uparrow m}^{\vee}*f_{0}\right)(0),
+\end{array}\end{split}\]</div>
+<p>where <span class="math notranslate nohighlight">\(f_{\left(K_{0}\downarrow m\right)\uparrow m}\)</span> is the exact <span class="math notranslate nohighlight">\(m\)</span>-upscaled version of <span class="math notranslate nohighlight">\(f_{K_{0}\downarrow m},\)</span> with <span class="math notranslate nohighlight">\(f_{\left(K_{0}\downarrow m\right)\uparrow m}(x)=f_{K_{0}\downarrow m}(\frac{x}{m})\)</span> for all <span class="math notranslate nohighlight">\(x\in{\mathbb{R}}.\)</span> The vector <span class="math notranslate nohighlight">\({\mathbf{c}}_{K_{0}\downarrow m}=\left(c_{K_{0}\downarrow m}[q]\right)_{q=0}^{K-1}\)</span> is obtained in the three successive steps</p>
+<div class="math notranslate nohighlight">
+\[\left({\mathbf{c}}_{0}\right)'=\left(\frac{1}{m^{n+1}}\,\sum_{q=0}^{\left(m-1\right)\,\left(n+1\right)}\,h_{m}^{n}[q]\,c_{0}[{\left(k-q\right)\bmod K_{0}}]\right)_{k=0}^{K_{0}-1}\]</div>
+<div class="math notranslate nohighlight">
+\[\left({\mathbf{c}}_{K_{0}\downarrow m}\right)'=\left(\sum_{q=0}^{n_{0}+n+1}\,\beta^{n_{0}+n+1}(q+k_{0}-x_{0})\,\left(c_{0}\right)'[{\left(m\,k-k_{0}-q\right)\bmod K_{0}}]\right)_{k=0}^{K-1}\]</div>
+<div class="math notranslate nohighlight">
+\[{\mathbf{c}}_{K_{0}\downarrow m}=\left(\left(\left(b^{2\,n+1}\right)^{-1}*\left({\mathbf{c}}_{K_{0}\downarrow m}\right)'\right)[k]\right)_{k=0}^{K-1},\]</div>
+<p>where <span class="math notranslate nohighlight">\(x_{0}=\left(\delta x_{0}-m\,\delta x-\frac{\left(m-1\right)\,\left(n+1\right)}{2}\right)\)</span> and <span class="math notranslate nohighlight">\(k_{0}=\left\lfloor x_{0}-\frac{n_{0}+n}{2}\right\rfloor.\)</span></p>
+<p>We now propose a few lines of code that first create a random spline <span class="math notranslate nohighlight">\(f_{0}\)</span> that has a highly composite period <span class="math notranslate nohighlight">\(K_{0}\)</span> that is fixed, but whose degree <span class="math notranslate nohighlight">\(n_{0}\)</span> and delay <span class="math notranslate nohighlight">\(\delta x_{0}\)</span> can be specified. We then determine and display the <span class="math notranslate nohighlight">\(m\)</span>-minified version <span class="math notranslate nohighlight">\(f_{K_{0}\downarrow m}\)</span> of arbitrary degree <span class="math notranslate nohighlight">\(n\)</span> and arbitrary delay <span class="math notranslate nohighlight">\(\delta x.\)</span> We validate optimality by verifying that a quantity that vanishes in theory does so numerically, too, first through the explicit numerical estimate of an integral, then with the help of convolutions.</p>
+<div class="admonition-jupyter-lab-notebook admonition">
+<p class="admonition-title">Jupyter Lab notebook</p>
+<p><a class="reference external" href="https://splinekit.github.io/splinekit-jupyterlite/lab/?path=periodic-spline/multiresolution/spline_down_divisible.ipynb&amp;mode=single-document">Downscaling of a composite-period spline</a></p>
+</div>
+<p>Next, we propose a notebook where the period of the spline at nominal scale can also be chosen freely. In this case, we display separately <span class="math notranslate nohighlight">\(f_{0}\)</span> and <span class="math notranslate nohighlight">\(f_{K_{0}\downarrow m}.\)</span></p>
+<div class="admonition-jupyter-lab-notebook admonition">
+<p class="admonition-title">Jupyter Lab notebook</p>
+<p><a class="reference external" href="https://splinekit.github.io/splinekit-jupyterlite/lab/?path=periodic-spline/multiresolution/spline_down.ipynb&amp;mode=single-document">Downscaling of an arbitrary-period spline</a></p>
+</div>
+</section>
+<hr class="docutils" />
+<section id="rescaling">
+<h2>Rescaling<a class="headerlink" href="#rescaling" title="Link to this heading"></a></h2>
+<p>Consider again a periodic spline <span class="math notranslate nohighlight">\(f_{0}\)</span> of nominal period <span class="math notranslate nohighlight">\(K_{0},\)</span> degree <span class="math notranslate nohighlight">\(n_{0},\)</span> and delay <span class="math notranslate nohighlight">\(\delta x_{0},\)</span> characterized by the vector <span class="math notranslate nohighlight">\(\left(c_{0}[k]\right)_{k=0}^{K_{0}-1}\)</span> of spline coefficients. We want now to establish a new periodic spline <span class="math notranslate nohighlight">\(f_{K_{0}\rightarrow K}\)</span> of arbitrary period <span class="math notranslate nohighlight">\(K\in{\mathbb{N}}+1,\)</span> arbitrary degree <span class="math notranslate nohighlight">\(n\in{\mathbb{N}},\)</span> and arbitrary delay <span class="math notranslate nohighlight">\(\delta x\in{\mathbb{R}}\)</span> such that the least-squares criterion</p>
+<div class="math notranslate nohighlight">
+\[J=\frac{1}{2}\,\int_{0}^{K_{0}}\,\left(f_{K_{0}\rightarrow K}(\frac{K}{K_{0}}\,x)-f_{0}(x)\right)^{2}\,{\mathrm{d}}x\]</div>
+<p>is minimized, with</p>
+<div class="math notranslate nohighlight">
+\[f_{K_{0}\rightarrow K}:{\mathbb{R}}\rightarrow{\mathbb{R}},x\mapsto f_{K_{0}\rightarrow K}(x)=\sum_{k\in{\mathbb{Z}}}\,c_{K_{0}\rightarrow K}[{k\bmod K}]\,\beta^{n}(x-\delta x-k).\]</div>
+<p>To do so, we first perform an exact upscaling of <span class="math notranslate nohighlight">\(f_{0}\)</span> by the integer magnification factor <span class="math notranslate nohighlight">\(\frac{K}{G},\)</span> with <span class="math notranslate nohighlight">\(G=\gcd(K_{0},K).\)</span> This yields the intermediate spline <span class="math notranslate nohighlight">\(f_{K_{0}\uparrow\frac{K}{G}},\)</span> which is <span class="math notranslate nohighlight">\(\left(\frac{K_{0}\,K}{G}\right)\)</span>-periodic, has the same degree as <span class="math notranslate nohighlight">\(f_{0},\)</span> and has the non-arbitrary delay <span class="math notranslate nohighlight">\(\delta x_{\uparrow\frac{K}{G}}.\)</span> Then, we perform a downscaling of <span class="math notranslate nohighlight">\(f_{K_{0}\uparrow\frac{K}{G}}\)</span> by the integer minification factor <span class="math notranslate nohighlight">\(\frac{K_{0}}{G},\)</span> with arbitrary degree <span class="math notranslate nohighlight">\(n\)</span> and arbitrary delay <span class="math notranslate nohighlight">\(\delta x.\)</span> This yields the final spline <span class="math notranslate nohighlight">\(f_{K_{0}\rightarrow K}=f_{\left(K_{0}\uparrow\frac{K}{G}\right)\downarrow\frac{K_{0}}{G}},\)</span> which is <span class="math notranslate nohighlight">\(K\)</span>-periodic.</p>
+<p>Our proposed approach has the desirable property that it results in the exact minimization of the least-squares criterion. However, it relies on the explicit computation and storage of an intermediate spline whose period can be as large as the product <span class="math notranslate nohighlight">\(K_{0}\,K\)</span> whenever the nominal period <span class="math notranslate nohighlight">\(K_{0}\)</span> and the final period <span class="math notranslate nohighlight">\(K\)</span> are co-prime.</p>
+<p>Here is a table that gives <span class="math notranslate nohighlight">\(\frac{K_{0}\,K}{\gcd(K_{0},K)}\)</span> in terms of <span class="math notranslate nohighlight">\(K_{0}\)</span> and <span class="math notranslate nohighlight">\(K\)</span> for a few examples. The blue entries highlight those cases where the intermediate period exceeds neither the nominal nor the rescaled period.</p>
+<blockquote>
+<div><p><span class="raw-html"><TABLE border="1" frame="hsides" rules="groups" align="center">
+<CAPTION><i>K</i><sub>0</sub> <i>K</i> &#x2215; gcd(<i>K</i><sub>0</sub>, <i>K<i>)</CAPTION>
+<COLGROUP span="2">
+<TR align="right"><TH><TH><i>K</i>&#160;<TH>&#160;1<TH>&#160;2<TH>&#160;3<TH>&#160;4<TH>&#160;5<TH>&#160;6<TH>&#160;7<TH>&#160;8<TH>&#160;9<TH>&#160;10
+<TBODY>
+<TR align="right"><TD><i>K</i><sub>0</sub><TD>1&#160;<TD>&#160;<FONT color="#0343df"><B>1</B><TD>&#160;<FONT color="#0343df"><B>2</B><TD>&#160;<FONT color="#0343df"><B>3</B><TD>&#160;<FONT color="#0343df"><B>4</B><TD>&#160;<FONT color="#0343df"><B>5</B><TD>&#160;<FONT color="#0343df"><B>6</B><TD>&#160;<FONT color="#0343df"><B>7</B><TD>&#160;<FONT color="#0343df"><B>8</B><TD>&#160;<FONT color="#0343df"><B>9</B><TD>&#160;<FONT color="#0343df"><B>10</B>
+<TR align="right"><TD><TD>2&#160;<TD>&#160;<FONT color="#0343df"><B>2</B><TD>&#160;<FONT color="#0343df"><B>2</B><TD>&#160;6<TD>&#160;<FONT color="#0343df"><B>4</B><TD>&#160;10<TD>&#160;<FONT color="#0343df"><B>6</B><TD>&#160;14<TD>&#160;<FONT color="#0343df"><B>8</B><TD>&#160;18<TD>&#160;<FONT color="#0343df"><B>10</B>
+<TR align="right"><TD><TD>3&#160;<TD>&#160;<FONT color="#0343df"><B>3</B><TD>&#160;6<TD>&#160;<FONT color="#0343df"><B>3</B><TD>&#160;12<TD>&#160;15<TD>&#160;<FONT color="#0343df"><B>6</B><TD>&#160;21<TD>&#160;24<TD>&#160;<FONT color="#0343df"><B>9</B><TD>&#160;30
+<TR align="right"><TD><TD>4&#160;<TD>&#160;<FONT color="#0343df"><B>4</B><TD>&#160;<FONT color="#0343df"><B>4</B><TD>&#160;12<TD>&#160;<FONT color="#0343df"><B>4</B><TD>&#160;20<TD>&#160;12<TD>&#160;28<TD>&#160;<FONT color="#0343df"><B>8</B><TD>&#160;36<TD>&#160;20
+<TR align="right"><TD><TD>5&#160;<TD>&#160;<FONT color="#0343df"><B>5</B><TD>&#160;10<TD>&#160;15<TD>&#160;20<TD>&#160;<FONT color="#0343df"><B>5</B><TD>&#160;30<TD>&#160;35<TD>&#160;40<TD>&#160;45<TD>&#160;<FONT color="#0343df"><B>10</B>
+<TR align="right"><TD><TD>6&#160;<TD>&#160;<FONT color="#0343df"><B>6</B><TD>&#160;<FONT color="#0343df"><B>6</B><TD>&#160;<FONT color="#0343df"><B>6</B><TD>&#160;12<TD>&#160;30<TD>&#160;<FONT color="#0343df"><B>6</B><TD>&#160;42<TD>&#160;24<TD>&#160;18<TD>&#160;30
+<TR align="right"><TD><TD>7&#160;<TD>&#160;<FONT color="#0343df"><B>7</B><TD>&#160;14<TD>&#160;21<TD>&#160;28<TD>&#160;35<TD>&#160;42<TD>&#160;<FONT color="#0343df"><B>7</B><TD>&#160;56<TD>&#160;63<TD>&#160;70
+<TR align="right"><TD><TD>8&#160;<TD>&#160;<FONT color="#0343df"><B>8</B><TD>&#160;<FONT color="#0343df"><B>8</B><TD>&#160;24<TD>&#160;<FONT color="#0343df"><B>8</B><TD>&#160;40<TD>&#160;24<TD>&#160;56<TD>&#160;<FONT color="#0343df"><B>8</B><TD>&#160;72<TD>&#160;40
+<TR align="right"><TD><TD>9&#160;<TD>&#160;<FONT color="#0343df"><B>9</B><TD>&#160;18<TD>&#160;<FONT color="#0343df"><B>9</B><TD>&#160;36<TD>&#160;45<TD>&#160;18<TD>&#160;63<TD>&#160;72<TD>&#160;<FONT color="#0343df"><B>9</B><TD>&#160;90
+<TR align="right"><TD><TD>10&#160;<TD>&#160;<FONT color="#0343df"><B>10</B><TD>&#160;<FONT color="#0343df"><B>10</B><TD>&#160;30<TD>&#160;20<TD>&#160;<FONT color="#0343df"><B>10</B><TD>&#160;30<TD>&#160;70<TD>&#160;40<TD>&#160;90<TD>&#160;<FONT color="#0343df"><B>10</B>
+</TABLE></span></p>
+</div></blockquote>
+<p>Here are a few lines of code that first create a random spline <span class="math notranslate nohighlight">\(f_{0}\)</span> whose period <span class="math notranslate nohighlight">\(K_{0},\)</span> degree <span class="math notranslate nohighlight">\(n_{0},\)</span> and delay <span class="math notranslate nohighlight">\(\delta x_{0}\)</span> can be specified. We then determine and display its optimal version <span class="math notranslate nohighlight">\(f_{K_{0}\rightarrow K}\)</span> of arbitrary period <span class="math notranslate nohighlight">\(K,\)</span> degree <span class="math notranslate nohighlight">\(n,\)</span> and delay <span class="math notranslate nohighlight">\(\delta x.\)</span> We validate optimality by verifying that a quantity that vanishes in theory does so numerically.</p>
+<div class="admonition-jupyter-lab-notebook admonition">
+<p class="admonition-title">Jupyter Lab notebook</p>
+<p><a class="reference external" href="https://splinekit.github.io/splinekit-jupyterlite/lab/?path=periodic-spline/multiresolution/spline_rescale.ipynb&amp;mode=single-document">Rescaling of a spline to an arbitrary period</a></p>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="addition.html" class="btn btn-neutral float-left" title="Addition" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../../installation/index.html" class="btn btn-neutral float-right" title="Installation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright .</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,218 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Addition &mdash; splinekit  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../../_static/plot_directive.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+      <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=2f8eb179" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+      <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Multiresolution" href="multires.html" />
+    <link rel="prev" title="Projection" href="projection.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            splinekit
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Demos [toc]</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../bspline/index.html">B-Splines [toc]</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../padding/index.html">Padding [toc]</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Periodic Splines [toc]</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="plot.html">Plots of Periodic One-Dimensional Splines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="random1d.html">Random One-Dimensional Splines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="random2d.html">Random Two-Dimensional Spline Curves</a></li>
+<li class="toctree-l3"><a class="reference internal" href="constructors.html">Constructors of Periodic One-Dimensional Splines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="simple_ops.html">Simple Operations on Periodic Splines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="stats.html">Spline Statistics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="polynomials.html">Polynomial Pieces of Splines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="evaluation.html">Evaluation of Splines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bounds.html">Upper and Lower Bounds of Splines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="fourier.html">Fourier Transform of Periodic Splines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conv_corr.html">Convolutions and Correlations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="calculus.html">Spline Calculus</a></li>
+<li class="toctree-l3"><a class="reference internal" href="signum.html">Signs, Zeros, and Zero-Crossings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="extrema.html">Extrema</a></li>
+<li class="toctree-l3"><a class="reference internal" href="projection.html">Projection</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Addition</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#brands-of-splines">Brands of Splines</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#addition-of-compatible-splines">Addition of Compatible Splines</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#addition-of-splines-of-identical-period">Addition of Splines of Identical Period</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="multires.html">Multiresolution</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../installation/index.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../glossary/index.html">Glossary [toc]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../periodic_spline_1d/index.html">Periodic Spline 1D [toc]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../bsplines/index.html">B-Splines [toc]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../spline_padding/index.html">Spline Padding [toc]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../bases/index.html">Bases [toc]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../periodic_nonuniform_piecewise/index.html">Periodic Nonuniform Piecewise [toc]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../interval/index.html">Interval [package]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../spline_utilities/index.html">Spline Utilities [toc]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../bibliography.html">Bibliography</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">splinekit</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Demos [toc]</a></li>
+          <li class="breadcrumb-item"><a href="index.html">Periodic Splines [toc]</a></li>
+      <li class="breadcrumb-item active">Addition</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/Philippe-Thevenaz/splinekit/blob/main/docs/demos/spline1d/addition.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="addition">
+<h1>Addition<a class="headerlink" href="#addition" title="Link to this heading"></a></h1>
+<p>How to add two splines.</p>
+<hr class="docutils" />
+<section id="brands-of-splines">
+<h2>Brands of Splines<a class="headerlink" href="#brands-of-splines" title="Link to this heading"></a></h2>
+<p>This library handles splines that are at the same time specialized, and versatile. They are specialized for several reasons.</p>
+<ul class="simple">
+<li><p>The splines of this library are one-dimensional functions that map a real number to another real number. There are other brands of splines that map a real number to a complex number. Yet other brands of splines map a multidimensional coordinate to a real number.</p></li>
+<li><p>The splines of this library are piecewise polynomials. There are other brands of splines that are made of, for instance, ratios of polynomials, or exponential functions.</p></li>
+<li><p>The splines of this library are made of polynomials of a nonnegative integer degree. There are other brands of splines where the degree is allowed to stray away from the integers. Yet other brands of splines allow degrees that are complex numbers.</p></li>
+<li><p>The splines of this library are uniform, which means that the diameter of their pieces takes a constant value. Moreover, this diameter takes precisely a unit value. There are other brands of splines where each piece is allowed to have a different diameter.</p></li>
+<li><p>The splines of this library are periodic. Moreover, their period is a positive integer number. There are other brands of splines that are unstructured, a category that encompasses quasi-periodic functions with irrational periods.</p></li>
+</ul>
+<p>Despite being limited to one-dimensional integer-periodic uniform piecewise polynomials of nonnegative integer degree, the splines of this library have a lot of versatility.</p>
+<ul class="simple">
+<li><p>Tensor products provide a convenient mechanism to handle multidimensional data. In particular, tensor-product splines are well-suited to the processing of images or volumetric Cartesian data.</p></li>
+<li><p>The splines of this library are endowed with a mathematical property called the <em>order of approximation</em>. It guarantees that some objective measure of quality is met by the continuously defined function (the spline) that fills the gaps between discrete data (the finite number of bits used to specify the spline).</p></li>
+<li><p>Beside the period, the degree, and the delay associated to the splines of this library, the spline coefficients make for a great many degrees of freedom in the specification of a spline. All these parameters can be chosen independently.</p></li>
+</ul>
+<section id="unicity-of-the-representations">
+<h3>Unicity of the Representations<a class="headerlink" href="#unicity-of-the-representations" title="Link to this heading"></a></h3>
+<p>Let a first spline <span class="math notranslate nohighlight">\(f_{1}\)</span> be specified by its period <span class="math notranslate nohighlight">\(K\in{\mathbb{N}}+1,\)</span> its degree <span class="math notranslate nohighlight">\(n\in{\mathbb{N}},\)</span> its delay <span class="math notranslate nohighlight">\(\delta x_{1}\in{\mathbb{R}},\)</span> and its spline coefficients <span class="math notranslate nohighlight">\(\left(c_{1}[k]\right)_{k=0}^{K-1}.\)</span> It is the function</p>
+<div class="math notranslate nohighlight">
+\[f_{1}:{\mathbb{R}}\rightarrow{\mathbb{R}},x\mapsto f_{1}(x)=\sum_{k\in{\mathbb{Z}}}\,c_{1}[{k\bmod K}]\,\beta^{n}(x-\delta x_{1}-k).\]</div>
+<p>Let a second spline <span class="math notranslate nohighlight">\(f_{2}\)</span> be</p>
+<div class="math notranslate nohighlight">
+\[f_{2}:{\mathbb{R}}\rightarrow{\mathbb{R}},x\mapsto f_{2}(x)=\sum_{k\in{\mathbb{Z}}}\,c_{2}[{k\bmod K}]\,\beta^{n}(x-\delta x_{2}-k).\]</div>
+<p>In general, it holds that <span class="math notranslate nohighlight">\(\forall x\in{\mathbb{R}}:f_{1}(x)\neq f_{2}(x)\)</span> for vectors of coefficients that are not identical, or for delays that differ.</p>
+<ul class="simple">
+<li><p>However, consider the situation when it jointly happens that <span class="math notranslate nohighlight">\(\delta x_{2}=\delta x_{1}+k_{0}\)</span> and <span class="math notranslate nohighlight">\(c_{2}[{\left(k-k_{0}\right)\bmod K}]=c_{1}[{k\bmod K}],\)</span> at indices <span class="math notranslate nohighlight">\(k\in[0\ldots K-1]\)</span> and for any constant integer offset <span class="math notranslate nohighlight">\(k_{0}\in{\mathbb{Z}}.\)</span> In this situation, <span class="math notranslate nohighlight">\(f_{1}\)</span> is indistinguishable from  <span class="math notranslate nohighlight">\(f_{2}.\)</span></p></li>
+<li><p>Likewise, <span class="math notranslate nohighlight">\(f_{1}=f_{2}\)</span> for constant-valued coefficients <span class="math notranslate nohighlight">\(c_{1}[k]=c_{0}=c_{2}[k]\)</span> for all <span class="math notranslate nohighlight">\(k\in[0\ldots K-1],\)</span> irrespectively of any value that each of the delays <span class="math notranslate nohighlight">\(\delta x_{1}\)</span> and <span class="math notranslate nohighlight">\(\delta x_{2}\)</span> may take.</p></li>
+</ul>
+</section>
+</section>
+<section id="addition-of-compatible-splines">
+<h2>Addition of Compatible Splines<a class="headerlink" href="#addition-of-compatible-splines" title="Link to this heading"></a></h2>
+<p>We want now to consider the function</p>
+<div class="math notranslate nohighlight">
+\[f:{\mathbb{R}}\rightarrow{\mathbb{R}},x\mapsto f(x)=f_{1}(x)+f_{2}(x)\]</div>
+<p>where, as above, the splines <span class="math notranslate nohighlight">\(f_{1}\)</span> and <span class="math notranslate nohighlight">\(f_{2}\)</span> have the same period and the same degree. Now, the spline <span class="math notranslate nohighlight">\(f\)</span> can be handled by this library only if the support of the polynomial pieces of <span class="math notranslate nohighlight">\(f_{1}\)</span> and <span class="math notranslate nohighlight">\(f_{2}\)</span> do coincide, lest the property of the uniformity of <span class="math notranslate nohighlight">\(f\)</span> be lost. To that effect, we ask that the condition <span class="math notranslate nohighlight">\(\delta x_{1}=\delta x_{2}\)</span> be satisfied exactly. (As implied above by the investigation of the unicity of the representations, this condition is too strict; however, we retain it for simplicity.)</p>
+<p>We propose here a few lines of code that create two random splines of specified identical period, degree, and delay, and then compute their sum.</p>
+<div class="admonition-jupyter-lab-notebook admonition">
+<p class="admonition-title">Jupyter Lab notebook</p>
+<p><a class="reference external" href="https://splinekit.github.io/splinekit-jupyterlite/lab/?path=periodic-spline/addition/spline_add.ipynb&amp;mode=single-document">Addition of two compatible splines</a></p>
+</div>
+</section>
+<hr class="docutils" />
+<section id="addition-of-splines-of-identical-period">
+<h2>Addition of Splines of Identical Period<a class="headerlink" href="#addition-of-splines-of-identical-period" title="Link to this heading"></a></h2>
+<p>Let us relax some constraints and allow <span class="math notranslate nohighlight">\(f_{1}\)</span> to be characterized by an independent degree <span class="math notranslate nohighlight">\(n_{1},\)</span> an independent delay <span class="math notranslate nohighlight">\(\delta x_{1},\)</span> and independent spline coefficients <span class="math notranslate nohighlight">\(c_{1}.\)</span> Likewise, <span class="math notranslate nohighlight">\(f_{2}\)</span> is characterized by an independent degree <span class="math notranslate nohighlight">\(n_{2},\)</span> an independent delay <span class="math notranslate nohighlight">\(\delta x_{2},\)</span> and independent spline coefficients <span class="math notranslate nohighlight">\(c_{2}.\)</span> In the current context, the only property shared by <span class="math notranslate nohighlight">\(f_{1}\)</span> and <span class="math notranslate nohighlight">\(f_{2}\)</span> is their period <span class="math notranslate nohighlight">\(K.\)</span></p>
+<p>The sum <span class="math notranslate nohighlight">\(f_{1}+f_{2}\)</span> is a piecewise-polynomial spline of degree <span class="math notranslate nohighlight">\(\min(n_{1},n_{2}),\)</span> albeit a nonuniform one. It therefore falls outside of the scope of this library. Nevertheless, we propose to determine the spline of arbitrary degree <span class="math notranslate nohighlight">\(n\)</span> and arbitrary delay <span class="math notranslate nohighlight">\(\delta x\)</span> that best represents <span class="math notranslate nohighlight">\(f_{1}+f_{2}\)</span> in an integral least-squares sense, so that</p>
+<div class="math notranslate nohighlight">
+\[f:{\mathbb{R}}\rightarrow{\mathbb{R}},x\mapsto f(x)=\sum_{k\in{\mathbb{Z}}}\,c[{k\bmod K}]\,\beta^{n}(x-\delta x-k)\]</div>
+<p>has coefficients <span class="math notranslate nohighlight">\(c\)</span> that minimize the criterion</p>
+<div class="math notranslate nohighlight">
+\[J=\int_{0}^{K}\,\left(f(x)-\left(f_{1}(x)+f_{2}(x)\right)\right)^{2}\,{\mathrm{d}}x.\]</div>
+<p>We propose now a few lines of code that create two random splines of specified independent degree and delay, and then compute the spline of arbitrary degree and delay that best represents their sum. All three splines have the same period.</p>
+<div class="admonition-jupyter-lab-notebook admonition">
+<p class="admonition-title">Jupyter Lab notebook</p>
+<p><a class="reference external" href="https://splinekit.github.io/splinekit-jupyterlite/lab/?path=periodic-spline/addition/spline_add_prjct.ipynb&amp;mode=single-document">Addition of splines of identical period</a></p>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="projection.html" class="btn btn-neutral float-left" title="Projection" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="multires.html" class="btn btn-neutral float-right" title="Multiresolution" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright .</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
