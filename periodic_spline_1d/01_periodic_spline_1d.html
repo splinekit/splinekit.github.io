@@ -81,6 +81,7 @@
 <li class="toctree-l4"><a class="reference internal" href="#splinekit.periodic_spline_1d.PeriodicSpline1D.__sub__"><code class="docutils literal notranslate"><span class="pre">PeriodicSpline1D.__sub__()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#splinekit.periodic_spline_1d.PeriodicSpline1D.convolve"><code class="docutils literal notranslate"><span class="pre">PeriodicSpline1D.convolve()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#splinekit.periodic_spline_1d.PeriodicSpline1D.__mul__"><code class="docutils literal notranslate"><span class="pre">PeriodicSpline1D.__mul__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#splinekit.periodic_spline_1d.PeriodicSpline1D.__truediv__"><code class="docutils literal notranslate"><span class="pre">PeriodicSpline1D.__truediv__()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#splinekit.periodic_spline_1d.PeriodicSpline1D.normed_cross_correlate"><code class="docutils literal notranslate"><span class="pre">PeriodicSpline1D.normed_cross_correlate()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#splinekit.periodic_spline_1d.PeriodicSpline1D.eval_piecewise_polynomials_at"><code class="docutils literal notranslate"><span class="pre">PeriodicSpline1D.eval_piecewise_polynomials_at()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#splinekit.periodic_spline_1d.PeriodicSpline1D.eval_piecewise_sgn_at"><code class="docutils literal notranslate"><span class="pre">PeriodicSpline1D.eval_piecewise_sgn_at()</span></code></a></li>
@@ -311,6 +312,14 @@
 <ul>
 <li><p><a class="reference internal" href="#periodic-spline-1d-op-lshift"><span class="std std-ref">__lshift__</span></a> <code class="docutils literal notranslate"><span class="pre">&lt;&lt;</span></code> Advance: <span class="math notranslate nohighlight">\(\fbox{$f(\cdot+\delta x)$}\)</span></p></li>
 <li><p><a class="reference internal" href="#periodic-spline-1d-op-rshift"><span class="std std-ref">__rshift__</span></a> <code class="docutils literal notranslate"><span class="pre">&gt;&gt;</span></code> Delay: <span class="math notranslate nohighlight">\(\fbox{$f(\cdot-\delta x)$}\)</span></p></li>
+</ul>
+</li>
+<li><p>Dyadic Operators Applied to <span class="math notranslate nohighlight">\((f,\lambda)\)</span></p>
+<ul>
+<li><p><a class="reference internal" href="#periodic-spline-1d-op-add"><span class="std std-ref">__add__</span></a> <code class="docutils literal notranslate"><span class="pre">+</span></code> Sum: <span class="math notranslate nohighlight">\(\fbox{$f+\lambda$}\)</span></p></li>
+<li><p><a class="reference internal" href="#periodic-spline-1d-op-sub"><span class="std std-ref">__sub__</span></a> <code class="docutils literal notranslate"><span class="pre">-</span></code> Difference: <span class="math notranslate nohighlight">\(\fbox{$f-\lambda$}\)</span></p></li>
+<li><p><a class="reference internal" href="#periodic-spline-1d-op-mul"><span class="std std-ref">__mul__</span></a> <code class="docutils literal notranslate"><span class="pre">*</span></code> Product: <span class="math notranslate nohighlight">\(\fbox{$f\,\lambda$}\)</span></p></li>
+<li><p><a class="reference internal" href="#periodic-spline-1d-op-truediv"><span class="std std-ref">__truediv__</span></a> <code class="docutils literal notranslate"><span class="pre">/</span></code> Ratio: <span class="math notranslate nohighlight">\(\fbox{$\frac{f}{\lambda}$}\)</span></p></li>
 </ul>
 </li>
 </ul>
@@ -968,8 +977,9 @@ The created object has period <span class="math notranslate nohighlight">\(K,\)<
 
 <dl class="py method">
 <dt class="sig sig-object py" id="splinekit.periodic_spline_1d.PeriodicSpline1D.__add__">
-<span class="sig-name descname"><span class="pre">__add__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Self</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#splinekit.periodic_spline_1d.PeriodicSpline1D" title="splinekit.periodic_spline_1d.PeriodicSpline1D"><span class="pre">PeriodicSpline1D</span></a></span></span><a class="headerlink" href="#splinekit.periodic_spline_1d.PeriodicSpline1D.__add__" title="Link to this definition"></a></dt>
-<dd><p id="periodic-spline-1d-op-add">Operator version of the <code class="docutils literal notranslate"><span class="pre">add</span></code> function.</p>
+<span class="sig-name descname"><span class="pre">__add__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#splinekit.periodic_spline_1d.PeriodicSpline1D" title="splinekit.periodic_spline_1d.PeriodicSpline1D"><span class="pre">PeriodicSpline1D</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Fraction</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">number</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#splinekit.periodic_spline_1d.PeriodicSpline1D" title="splinekit.periodic_spline_1d.PeriodicSpline1D"><span class="pre">PeriodicSpline1D</span></a></span></span><a class="headerlink" href="#splinekit.periodic_spline_1d.PeriodicSpline1D.__add__" title="Link to this definition"></a></dt>
+<dd><p id="periodic-spline-1d-op-add">Operator version of the <code class="docutils literal notranslate"><span class="pre">add</span></code> function between splines; sum of a
+spline (the augend) and a numeric quantity (the addend).</p>
 <p class="rubric">Examples</p>
 <dl>
 <dt>Load the libraries.</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
@@ -981,8 +991,9 @@ The created object has period <span class="math notranslate nohighlight">\(K,\)<
 <span class="gp">&gt;&gt;&gt; </span><span class="n">s1</span> <span class="o">=</span> <span class="n">sk</span><span class="o">.</span><span class="n">PeriodicSpline1D</span><span class="o">.</span><span class="n">from_spline_coeff</span><span class="p">(</span><span class="n">c1</span><span class="p">,</span> <span class="n">degree</span> <span class="o">=</span> <span class="mi">3</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">c2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">6</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">],</span> <span class="n">dtype</span> <span class="o">=</span> <span class="nb">float</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">s2</span> <span class="o">=</span> <span class="n">sk</span><span class="o">.</span><span class="n">PeriodicSpline1D</span><span class="o">.</span><span class="n">from_spline_coeff</span><span class="p">(</span><span class="n">c2</span><span class="p">,</span> <span class="n">degree</span> <span class="o">=</span> <span class="mi">3</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">s1</span> <span class="o">+</span> <span class="n">s2</span>
-<span class="go">PeriodicSpline1D([ 7.  6. -9.], degree = 3, delay = 0.0)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="p">(</span><span class="n">s1</span> <span class="o">+</span> <span class="n">s2</span><span class="p">,</span> <span class="n">s1</span> <span class="o">+</span> <span class="mi">1000</span><span class="p">)</span>
+<span class="go">(PeriodicSpline1D([ 7.  6. -9.], degree = 3, delay = 0.0),</span>
+<span class="go"> PeriodicSpline1D([1001. 1009.  993.], degree = 3, delay = 0.0))</span>
 </pre></div>
 </div>
 </dd>
@@ -1125,8 +1136,10 @@ and delay <span class="math notranslate nohighlight">\(\delta x,\)</span> too.</
 
 <dl class="py method">
 <dt class="sig sig-object py" id="splinekit.periodic_spline_1d.PeriodicSpline1D.__sub__">
-<span class="sig-name descname"><span class="pre">__sub__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Self</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#splinekit.periodic_spline_1d.PeriodicSpline1D" title="splinekit.periodic_spline_1d.PeriodicSpline1D"><span class="pre">PeriodicSpline1D</span></a></span></span><a class="headerlink" href="#splinekit.periodic_spline_1d.PeriodicSpline1D.__sub__" title="Link to this definition"></a></dt>
-<dd><p id="periodic-spline-1d-op-sub">Operator version of the <code class="docutils literal notranslate"><span class="pre">subtract</span></code> function.</p>
+<span class="sig-name descname"><span class="pre">__sub__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#splinekit.periodic_spline_1d.PeriodicSpline1D" title="splinekit.periodic_spline_1d.PeriodicSpline1D"><span class="pre">PeriodicSpline1D</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Fraction</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">number</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#splinekit.periodic_spline_1d.PeriodicSpline1D" title="splinekit.periodic_spline_1d.PeriodicSpline1D"><span class="pre">PeriodicSpline1D</span></a></span></span><a class="headerlink" href="#splinekit.periodic_spline_1d.PeriodicSpline1D.__sub__" title="Link to this definition"></a></dt>
+<dd><p id="periodic-spline-1d-op-sub">Operator version of the <code class="docutils literal notranslate"><span class="pre">subtract</span></code> function between splines;
+difference between a spline (the minuend) and a numeric quantity (the
+subtrahend).</p>
 <p class="rubric">Examples</p>
 <dl>
 <dt>Load the libraries.</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
@@ -1138,8 +1151,9 @@ and delay <span class="math notranslate nohighlight">\(\delta x,\)</span> too.</
 <span class="gp">&gt;&gt;&gt; </span><span class="n">s1</span> <span class="o">=</span> <span class="n">sk</span><span class="o">.</span><span class="n">PeriodicSpline1D</span><span class="o">.</span><span class="n">from_spline_coeff</span><span class="p">(</span><span class="n">c1</span><span class="p">,</span> <span class="n">degree</span> <span class="o">=</span> <span class="mi">3</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">c2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">6</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">],</span> <span class="n">dtype</span> <span class="o">=</span> <span class="nb">float</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">s2</span> <span class="o">=</span> <span class="n">sk</span><span class="o">.</span><span class="n">PeriodicSpline1D</span><span class="o">.</span><span class="n">from_spline_coeff</span><span class="p">(</span><span class="n">c2</span><span class="p">,</span> <span class="n">degree</span> <span class="o">=</span> <span class="mi">3</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">s1</span> <span class="o">-</span> <span class="n">s2</span>
-<span class="go">PeriodicSpline1D([ -5. 12. -5.], degree = 3, delay = 0.0)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="p">(</span><span class="n">s1</span> <span class="o">-</span> <span class="n">s2</span><span class="p">,</span> <span class="n">s1</span> <span class="o">-</span> <span class="mi">1000</span><span class="p">)</span>
+<span class="go">(PeriodicSpline1D([-5. 12. -5.], degree = 3, delay = 0.0),</span>
+<span class="go"> PeriodicSpline1D([ -999.  -991. -1007.], degree = 3, delay = 0.0))</span>
 </pre></div>
 </div>
 </dd>
@@ -1215,8 +1229,10 @@ s_{2}(x)&amp;=&amp;\sum_{k\in{\mathbb{Z}}}\,c_{2}[{k\bmod K}]\,
 
 <dl class="py method">
 <dt class="sig sig-object py" id="splinekit.periodic_spline_1d.PeriodicSpline1D.__mul__">
-<span class="sig-name descname"><span class="pre">__mul__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Self</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#splinekit.periodic_spline_1d.PeriodicSpline1D" title="splinekit.periodic_spline_1d.PeriodicSpline1D"><span class="pre">PeriodicSpline1D</span></a></span></span><a class="headerlink" href="#splinekit.periodic_spline_1d.PeriodicSpline1D.__mul__" title="Link to this definition"></a></dt>
-<dd><p id="periodic-spline-1d-op-mul">Operator version of the <code class="docutils literal notranslate"><span class="pre">convolve</span></code> function.</p>
+<span class="sig-name descname"><span class="pre">__mul__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#splinekit.periodic_spline_1d.PeriodicSpline1D" title="splinekit.periodic_spline_1d.PeriodicSpline1D"><span class="pre">PeriodicSpline1D</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Fraction</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">number</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#splinekit.periodic_spline_1d.PeriodicSpline1D" title="splinekit.periodic_spline_1d.PeriodicSpline1D"><span class="pre">PeriodicSpline1D</span></a></span></span><a class="headerlink" href="#splinekit.periodic_spline_1d.PeriodicSpline1D.__mul__" title="Link to this definition"></a></dt>
+<dd><p id="periodic-spline-1d-op-mul">Operator version of the <code class="docutils literal notranslate"><span class="pre">convolve</span></code> function between splines;
+product between a spline (the multiplicand) and a numeric quantity
+(the multiplier).</p>
 <p class="rubric">Examples</p>
 <dl>
 <dt>Load the libraries.</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
@@ -1228,8 +1244,9 @@ s_{2}(x)&amp;=&amp;\sum_{k\in{\mathbb{Z}}}\,c_{2}[{k\bmod K}]\,
 <span class="gp">&gt;&gt;&gt; </span><span class="n">s1</span> <span class="o">=</span> <span class="n">sk</span><span class="o">.</span><span class="n">PeriodicSpline1D</span><span class="o">.</span><span class="n">from_spline_coeff</span><span class="p">(</span><span class="n">c1</span><span class="p">,</span> <span class="n">degree</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span> <span class="n">delay</span> <span class="o">=</span> <span class="mf">8.4</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">c2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">6</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">],</span> <span class="n">dtype</span> <span class="o">=</span> <span class="nb">float</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">s2</span> <span class="o">=</span> <span class="n">sk</span><span class="o">.</span><span class="n">PeriodicSpline1D</span><span class="o">.</span><span class="n">from_spline_coeff</span><span class="p">(</span><span class="n">c2</span><span class="p">,</span> <span class="n">degree</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">delay</span> <span class="o">=</span> <span class="mf">0.1</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">s1</span> <span class="o">*</span> <span class="n">s2</span>
-<span class="go">PeriodicSpline1D([  9.  65. -71.], degree = 5, delay = 8.5)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="p">(</span><span class="n">s1</span> <span class="o">*</span> <span class="n">s2</span><span class="p">,</span> <span class="n">s1</span> <span class="o">*</span> <span class="mi">1000</span><span class="p">)</span>
+<span class="go">(PeriodicSpline1D([  9.  65. -71.], degree = 5, delay = 8.5),</span>
+<span class="go"> PeriodicSpline1D([ 1000.  9000. -7000.], degree = 3, delay = 8.4))</span>
 </pre></div>
 </div>
 </dd>
@@ -1238,6 +1255,38 @@ s_{2}(x)&amp;=&amp;\sum_{k\in{\mathbb{Z}}}\,c_{2}[{k\bmod K}]\,
 <p class="admonition-title">See also</p>
 <dl class="simple">
 <dt><a class="reference internal" href="#splinekit.periodic_spline_1d.PeriodicSpline1D.convolve" title="splinekit.periodic_spline_1d.PeriodicSpline1D.convolve"><code class="xref py py-obj docutils literal notranslate"><span class="pre">convolve</span></code></a></dt><dd><p>Convolution of two splines.</p>
+</dd>
+<dt><a class="reference internal" href="#splinekit.periodic_spline_1d.PeriodicSpline1D.times" title="splinekit.periodic_spline_1d.PeriodicSpline1D.times"><code class="xref py py-obj docutils literal notranslate"><span class="pre">times</span></code></a></dt><dd><p>Multiply a spline by a constant.</p>
+</dd>
+</dl>
+</div>
+<hr class="docutils" />
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="splinekit.periodic_spline_1d.PeriodicSpline1D.__truediv__">
+<span class="sig-name descname"><span class="pre">__truediv__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Fraction</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">number</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#splinekit.periodic_spline_1d.PeriodicSpline1D" title="splinekit.periodic_spline_1d.PeriodicSpline1D"><span class="pre">PeriodicSpline1D</span></a></span></span><a class="headerlink" href="#splinekit.periodic_spline_1d.PeriodicSpline1D.__truediv__" title="Link to this definition"></a></dt>
+<dd><p id="periodic-spline-1d-op-truediv">Ratio between a spline (the dividend) and a numeric quantity (the
+divisor).</p>
+<p class="rubric">Examples</p>
+<dl>
+<dt>Load the libraries.</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">splinekit</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sk</span>
+</pre></div>
+</div>
+</dd>
+<dt>Create two splines and convolve them.</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">c1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="o">-</span><span class="mi">7</span><span class="p">],</span> <span class="n">dtype</span> <span class="o">=</span> <span class="nb">float</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">s1</span> <span class="o">=</span> <span class="n">sk</span><span class="o">.</span><span class="n">PeriodicSpline1D</span><span class="o">.</span><span class="n">from_spline_coeff</span><span class="p">(</span><span class="n">c1</span><span class="p">,</span> <span class="n">degree</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span> <span class="n">delay</span> <span class="o">=</span> <span class="mf">8.4</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">s1</span> <span class="o">/</span> <span class="mi">1000</span>
+<span class="go">PeriodicSpline1D([ 0.001  0.009 -0.007], degree = 3, delay = 8.4)</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<dl class="simple">
+<dt><a class="reference internal" href="#splinekit.periodic_spline_1d.PeriodicSpline1D.times" title="splinekit.periodic_spline_1d.PeriodicSpline1D.times"><code class="xref py py-obj docutils literal notranslate"><span class="pre">times</span></code></a></dt><dd><p>Multiply a spline by a constant.</p>
 </dd>
 </dl>
 </div>
@@ -1743,7 +1792,7 @@ each of its components is <span class="math notranslate nohighlight">\([0,1].\)<
 
 <dl class="py method">
 <dt class="sig sig-object py" id="splinekit.periodic_spline_1d.PeriodicSpline1D.__call__">
-<span class="sig-name descname"><span class="pre">__call__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#splinekit.periodic_spline_1d.PeriodicSpline1D.__call__" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">__call__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Fraction</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">number</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#splinekit.periodic_spline_1d.PeriodicSpline1D.__call__" title="Link to this definition"></a></dt>
 <dd><p id="periodic-spline-1d-op-call">Operator version of the <code class="docutils literal notranslate"><span class="pre">at</span></code> function.</p>
 <p class="rubric">Examples</p>
 <dl>
@@ -2606,7 +2655,7 @@ where the delay <span class="math notranslate nohighlight">\(\Delta x\)</span> i
 
 <dl class="py method">
 <dt class="sig sig-object py" id="splinekit.periodic_spline_1d.PeriodicSpline1D.__lshift__">
-<span class="sig-name descname"><span class="pre">__lshift__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#splinekit.periodic_spline_1d.PeriodicSpline1D" title="splinekit.periodic_spline_1d.PeriodicSpline1D"><span class="pre">PeriodicSpline1D</span></a></span></span><a class="headerlink" href="#splinekit.periodic_spline_1d.PeriodicSpline1D.__lshift__" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">__lshift__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Fraction</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">number</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#splinekit.periodic_spline_1d.PeriodicSpline1D" title="splinekit.periodic_spline_1d.PeriodicSpline1D"><span class="pre">PeriodicSpline1D</span></a></span></span><a class="headerlink" href="#splinekit.periodic_spline_1d.PeriodicSpline1D.__lshift__" title="Link to this definition"></a></dt>
 <dd><p id="periodic-spline-1d-op-lshift">Operator version of the <code class="docutils literal notranslate"><span class="pre">delayed_by</span></code> function.</p>
 <p class="rubric">Examples</p>
 <dl>
@@ -2635,7 +2684,7 @@ where the delay <span class="math notranslate nohighlight">\(\Delta x\)</span> i
 
 <dl class="py method">
 <dt class="sig sig-object py" id="splinekit.periodic_spline_1d.PeriodicSpline1D.__rshift__">
-<span class="sig-name descname"><span class="pre">__rshift__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#splinekit.periodic_spline_1d.PeriodicSpline1D" title="splinekit.periodic_spline_1d.PeriodicSpline1D"><span class="pre">PeriodicSpline1D</span></a></span></span><a class="headerlink" href="#splinekit.periodic_spline_1d.PeriodicSpline1D.__rshift__" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">__rshift__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Fraction</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">number</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#splinekit.periodic_spline_1d.PeriodicSpline1D" title="splinekit.periodic_spline_1d.PeriodicSpline1D"><span class="pre">PeriodicSpline1D</span></a></span></span><a class="headerlink" href="#splinekit.periodic_spline_1d.PeriodicSpline1D.__rshift__" title="Link to this definition"></a></dt>
 <dd><p id="periodic-spline-1d-op-rshift">Operator version of the <code class="docutils literal notranslate"><span class="pre">delayed_by</span></code> function.</p>
 <p class="rubric">Examples</p>
 <dl>
